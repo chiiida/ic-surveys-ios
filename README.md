@@ -1,12 +1,19 @@
-# Git Repository Template
+# Survey iOS IC
 
-Project repository template to set up all public projects at [Nimble](https://nimblehq.co/)
+A survey conducting application build with Swift
 
-## Usage
+## Project Setup
 
-Clone the repository
+### Prerequisites
+- Xcode
+- CocoaPods
+- Xcode Command Line Tools
 
-`git clone git@github.com:nimblehq/git-template.git`
+### Install Pods
+Install the latest pods:
+```
+$ pod install
+```
 
 ## License
 
