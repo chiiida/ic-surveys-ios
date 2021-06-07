@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+    types: [ opened, synchronize, edited, reopened ]
+
+jobs:
+  test:
+    name: Unit test
+    runs-on: macos-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Install Bundle
+        run: bundle install
+
+      - name: Install Cocoapods
+        run: bundle exec pod install
+
+      - name: Run unit tests
+        run: bundle exec fastlane unit_test
+        working-directory: ./SurveyApp
