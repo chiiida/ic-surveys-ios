@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: Unit test
+    name: Linter and Unit test
     runs-on: macos-latest
     steps:
       - name: Git Checkout
@@ -22,8 +22,10 @@ jobs:
         run: bundle install
 
       - name: Install Cocoapods
-        run: bundle exec pod install
+        run: pod install
+
+      - name: Linting
+        run: bundle exec fastlane linter
 
       - name: Run unit tests
         run: bundle exec fastlane unit_test
-        working-directory: ./SurveyApp
