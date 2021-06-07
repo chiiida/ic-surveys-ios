@@ -32,7 +32,7 @@ platform :ios do
       workspace: "SurveyApp.xcworkspace",
       scheme: "SurveyApp",
       only_testing: ["SurveyAppTests"],
-      device: "iPhone 11"
+      device: "iPhone 12"
     )
   end
 end
