@@ -20,8 +20,8 @@
 		843AB4DA266DCB5E00EC3F28 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D5266DCB5E00EC3F28 /* LoginInteractor.swift */; };
 		843AB4DB266DCB5E00EC3F28 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */; };
 		843AB5FB266E2AAE00EC3F28 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 843AB5FA266E2AAE00EC3F28 /* .swiftlint.yml */; };
+		84A0AB5F26706AC4005EBF9A /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB5E26706AC4005EBF9A /* TextFieldWithPadding.swift */; };
 		84BE695C266F441C001DE0C3 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE695B266F441C001DE0C3 /* UITextField+Placeholder.swift */; };
-		84BE695E266F4432001DE0C3 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE695D266F4432001DE0C3 /* UITextField+Padding.swift */; };
 		84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE695F266F4446001DE0C3 /* UIFont+Size.swift */; };
 		84E50EC4266F4B460007EA7A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E50EC3266F4B460007EA7A /* R.generated.swift */; };
 		9B7F955DE913A978712DD0C5 /* Pods_SurveyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1886C8937DC934AF7DF3703 /* Pods_SurveyApp.framework */; };
@@ -70,8 +70,8 @@
 		843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		843AB56B266DD34300EC3F28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843AB5FA266E2AAE00EC3F28 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		84A0AB5E26706AC4005EBF9A /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		84BE695B266F441C001DE0C3 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
-		84BE695D266F4432001DE0C3 /* UITextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
 		84BE695F266F4446001DE0C3 /* UIFont+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Size.swift"; sourceTree = "<group>"; };
 		84E50EC3266F4B460007EA7A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		88D92D34CAFA1D129AE0F111 /* Pods-SurveyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurveyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SurveyAppTests/Pods-SurveyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +255,7 @@
 		843AB4CF266DC9FD00EC3F28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84A0AB5E26706AC4005EBF9A /* TextFieldWithPadding.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,7 +292,6 @@
 			isa = PBXGroup;
 			children = (
 				84BE695B266F441C001DE0C3 /* UITextField+Placeholder.swift */,
-				84BE695D266F4432001DE0C3 /* UITextField+Padding.swift */,
 			);
 			path = UITextField;
 			sourceTree = "<group>";
@@ -599,10 +599,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				842C6F80266DC5AA0017E1CD /* AppDelegate.swift in Sources */,
+				84A0AB5F26706AC4005EBF9A /* TextFieldWithPadding.swift in Sources */,
 				842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */,
 				843AB4DB266DCB5E00EC3F28 /* LoginPresenter.swift in Sources */,
 				843AB4DA266DCB5E00EC3F28 /* LoginInteractor.swift in Sources */,
-				84BE695E266F4432001DE0C3 /* UITextField+Padding.swift in Sources */,
 				84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */,
 				843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */,
 				84BE695C266F441C001DE0C3 /* UITextField+Placeholder.swift in Sources */,

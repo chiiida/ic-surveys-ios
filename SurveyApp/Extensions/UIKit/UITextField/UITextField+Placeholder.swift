@@ -6,11 +6,20 @@
 //
 
 import UIKit
+import Foundation
 
 extension UITextField {
     
-    func setPlaceholderColor(color: UIColor) {
-        attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
-                                                   attributes: [NSAttributedString.Key.foregroundColor: color])
+    var placeholderColor: UIColor {
+        get {
+            let attributes = attributedPlaceholder?.attributes(at: 0, effectiveRange: nil)
+            return attributes?[NSAttributedString.Key.foregroundColor] as? UIColor ?? UIColor.lightGray
+        }
+        set(newColor) {
+            attributedPlaceholder = NSAttributedString(
+                string: placeholder ?? "",
+                attributes: [NSAttributedString.Key.foregroundColor: newColor]
+            )
+        }
     }
 }
