@@ -1,0 +1,38 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Run SwiftLint"
+  lane :linter do
+    swiftlint(
+      config_file: ".swiftlint.yml",
+      ignore_exit_status: true,
+      raise_if_swiftlint_error: true,
+      executable: "Pods/SwiftLint/swiftlint"
+    )
+  end
+
+  desc "Test project"
+  lane :unit_test do
+    scan(
+      workspace: "SurveyApp.xcworkspace",
+      scheme: "SurveyApp",
+      only_testing: ["SurveyAppTests"],
+      device: "iPhone 12"
+    )
+  end
+end

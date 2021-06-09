@@ -1,0 +1,36 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+    types: [ opened, synchronize, edited, reopened ]
+
+jobs:
+  test:
+    name: Linter and Unit test
+    runs-on: macos-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.5.0
+        with:
+          access_token: ${{ github.token }}
+          
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Install Bundle
+        run: bundle install
+
+      - name: Install Cocoapods
+        run: pod install
+
+      - name: Linting
+        run: bundle exec fastlane linter
+
+      - name: Run unit tests
+        run: bundle exec fastlane unit_test
