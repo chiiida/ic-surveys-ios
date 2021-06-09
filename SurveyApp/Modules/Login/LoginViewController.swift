@@ -29,8 +29,8 @@ final class LoginViewController: UIViewController {
     private let gradientLayer = CAGradientLayer()
     private let backgroundImageView = UIImageView()
     private let logoImageView = UIImageView()
-    private let emailField = TextFieldWithPadding()
-    private let passwordField = TextFieldWithPadding()
+    private let emailField = CredentialTextField()
+    private let passwordField = CredentialTextField()
     private let loginButton = UIButton(type: .system)
     private let forgotButton = UIButton(type: .system)
     
@@ -132,23 +132,13 @@ extension LoginViewController {
     
     private func setUpTextField() {
         emailField.placeholder = Localize.loginEnterEmailPlaceholder()
-        emailField.placeholderColor = UIColor.white.withAlphaComponent(0.3)
-        emailField.layer.cornerRadius = 12.0
-        emailField.textColor = .white
-        emailField.backgroundColor = UIColor.white.withAlphaComponent(0.18)
         emailField.keyboardType = .emailAddress
         emailField.autocorrectionType = .no
         emailField.autocapitalizationType = .none
-        emailField.font = .regular(ofSize: .body)
 
         passwordField.placeholder = Localize.loginEnterPasswordPlaceholder()
-        passwordField.placeholderColor = UIColor.white.withAlphaComponent(0.3)
         passwordField.textPadding.right = 80.0
-        passwordField.layer.cornerRadius = 12.0
-        passwordField.textColor = .white
-        passwordField.backgroundColor = UIColor.white.withAlphaComponent(0.18)
         passwordField.isSecureTextEntry = true
-        passwordField.font = .regular(ofSize: .body)
     }
     
     private func setUpBlurOverlayView() {
