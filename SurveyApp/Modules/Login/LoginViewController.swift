@@ -10,18 +10,18 @@ import SnapKit
 
 // sourcery: AutoMockable
 protocol LoginViewInput: AnyObject {
-    
+
     func configure()
 }
 
 // sourcery: AutoMockable
 protocol LoginViewOutput: AnyObject {
-    
+
     func viewDidLoad()
 }
 
 final class LoginViewController: UIViewController {
-    
+
     var output: LoginViewOutput?
     
     private let overlayView = UIView()
@@ -43,7 +43,7 @@ final class LoginViewController: UIViewController {
 // MARK: - LoginViewInput
 
 extension LoginViewController: LoginViewInput {
-    
+
     func configure() {
         setUpLayout()
         setUpViews()
@@ -53,7 +53,7 @@ extension LoginViewController: LoginViewInput {
 // MARK: - Private functions
 
 extension LoginViewController {
-    
+
     private func setUpLayout() {
         overlayView.layer.insertSublayer(gradientLayer, at: 0)
 
@@ -105,8 +105,8 @@ extension LoginViewController {
     }
     
     private func setUpViews() {
-        let backgroundImage = R.image.loginBackground()
-        let logoImage = R.image.logo()
+        let backgroundImage = Asset.loginBackground()
+        let logoImage = Asset.logo()
 
         navigationController?.isNavigationBarHidden = true
 
@@ -116,12 +116,12 @@ extension LoginViewController {
         logoImageView.contentMode = .scaleAspectFit
 
         forgotButton.backgroundColor = .clear
-        forgotButton.setTitle("Forgot?", for: .normal)
+        forgotButton.setTitle(Localize.loginForgetButtonTitle(), for: .normal)
         forgotButton.titleLabel?.font = .regular(ofSize: .body)
         forgotButton.tintColor = UIColor.white.withAlphaComponent(0.3)
 
         loginButton.backgroundColor = .white
-        loginButton.setTitle("Log in", for: .normal)
+        loginButton.setTitle(Localize.loginButtonTitle(), for: .normal)
         loginButton.titleLabel?.font = .bold(ofSize: .body)
         loginButton.tintColor = .black
         loginButton.layer.cornerRadius = 10.0
@@ -131,7 +131,7 @@ extension LoginViewController {
     }
     
     private func setUpTextField() {
-        emailField.placeholder = "Email"
+        emailField.placeholder = Localize.loginEnterEmailPlaceholder()
         emailField.placeholderColor = UIColor.white.withAlphaComponent(0.3)
         emailField.layer.cornerRadius = 12.0
         emailField.textColor = .white
@@ -141,7 +141,7 @@ extension LoginViewController {
         emailField.autocapitalizationType = .none
         emailField.font = .regular(ofSize: .body)
 
-        passwordField.placeholder = "Password"
+        passwordField.placeholder = Localize.loginEnterPasswordPlaceholder()
         passwordField.placeholderColor = UIColor.white.withAlphaComponent(0.3)
         passwordField.textPadding.right = 80.0
         passwordField.layer.cornerRadius = 12.0
