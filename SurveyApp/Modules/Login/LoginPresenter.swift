@@ -31,12 +31,25 @@ extension LoginPresenter: LoginViewOutput {
     
     func viewDidLoad() {
         view?.configure()
+        
+        // TODO: remove mock login use case
+        interactor.authenticateEmail(email: "dev@nimblehq.co", password: "12345678")
     }
 }
 
 // MARK: - LoginInteractorOutput
 
 extension LoginPresenter: LoginInteractorOutput {
+
+    func didAuthenticateEmail(authToken: AuthToken) {
+        // TODO: Intergrate with ViewController
+        dump(authToken)
+    }
+    
+    func didFailToAuthenticateEmail(withError error: APIError) {
+        // TODO: Intergrate with ViewController
+        dump(error)
+    }
 }
 
 // MARK: - LoginInput

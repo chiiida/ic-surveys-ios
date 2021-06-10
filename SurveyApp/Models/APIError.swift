@@ -25,4 +25,9 @@ struct APIError: Decodable, Error {
     }
     
     let errors: [ErrorDetail]?
+    
+    init(detail: String = "") {
+        let errorDetail = ErrorDetail(source: nil, detail: detail, code: nil)
+        self.errors = [errorDetail]
+    }
 }

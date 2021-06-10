@@ -31,9 +31,15 @@ final class BaseAPI: API {
             switch response.result {
             case .success(let decoded):
                 completion(.success(decoded))
-            case .failure(let error):
-                print(error.underlyingError)
-                completion(.failure(error))
+            case .failure(_):
+                do {
+                    let decoder = JSONDecoder()
+                    let apiError = try decoder.decode(APIError.self, from: response.data ?? Data())
+                    completion(.failure(apiError))
+                } catch {
+                    let errorResponse = String(data: response.data ?? Data(), encoding: .utf8)
+                    completion(.failure(APIError(detail: "error decoding \(errorResponse ?? "API error response")")))
+                }
             }
         }
     }

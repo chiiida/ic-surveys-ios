@@ -16,6 +16,9 @@ protocol LoginInteractorInput: AnyObject {
 
 // sourcery: AutoMockable
 protocol LoginInteractorOutput: AnyObject {
+    
+    func didAuthenticateEmail(authToken: AuthToken)
+    func didFailToAuthenticateEmail(withError error: APIError)
 }
 
 final class LoginInteractor {
@@ -38,7 +41,7 @@ final class LoginInteractor {
 extension LoginInteractor: LoginInteractorInput {
     
     func authenticateEmail(email: String, password: String) {
-        authenticateEmailRequest = authenticateService?.authenticateEmail(email: email, password: password) { result in
+        authenticateEmailRequest = authenticateService?.authenticateEmail(email: email, password: password) { [weak output] result in
             switch result {
             case .success(let authToken):
                 let userDefaults = UserDefaults.standard
@@ -46,11 +49,9 @@ extension LoginInteractor: LoginInteractorInput {
                 let refreshToken = authToken.data?.attributes?.refreshToken
                 userDefaults.setValue(accessToken, forKey: Constants.UserDefaultsKey.accessToken)
                 userDefaults.setValue(refreshToken, forKey: Constants.UserDefaultsKey.refreshToken)
-                // TODO: Connect with LoginPresenter
-                dump(authToken)
+                output?.didAuthenticateEmail(authToken: authToken)
             case .failure(let error):
-                // TODO: Connect with LoginPresenter
-                print(error)
+                output?.didFailToAuthenticateEmail(withError: error)
             }
         }
     }
