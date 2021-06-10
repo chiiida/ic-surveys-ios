@@ -60,10 +60,8 @@ extension ErrorView {
     func perfromAnimation() {
         self.alpha = 1.0
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            UIView.animate(withDuration: 1.0) {
-                self.alpha = 0.0
-            }
+        UIView.animate(withDuration: 1.0, delay: 1.0) {
+            self.alpha = 0.0
         }
     }
 }
