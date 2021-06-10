@@ -28,12 +28,19 @@ final class LoginPresenter {
 // MARK: - LoginViewOutput
 
 extension LoginPresenter: LoginViewOutput {
-    
+
     func viewDidLoad() {
         view?.configure()
+        view?.disableLoginButton(true)
+    }
+    
+    func didPressLogin() {
+        guard let email = view?.emailInputString, !email.isEmpty else { return }
+        guard let password = view?.passwordInputString, !password.isEmpty else { return }
         
-        // TODO: remove mock login use case
-        interactor.authenticateEmail(email: "dev@nimblehq.co", password: "12345678")
+        if email.isValidEmail() {
+            interactor.authenticateEmail(email: email, password: password)
+        }
     }
 }
 
@@ -42,13 +49,12 @@ extension LoginPresenter: LoginViewOutput {
 extension LoginPresenter: LoginInteractorOutput {
 
     func didAuthenticateEmail(authToken: AuthToken) {
-        // TODO: Intergrate with ViewController
-        dump(authToken)
+        router.showHome()
     }
     
     func didFailToAuthenticateEmail(withError error: APIError) {
-        // TODO: Intergrate with ViewController
-        dump(error)
+        view?.disableLoginButton(true)
+        view?.clearTextField()
     }
 }
 

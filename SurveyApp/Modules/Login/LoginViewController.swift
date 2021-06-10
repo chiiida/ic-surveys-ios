@@ -11,13 +11,19 @@ import SnapKit
 // sourcery: AutoMockable
 protocol LoginViewInput: AnyObject {
 
+    var emailInputString: String? { get }
+    var passwordInputString: String? { get }
+    
     func configure()
+    func disableLoginButton(_ disable: Bool)
+    func clearTextField()
 }
 
 // sourcery: AutoMockable
 protocol LoginViewOutput: AnyObject {
 
     func viewDidLoad()
+    func didPressLogin()
 }
 
 final class LoginViewController: UIViewController {
@@ -44,9 +50,28 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewInput {
 
+    var emailInputString: String? {
+        get { emailField.text }
+        set { emailField.text = newValue }
+    }
+    
+    var passwordInputString: String? {
+        get { passwordField.text }
+        set { passwordField.text = newValue }
+    }
+    
     func configure() {
         setUpLayout()
         setUpViews()
+    }
+    
+    func disableLoginButton(_ disbale: Bool) {
+        loginButton.isEnabled = !disbale
+    }
+    
+    func clearTextField() {
+        emailField.text = ""
+        passwordField.text = ""
     }
 }
 
@@ -125,6 +150,7 @@ extension LoginViewController {
         loginButton.titleLabel?.font = .bold(ofSize: .body)
         loginButton.tintColor = .black
         loginButton.layer.cornerRadius = 10.0
+        loginButton.addTarget(self, action: #selector(didPressLoginButton), for: .touchUpInside)
         
         setUpTextField()
         setUpBlurOverlayView()
@@ -135,10 +161,12 @@ extension LoginViewController {
         emailField.keyboardType = .emailAddress
         emailField.autocorrectionType = .no
         emailField.autocapitalizationType = .none
+        emailField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
 
         passwordField.placeholder = Localize.loginEnterPasswordPlaceholder()
         passwordField.textPadding.right = 80.0
         passwordField.isSecureTextEntry = true
+        passwordField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     private func setUpBlurOverlayView() {
@@ -154,5 +182,18 @@ extension LoginViewController {
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.25)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.75)
+    }
+    
+    @objc private func textFieldDidChange() {
+        disableLoginButton(false)
+    }
+}
+
+// MARK: – Actions
+
+extension LoginViewController {
+    
+    @objc private func didPressLoginButton() {
+        output?.didPressLogin()
     }
 }

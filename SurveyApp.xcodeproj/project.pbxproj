@@ -20,6 +20,12 @@
 		843AB4DA266DCB5E00EC3F28 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D5266DCB5E00EC3F28 /* LoginInteractor.swift */; };
 		843AB4DB266DCB5E00EC3F28 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */; };
 		843AB5FB266E2AAE00EC3F28 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 843AB5FA266E2AAE00EC3F28 /* .swiftlint.yml */; };
+		843FCF0E2671F0AF00714DAA /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FCF092671F0AF00714DAA /* HomeRouter.swift */; };
+		843FCF0F2671F0AF00714DAA /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FCF0A2671F0AF00714DAA /* HomeModule.swift */; };
+		843FCF102671F0AF00714DAA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FCF0B2671F0AF00714DAA /* HomeViewController.swift */; };
+		843FCF112671F0AF00714DAA /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FCF0C2671F0AF00714DAA /* HomeInteractor.swift */; };
+		843FCF122671F0AF00714DAA /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FCF0D2671F0AF00714DAA /* HomePresenter.swift */; };
+		843FCF152671F5E500714DAA /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843FCF142671F5E500714DAA /* String+Email.swift */; };
 		84A0AB5F26706AC4005EBF9A /* CredentialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */; };
 		84A0AB6526708954005EBF9A /* R.swift+Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */; };
 		84A0AB6926708CFE005EBF9A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84A0AB6B26708CFE005EBF9A /* Localizable.strings */; };
@@ -85,6 +91,12 @@
 		843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		843AB56B266DD34300EC3F28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843AB5FA266E2AAE00EC3F28 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		843FCF092671F0AF00714DAA /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		843FCF0A2671F0AF00714DAA /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
+		843FCF0B2671F0AF00714DAA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		843FCF0C2671F0AF00714DAA /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		843FCF0D2671F0AF00714DAA /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		843FCF142671F5E500714DAA /* String+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Email.swift"; sourceTree = "<group>"; };
 		84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialTextField.swift; sourceTree = "<group>"; };
 		84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "R.swift+Typealias.swift"; sourceTree = "<group>"; };
 		84A0AB6A26708CFE005EBF9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -265,6 +277,7 @@
 		842C6FB3266DC8510017E1CD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				843FCF082671F09D00714DAA /* Home */,
 				843AB4D1266DCB3E00EC3F28 /* Login */,
 			);
 			path = Modules;
@@ -273,6 +286,7 @@
 		843AB4CC266DC9D700EC3F28 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				843FCF132671F5D200714DAA /* String */,
 				84BE6958266F4400001DE0C3 /* UIKit */,
 			);
 			path = Extensions;
@@ -322,6 +336,26 @@
 				843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		843FCF082671F09D00714DAA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				843FCF092671F0AF00714DAA /* HomeRouter.swift */,
+				843FCF0A2671F0AF00714DAA /* HomeModule.swift */,
+				843FCF0B2671F0AF00714DAA /* HomeViewController.swift */,
+				843FCF0C2671F0AF00714DAA /* HomeInteractor.swift */,
+				843FCF0D2671F0AF00714DAA /* HomePresenter.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		843FCF132671F5D200714DAA /* String */ = {
+			isa = PBXGroup;
+			children = (
+				843FCF142671F5E500714DAA /* String+Email.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 		84A0AB632670893F005EBF9A /* R.swift */ = {
@@ -730,22 +764,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843FCF152671F5E500714DAA /* String+Email.swift in Sources */,
 				842C6F80266DC5AA0017E1CD /* AppDelegate.swift in Sources */,
 				84A0AB5F26706AC4005EBF9A /* CredentialTextField.swift in Sources */,
 				842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */,
 				84A0AB752670A6AD005EBF9A /* API.swift in Sources */,
 				84A0AB932670BE0E005EBF9A /* AuthToken.swift in Sources */,
 				843AB4DB266DCB5E00EC3F28 /* LoginPresenter.swift in Sources */,
+				843FCF112671F0AF00714DAA /* HomeInteractor.swift in Sources */,
+				843FCF122671F0AF00714DAA /* HomePresenter.swift in Sources */,
 				84A0AB6526708954005EBF9A /* R.swift+Typealias.swift in Sources */,
 				84A0AB7A2670AAC6005EBF9A /* Typealias.swift in Sources */,
 				843AB4DA266DCB5E00EC3F28 /* LoginInteractor.swift in Sources */,
 				84A0AB9D2670DB4E005EBF9A /* NetworkServiceFactory.swift in Sources */,
 				84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */,
+				843FCF102671F0AF00714DAA /* HomeViewController.swift in Sources */,
 				84A0AB9F2671AC17005EBF9A /* APIError.swift in Sources */,
 				84A0AB812670B12E005EBF9A /* RequestConfiguration.swift in Sources */,
+				843FCF0E2671F0AF00714DAA /* HomeRouter.swift in Sources */,
 				843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */,
 				84A0AB832670B859005EBF9A /* Request.swift in Sources */,
 				84A0AB712670A494005EBF9A /* Environment.swift in Sources */,
+				843FCF0F2671F0AF00714DAA /* HomeModule.swift in Sources */,
 				84A0AB782670A969005EBF9A /* NetworkService.swift in Sources */,
 				843AB4D9266DCB5E00EC3F28 /* LoginViewController.swift in Sources */,
 				84A0AB9A2670C847005EBF9A /* BaseAPI.swift in Sources */,
