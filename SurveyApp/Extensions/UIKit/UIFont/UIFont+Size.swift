@@ -21,7 +21,7 @@ extension UIFont {
         /// size = 16
         case body = 16.0
         /// size = 12
-        case small = 12.0
+        case small = 14.0
     }
     
     static func regular(ofSize size: FontSize) -> UIFont {

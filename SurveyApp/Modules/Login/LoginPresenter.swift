@@ -40,6 +40,8 @@ extension LoginPresenter: LoginViewOutput {
         
         if email.isValidEmail() {
             interactor.authenticateEmail(email: email, password: password)
+        } else {
+            view?.showError(message: Localize.loginInvalidEmail())
         }
     }
 }
@@ -53,8 +55,7 @@ extension LoginPresenter: LoginInteractorOutput {
     }
     
     func didFailToAuthenticateEmail(withError error: APIError) {
-        view?.disableLoginButton(true)
-        view?.clearTextField()
+        view?.showError(message: Localize.loginErrorMessage())
     }
 }
 

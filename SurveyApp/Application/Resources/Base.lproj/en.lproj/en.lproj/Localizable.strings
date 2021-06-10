@@ -10,3 +10,6 @@
 "login.enterPassword.placeholder" = "Password";
 "login.button.title" = "Log in";
 "login.forgetButton.title" = "Forgot?";
+"login.error.title" = "Error";
+"login.error.message" = "Failed to login";
+"login.invalid.email" = "Invalid email";

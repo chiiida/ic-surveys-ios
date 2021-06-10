@@ -16,7 +16,7 @@ protocol LoginViewInput: AnyObject {
     
     func configure()
     func disableLoginButton(_ disable: Bool)
-    func clearTextField()
+    func showError(message: String)
 }
 
 // sourcery: AutoMockable
@@ -39,6 +39,7 @@ final class LoginViewController: UIViewController {
     private let passwordField = CredentialTextField()
     private let loginButton = UIButton(type: .system)
     private let forgotButton = UIButton(type: .system)
+    private let errorView = ErrorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,9 +70,10 @@ extension LoginViewController: LoginViewInput {
         loginButton.isEnabled = !disbale
     }
     
-    func clearTextField() {
-        emailField.text = ""
-        passwordField.text = ""
+    func showError(message: String) {
+        errorView.isHidden = false
+        errorView.setErrorMessage(message)
+        errorView.perfromAnimation()
     }
 }
 
@@ -90,6 +92,7 @@ extension LoginViewController {
         view.addSubview(passwordField)
         view.addSubview(forgotButton)
         view.addSubview(loginButton)
+        view.addSubview(errorView)
 
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -127,6 +130,12 @@ extension LoginViewController {
             $0.leading.trailing.equalToSuperview().inset(24.0)
             $0.height.equalTo(55.0)
         }
+        
+        errorView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(50.0)
+            $0.leading.trailing.equalToSuperview().inset(24.0)
+            $0.height.equalTo(60.0)
+        }
     }
     
     private func setUpViews() {
@@ -151,6 +160,8 @@ extension LoginViewController {
         loginButton.tintColor = .black
         loginButton.layer.cornerRadius = 10.0
         loginButton.addTarget(self, action: #selector(didPressLoginButton), for: .touchUpInside)
+        
+        errorView.isHidden = true
         
         setUpTextField()
         setUpBlurOverlayView()
