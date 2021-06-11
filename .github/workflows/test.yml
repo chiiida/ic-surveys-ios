@@ -26,6 +26,9 @@ jobs:
       - name: Install Bundle
         run: bundle install
 
+      - name: Set Cocoapods Keys
+        run: bundle exec pod keys set ClientId "-" && bundle exec pod keys set ClientSecret "-"
+
       - name: Install Cocoapods
         run: pod install
 
