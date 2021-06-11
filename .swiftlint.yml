@@ -40,7 +40,7 @@ opt_in_rules: # some rules are only opt-in
   - override_in_extension
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
-  - R.generated.swift
+  - SurveyApp/Application/Resources/R.swift/R.generated.swift
 
 # rule configurations
 
