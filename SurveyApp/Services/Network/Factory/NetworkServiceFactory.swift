@@ -12,5 +12,7 @@ final class NetworkServiceFactory {
     static let shared = NetworkServiceFactory()
     let api = BaseAPI()
     
-    // TODO: Add create service functions
+    func createAuthenticationService() -> AuthenticationServiceProtocol {
+        AuthenticationService(api: api, baseURL: Constants.Network.baseUrl)
+    }
 }

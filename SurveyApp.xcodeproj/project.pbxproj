@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		23776A9B91DAFE4E58509E4A /* Pods_SurveyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D2FAF3B790BC56A29D11A9 /* Pods_SurveyAppTests.framework */; };
+		8423B97126734D8C0000036F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423B97026734D8C0000036F /* AuthToken.swift */; };
+		8423B97426734E6A0000036F /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423B97326734E6A0000036F /* AuthenticationService.swift */; };
 		842C6F80266DC5AA0017E1CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F7F266DC5AA0017E1CD /* AppDelegate.swift */; };
 		842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F81266DC5AA0017E1CD /* SceneDelegate.swift */; };
 		842C6F89266DC5AB0017E1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842C6F88266DC5AB0017E1CD /* Assets.xcassets */; };
@@ -67,6 +69,8 @@
 		797FFD10F58E150DBCEC0F54 /* Pods-SurveyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurveyApp.debug.xcconfig"; path = "Target Support Files/Pods-SurveyApp/Pods-SurveyApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8305C3BFE7C5D112F6852D86 /* Pods-SurveyApp.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurveyApp.production.xcconfig"; path = "Target Support Files/Pods-SurveyApp/Pods-SurveyApp.production.xcconfig"; sourceTree = "<group>"; };
 		83890797198912A42EEEEC6A /* Pods-SurveyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurveyApp.release.xcconfig"; path = "Target Support Files/Pods-SurveyApp/Pods-SurveyApp.release.xcconfig"; sourceTree = "<group>"; };
+		8423B97026734D8C0000036F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
+		8423B97326734E6A0000036F /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		842C6F7C266DC5AA0017E1CD /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842C6F7F266DC5AA0017E1CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		842C6F81266DC5AA0017E1CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +166,22 @@
 				26D2FAF3B790BC56A29D11A9 /* Pods_SurveyAppTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8423B96F26734D7E0000036F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				8423B97026734D8C0000036F /* AuthToken.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		8423B97226734E410000036F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				8423B97326734E6A0000036F /* AuthenticationService.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		842C6F73266DC5AA0017E1CD = {
@@ -363,6 +383,7 @@
 		84D07494267321CD009CFE4C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8423B96F26734D7E0000036F /* Authentication */,
 				84D07495267321D7009CFE4C /* APIError.swift */,
 			);
 			path = Models;
@@ -381,6 +402,7 @@
 		84D0749826732213009CFE4C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8423B97226734E410000036F /* Authentication */,
 				84D0749D2673224B009CFE4C /* NetworkService.swift */,
 			);
 			path = Services;
@@ -731,6 +753,8 @@
 				84D074A5267322A2009CFE4C /* Request.swift in Sources */,
 				84D0748926731FFC009CFE4C /* R.generated.swift in Sources */,
 				843AB4D8266DCB5E00EC3F28 /* LoginModule.swift in Sources */,
+				8423B97126734D8C0000036F /* AuthToken.swift in Sources */,
+				8423B97426734E6A0000036F /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
