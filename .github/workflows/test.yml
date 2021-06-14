@@ -26,11 +26,13 @@ jobs:
       - name: Install Bundle
         run: bundle install
 
-      - name: Set Cocoapods Keys
-        run: bundle exec pod keys set ClientId "-" && bundle exec pod keys set ClientSecret "-"
-
-      - name: Install Cocoapods
-        run: pod install
+      - name: Install Pods Dependencies
+        run: |
+          bundle exec pod install
+        shell: bash
+        env:
+          ClientId: "id"
+          ClientSecret: "secret"
 
       - name: Linting
         run: bundle exec fastlane linter
