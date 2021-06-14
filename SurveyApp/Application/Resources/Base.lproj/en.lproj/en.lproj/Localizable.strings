@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  SurveyApp
+
+  Created by Chananchida F. on 6/9/21.
+  
+*/
+
+"login.enterEmail.placeholder" = "Email";
+"login.enterPassword.placeholder" = "Password";
+"login.button.title" = "Log in";
+"login.forgetButton.title" = "Forgot?";
