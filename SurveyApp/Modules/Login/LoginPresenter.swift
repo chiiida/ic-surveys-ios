@@ -32,11 +32,30 @@ extension LoginPresenter: LoginViewOutput {
     func viewDidLoad() {
         view?.configure()
     }
+    
+    func didPressLogin() {
+        guard let email = view?.emailInputString, !email.isEmpty else { return }
+        guard let password = view?.passwordInputString, !password.isEmpty else { return }
+
+        if email.isValidEmail() {
+            interactor.authenticateEmail(email: email, password: password)
+        } else {
+            view?.showError(message: Localize.errorInvalidEmail())
+        }
+    }
 }
 
 // MARK: - LoginInteractorOutput
 
 extension LoginPresenter: LoginInteractorOutput {
+    
+    func didAuthenticateEmail(authToken: AuthToken) {
+        router.showHome()
+    }
+    
+    func didFailToAuthenticateEmail(withError error: APIError) {
+        view?.showError(message: Localize.errorLoginFailed())
+    }
 }
 
 // MARK: - LoginInput

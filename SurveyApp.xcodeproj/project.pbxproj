@@ -16,6 +16,7 @@
 		842C6F8C266DC5AB0017E1CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842C6F8A266DC5AB0017E1CD /* LaunchScreen.storyboard */; };
 		842C6F97266DC5AB0017E1CD /* SurveyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F96266DC5AB0017E1CD /* SurveyAppTests.swift */; };
 		842C6FA2266DC5AB0017E1CD /* SurveyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6FA1266DC5AB0017E1CD /* SurveyAppUITests.swift */; };
+		8434816F2677626F00B7990A /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434816E2677626F00B7990A /* String+Email.swift */; };
 		843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D2266DCB5E00EC3F28 /* LoginRouter.swift */; };
 		843AB4D8266DCB5E00EC3F28 /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D3266DCB5E00EC3F28 /* LoginModule.swift */; };
 		843AB4D9266DCB5E00EC3F28 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D4266DCB5E00EC3F28 /* LoginViewController.swift */; };
@@ -28,6 +29,11 @@
 		8448C2412679FAFF005955D4 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2402679FAFF005955D4 /* UserSession.swift */; };
 		8448C2432679FB1E005955D4 /* UserSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2422679FB1E005955D4 /* UserSessionProvider.swift */; };
 		84648400267757D100233656 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846483FF267757D100233656 /* ErrorView.swift */; };
+		8464840726775D6700233656 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840226775D6700233656 /* HomeRouter.swift */; };
+		8464840826775D6700233656 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840326775D6700233656 /* HomeModule.swift */; };
+		8464840926775D6700233656 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840426775D6700233656 /* HomeViewController.swift */; };
+		8464840A26775D6700233656 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840526775D6700233656 /* HomeInteractor.swift */; };
+		8464840B26775D6700233656 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840626775D6700233656 /* HomePresenter.swift */; };
 		84A0AB5F26706AC4005EBF9A /* CredentialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */; };
 		84A0AB6526708954005EBF9A /* R.swift+Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */; };
 		84A0AB6926708CFE005EBF9A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84A0AB6B26708CFE005EBF9A /* Localizable.strings */; };
@@ -88,6 +94,7 @@
 		842C6F9D266DC5AB0017E1CD /* SurveyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		842C6FA1266DC5AB0017E1CD /* SurveyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppUITests.swift; sourceTree = "<group>"; };
 		842C6FA3266DC5AB0017E1CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8434816E2677626F00B7990A /* String+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Email.swift"; sourceTree = "<group>"; };
 		843AB4D2266DCB5E00EC3F28 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		843AB4D3266DCB5E00EC3F28 /* LoginModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
 		843AB4D4266DCB5E00EC3F28 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +108,11 @@
 		8448C2402679FAFF005955D4 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		8448C2422679FB1E005955D4 /* UserSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionProvider.swift; sourceTree = "<group>"; };
 		846483FF267757D100233656 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		8464840226775D6700233656 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		8464840326775D6700233656 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
+		8464840426775D6700233656 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8464840526775D6700233656 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		8464840626775D6700233656 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialTextField.swift; sourceTree = "<group>"; };
 		84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "R.swift+Typealias.swift"; sourceTree = "<group>"; };
 		84A0AB6A26708CFE005EBF9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -293,9 +305,18 @@
 		842C6FB3266DC8510017E1CD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8464840126775D5A00233656 /* Home */,
 				843AB4D1266DCB3E00EC3F28 /* Login */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		8434816D2677625F00B7990A /* String */ = {
+			isa = PBXGroup;
+			children = (
+				8434816E2677626F00B7990A /* String+Email.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 		843AB4CC266DC9D700EC3F28 /* Extensions */ = {
@@ -353,6 +374,18 @@
 			path = ErrorView;
 			sourceTree = "<group>";
 		};
+		8464840126775D5A00233656 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8464840226775D6700233656 /* HomeRouter.swift */,
+				8464840326775D6700233656 /* HomeModule.swift */,
+				8464840426775D6700233656 /* HomeViewController.swift */,
+				8464840526775D6700233656 /* HomeInteractor.swift */,
+				8464840626775D6700233656 /* HomePresenter.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		84A0AB632670893F005EBF9A /* R.swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +406,7 @@
 		84BE6958266F4400001DE0C3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				8434816D2677625F00B7990A /* String */,
 				84BE695A266F440F001DE0C3 /* UIFont */,
 			);
 			path = UIKit;
@@ -767,10 +801,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8448C23A2679F9F4005955D4 /* UserCredential.swift in Sources */,
+				8464840826775D6700233656 /* HomeModule.swift in Sources */,
 				842C6F80266DC5AA0017E1CD /* AppDelegate.swift in Sources */,
 				84D074A326732296009CFE4C /* API.swift in Sources */,
 				8448C2412679FAFF005955D4 /* UserSession.swift in Sources */,
 				84D0748F26732128009CFE4C /* Environment.swift in Sources */,
+				8464840B26775D6700233656 /* HomePresenter.swift in Sources */,
 				84A0AB5F26706AC4005EBF9A /* CredentialTextField.swift in Sources */,
 				84D074A02673227C009CFE4C /* BaseAPI.swift in Sources */,
 				8448C2432679FB1E005955D4 /* UserSessionProvider.swift in Sources */,
@@ -782,12 +818,15 @@
 				84D074A7267322B7009CFE4C /* RequestConfiguration.swift in Sources */,
 				84D074932673214C009CFE4C /* Typealias.swift in Sources */,
 				843AB4DA266DCB5E00EC3F28 /* LoginInteractor.swift in Sources */,
+				8464840926775D6700233656 /* HomeViewController.swift in Sources */,
 				84D07496267321D7009CFE4C /* APIError.swift in Sources */,
+				8464840726775D6700233656 /* HomeRouter.swift in Sources */,
 				84D0749C26732231009CFE4C /* NetworkServiceFactory.swift in Sources */,
 				84D0749126732140009CFE4C /* Constants.swift in Sources */,
 				84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */,
 				843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */,
 				843AB4D9266DCB5E00EC3F28 /* LoginViewController.swift in Sources */,
+				8434816F2677626F00B7990A /* String+Email.swift in Sources */,
 				84D074A5267322A2009CFE4C /* Request.swift in Sources */,
 				84D0748926731FFC009CFE4C /* R.generated.swift in Sources */,
 				843AB4D8266DCB5E00EC3F28 /* LoginModule.swift in Sources */,
@@ -795,6 +834,7 @@
 				8448C23F2679FA97005955D4 /* KeychainKeys.swift in Sources */,
 				8423B97426734E6A0000036F /* AuthenticationService.swift in Sources */,
 				8448C23D2679FA90005955D4 /* KeychainStorage.swift in Sources */,
+				8464840A26775D6700233656 /* HomeInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

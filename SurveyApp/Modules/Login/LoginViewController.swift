@@ -11,13 +11,18 @@ import SnapKit
 // sourcery: AutoMockable
 protocol LoginViewInput: AnyObject {
 
+    var emailInputString: String? { get }
+    var passwordInputString: String? { get }
+    
     func configure()
+    func showError(message: String)
 }
 
 // sourcery: AutoMockable
 protocol LoginViewOutput: AnyObject {
 
     func viewDidLoad()
+    func didPressLogin()
 }
 
 final class LoginViewController: UIViewController {
@@ -33,6 +38,7 @@ final class LoginViewController: UIViewController {
     private let passwordField = CredentialTextField()
     private let loginButton = UIButton(type: .system)
     private let forgotButton = UIButton(type: .system)
+    private let errorView = ErrorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +50,25 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewInput {
 
+    var emailInputString: String? {
+        get { emailField.text }
+        set { emailField.text = newValue }
+    }
+
+    var passwordInputString: String? {
+        get { passwordField.text }
+        set { passwordField.text = newValue }
+    }
+    
     func configure() {
         setUpLayout()
         setUpViews()
+    }
+    
+    func showError(message: String) {
+        errorView.isHidden = false
+        errorView.setErrorMessage(message)
+        errorView.perfromAnimation()
     }
 }
 
@@ -65,6 +87,7 @@ extension LoginViewController {
         view.addSubview(passwordField)
         view.addSubview(forgotButton)
         view.addSubview(loginButton)
+        view.addSubview(errorView)
 
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -102,6 +125,12 @@ extension LoginViewController {
             $0.leading.trailing.equalToSuperview().inset(24.0)
             $0.height.equalTo(55.0)
         }
+        
+        errorView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(50.0)
+            $0.leading.trailing.equalToSuperview().inset(24.0)
+            $0.height.equalTo(60.0)
+        }
     }
     
     private func setUpViews() {
@@ -125,6 +154,9 @@ extension LoginViewController {
         loginButton.titleLabel?.font = .bold(ofSize: .body)
         loginButton.tintColor = .black
         loginButton.layer.cornerRadius = 10.0
+        loginButton.addTarget(self, action: #selector(didPressLoginButton), for: .touchUpInside)
+
+        errorView.isHidden = true
         
         setUpTextField()
         setUpBlurOverlayView()
@@ -154,5 +186,14 @@ extension LoginViewController {
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.25)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.75)
+    }
+}
+
+// MARK: – Actions
+
+extension LoginViewController {
+
+    @objc private func didPressLoginButton() {
+        output?.didPressLogin()
     }
 }
