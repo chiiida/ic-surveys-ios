@@ -35,7 +35,7 @@ final class ErrorView: UIView {
             $0.trailing.equalTo(view.snp.trailing).inset(24.0)
         }
         
-        performAnimation()
+        beginDismissAnimation()
     }
 
     private func setUpLayout() {
@@ -74,9 +74,7 @@ final class ErrorView: UIView {
 
 extension ErrorView {
 
-    private func performAnimation() {
-        self.alpha = 1.0
-
+    private func beginDismissAnimation() {
         UIView.animate(
             withDuration: 1.0,
             delay: 1.0,
@@ -84,12 +82,8 @@ extension ErrorView {
                 self.alpha = 0.0
             },
             completion: { _ in
-                self.beginDismissAnimation()
+                self.removeFromSuperview()
             }
         )
-    }
-    
-    private func beginDismissAnimation() {
-        removeFromSuperview()
     }
 }
