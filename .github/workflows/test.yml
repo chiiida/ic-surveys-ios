@@ -44,11 +44,6 @@ jobs:
     name: UI Test
     runs-on: macos-latest
     steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.5.0
-        with:
-          access_token: ${{ github.token }}
-          
       - name: Git Checkout
         uses: actions/checkout@v2
 

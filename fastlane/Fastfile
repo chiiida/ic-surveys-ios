@@ -31,8 +31,7 @@ platform :ios do
     scan(
       workspace: "SurveyApp.xcworkspace",
       scheme: "SurveyApp",
-      only_testing: ["SurveyAppTests"],
-      device: "iPhone 12"
+      only_testing: ["SurveyAppTests"]
     )
   end
 
@@ -42,8 +41,7 @@ platform :ios do
       workspace: "SurveyApp.xcworkspace",
       scheme: "SurveyApp",
       only_testing: ["SurveyAppUITests"],
-      test_without_building: true,
-      device: "iPhone 12"
+      test_without_building: true
     )
   end
 end
