@@ -78,11 +78,11 @@ extension ErrorView {
         UIView.animate(
             withDuration: 1.0,
             delay: 1.0,
-            animations: {
-                self.alpha = 0.0
+            animations: { [weak self] in
+                self?.alpha = 0.0
             },
-            completion: { _ in
-                self.removeFromSuperview()
+            completion: { [weak self] _ in
+                self?.removeFromSuperview()
             }
         )
     }
