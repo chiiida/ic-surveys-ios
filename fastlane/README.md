@@ -25,7 +25,12 @@ Run SwiftLint
 ```
 fastlane ios unit_test
 ```
-Test project
+Run unit test
+### ios ui_test
+```
+fastlane ios ui_test
+```
+Run UI test
 
 ----
 

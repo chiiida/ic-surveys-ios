@@ -39,3 +39,34 @@ jobs:
 
       - name: Run unit tests
         run: bundle exec fastlane unit_test
+  
+  ui_test:
+    name: UI Test
+    runs-on: macos-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.5.0
+        with:
+          access_token: ${{ github.token }}
+          
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Install Bundle
+        run: bundle install
+
+      - name: Install Pods Dependencies
+        run: |
+          bundle exec pod install
+        shell: bash
+        env:
+          ClientId: "id"
+          ClientSecret: "secret"
+
+      - name: Run UI tests
+        run: bundle exec fastlane ui_test
