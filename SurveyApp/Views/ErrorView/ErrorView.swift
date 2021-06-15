@@ -26,13 +26,16 @@ final class ErrorView: UIView {
         errorLabel.text = message
     }
     
-    func show(on controller: UIView) {
-        snp.makeConstraints {
-            $0.top.equalTo(controller.snp.top).offset(50.0)
-            $0.leading.equalTo(controller.snp.leading).inset(24.0)
-            $0.trailing.equalTo(controller.snp.trailing).inset(24.0)
+    func show(on view: UIView) {
+        view.addSubview(self)
+        
+        snp.remakeConstraints {
+            $0.top.equalTo(view.snp.top).offset(50.0)
+            $0.leading.equalTo(view.snp.leading).inset(24.0)
+            $0.trailing.equalTo(view.snp.trailing).inset(24.0)
         }
-        perfromAnimation()
+        
+        performAnimation()
     }
 
     private func setUpLayout() {
@@ -71,11 +74,22 @@ final class ErrorView: UIView {
 
 extension ErrorView {
 
-    private func perfromAnimation() {
+    private func performAnimation() {
         self.alpha = 1.0
 
-        UIView.animate(withDuration: 1.0, delay: 1.0) {
-            self.alpha = 0.0
-        }
+        UIView.animate(
+            withDuration: 1.0,
+            delay: 1.0,
+            animations: {
+                self.alpha = 0.0
+            },
+            completion: { _ in
+                self.beginDismissAnimation()
+            }
+        )
+    }
+    
+    private func beginDismissAnimation() {
+        removeFromSuperview()
     }
 }
