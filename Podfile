@@ -10,6 +10,13 @@ def testing_pods
 end
 
 target 'SurveyApp' do
+  plugin 'cocoapods-keys', {
+    :project => "SurveyApp",
+    :keys => [
+      "ClientId",
+      "ClientSecret"
+    ]}
+
   pod 'NimbleExtension', :git => 'https://github.com/nimblehq/NimbleExtension', :branch => 'master'
 
   pod 'SnapKit'

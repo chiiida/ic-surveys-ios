@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Keys
 
 enum Constants {
     
@@ -14,5 +15,10 @@ enum Constants {
             staging: "https://nimble-survey-web-staging.herokuapp.com",
             production: "https://survey-api.nimblehq.co"
         )
+    }
+    
+    enum ApiKeys {
+        static let clientId = SurveyAppKeys().clientId
+        static let clientSecret = SurveyAppKeys().clientSecret
     }
 }
