@@ -26,12 +26,24 @@ platform :ios do
     )
   end
 
+  desc "Build for testing"
+  lane :build_for_testing do
+    scan(
+      workspace: "SurveyApp.xcworkspace",
+      scheme: "SurveyApp",
+      derived_data_path: "derivedData",
+      build_for_testing: true
+    )
+  end
+
   desc "Run unit test"
   lane :unit_test do
     scan(
       workspace: "SurveyApp.xcworkspace",
       scheme: "SurveyApp",
-      only_testing: ["SurveyAppTests"]
+      only_testing: ["SurveyAppTests"],
+      derived_data_path: "derivedData",
+      test_without_building: true
     )
   end
 
@@ -41,6 +53,7 @@ platform :ios do
       workspace: "SurveyApp.xcworkspace",
       scheme: "SurveyApp",
       only_testing: ["SurveyAppUITests"],
+      derived_data_path: "derivedData",
       test_without_building: true
     )
   end
