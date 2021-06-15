@@ -43,6 +43,12 @@ jobs:
           name: build
           path: derivedData/Build/Products/Staging-iphonesimulator/SurveyApp.app
 
+      - name: Upload Runner
+        uses: actions/upload-artifact@v2
+        with:
+          name: runner
+          path: derivedData/Build/Products/Staging-iphonesimulator/SurveyAppUITests-Runner.app
+
   test:
     name: Linter and Unit test
     runs-on: macos-latest
@@ -50,6 +56,12 @@ jobs:
     steps:
       - name: Git Checkout
         uses: actions/checkout@v2
+
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: derivedData/Build/Products/Staging-iphonesimulator/SurveyApp.app
 
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
@@ -86,6 +98,12 @@ jobs:
         with:
           name: build
           path: derivedData/Build/Products/Staging-iphonesimulator/SurveyApp.app
+
+      - name: Download runner
+        uses: actions/download-artifact@v2
+        with:
+          name: runner
+          path: derivedData/Build/Products/Staging-iphonesimulator/SurveyAppUITests-Runner.app
 
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
