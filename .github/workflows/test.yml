@@ -1,22 +1,66 @@
 name: Test
 
 on:
-  push:
   pull_request:
     types: [ opened, synchronize, edited, reopened ]
 
 jobs:
-  test:
-    name: Linter and Unit test
+  build:
+    name: Build Project
     runs-on: macos-latest
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.5.0
         with:
           access_token: ${{ github.token }}
-          
+
       - name: Git Checkout
         uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Install Bundle
+        run: bundle install
+
+      - name: Install Pods Dependencies
+        run: |
+          bundle exec pod install
+        shell: bash
+        env:
+          ClientId: "id"
+          ClientSecret: "secret"
+
+      - name: Build for testing
+        run: bundle exec fastlane build_for_testing
+
+      - name: Upload build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: derivedData/Build/Products/Staging-iphonesimulator/SurveyApp.app
+
+      - name: Upload Runner
+        uses: actions/upload-artifact@v2
+        with:
+          name: runner
+          path: derivedData/Build/Products/Staging-iphonesimulator/SurveyAppUITests-Runner.app
+
+  test:
+    name: Linter and Unit test
+    runs-on: macos-latest
+    needs: build
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: derivedData/Build/Products/Staging-iphonesimulator/SurveyApp.app
 
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
@@ -39,3 +83,42 @@ jobs:
 
       - name: Run unit tests
         run: bundle exec fastlane unit_test
+  
+  ui_test:
+    name: UI Test
+    runs-on: macos-latest
+    needs: build
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: derivedData/Build/Products/Staging-iphonesimulator/SurveyApp.app
+
+      - name: Download runner
+        uses: actions/download-artifact@v2
+        with:
+          name: runner
+          path: derivedData/Build/Products/Staging-iphonesimulator/SurveyAppUITests-Runner.app
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Install Bundle
+        run: bundle install
+
+      - name: Install Pods Dependencies
+        run: |
+          bundle exec pod install
+        shell: bash
+        env:
+          ClientId: "id"
+          ClientSecret: "secret"
+
+      - name: Run UI tests
+        run: bundle exec fastlane ui_test

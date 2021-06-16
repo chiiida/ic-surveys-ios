@@ -21,11 +21,21 @@ or alternatively using `brew install fastlane`
 fastlane ios linter
 ```
 Run SwiftLint
+### ios build_for_testing
+```
+fastlane ios build_for_testing
+```
+Build for testing
 ### ios unit_test
 ```
 fastlane ios unit_test
 ```
-Test project
+Run unit test
+### ios ui_test
+```
+fastlane ios ui_test
+```
+Run UI test
 
 ----
 
