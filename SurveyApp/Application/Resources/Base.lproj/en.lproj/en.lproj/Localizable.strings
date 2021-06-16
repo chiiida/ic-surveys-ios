@@ -10,3 +10,5 @@
 "login.enterPassword.placeholder" = "Password";
 "login.button.title" = "Log in";
 "login.forgetButton.title" = "Forgot?";
+
+"error.banner.title" = "Error";

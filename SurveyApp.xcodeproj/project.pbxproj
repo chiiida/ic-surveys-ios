@@ -22,6 +22,7 @@
 		843AB4DA266DCB5E00EC3F28 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D5266DCB5E00EC3F28 /* LoginInteractor.swift */; };
 		843AB4DB266DCB5E00EC3F28 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */; };
 		843AB5FB266E2AAE00EC3F28 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 843AB5FA266E2AAE00EC3F28 /* .swiftlint.yml */; };
+		84648400267757D100233656 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846483FF267757D100233656 /* ErrorView.swift */; };
 		84A0AB5F26706AC4005EBF9A /* CredentialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */; };
 		84A0AB6526708954005EBF9A /* R.swift+Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */; };
 		84A0AB6926708CFE005EBF9A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84A0AB6B26708CFE005EBF9A /* Localizable.strings */; };
@@ -89,6 +90,7 @@
 		843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		843AB56B266DD34300EC3F28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843AB5FA266E2AAE00EC3F28 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		846483FF267757D100233656 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialTextField.swift; sourceTree = "<group>"; };
 		84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "R.swift+Typealias.swift"; sourceTree = "<group>"; };
 		84A0AB6A26708CFE005EBF9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		843AB4CF266DC9FD00EC3F28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				846483FE267757C500233656 /* ErrorView */,
 				84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */,
 			);
 			path = Views;
@@ -319,6 +322,14 @@
 				843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		846483FE267757C500233656 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				846483FF267757D100233656 /* ErrorView.swift */,
+			);
+			path = ErrorView;
 			sourceTree = "<group>";
 		};
 		84A0AB632670893F005EBF9A /* R.swift */ = {
@@ -739,6 +750,7 @@
 				84D074A02673227C009CFE4C /* BaseAPI.swift in Sources */,
 				842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */,
 				843AB4DB266DCB5E00EC3F28 /* LoginPresenter.swift in Sources */,
+				84648400267757D100233656 /* ErrorView.swift in Sources */,
 				84D0749E2673224B009CFE4C /* NetworkService.swift in Sources */,
 				84A0AB6526708954005EBF9A /* R.swift+Typealias.swift in Sources */,
 				84D074A7267322B7009CFE4C /* RequestConfiguration.swift in Sources */,
