@@ -22,6 +22,11 @@
 		843AB4DA266DCB5E00EC3F28 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D5266DCB5E00EC3F28 /* LoginInteractor.swift */; };
 		843AB4DB266DCB5E00EC3F28 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */; };
 		843AB5FB266E2AAE00EC3F28 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 843AB5FA266E2AAE00EC3F28 /* .swiftlint.yml */; };
+		8448C23A2679F9F4005955D4 /* UserCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2392679F9F4005955D4 /* UserCredential.swift */; };
+		8448C23D2679FA90005955D4 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C23C2679FA90005955D4 /* KeychainStorage.swift */; };
+		8448C23F2679FA97005955D4 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C23E2679FA97005955D4 /* KeychainKeys.swift */; };
+		8448C2412679FAFF005955D4 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2402679FAFF005955D4 /* UserSession.swift */; };
+		8448C2432679FB1E005955D4 /* UserSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2422679FB1E005955D4 /* UserSessionProvider.swift */; };
 		84648400267757D100233656 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846483FF267757D100233656 /* ErrorView.swift */; };
 		84A0AB5F26706AC4005EBF9A /* CredentialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */; };
 		84A0AB6526708954005EBF9A /* R.swift+Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */; };
@@ -90,6 +95,11 @@
 		843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		843AB56B266DD34300EC3F28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		843AB5FA266E2AAE00EC3F28 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		8448C2392679F9F4005955D4 /* UserCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredential.swift; sourceTree = "<group>"; };
+		8448C23C2679FA90005955D4 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
+		8448C23E2679FA97005955D4 /* KeychainKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeys.swift; sourceTree = "<group>"; };
+		8448C2402679FAFF005955D4 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		8448C2422679FB1E005955D4 /* UserSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionProvider.swift; sourceTree = "<group>"; };
 		846483FF267757D100233656 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialTextField.swift; sourceTree = "<group>"; };
 		84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "R.swift+Typealias.swift"; sourceTree = "<group>"; };
@@ -174,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				8423B97026734D8C0000036F /* AuthToken.swift */,
+				8448C2392679F9F4005955D4 /* UserCredential.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -298,6 +309,7 @@
 		843AB4CE266DC9F000EC3F28 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8448C23B2679FA7F005955D4 /* Keychain */,
 				84D07497267321EC009CFE4C /* Network */,
 			);
 			path = Services;
@@ -322,6 +334,15 @@
 				843AB4D6266DCB5E00EC3F28 /* LoginPresenter.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		8448C23B2679FA7F005955D4 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				8448C23C2679FA90005955D4 /* KeychainStorage.swift */,
+				8448C23E2679FA97005955D4 /* KeychainKeys.swift */,
+			);
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 		846483FE267757C500233656 /* ErrorView */ = {
@@ -424,6 +445,8 @@
 			children = (
 				84D074A12673228A009CFE4C /* Base */,
 				84D0749F2673227C009CFE4C /* BaseAPI.swift */,
+				8448C2422679FB1E005955D4 /* UserSessionProvider.swift */,
+				8448C2402679FAFF005955D4 /* UserSession.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -743,11 +766,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8448C23A2679F9F4005955D4 /* UserCredential.swift in Sources */,
 				842C6F80266DC5AA0017E1CD /* AppDelegate.swift in Sources */,
 				84D074A326732296009CFE4C /* API.swift in Sources */,
+				8448C2412679FAFF005955D4 /* UserSession.swift in Sources */,
 				84D0748F26732128009CFE4C /* Environment.swift in Sources */,
 				84A0AB5F26706AC4005EBF9A /* CredentialTextField.swift in Sources */,
 				84D074A02673227C009CFE4C /* BaseAPI.swift in Sources */,
+				8448C2432679FB1E005955D4 /* UserSessionProvider.swift in Sources */,
 				842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */,
 				843AB4DB266DCB5E00EC3F28 /* LoginPresenter.swift in Sources */,
 				84648400267757D100233656 /* ErrorView.swift in Sources */,
@@ -766,7 +792,9 @@
 				84D0748926731FFC009CFE4C /* R.generated.swift in Sources */,
 				843AB4D8266DCB5E00EC3F28 /* LoginModule.swift in Sources */,
 				8423B97126734D8C0000036F /* AuthToken.swift in Sources */,
+				8448C23F2679FA97005955D4 /* KeychainKeys.swift in Sources */,
 				8423B97426734E6A0000036F /* AuthenticationService.swift in Sources */,
+				8448C23D2679FA90005955D4 /* KeychainStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

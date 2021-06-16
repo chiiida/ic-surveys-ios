@@ -24,6 +24,7 @@ target 'SurveyApp' do
   pod 'R.swift'
   pod 'SwiftLint'
   pod 'AlamofireNetworkActivityLogger', '~> 3.4'
+  pod 'KeychainAccess'
   
   pod 'Crashlytics'
 
