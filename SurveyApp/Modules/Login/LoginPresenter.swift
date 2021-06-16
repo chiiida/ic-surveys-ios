@@ -49,11 +49,11 @@ extension LoginPresenter: LoginViewOutput {
 
 extension LoginPresenter: LoginInteractorOutput {
     
-    func didAuthenticateEmail(authToken: AuthToken) {
+    func didAuthenticateEmail() {
         router.showHome()
     }
     
-    func didFailToAuthenticateEmail(withError error: APIError) {
+    func didFailToAuthenticateEmail() {
         view?.showError(message: Localize.errorLoginFailed())
     }
 }
