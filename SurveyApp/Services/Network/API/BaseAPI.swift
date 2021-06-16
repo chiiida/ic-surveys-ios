@@ -10,6 +10,12 @@ import Alamofire
 
 final class BaseAPI: API {
     
+    private let userSession: UserSessionProtocol
+
+    init(userSession: UserSessionProtocol) {
+        self.userSession = userSession
+    }
+    
     func url(forEndpoint endpoint: String, baseURL: String) -> String {
         let url = URL(string: baseURL)?.appendingPathComponent(endpoint, isDirectory: false)
         return url?.absoluteString ?? baseURL

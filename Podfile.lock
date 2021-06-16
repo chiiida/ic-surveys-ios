@@ -5,6 +5,7 @@ PODS:
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
+  - KeychainAccess (4.2.2)
   - Keys (1.0.1)
   - Nimble (9.2.0)
   - NimbleExtension (0.1.0)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireNetworkActivityLogger (~> 3.4)
   - Crashlytics
+  - KeychainAccess
   - Keys (from `Pods/CocoaPodsKeys`)
   - Nimble
   - NimbleExtension (from `https://github.com/nimblehq/NimbleExtension`, branch `master`)
@@ -49,6 +51,7 @@ SPEC REPOS:
     - AlamofireNetworkActivityLogger
     - Crashlytics
     - Fabric
+    - KeychainAccess
     - Nimble
     - OHHTTPStubs
     - Quick
@@ -75,6 +78,7 @@ SPEC CHECKSUMS:
   AlamofireNetworkActivityLogger: 162ab8aee00e6267a4304d7cc134e13ccfe3bcc5
   Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
   Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
+  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
   NimbleExtension: acad4290f27afd4241b1ea20f8597889085e2ce7
@@ -86,6 +90,6 @@ SPEC CHECKSUMS:
   Sourcery: 43d8addc35ca31c2ab331cfd34b02421fa53bb7f
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 0393bd6587f16d4181a30d012511f5c738ac88c9
+PODFILE CHECKSUM: 2c3f86ed0fbecc612fd9bfc2ecf156ffcbb8793d
 
 COCOAPODS: 1.10.1
