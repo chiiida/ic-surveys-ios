@@ -16,6 +16,7 @@
 		84276BCB267AF60000E87C1A /* BaseAPISpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BCA267AF60000E87C1A /* BaseAPISpec.swift */; };
 		84276BCD267AF79B00E87C1A /* UserSessionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BCC267AF79B00E87C1A /* UserSessionSpec.swift */; };
 		84276BDA267B24E500E87C1A /* JSON.APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BD9267B24E500E87C1A /* JSON.APIError.swift */; };
+		84276BDE267B284D00E87C1A /* AuthenticationServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BDD267B284D00E87C1A /* AuthenticationServiceSpec.swift */; };
 		842C6F80266DC5AA0017E1CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F7F266DC5AA0017E1CD /* AppDelegate.swift */; };
 		842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F81266DC5AA0017E1CD /* SceneDelegate.swift */; };
 		842C6F89266DC5AB0017E1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842C6F88266DC5AB0017E1CD /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		84276BCA267AF60000E87C1A /* BaseAPISpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPISpec.swift; sourceTree = "<group>"; };
 		84276BCC267AF79B00E87C1A /* UserSessionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionSpec.swift; sourceTree = "<group>"; };
 		84276BD9267B24E500E87C1A /* JSON.APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.APIError.swift; sourceTree = "<group>"; };
+		84276BDD267B284D00E87C1A /* AuthenticationServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceSpec.swift; sourceTree = "<group>"; };
 		842C6F7C266DC5AA0017E1CD /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842C6F7F266DC5AA0017E1CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		842C6F81266DC5AA0017E1CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		84276BC8267AF54500E87C1A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				84276BDC267B283E00E87C1A /* Services */,
 				84276BC9267AF54800E87C1A /* API */,
 			);
 			path = Network;
@@ -270,6 +273,14 @@
 				84276BCC267AF79B00E87C1A /* UserSessionSpec.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		84276BDC267B283E00E87C1A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				84276BDD267B284D00E87C1A /* AuthenticationServiceSpec.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		842C6F73266DC5AA0017E1CD = {
@@ -942,6 +953,7 @@
 				84276BC4267AF51C00E87C1A /* JSON.swift in Sources */,
 				84276BDA267B24E500E87C1A /* JSON.APIError.swift in Sources */,
 				84276BCD267AF79B00E87C1A /* UserSessionSpec.swift in Sources */,
+				84276BDE267B284D00E87C1A /* AuthenticationServiceSpec.swift in Sources */,
 				8416EAFD2680539400F47617 /* AutoMockable.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
