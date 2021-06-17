@@ -11,6 +11,38 @@ import Foundation
 
 extension JSON.AuthenticationService {
     
+    static var authenticateEmailSuccess: Data {
+        """
+        {
+            "data": {
+                "id": 0,
+                "type": "token",
+                "attributes": {
+                    "access_token": "sampleAccessToken",
+                    "token_type": "sampleTokenType",
+                    "expires_in": 7200,
+                    "refresh_token": "sampleRefreshToken",
+                    "created_at": 1623320860
+                }
+            }
+        }
+        """.data(using: .utf8)!
+    }
+    
+    static var authenticateEmailFailure: Data {
+        """
+        {
+            "errors": [
+                {
+                    "source": "Doorkeeper::OAuth::Error",
+                    "detail": "Sample API error detail",
+                    "code": "invalid_grant"
+                }
+            ]
+        }
+        """.data(using: .utf8)!
+    }
+    
     static var sampleUserCredential: Data {
         """
         {
