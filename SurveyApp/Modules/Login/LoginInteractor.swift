@@ -44,11 +44,7 @@ extension LoginInteractor: LoginInteractorInput {
         authenticateEmailRequest = authenticationService?.authenticateEmail(email: email, password: password) { [weak output] result in
             switch result {
             case .success(let authToken):
-                let userDefaults = UserDefaults.standard
-                let accessToken = authToken.data?.attributes?.accessToken
-                let refreshToken = authToken.data?.attributes?.refreshToken
-                userDefaults.setValue(accessToken, forKey: Constants.UserDefaultsKey.accessToken)
-                userDefaults.setValue(refreshToken, forKey: Constants.UserDefaultsKey.refreshToken)
+                UserSessionProvider.shared.userSession?.userCredential = authToken.session?.userCredential
                 output?.didAuthenticateEmail()
             case .failure:
                 output?.didFailToAuthenticateEmail()

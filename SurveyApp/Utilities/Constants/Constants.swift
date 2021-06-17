@@ -23,10 +23,4 @@ enum Constants {
         static let clientId = SurveyAppKeys().clientId
         static let clientSecret = SurveyAppKeys().clientSecret
     }
-    
-    enum UserDefaultsKey {
-
-        static let accessToken: String = "accessToken"
-        static let refreshToken: String = "refreshToken"
-    }
 }
