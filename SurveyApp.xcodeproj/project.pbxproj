@@ -14,6 +14,7 @@
 		84276BC6267AF52D00E87C1A /* JSON+AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BC5267AF52D00E87C1A /* JSON+AuthenticationService.swift */; };
 		84276BCB267AF60000E87C1A /* BaseAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BCA267AF60000E87C1A /* BaseAPITests.swift */; };
 		84276BCD267AF79B00E87C1A /* UserSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BCC267AF79B00E87C1A /* UserSessionTests.swift */; };
+		84276BDA267B24E500E87C1A /* JSON.APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BD9267B24E500E87C1A /* JSON.APIError.swift */; };
 		842C6F80266DC5AA0017E1CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F7F266DC5AA0017E1CD /* AppDelegate.swift */; };
 		842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F81266DC5AA0017E1CD /* SceneDelegate.swift */; };
 		842C6F89266DC5AB0017E1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842C6F88266DC5AB0017E1CD /* Assets.xcassets */; };
@@ -91,6 +92,7 @@
 		84276BC5267AF52D00E87C1A /* JSON+AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON+AuthenticationService.swift"; sourceTree = "<group>"; };
 		84276BCA267AF60000E87C1A /* BaseAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPITests.swift; sourceTree = "<group>"; };
 		84276BCC267AF79B00E87C1A /* UserSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionTests.swift; sourceTree = "<group>"; };
+		84276BD9267B24E500E87C1A /* JSON.APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.APIError.swift; sourceTree = "<group>"; };
 		842C6F7C266DC5AA0017E1CD /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842C6F7F266DC5AA0017E1CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		842C6F81266DC5AA0017E1CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				84276BC3267AF51C00E87C1A /* JSON.swift */,
 				84276BC5267AF52D00E87C1A /* JSON+AuthenticationService.swift */,
+				84276BD9267B24E500E87C1A /* JSON.APIError.swift */,
 			);
 			path = JSONs;
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 				84276BC6267AF52D00E87C1A /* JSON+AuthenticationService.swift in Sources */,
 				84276BCB267AF60000E87C1A /* BaseAPITests.swift in Sources */,
 				84276BC4267AF51C00E87C1A /* JSON.swift in Sources */,
+				84276BDA267B24E500E87C1A /* JSON.APIError.swift in Sources */,
 				84276BCD267AF79B00E87C1A /* UserSessionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

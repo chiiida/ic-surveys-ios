@@ -24,8 +24,8 @@ class BaseAPITests: QuickSpec {
         let userSession = UserSession(keychain: keychain)
         var api: BaseAPI!
         
-        let sampleSuccessData = JSON.AuthenticationService.authenticateEmailSuccess
-        let sampleFailureData = JSON.AuthenticationService.authenticateEmailFailure
+        let sampleSuccessData = JSON.AuthenticationService.sampleUserCredential
+        let sampleFailureData = JSON.APIError.sampleAPIError
         
         describe("BaseAPI") {
             
@@ -43,11 +43,11 @@ class BaseAPITests: QuickSpec {
                     )
 
                     waitUntil(timeout: .seconds(2)) { done in
-                        _ = api.performRequest(with: configuration) { (result: Result<AuthToken, APIError>) in
+                        _ = api.performRequest(with: configuration) { (result: Result<UserCredential, APIError>) in
                             switch result {
-                            case .success(let token):
-                                expect(token.session?.userCredential?.accessToken) == "sampleAccessToken"
-                                expect(token.session?.userCredential?.refreshToken) == "sampleRefreshToken"
+                            case .success(let credentials):
+                                expect(credentials.accessToken) == "sampleAccessToken"
+                                expect(credentials.refreshToken) == "sampleRefreshToken"
                             case .failure:
                                 break
                             }
@@ -71,7 +71,7 @@ class BaseAPITests: QuickSpec {
                     )
 
                     waitUntil(timeout: .seconds(2)) { done in
-                        _ = api.performRequest(with: configuration) { (result: Result<AuthToken, APIError>) in
+                        _ = api.performRequest(with: configuration) { (result: Result<UserCredential, APIError>) in
                             switch result {
                             case .success:
                                 break

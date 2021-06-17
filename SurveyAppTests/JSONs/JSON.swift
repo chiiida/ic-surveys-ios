@@ -9,5 +9,6 @@ import Foundation
 
 enum JSON {
     
+    enum APIError {}
     enum AuthenticationService {}
 }
