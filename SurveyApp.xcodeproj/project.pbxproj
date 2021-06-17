@@ -10,11 +10,14 @@
 		23776A9B91DAFE4E58509E4A /* Pods_SurveyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D2FAF3B790BC56A29D11A9 /* Pods_SurveyAppTests.framework */; };
 		8423B97126734D8C0000036F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423B97026734D8C0000036F /* AuthToken.swift */; };
 		8423B97426734E6A0000036F /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423B97326734E6A0000036F /* AuthenticationService.swift */; };
+		84276BC4267AF51C00E87C1A /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BC3267AF51C00E87C1A /* JSON.swift */; };
+		84276BC6267AF52D00E87C1A /* JSON+AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BC5267AF52D00E87C1A /* JSON+AuthenticationService.swift */; };
+		84276BCB267AF60000E87C1A /* BaseAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BCA267AF60000E87C1A /* BaseAPITests.swift */; };
+		84276BCD267AF79B00E87C1A /* UserSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BCC267AF79B00E87C1A /* UserSessionTests.swift */; };
 		842C6F80266DC5AA0017E1CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F7F266DC5AA0017E1CD /* AppDelegate.swift */; };
 		842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F81266DC5AA0017E1CD /* SceneDelegate.swift */; };
 		842C6F89266DC5AB0017E1CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 842C6F88266DC5AB0017E1CD /* Assets.xcassets */; };
 		842C6F8C266DC5AB0017E1CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842C6F8A266DC5AB0017E1CD /* LaunchScreen.storyboard */; };
-		842C6F97266DC5AB0017E1CD /* SurveyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6F96266DC5AB0017E1CD /* SurveyAppTests.swift */; };
 		842C6FA2266DC5AB0017E1CD /* SurveyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C6FA1266DC5AB0017E1CD /* SurveyAppUITests.swift */; };
 		8434816F2677626F00B7990A /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434816E2677626F00B7990A /* String+Email.swift */; };
 		843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D2266DCB5E00EC3F28 /* LoginRouter.swift */; };
@@ -84,13 +87,16 @@
 		83890797198912A42EEEEC6A /* Pods-SurveyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurveyApp.release.xcconfig"; path = "Target Support Files/Pods-SurveyApp/Pods-SurveyApp.release.xcconfig"; sourceTree = "<group>"; };
 		8423B97026734D8C0000036F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		8423B97326734E6A0000036F /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		84276BC3267AF51C00E87C1A /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		84276BC5267AF52D00E87C1A /* JSON+AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON+AuthenticationService.swift"; sourceTree = "<group>"; };
+		84276BCA267AF60000E87C1A /* BaseAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPITests.swift; sourceTree = "<group>"; };
+		84276BCC267AF79B00E87C1A /* UserSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionTests.swift; sourceTree = "<group>"; };
 		842C6F7C266DC5AA0017E1CD /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		842C6F7F266DC5AA0017E1CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		842C6F81266DC5AA0017E1CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		842C6F88266DC5AB0017E1CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		842C6F8B266DC5AB0017E1CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		842C6F92266DC5AB0017E1CD /* SurveyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		842C6F96266DC5AB0017E1CD /* SurveyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppTests.swift; sourceTree = "<group>"; };
 		842C6F98266DC5AB0017E1CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842C6F9D266DC5AB0017E1CD /* SurveyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		842C6FA1266DC5AB0017E1CD /* SurveyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyAppUITests.swift; sourceTree = "<group>"; };
@@ -211,6 +217,48 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		84276BC1267AF4FD00E87C1A /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				84276BC3267AF51C00E87C1A /* JSON.swift */,
+				84276BC5267AF52D00E87C1A /* JSON+AuthenticationService.swift */,
+			);
+			path = JSONs;
+			sourceTree = "<group>";
+		};
+		84276BC2267AF50100E87C1A /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				84276BC7267AF54200E87C1A /* Services */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		84276BC7267AF54200E87C1A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				84276BC8267AF54500E87C1A /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		84276BC8267AF54500E87C1A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				84276BC9267AF54800E87C1A /* API */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		84276BC9267AF54800E87C1A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84276BCA267AF60000E87C1A /* BaseAPITests.swift */,
+				84276BCC267AF79B00E87C1A /* UserSessionTests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		842C6F73266DC5AA0017E1CD = {
 			isa = PBXGroup;
 			children = (
@@ -252,7 +300,8 @@
 		842C6F95266DC5AB0017E1CD /* SurveyAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				842C6F96266DC5AB0017E1CD /* SurveyAppTests.swift */,
+				84276BC2267AF50100E87C1A /* Tests */,
+				84276BC1267AF4FD00E87C1A /* JSONs */,
 				842C6F98266DC5AB0017E1CD /* Info.plist */,
 			);
 			path = SurveyAppTests;
@@ -543,6 +592,7 @@
 			buildConfigurationList = 842C6FA9266DC5AB0017E1CD /* Build configuration list for PBXNativeTarget "SurveyAppTests" */;
 			buildPhases = (
 				03F3CCFDC9785A04F18E420E /* [CP] Check Pods Manifest.lock */,
+				84276BCE267B0A4200E87C1A /* ShellScript */,
 				842C6F8E266DC5AB0017E1CD /* Sources */,
 				842C6F8F266DC5AB0017E1CD /* Frameworks */,
 				842C6F90266DC5AB0017E1CD /* Resources */,
@@ -592,6 +642,7 @@
 					};
 					842C6F91266DC5AB0017E1CD = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 						TestTargetID = 842C6F7B266DC5AA0017E1CD;
 					};
 					842C6F9C266DC5AB0017E1CD = {
@@ -692,6 +743,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		84276BCE267B0A4200E87C1A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/SurveyAppTests/AutoGeneratedProtocolsMocks,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sourcery\n";
 		};
 		84D0748A2673200C009CFE4C /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -854,7 +923,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842C6F97266DC5AB0017E1CD /* SurveyAppTests.swift in Sources */,
+				84276BC6267AF52D00E87C1A /* JSON+AuthenticationService.swift in Sources */,
+				84276BCB267AF60000E87C1A /* BaseAPITests.swift in Sources */,
+				84276BC4267AF51C00E87C1A /* JSON.swift in Sources */,
+				84276BCD267AF79B00E87C1A /* UserSessionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1135,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G6W2RMB3QM;
 				INFOPLIST_FILE = SurveyAppTests/Info.plist;
@@ -1074,6 +1147,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.SurveyAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SurveyApp.app/SurveyApp";
@@ -1086,6 +1160,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G6W2RMB3QM;
 				INFOPLIST_FILE = SurveyAppTests/Info.plist;
@@ -1232,6 +1307,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G6W2RMB3QM;
 				INFOPLIST_FILE = SurveyAppTests/Info.plist;
@@ -1243,6 +1319,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.nimblehq.SurveyAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SurveyApp.app/SurveyApp";
