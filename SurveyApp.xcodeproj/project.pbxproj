@@ -28,6 +28,7 @@
 		8448C23F2679FA97005955D4 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C23E2679FA97005955D4 /* KeychainKeys.swift */; };
 		8448C2412679FAFF005955D4 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2402679FAFF005955D4 /* UserSession.swift */; };
 		8448C2432679FB1E005955D4 /* UserSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2422679FB1E005955D4 /* UserSessionProvider.swift */; };
+		844CEBB5267C55EE0057FCF7 /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */; };
 		84648400267757D100233656 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846483FF267757D100233656 /* ErrorView.swift */; };
 		8464840726775D6700233656 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840226775D6700233656 /* HomeRouter.swift */; };
 		8464840826775D6700233656 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840326775D6700233656 /* HomeModule.swift */; };
@@ -107,6 +108,7 @@
 		8448C23E2679FA97005955D4 /* KeychainKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeys.swift; sourceTree = "<group>"; };
 		8448C2402679FAFF005955D4 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		8448C2422679FB1E005955D4 /* UserSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionProvider.swift; sourceTree = "<group>"; };
+		844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Error.swift"; sourceTree = "<group>"; };
 		846483FF267757D100233656 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		8464840226775D6700233656 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		8464840326775D6700233656 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
@@ -366,6 +368,14 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
+		844CEBB3267C55B50057FCF7 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		846483FE267757C500233656 /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +416,7 @@
 		84BE6958266F4400001DE0C3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				844CEBB3267C55B50057FCF7 /* UIViewController */,
 				8434816D2677625F00B7990A /* String */,
 				84BE695A266F440F001DE0C3 /* UIFont */,
 			);
@@ -820,6 +831,7 @@
 				843AB4DA266DCB5E00EC3F28 /* LoginInteractor.swift in Sources */,
 				8464840926775D6700233656 /* HomeViewController.swift in Sources */,
 				84D07496267321D7009CFE4C /* APIError.swift in Sources */,
+				844CEBB5267C55EE0057FCF7 /* UIViewController+Error.swift in Sources */,
 				8464840726775D6700233656 /* HomeRouter.swift in Sources */,
 				84D0749C26732231009CFE4C /* NetworkServiceFactory.swift in Sources */,
 				84D0749126732140009CFE4C /* Constants.swift in Sources */,

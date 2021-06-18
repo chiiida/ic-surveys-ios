@@ -9,20 +9,16 @@ import UIKit
 import SnapKit
 
 // sourcery: AutoMockable
-protocol LoginViewInput: AnyObject {
+protocol LoginViewInput: AnyObject, ViewInput {
 
-    var emailInputString: String? { get }
-    var passwordInputString: String? { get }
-    
     func configure()
-    func showError(message: String)
 }
 
 // sourcery: AutoMockable
 protocol LoginViewOutput: AnyObject {
 
     func viewDidLoad()
-    func didPressLogin()
+    func didPressLogin(email: String, password: String)
 }
 
 final class LoginViewController: UIViewController {
@@ -49,25 +45,9 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewInput {
 
-    var emailInputString: String? {
-        get { emailField.text }
-        set { emailField.text = newValue }
-    }
-
-    var passwordInputString: String? {
-        get { passwordField.text }
-        set { passwordField.text = newValue }
-    }
-    
     func configure() {
         setUpLayout()
         setUpViews()
-    }
-    
-    func showError(message: String) {
-        let errorView = ErrorView()
-        errorView.setErrorMessage(message)
-        errorView.show(on: view)
     }
 }
 
@@ -184,6 +164,8 @@ extension LoginViewController {
 extension LoginViewController {
 
     @objc private func didPressLoginButton() {
-        output?.didPressLogin()
+        let email = emailField.text ?? ""
+        let password = passwordField.text ?? ""
+        output?.didPressLogin(email: email, password: password)
     }
 }

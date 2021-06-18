@@ -6,19 +6,17 @@
 //  
 //
 
-import Foundation
-
 // sourcery: AutoMockable
 protocol LoginInteractorInput: AnyObject {
     
-    func authenticateEmail(email: String, password: String)
+    func authenticateWithEmail(email: String, password: String)
 }
 
 // sourcery: AutoMockable
 protocol LoginInteractorOutput: AnyObject {
     
-    func didAuthenticateEmail()
-    func didFailToAuthenticateEmail()
+    func didAuthenticateWithEmail()
+    func didFailToAuthenticateWithEmail()
 }
 
 final class LoginInteractor {
@@ -26,13 +24,18 @@ final class LoginInteractor {
     weak var output: LoginInteractorOutput?
     
     private(set) var authenticationService: AuthenticationServiceProtocol?
+    private(set) var userSessionProvider: UserSessionProviderProtocol?
     
     private var authenticateEmailRequest: Request? {
         didSet { oldValue?.cancel() }
     }
     
-    init(authenticationService: AuthenticationServiceProtocol) {
+    init(
+        authenticationService: AuthenticationServiceProtocol,
+        userSessionProvider: UserSessionProviderProtocol
+    ) {
         self.authenticationService = authenticationService
+        self.userSessionProvider = userSessionProvider
     }
 }
 
@@ -40,15 +43,16 @@ final class LoginInteractor {
 
 extension LoginInteractor: LoginInteractorInput {
     
-    func authenticateEmail(email: String, password: String) {
-        authenticateEmailRequest = authenticationService?.authenticateEmail(email: email, password: password) { [weak output] result in
-            switch result {
-            case .success(let authToken):
-                UserSessionProvider.shared.userSession?.userCredential = authToken.session?.userCredential
-                output?.didAuthenticateEmail()
-            case .failure:
-                output?.didFailToAuthenticateEmail()
+    func authenticateWithEmail(email: String, password: String) {
+        authenticateEmailRequest = authenticationService?
+            .authenticateEmail(email: email, password: password) { [weak output, weak self] result in
+                switch result {
+                case .success(let authToken):
+                    self?.userSessionProvider?.userSession?.userCredential = authToken.session?.userCredential
+                    output?.didAuthenticateWithEmail()
+                case .failure:
+                    output?.didFailToAuthenticateWithEmail()
+                }
             }
-        }
     }
 }
