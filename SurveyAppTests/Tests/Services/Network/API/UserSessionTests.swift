@@ -19,7 +19,7 @@ class UserSessionTests: QuickSpec {
         
         let sampleUserCredential: UserCredential = JSON.AuthenticationService.sampleUserCredential.decoded()
     
-        describe("UserSession") {
+        describe("Test UserSession components") {
             
             beforeEach {
                 keychain = KeychainStorage.default
@@ -34,8 +34,8 @@ class UserSessionTests: QuickSpec {
             
             context("when setting user credentials") {
                 it("should set the access and refresh token in UserSession") {
-                    expect(userSession.userCredential?.accessToken) == "sampleAccessToken"
-                    expect(userSession.userCredential?.refreshToken) == "sampleRefreshToken"
+                    expect(userSession.userCredential?.accessToken) == sampleUserCredential.accessToken
+                    expect(userSession.userCredential?.refreshToken) == sampleUserCredential.refreshToken
                 }
                 it("should be logged in") {
                     expect(UserSessionProvider.shared.isLoggedIn) == true

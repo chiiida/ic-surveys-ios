@@ -23,25 +23,29 @@ class BaseAPITests: QuickSpec {
         let keychain = KeychainStorage.default
         let userSession = UserSession(keychain: keychain)
         var api: BaseAPI!
+        var configuration: RequestConfiguration!
         
         let sampleSuccessData = JSON.AuthenticationService.sampleUserCredential
         let sampleFailureData = JSON.APIError.sampleAPIError
         
-        describe("BaseAPI") {
+        describe("Test BaseAPI perform request") {
             
             context("when making a valid request") {
-                it("returns a decoded object") {
+                
+                beforeEach {
                     api = BaseAPI(userSession: userSession)
 
                     stub(condition: isMethodPOST()) { _ in
                         HTTPStubsResponse(data: sampleSuccessData, statusCode: 200, headers: [:])
                     }
 
-                    let configuration = RequestConfiguration(
+                    configuration = RequestConfiguration(
                         method: .post,
                         url: "\(Defines.baseURL)/test"
                     )
-
+                }
+                
+                it("returns a decoded object") {
                     waitUntil(timeout: .seconds(2)) { done in
                         _ = api.performRequest(with: configuration) { (result: Result<UserCredential, APIError>) in
                             switch result {
@@ -58,18 +62,21 @@ class BaseAPITests: QuickSpec {
             }
             
             context("when making an invalid request") {
-                it("returns an APIError object") {
+                
+                beforeEach {
                     api = BaseAPI(userSession: userSession)
 
                     stub(condition: isMethodPOST()) { _ in
                         HTTPStubsResponse(data: sampleFailureData, statusCode: 400, headers: [:])
                     }
 
-                    let configuration = RequestConfiguration(
+                    configuration = RequestConfiguration(
                         method: .post,
                         url: "\(Defines.baseURL)/test"
                     )
-
+                }
+                
+                it("returns an APIError object") {
                     waitUntil(timeout: .seconds(2)) { done in
                         _ = api.performRequest(with: configuration) { (result: Result<UserCredential, APIError>) in
                             switch result {
@@ -86,7 +93,8 @@ class BaseAPITests: QuickSpec {
             }
         }
         
-        describe("BaseAPI") {
+        describe("Test BaseAPI url") {
+            
             context("when passing a URL path") {
                 it("creates a valid url") {
                     api = BaseAPI(userSession: userSession)
