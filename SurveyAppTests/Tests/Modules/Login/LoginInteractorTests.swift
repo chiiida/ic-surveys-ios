@@ -17,14 +17,19 @@ final class LoginInteractorTests: QuickSpec {
         var interactor: LoginInteractor!
         var output: LoginInteractorOutputMock!
         var authenticationService: AuthenticationServiceProtocolMock!
+        var userSessionProvider: UserSessionProviderProtocol!
         
         describe("LoginInteractor") {
             
             beforeEach {
                 output = LoginInteractorOutputMock()
                 authenticationService = AuthenticationServiceProtocolMock()
+                userSessionProvider = UserSessionProviderProtocolMock()
                 
-                interactor = LoginInteractor(authenticationService: authenticationService)
+                interactor = LoginInteractor(
+                    authenticationService: authenticationService,
+                    userSessionProvider: userSessionProvider
+                )
                 interactor.output = output
             }
             
@@ -36,11 +41,11 @@ final class LoginInteractorTests: QuickSpec {
                         return nil
                     }
 
-                    interactor.authenticateEmail(email: "email@example.com", password: "password")
+                    interactor.authenticateWithEmail(email: "email@example.com", password: "password")
                 }
 
                 it("triggers output call authentication succesfully ") {
-                    expect(output.didAuthenticateEmailCalled) == true
+                    expect(output.didAuthenticateWithEmailCalled) == true
                 }
             }
             
@@ -51,11 +56,11 @@ final class LoginInteractorTests: QuickSpec {
                         return nil
                     }
                     
-                    interactor.authenticateEmail(email: "email@example.com", password: "password")
+                    interactor.authenticateWithEmail(email: "email@example.com", password: "password")
                 }
 
                 it("triggers output call authentication failure ") {
-                    expect(output.didFailToAuthenticateEmailCalled) == true
+                    expect(output.didFailToAuthenticateWithEmailCalled) == true
                 }
             }
         }

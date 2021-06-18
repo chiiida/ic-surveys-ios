@@ -37,36 +37,35 @@ final class LoginPresenterTests: QuickSpec {
             context("when didPressLogin() is called and email and password are valid") {
 
                 beforeEach {
-                    view.emailInputString = "email@example.com"
-                    view.passwordInputString = "password"
-                    presenter.didPressLogin()
+                    let email = "email@example.com"
+                    let password = "password"
+                    presenter.didPressLogin(email: email, password: password)
                 }
                 
-                it("triggers interactor authenticateEmail ") {
-                    expect(interactor.authenticateEmailEmailPasswordCalled) == true
+                it("triggers interactor authenticateEmail") {
+                    expect(interactor.authenticateWithEmailEmailPasswordCalled) == true
                 }
             }
             
             context("when didPressLogin() is called and email and password are empty") {
 
                 beforeEach {
-                    view.emailInputString = ""
-                    view.passwordInputString = ""
-                    presenter.didPressLogin()
+                    let email = ""
+                    let password = ""
+                    presenter.didPressLogin(email: email, password: password)
                 }
 
-                it("should not triggers router to show Home screen") {
-                    expect(interactor.authenticateEmailEmailPasswordCalled) == false
-                    expect(router.showHomeCalled) == false
+                it("should not triggers interactor authenticateEmail") {
+                    expect(interactor.authenticateWithEmailEmailPasswordCalled) == false
                 }
             }
             
             context("when didPressLogin() is called and email is invalid") {
 
                 beforeEach {
-                    view.emailInputString = "email"
-                    view.passwordInputString = "password"
-                    presenter.didPressLogin()
+                    let email = "email"
+                    let password = "password"
+                    presenter.didPressLogin(email: email, password: password)
                 }
 
                 it("triggers view to show error") {
@@ -81,7 +80,7 @@ final class LoginPresenterTests: QuickSpec {
             context("when didAuthenticateEmail() is called and email and password are valid") {
 
                 beforeEach {
-                    presenter.didAuthenticateEmail()
+                    presenter.didAuthenticateWithEmail()
                 }
 
                 it("triggers router to show Home screen") {
@@ -92,7 +91,7 @@ final class LoginPresenterTests: QuickSpec {
             context("when didFailToAuthenticateEmail() is called and email and password are valid") {
 
                 beforeEach {
-                    presenter.didFailToAuthenticateEmail()
+                    presenter.didFailToAuthenticateWithEmail()
                 }
 
                 it("triggers view to show error") {
