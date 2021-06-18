@@ -60,7 +60,7 @@ extension SplashViewController {
         }
 
         logoImageView.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+            $0.center.equalToSuperview()
             $0.height.equalTo(48.0)
             $0.width.equalTo(202.0)
         }
