@@ -11,17 +11,12 @@ import UIKit
 final class SplashPresenter {
 
     let router: SplashRouterInput
-    let interactor: SplashInteractorInput
 
     weak var view: SplashViewInput?
     weak var output: SplashOutput?
 
-    init(
-        router: SplashRouterInput,
-        interactor: SplashInteractorInput
-    ) {
+    init(router: SplashRouterInput) {
         self.router = router
-        self.interactor = interactor
     }
 }
 
@@ -31,10 +26,6 @@ extension SplashPresenter: SplashViewOutput {
     func viewDidLoad() {
         view?.configure()
     }
-}
-
-// MARK: - SplashInteractorOutput
-extension SplashPresenter: SplashInteractorOutput {
 }
 
 // MARK: - SplashInput
