@@ -520,6 +520,8 @@
 				844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */,
 			);
 			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		844CEBAD267C39710057FCF7 /* JSONs */ = {
 			isa = PBXGroup;
 			children = (
