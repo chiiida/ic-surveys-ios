@@ -1,4 +1,3 @@
-// swiftlint:disable:this file_name
 // swiftlint:disable all
 //
 //  JSON+AuthenticationService.swift
