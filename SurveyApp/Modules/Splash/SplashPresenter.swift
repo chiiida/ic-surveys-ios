@@ -26,6 +26,13 @@ extension SplashPresenter: SplashViewOutput {
     func viewDidLoad() {
         view?.configure()
     }
+    
+    func showNextScreen() {
+        // TODO: update logic
+        if !UserSessionProvider.shared.isLoggedIn {
+            router.showLogin()
+        }
+    }
 }
 
 // MARK: - SplashInput
