@@ -34,13 +34,13 @@ extension LoginPresenter: LoginViewOutput {
     }
     
     func didPressLogin(email: String, password: String) {
-        if email.isEmpty || password.isEmpty { return }
+        guard !email.isEmpty && !password.isEmpty else { return }
 
-        if email.isValidEmail() {
-            interactor.authenticateWithEmail(email: email, password: password)
-        } else {
+        guard email.isValidEmail() else {
             view?.showError(message: Localize.errorInvalidEmail())
+            return
         }
+        interactor.authenticateWithEmail(email: email, password: password)
     }
 }
 

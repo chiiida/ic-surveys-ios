@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol ViewInput {
+protocol ShowErrorView {
     
     func showError(message: String)
 }
 
-extension ViewInput where Self: UIViewController {
+extension ShowErrorView where Self: UIViewController {
     
     func showError(message: String) {
         let errorView = ErrorView()
