@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol ShowErrorView {
+protocol ErrorShowable {
     
     func showError(message: String)
 }
 
-extension ShowErrorView where Self: UIViewController {
+extension ErrorShowable where Self: UIViewController {
     
     func showError(message: String) {
         let errorView = ErrorView()

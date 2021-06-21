@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 // sourcery: AutoMockable
-protocol LoginViewInput: AnyObject, ShowErrorView {
+protocol LoginViewInput: AnyObject, ErrorShowable {
 
     func configure()
 }
@@ -21,7 +21,7 @@ protocol LoginViewOutput: AnyObject {
     func didPressLogin(email: String, password: String)
 }
 
-final class LoginViewController: UIViewController, ShowErrorView {
+final class LoginViewController: UIViewController {
 
     var output: LoginViewOutput?
     
