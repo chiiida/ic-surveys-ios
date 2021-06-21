@@ -17,6 +17,7 @@ final class AuthenticationServiceSpec: QuickSpec {
     override func spec() {
 
         var authenticationService: AuthenticationService!
+        var userSession: UserSessionProtocolMock!
         var api: BaseAPI!
 
         describe("AuthenticationService") {
@@ -26,8 +27,7 @@ final class AuthenticationServiceSpec: QuickSpec {
             }
 
             beforeEach {
-                let keychain = KeychainStorage.default
-                let userSession = UserSession(keychain: keychain)
+                userSession = UserSessionProtocolMock()
                 api = BaseAPI(userSession: userSession)
 
                 authenticationService = AuthenticationService(api: api, baseURL: Defines.baseURL)
