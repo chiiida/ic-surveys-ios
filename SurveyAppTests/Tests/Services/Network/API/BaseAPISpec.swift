@@ -1,5 +1,5 @@
 //
-//  BaseAPITests.swift
+//  BaseAPISpec.swift
 //  SurveyAppTests
 //
 //  Created by Chananchida F. on 6/17/21.
@@ -16,7 +16,7 @@ enum Defines {
     static let baseURL: String = "https://baseurl.com"
 }
 
-class BaseAPITests: QuickSpec {
+class BaseAPISpec: QuickSpec {
 
     override func spec() {
         
@@ -28,7 +28,6 @@ class BaseAPITests: QuickSpec {
         let sampleFailureData = JSON.APIError.sampleAPIError
         
         describe("Test BaseAPI perform request") {
-            
             beforeEach {
                 userSession = UserSessionProtocolMock()
                 api = BaseAPI(userSession: userSession)
@@ -39,7 +38,6 @@ class BaseAPITests: QuickSpec {
             }
             
             context("when making a valid request") {
-                
                 beforeEach {
                     stub(condition: isMethodPOST()) { _ in
                         HTTPStubsResponse(data: sampleSuccessData, statusCode: 200, headers: [:])
@@ -68,7 +66,6 @@ class BaseAPITests: QuickSpec {
             }
             
             context("when making an invalid request") {
-                
                 beforeEach {
                     stub(condition: isMethodPOST()) { _ in
                         HTTPStubsResponse(data: sampleFailureData, statusCode: 400, headers: [:])
@@ -98,7 +95,6 @@ class BaseAPITests: QuickSpec {
         }
         
         describe("Test BaseAPI url") {
-            
             context("when passing a URL path") {
                 it("creates a valid url") {
                     api = BaseAPI(userSession: userSession)

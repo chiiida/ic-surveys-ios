@@ -1,5 +1,5 @@
 //
-//  UserSessionTests.swift
+//  UserSessionSpec.swift
 //  SurveyAppTests
 //
 //  Created by Chananchida F. on 6/17/21.
@@ -10,7 +10,7 @@ import Nimble
 
 @testable import SurveyApp
 
-class UserSessionTests: QuickSpec {
+class UserSessionSpec: QuickSpec {
     
     override func spec() {
         
@@ -20,7 +20,6 @@ class UserSessionTests: QuickSpec {
         let sampleUserCredential: UserCredential = JSON.AuthenticationService.sampleUserCredential.decoded()
     
         describe("Test UserSession components") {
-            
             beforeEach {
                 keychain = KeychainStorage.default
                 userSession = UserSession(keychain: keychain)
@@ -33,20 +32,29 @@ class UserSessionTests: QuickSpec {
             }
             
             context("when setting user credentials") {
-                it("should set the access and refresh token in UserSession") {
+                it("should set the access token in UserSession") {
                     expect(userSession.userCredential?.accessToken) == sampleUserCredential.accessToken
+                }
+                
+                it("should set the refresh token in UserSession") {
                     expect(userSession.userCredential?.refreshToken) == sampleUserCredential.refreshToken
                 }
+                
                 it("should be logged in") {
                     expect(UserSessionProvider.shared.isLoggedIn) == true
                 }
             }
             
             context("when clearing credentials in UserSessionProvider") {
-                it("should delete credentials in UserSession") {
+                beforeEach {
                     UserSessionProvider.shared.clearCredentials()
-
+                }
+                
+                it("should delete credentials in UserSession") {
                     expect(userSession.userCredential?.accessToken).to(beNil())
+                }
+                
+                it("should not be logged in") {
                     expect(UserSessionProvider.shared.isLoggedIn) == false
                 }
             }
