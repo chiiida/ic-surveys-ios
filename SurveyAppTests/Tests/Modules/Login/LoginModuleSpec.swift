@@ -1,5 +1,5 @@
 //
-//  LoginModuleTests.swift
+//  LoginModuleSpec.swift
 //  SurveyApp Tests
 //
 //  Created by Chananchida F. on 6/17/21.
@@ -11,16 +11,14 @@ import Nimble
 
 @testable import SurveyApp
 
-final class LoginModuleTests: QuickSpec {
+final class LoginModuleSpec: QuickSpec {
 
     override func spec() {
         var output: LoginOutput!
         var module: LoginModule!
         
-        describe("LoginModule") {
-            
+        describe("a LoginModule") {
             context("when initialize module") {
-             
                 beforeEach {
                     output = LoginOutputMock()
                     module = LoginModule()

@@ -1,5 +1,5 @@
 //
-//  LoginRouterTests.swift
+//  LoginRouterSpec.swift
 //  SurveyApp Tests
 //
 //  Created by Chananchida F. on 6/17/21.
@@ -11,15 +11,14 @@ import Nimble
 
 @testable import SurveyApp
 
-final class LoginRouterTests: QuickSpec {
+final class LoginRouterSpec: QuickSpec {
 
     override func spec() {
         var router: LoginRouter!
         var viewController: LoginViewController!
         var window: UIWindow!
         
-        describe("LoginRouter") {
-            
+        describe("a LoginRouter") {
             beforeEach {
                 viewController = LoginViewController()
                 viewController.output = LoginViewOutputMock()

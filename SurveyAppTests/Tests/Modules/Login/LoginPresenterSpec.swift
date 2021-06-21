@@ -11,7 +11,7 @@ import Nimble
 
 @testable import SurveyApp
 
-final class LoginPresenterTests: QuickSpec {
+final class LoginPresenterSpec: QuickSpec {
     
     override func spec() {
         var router: LoginRouterInputMock!
@@ -20,8 +20,7 @@ final class LoginPresenterTests: QuickSpec {
         var output: LoginOutputMock!
         var presenter: LoginPresenter!
         
-        describe("LoginPresenter") {
-            
+        describe("a LoginPresenter") {
             beforeEach {
                 router = LoginRouterInputMock()
                 interactor = LoginInteractorInputMock()
@@ -35,7 +34,6 @@ final class LoginPresenterTests: QuickSpec {
             }
             
             context("when didPressLogin() is called and email and password are valid") {
-
                 beforeEach {
                     let email = "email@example.com"
                     let password = "password"
@@ -48,7 +46,6 @@ final class LoginPresenterTests: QuickSpec {
             }
             
             context("when didPressLogin() is called and email and password are empty") {
-
                 beforeEach {
                     let email = ""
                     let password = ""
@@ -61,7 +58,6 @@ final class LoginPresenterTests: QuickSpec {
             }
             
             context("when didPressLogin() is called and email is invalid") {
-
                 beforeEach {
                     let email = "email"
                     let password = "password"
@@ -78,7 +74,6 @@ final class LoginPresenterTests: QuickSpec {
             }
             
             context("when didAuthenticateEmail() is called and email and password are valid") {
-
                 beforeEach {
                     presenter.didAuthenticateWithEmail()
                 }
@@ -89,7 +84,6 @@ final class LoginPresenterTests: QuickSpec {
             }
             
             context("when didFailToAuthenticateEmail() is called and email and password are valid") {
-
                 beforeEach {
                     presenter.didFailToAuthenticateWithEmail()
                 }

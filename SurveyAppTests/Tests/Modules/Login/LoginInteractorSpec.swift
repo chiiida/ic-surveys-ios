@@ -11,7 +11,7 @@ import Nimble
 
 @testable import SurveyApp
 
-final class LoginInteractorTests: QuickSpec {
+final class LoginInteractorSpec: QuickSpec {
 
     override func spec() {
         var interactor: LoginInteractor!
@@ -19,8 +19,7 @@ final class LoginInteractorTests: QuickSpec {
         var authenticationService: AuthenticationServiceProtocolMock!
         var userSessionProvider: UserSessionProviderProtocol!
         
-        describe("LoginInteractor") {
-            
+        describe("a LoginInteractor") {
             beforeEach {
                 output = LoginInteractorOutputMock()
                 authenticationService = AuthenticationServiceProtocolMock()
@@ -44,7 +43,7 @@ final class LoginInteractorTests: QuickSpec {
                     interactor.authenticateWithEmail(email: "email@example.com", password: "password")
                 }
 
-                it("triggers output call authentication succesfully ") {
+                it("triggers output call authentication with email succesfully ") {
                     expect(output.didAuthenticateWithEmailCalled) == true
                 }
             }
@@ -59,7 +58,7 @@ final class LoginInteractorTests: QuickSpec {
                     interactor.authenticateWithEmail(email: "email@example.com", password: "password")
                 }
 
-                it("triggers output call authentication failure ") {
+                it("triggers output call authentication with email failure ") {
                     expect(output.didFailToAuthenticateWithEmailCalled) == true
                 }
             }

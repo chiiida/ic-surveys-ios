@@ -1,5 +1,5 @@
 //
-//  LoginViewControllerTests.swift
+//  LoginViewControllerSpec.swift
 //  SurveyApp Tests
 //
 //  Created by Chananchida F. on 6/17/21.
@@ -11,14 +11,13 @@ import Nimble
 
 @testable import SurveyApp
 
-final class LoginViewControllerTests: QuickSpec {
+final class LoginViewControllerSpec: QuickSpec {
     
     override func spec() {
         var viewController: LoginViewController!
         var output: LoginViewOutputMock!
         
-        describe("LoginViewController") {
-            
+        describe("a LoginViewController") {
             beforeEach {
                 output = LoginViewOutputMock()
                 
@@ -27,7 +26,6 @@ final class LoginViewControllerTests: QuickSpec {
             }
             
             context("when viewDidLoad() is called") {
-
                 beforeEach {
                     viewController.viewDidLoad()
                 }
