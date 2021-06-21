@@ -20,8 +20,7 @@ class BaseAPITests: QuickSpec {
 
     override func spec() {
         
-        let keychain = KeychainStorage.default
-        let userSession = UserSession(keychain: keychain)
+        var userSession: UserSessionProtocolMock!
         var api: BaseAPI!
         var configuration: RequestConfiguration!
         
@@ -30,11 +29,18 @@ class BaseAPITests: QuickSpec {
         
         describe("Test BaseAPI perform request") {
             
+            beforeEach {
+                userSession = UserSessionProtocolMock()
+                api = BaseAPI(userSession: userSession)
+            }
+            
+            afterEach {
+                HTTPStubs.removeAllStubs()
+            }
+            
             context("when making a valid request") {
                 
                 beforeEach {
-                    api = BaseAPI(userSession: userSession)
-
                     stub(condition: isMethodPOST()) { _ in
                         HTTPStubsResponse(data: sampleSuccessData, statusCode: 200, headers: [:])
                     }
@@ -64,8 +70,6 @@ class BaseAPITests: QuickSpec {
             context("when making an invalid request") {
                 
                 beforeEach {
-                    api = BaseAPI(userSession: userSession)
-
                     stub(condition: isMethodPOST()) { _ in
                         HTTPStubsResponse(data: sampleFailureData, statusCode: 400, headers: [:])
                     }

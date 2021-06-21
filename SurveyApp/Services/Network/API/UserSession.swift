@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol UserSessionProtocol: AnyObject {
 
     var userCredential: UserCredential? { get set }
