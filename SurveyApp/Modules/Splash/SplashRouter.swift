@@ -13,6 +13,7 @@ protocol SplashRouterInput: AnyObject {
 
     func show(on window: UIWindow)
     func showLogin()
+    func showHome()
 }
 
 final class SplashRouter {
@@ -36,6 +37,12 @@ extension SplashRouter: SplashRouterInput {
     func showLogin() {
         guard let window = viewController?.view.window else { return }
         let module = LoginModule()
+        module.router.show(on: window)
+    }
+    
+    func showHome() {
+        guard let window = viewController?.view.window else { return }
+        let module = HomeModule()
         module.router.show(on: window)
     }
 }

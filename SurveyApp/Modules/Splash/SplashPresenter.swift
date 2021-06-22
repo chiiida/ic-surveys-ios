@@ -28,10 +28,12 @@ extension SplashPresenter: SplashViewOutput {
     }
     
     func showNextScreen() {
-        // TODO: update logic
-        if !UserSessionProvider.shared.isLoggedIn {
-            router.showLogin()
+        if UserSessionProvider.shared.isLoggedIn {
+            router.showHome()
+            return
         }
+        
+        router.showLogin()
     }
 }
 
