@@ -19,7 +19,7 @@ class UserSessionSpec: QuickSpec {
         
         let sampleUserCredential: UserCredential = JSON.AuthenticationService.sampleUserCredential.decoded()
     
-        describe("Test UserSession components") {
+        describe("UserSession components") {
             beforeEach {
                 keychain = KeychainStorage.default
                 userSession = UserSession(keychain: keychain)

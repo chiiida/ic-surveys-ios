@@ -27,7 +27,7 @@ class BaseAPISpec: QuickSpec {
         let sampleSuccessData = JSON.AuthenticationService.sampleUserCredential
         let sampleFailureData = JSON.APIError.sampleAPIError
         
-        describe("Test BaseAPI perform request") {
+        describe("BaseAPI performs a request") {
             beforeEach {
                 userSession = UserSessionProtocolMock()
                 api = BaseAPI(userSession: userSession)
@@ -37,7 +37,7 @@ class BaseAPISpec: QuickSpec {
                 HTTPStubs.removeAllStubs()
             }
             
-            context("when making a valid request") {
+            context("when the request returns success") {
                 beforeEach {
                     stub(condition: isMethodPOST()) { _ in
                         HTTPStubsResponse(data: sampleSuccessData, statusCode: 200, headers: [:])
@@ -65,7 +65,7 @@ class BaseAPISpec: QuickSpec {
                 }
             }
             
-            context("when making an invalid request") {
+            context("when the request returns failure") {
                 beforeEach {
                     stub(condition: isMethodPOST()) { _ in
                         HTTPStubsResponse(data: sampleFailureData, statusCode: 400, headers: [:])
@@ -94,7 +94,7 @@ class BaseAPISpec: QuickSpec {
             }
         }
         
-        describe("Test BaseAPI url") {
+        describe("BaseAPI") {
             context("when passing a URL path") {
                 it("creates a valid url") {
                     api = BaseAPI(userSession: userSession)
