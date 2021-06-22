@@ -24,12 +24,12 @@ final class LoginViewControllerSpec: QuickSpec {
                 viewController.output = output
             }
 
-            context("when viewDidLoad() is called") {
+            context("when viewDidLoad is called") {
                 beforeEach {
                     viewController.viewDidLoad()
                 }
 
-                it("calls presenter viewDidLoad()") {
+                it("calls presenter viewDidLoad") {
                     expect(output.viewDidLoadCalled) == true
                 }
             }

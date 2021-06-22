@@ -32,7 +32,7 @@ final class LoginPresenterSpec: QuickSpec {
 
             }
 
-            context("when didPressLogin() is called and email and password are valid") {
+            context("when didPressLogin is called with valid email and password") {
                 beforeEach {
                     let email = "email@example.com"
                     let password = "password"
@@ -44,7 +44,7 @@ final class LoginPresenterSpec: QuickSpec {
                 }
             }
 
-            context("when didPressLogin() is called and email and password are empty") {
+            context("when didPressLogin is called with empty email and password") {
                 beforeEach {
                     let email = ""
                     let password = ""
@@ -56,7 +56,7 @@ final class LoginPresenterSpec: QuickSpec {
                 }
             }
 
-            context("when didPressLogin() is called and email is invalid") {
+            context("when didPressLogin is called with invalid email") {
                 beforeEach {
                     let email = "email"
                     let password = "password"
@@ -72,7 +72,7 @@ final class LoginPresenterSpec: QuickSpec {
                 }
             }
 
-            context("when didAuthenticateEmail() is called and email and password are valid") {
+            context("when didAuthenticateEmail is called with valid email and password") {
                 beforeEach {
                     presenter.didAuthenticateWithEmail()
                 }
@@ -82,7 +82,7 @@ final class LoginPresenterSpec: QuickSpec {
                 }
             }
 
-            context("when didFailToAuthenticateEmail() is called and email and password are valid") {
+            context("when didFailToAuthenticateEmail is called with valid email and password") {
                 beforeEach {
                     presenter.didFailToAuthenticateWithEmail()
                 }
@@ -91,7 +91,7 @@ final class LoginPresenterSpec: QuickSpec {
                     expect(view.showErrorMessageCalled) == true
                 }
 
-                it("view should receive error message correctly") {
+                it("view should receives error message correctly") {
                     expect(view.showErrorMessageReceivedMessage) == Localize.errorLoginFailed()
                 }
             }

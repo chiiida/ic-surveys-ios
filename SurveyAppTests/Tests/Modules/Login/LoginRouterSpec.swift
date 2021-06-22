@@ -27,14 +27,14 @@ final class LoginRouterSpec: QuickSpec {
                 _ = viewController.view
             }
 
-            context("when showHome() is call") {
+            context("when showHome is called") {
                 beforeEach {
                     window = UIWindow()
                     window.addSubview(viewController.view)
                     router.showHome()
                 }
 
-                it("show a HomeModule view") {
+                it("shows a HomeModule view") {
                     expect((window?.rootViewController as? UINavigationController)?
                             .viewControllers.first).to(beAKindOf(HomeViewController.self))
                 }

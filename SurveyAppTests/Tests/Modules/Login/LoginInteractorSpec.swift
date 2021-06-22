@@ -31,34 +31,36 @@ final class LoginInteractorSpec: QuickSpec {
                 interactor.output = output
             }
 
-            context("when authenticateEmail(email:, password:) is called and returns success") {
-                beforeEach {
-                    authenticationService.authenticateEmailEmailPasswordCompletionClosure = { _, _, closure in
-                        let data: AuthToken = JSON.AuthenticationService.authenticateEmailSuccess.decoded()
-                        closure(.success(data))
-                        return nil
+            describe("when authenticateEmail is called") {
+                context("the request returns success") {
+                    beforeEach {
+                        authenticationService.authenticateEmailEmailPasswordCompletionClosure = { _, _, closure in
+                            let data: AuthToken = JSON.AuthenticationService.authenticateEmailSuccess.decoded()
+                            closure(.success(data))
+                            return nil
+                        }
+
+                        interactor.authenticateWithEmail(email: "email@example.com", password: "password")
                     }
 
-                    interactor.authenticateWithEmail(email: "email@example.com", password: "password")
+                    it("triggers output call authentication with email succesfully ") {
+                        expect(output.didAuthenticateWithEmailCalled) == true
+                    }
                 }
 
-                it("triggers output call authentication with email succesfully ") {
-                    expect(output.didAuthenticateWithEmailCalled) == true
-                }
-            }
+                context("the request returns failure") {
+                    beforeEach {
+                        authenticationService.authenticateEmailEmailPasswordCompletionClosure = { _, _, closure in
+                            closure(.failure(APIError()))
+                            return nil
+                        }
 
-            context("when authenticateEmail(email:, password:) is called and returns failure") {
-                beforeEach {
-                    authenticationService.authenticateEmailEmailPasswordCompletionClosure = { _, _, closure in
-                        closure(.failure(APIError()))
-                        return nil
+                        interactor.authenticateWithEmail(email: "email@example.com", password: "password")
                     }
 
-                    interactor.authenticateWithEmail(email: "email@example.com", password: "password")
-                }
-
-                it("triggers output call authentication with email failure ") {
-                    expect(output.didFailToAuthenticateWithEmailCalled) == true
+                    it("triggers output call authentication with email failure ") {
+                        expect(output.didFailToAuthenticateWithEmailCalled) == true
+                    }
                 }
             }
         }
