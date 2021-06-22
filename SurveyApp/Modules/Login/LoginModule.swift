@@ -33,9 +33,15 @@ final class LoginModule {
     var input: LoginInput { presenter }
 
     init() {
+        let authenticationService = NetworkServiceFactory.shared.createAuthenticationService()
+        let userSessionProvider = UserSessionProvider.shared
+        
         view = LoginViewController()
         router = LoginRouter()
-        interactor = LoginInteractor()
+        interactor = LoginInteractor(
+            authenticationService: authenticationService,
+            userSessionProvider: userSessionProvider
+        )
         presenter = LoginPresenter(
             router: router,
             interactor: interactor

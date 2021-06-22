@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 // sourcery: AutoMockable
-protocol LoginViewInput: AnyObject {
+protocol LoginViewInput: AnyObject, ErrorShowable {
 
     func configure()
 }
@@ -18,6 +18,7 @@ protocol LoginViewInput: AnyObject {
 protocol LoginViewOutput: AnyObject {
 
     func viewDidLoad()
+    func didPressLogin(email: String, password: String)
 }
 
 final class LoginViewController: UIViewController {
@@ -125,6 +126,7 @@ extension LoginViewController {
         loginButton.titleLabel?.font = .bold(ofSize: .body)
         loginButton.tintColor = .black
         loginButton.layer.cornerRadius = 10.0
+        loginButton.addTarget(self, action: #selector(didPressLoginButton), for: .touchUpInside)
         
         setUpTextField()
         setUpBlurOverlayView()
@@ -154,5 +156,16 @@ extension LoginViewController {
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.25)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.75)
+    }
+}
+
+// MARK: – Actions
+
+extension LoginViewController {
+
+    @objc private func didPressLoginButton() {
+        let email = emailField.text ?? ""
+        let password = passwordField.text ?? ""
+        output?.didPressLogin(email: email, password: password)
     }
 }
