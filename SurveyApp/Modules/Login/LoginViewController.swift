@@ -38,8 +38,6 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
-        setUpLayout()
-        setUpViews()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,7 +50,10 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewInput {
 
-    func configure() {}
+    func configure() {
+        setUpLayout()
+        setUpViews()
+    }
 }
 
 // MARK: - Private functions
