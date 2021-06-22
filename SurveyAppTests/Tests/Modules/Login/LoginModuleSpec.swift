@@ -3,9 +3,8 @@
 //  SurveyApp Tests
 //
 //  Created by Chananchida F. on 6/17/21.
-//  
 //
-
+//
 import Quick
 import Nimble
 
@@ -16,7 +15,7 @@ final class LoginModuleSpec: QuickSpec {
     override func spec() {
         var output: LoginOutput!
         var module: LoginModule!
-        
+
         describe("a LoginModule") {
             context("when initialize module") {
                 beforeEach {
@@ -24,7 +23,7 @@ final class LoginModuleSpec: QuickSpec {
                     module = LoginModule()
                     module.output = output
                 }
-                
+
                 it("sets view's output with presenter") {
                     let view = module.view
                     expect(view.output).to(beAKindOf(LoginPresenter.self))

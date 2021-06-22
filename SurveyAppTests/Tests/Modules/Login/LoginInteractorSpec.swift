@@ -1,11 +1,10 @@
 //
-//  LoginInteractorTests.swift
+//  LoginInteractorSpec.swift
 //  SurveyApp Tests
 //
 //  Created by Chananchida F. on 6/17/21.
-//  
 //
-
+//
 import Quick
 import Nimble
 
@@ -18,20 +17,20 @@ final class LoginInteractorSpec: QuickSpec {
         var output: LoginInteractorOutputMock!
         var authenticationService: AuthenticationServiceProtocolMock!
         var userSessionProvider: UserSessionProviderProtocol!
-        
+
         describe("a LoginInteractor") {
             beforeEach {
                 output = LoginInteractorOutputMock()
                 authenticationService = AuthenticationServiceProtocolMock()
                 userSessionProvider = UserSessionProviderProtocolMock()
-                
+
                 interactor = LoginInteractor(
                     authenticationService: authenticationService,
                     userSessionProvider: userSessionProvider
                 )
                 interactor.output = output
             }
-            
+
             context("when authenticateEmail(email:, password:) is called and returns success") {
                 beforeEach {
                     authenticationService.authenticateEmailEmailPasswordCompletionClosure = { _, _, closure in
@@ -47,14 +46,14 @@ final class LoginInteractorSpec: QuickSpec {
                     expect(output.didAuthenticateWithEmailCalled) == true
                 }
             }
-            
+
             context("when authenticateEmail(email:, password:) is called and returns failure") {
                 beforeEach {
                     authenticationService.authenticateEmailEmailPasswordCompletionClosure = { _, _, closure in
                         closure(.failure(APIError()))
                         return nil
                     }
-                    
+
                     interactor.authenticateWithEmail(email: "email@example.com", password: "password")
                 }
 

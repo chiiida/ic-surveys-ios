@@ -3,9 +3,8 @@
 //  SurveyApp Tests
 //
 //  Created by Chananchida F. on 6/17/21.
-//  
 //
-
+//
 import Quick
 import Nimble
 
@@ -17,7 +16,7 @@ final class LoginRouterSpec: QuickSpec {
         var router: LoginRouter!
         var viewController: LoginViewController!
         var window: UIWindow!
-        
+
         describe("a LoginRouter") {
             beforeEach {
                 viewController = LoginViewController()
@@ -27,7 +26,7 @@ final class LoginRouterSpec: QuickSpec {
                 router.view = viewController
                 _ = viewController.view
             }
-            
+
             context("when showHome() is call") {
                 beforeEach {
                     window = UIWindow()
