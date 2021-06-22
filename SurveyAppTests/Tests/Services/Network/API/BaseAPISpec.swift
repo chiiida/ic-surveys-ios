@@ -27,7 +27,7 @@ class BaseAPISpec: QuickSpec {
         let sampleSuccessData = JSON.AuthenticationService.sampleUserCredential
         let sampleFailureData = JSON.APIError.sampleAPIError
         
-        describe("BaseAPI performs a request") {
+        describe("a BaseAPI") {
             beforeEach {
                 userSession = UserSessionProtocolMock()
                 api = BaseAPI(userSession: userSession)
@@ -37,66 +37,68 @@ class BaseAPISpec: QuickSpec {
                 HTTPStubs.removeAllStubs()
             }
             
-            context("when the request returns success") {
-                beforeEach {
-                    stub(condition: isMethodPOST()) { _ in
-                        HTTPStubsResponse(data: sampleSuccessData, statusCode: 200, headers: [:])
-                    }
+            describe("when it performs a request") {
+                context("the request returns success") {
+                    beforeEach {
+                        stub(condition: isMethodPOST()) { _ in
+                            HTTPStubsResponse(data: sampleSuccessData, statusCode: 200, headers: [:])
+                        }
 
-                    configuration = RequestConfiguration(
-                        method: .post,
-                        url: "\(Defines.baseURL)/test"
-                    )
-                }
-                
-                it("returns a decoded object") {
-                    waitUntil(timeout: .seconds(2)) { done in
-                        _ = api.performRequest(with: configuration) { (result: Result<UserCredential, APIError>) in
-                            switch result {
-                            case .success(let credentials):
-                                expect(credentials.accessToken) == "sampleAccessToken"
-                                expect(credentials.refreshToken) == "sampleRefreshToken"
-                            case .failure:
-                                break
+                        configuration = RequestConfiguration(
+                            method: .post,
+                            url: "\(Defines.baseURL)/test"
+                        )
+                    }
+                    
+                    it("returns a decoded object") {
+                        waitUntil(timeout: .seconds(2)) { done in
+                            _ = api.performRequest(with: configuration) { (result: Result<UserCredential, APIError>) in
+                                switch result {
+                                case .success(let credentials):
+                                    expect(credentials.accessToken) == "sampleAccessToken"
+                                    expect(credentials.refreshToken) == "sampleRefreshToken"
+                                case .failure:
+                                    break
+                                }
+                                done()
                             }
-                            done()
                         }
                     }
                 }
-            }
             
-            context("when the request returns failure") {
-                beforeEach {
-                    stub(condition: isMethodPOST()) { _ in
-                        HTTPStubsResponse(data: sampleFailureData, statusCode: 400, headers: [:])
-                    }
+                context("the request returns failure") {
+                    beforeEach {
+                        stub(condition: isMethodPOST()) { _ in
+                            HTTPStubsResponse(data: sampleFailureData, statusCode: 400, headers: [:])
+                        }
 
-                    configuration = RequestConfiguration(
-                        method: .post,
-                        url: "\(Defines.baseURL)/test"
-                    )
-                }
-                
-                it("returns an APIError object") {
-                    waitUntil(timeout: .seconds(2)) { done in
-                        _ = api.performRequest(with: configuration) { (result: Result<UserCredential, APIError>) in
-                            switch result {
-                            case .success:
-                                break
-                            case .failure(let error):
-                                expect(error).to(beAKindOf(APIError.self))
-                                expect(error.errors?[0].detail) == "Sample API error detail"
+                        configuration = RequestConfiguration(
+                            method: .post,
+                            url: "\(Defines.baseURL)/test"
+                        )
+                    }
+                    
+                    it("returns an APIError object") {
+                        waitUntil(timeout: .seconds(2)) { done in
+                            _ = api.performRequest(with: configuration) { (result: Result<UserCredential, APIError>) in
+                                switch result {
+                                case .success:
+                                    break
+                                case .failure(let error):
+                                    expect(error).to(beAKindOf(APIError.self))
+                                    expect(error.errors?[0].detail) == "Sample API error detail"
+                                }
+                                done()
                             }
-                            done()
                         }
                     }
                 }
             }
         }
         
-        describe("BaseAPI") {
+        describe("a BaseAPI") {
             context("when passing a URL path") {
-                it("creates a valid url") {
+                it("creates a valid URL") {
                     api = BaseAPI(userSession: userSession)
                     
                     var url = api.url(forEndpoint: "test", baseURL: "http://sample.com")
