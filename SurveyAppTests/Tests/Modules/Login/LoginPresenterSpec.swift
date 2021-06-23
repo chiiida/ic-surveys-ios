@@ -93,7 +93,7 @@ final class LoginPresenterSpec: QuickSpec {
                     expect(view.showErrorMessageCalled) == true
                 }
 
-                it("view should receives error message correctly") {
+                it("view should receive error message correctly") {
                     expect(view.showErrorMessageReceivedMessage) == Localize.errorLoginFailed()
                 }
             }
