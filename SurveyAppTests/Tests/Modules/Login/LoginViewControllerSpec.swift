@@ -29,7 +29,7 @@ final class LoginViewControllerSpec: QuickSpec {
                     viewController.viewDidLoad()
                 }
 
-                it("calls presenter viewDidLoad") {
+                it("triggers output to call viewDidLoad") {
                     expect(output.viewDidLoadCalled) == true
                 }
             }

@@ -73,28 +73,32 @@ final class LoginPresenterSpec: QuickSpec {
                     }
                 }
             }
+            
+            describe("its didAuthenticateEmail is called") {
+                context("when the parameters are valid email and password") {
+                    beforeEach {
+                        presenter.didAuthenticateWithEmail()
+                    }
 
-            context("when didAuthenticateEmail is called with valid email and password") {
-                beforeEach {
-                    presenter.didAuthenticateWithEmail()
-                }
-
-                it("triggers router to call showHome") {
-                    expect(router.showHomeCalled) == true
+                    it("triggers router to call showHome") {
+                        expect(router.showHomeCalled) == true
+                    }
                 }
             }
+            
+            describe("its didFailToAuthenticateEmail is called") {
+                context("when the parameters are valid email and password") {
+                    beforeEach {
+                        presenter.didFailToAuthenticateWithEmail()
+                    }
 
-            context("when didFailToAuthenticateEmail is called with valid email and password") {
-                beforeEach {
-                    presenter.didFailToAuthenticateWithEmail()
-                }
+                    it("triggers view to call showError") {
+                        expect(view.showErrorMessageCalled) == true
+                    }
 
-                it("triggers view to call showError") {
-                    expect(view.showErrorMessageCalled) == true
-                }
-
-                it("view should receive error message correctly") {
-                    expect(view.showErrorMessageReceivedMessage) == Localize.errorLoginFailed()
+                    it("view should receive error message correctly") {
+                        expect(view.showErrorMessageReceivedMessage) == Localize.errorLoginFailed()
+                    }
                 }
             }
         }
