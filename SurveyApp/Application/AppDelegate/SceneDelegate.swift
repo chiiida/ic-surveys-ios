@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         if let window = window {
-            let module = LoginModule()
+            let module = SplashModule()
             module.input.setInitialModule(on: window)
             window.makeKeyAndVisible()
         }
