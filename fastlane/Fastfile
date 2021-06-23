@@ -69,11 +69,11 @@ platform :ios do
         method: "development"
       }
     )
-
+    
     firebase_app_distribution(
       app: ENV['FIREBASE_APP_ID'],
       groups: "testers",
-      release_notes: ENV['GITHUB_BRANCH'],
+      release_notes: "Release staging",
       firebase_cli_token: ENV['FIREBASE_CLI_TOKEN']
     )
   end
