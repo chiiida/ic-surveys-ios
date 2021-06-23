@@ -1,5 +1,5 @@
 //
-//  JSON.APIError.swift
+//  JSON+APIError.swift
 //  SurveyAppTests
 //
 //  Created by Chananchida F. on 6/17/21.
