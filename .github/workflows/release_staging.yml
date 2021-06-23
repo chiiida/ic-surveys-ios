@@ -2,6 +2,8 @@ name: Release Staging
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   distribute:
