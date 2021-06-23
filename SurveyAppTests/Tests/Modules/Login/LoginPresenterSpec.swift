@@ -32,43 +32,45 @@ final class LoginPresenterSpec: QuickSpec {
 
             }
 
-            context("when didPressLogin is called with valid email and password") {
-                beforeEach {
-                    let email = "email@example.com"
-                    let password = "password"
-                    presenter.didPressLogin(email: email, password: password)
+            describe("its didPressLogin is called") {
+                context("when the parameters are valid email and password") {
+                    beforeEach {
+                        let email = "email@example.com"
+                        let password = "password"
+                        presenter.didPressLogin(email: email, password: password)
+                    }
+
+                    it("triggers interactor to call authenticateEmail") {
+                        expect(interactor.authenticateWithEmailEmailPasswordCalled) == true
+                    }
                 }
 
-                it("triggers interactor authenticateEmail") {
-                    expect(interactor.authenticateWithEmailEmailPasswordCalled) == true
-                }
-            }
+                context("when the parameters are empty email and password") {
+                    beforeEach {
+                        let email = ""
+                        let password = ""
+                        presenter.didPressLogin(email: email, password: password)
+                    }
 
-            context("when didPressLogin is called with empty email and password") {
-                beforeEach {
-                    let email = ""
-                    let password = ""
-                    presenter.didPressLogin(email: email, password: password)
-                }
-
-                it("should not triggers interactor authenticateEmail") {
-                    expect(interactor.authenticateWithEmailEmailPasswordCalled) == false
-                }
-            }
-
-            context("when didPressLogin is called with invalid email") {
-                beforeEach {
-                    let email = "email"
-                    let password = "password"
-                    presenter.didPressLogin(email: email, password: password)
+                    it("should not trigger interactor to call authenticateEmail") {
+                        expect(interactor.authenticateWithEmailEmailPasswordCalled) == false
+                    }
                 }
 
-                it("triggers view to show error") {
-                    expect(view.showErrorMessageCalled) == true
-                }
+                context("when the parameter is invalid email") {
+                    beforeEach {
+                        let email = "email"
+                        let password = "password"
+                        presenter.didPressLogin(email: email, password: password)
+                    }
 
-                it("view should receive error message correctly") {
-                    expect(view.showErrorMessageReceivedMessage) == Localize.errorInvalidEmail()
+                    it("triggers view to call showError") {
+                        expect(view.showErrorMessageCalled) == true
+                    }
+
+                    it("view should receive error message correctly") {
+                        expect(view.showErrorMessageReceivedMessage) == Localize.errorInvalidEmail()
+                    }
                 }
             }
 
@@ -77,7 +79,7 @@ final class LoginPresenterSpec: QuickSpec {
                     presenter.didAuthenticateWithEmail()
                 }
 
-                it("triggers router to show Home screen") {
+                it("triggers router to call showHome") {
                     expect(router.showHomeCalled) == true
                 }
             }
@@ -87,7 +89,7 @@ final class LoginPresenterSpec: QuickSpec {
                     presenter.didFailToAuthenticateWithEmail()
                 }
 
-                it("triggers view to show error") {
+                it("triggers view to call showError") {
                     expect(view.showErrorMessageCalled) == true
                 }
 

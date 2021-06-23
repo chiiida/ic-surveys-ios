@@ -31,8 +31,8 @@ final class LoginInteractorSpec: QuickSpec {
                 interactor.output = output
             }
 
-            describe("when authenticateEmail is called") {
-                context("the request returns success") {
+            describe("its authenticateEmail is called") {
+                context("when the request returns success") {
                     beforeEach {
                         authenticationService.authenticateEmailEmailPasswordCompletionClosure = { _, _, closure in
                             let data: AuthToken = JSON.AuthenticationService.authenticateEmailSuccess.decoded()
@@ -43,12 +43,12 @@ final class LoginInteractorSpec: QuickSpec {
                         interactor.authenticateWithEmail(email: "email@example.com", password: "password")
                     }
 
-                    it("triggers output call authentication with email succesfully ") {
+                    it("triggers output to call didAuthenticateWithEmail") {
                         expect(output.didAuthenticateWithEmailCalled) == true
                     }
                 }
 
-                context("the request returns failure") {
+                context("when the request returns failure") {
                     beforeEach {
                         authenticationService.authenticateEmailEmailPasswordCompletionClosure = { _, _, closure in
                             closure(.failure(APIError()))
@@ -58,7 +58,7 @@ final class LoginInteractorSpec: QuickSpec {
                         interactor.authenticateWithEmail(email: "email@example.com", password: "password")
                     }
 
-                    it("triggers output call authentication with email failure ") {
+                    it("triggers output to call didFailToAuthenticateWithEmail") {
                         expect(output.didFailToAuthenticateWithEmailCalled) == true
                     }
                 }
