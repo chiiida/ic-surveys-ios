@@ -28,7 +28,7 @@ final class HomeViewController: UIViewController {
     private let dateLabel = UILabel()
     private let todayLabel = UILabel()
     private let userProfileButton = UIButton(type: .system)
-    private let goToDetailButton = UIButton(type: .system)
+    private let surveyDetailButton = UIButton(type: .system)
     private let pageControl = UIPageControl()
     private let collectionView = UICollectionView(
         frame: .zero,
@@ -70,7 +70,7 @@ extension HomeViewController {
         view.addSubview(dateLabel)
         view.addSubview(todayLabel)
         view.addSubview(userProfileButton)
-        view.addSubview(goToDetailButton)
+        view.addSubview(surveyDetailButton)
         
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -97,7 +97,7 @@ extension HomeViewController {
             $0.height.width.equalTo(36.0)
         }
         
-        goToDetailButton.snp.makeConstraints {
+        surveyDetailButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(20.0)
             $0.bottom.equalToSuperview().inset(54.0)
             $0.height.width.equalTo(56.0)
@@ -108,7 +108,6 @@ extension HomeViewController {
         navigationController?.isNavigationBarHidden = true
         
         pageControl.overrideUserInterfaceStyle = .light
-        pageControl.currentPage = 0
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -124,9 +123,9 @@ extension HomeViewController {
             layout.minimumInteritemSpacing = 0.0
         }
         
-        goToDetailButton.round()
-        goToDetailButton.backgroundColor = .clear
-        goToDetailButton.setBackgroundImage(Asset.arrowIcon(), for: .normal)
+        surveyDetailButton.round()
+        surveyDetailButton.backgroundColor = .clear
+        surveyDetailButton.setBackgroundImage(Asset.arrowIcon(), for: .normal)
 
         setUpHeaderView()
     }
