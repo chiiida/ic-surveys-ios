@@ -34,7 +34,7 @@ final class AuthenticationServiceSpec: QuickSpec {
             }
 
             // MARK: – authenticateEmail
-            describe("when calling authenticateEmail") {
+            describe("its authenticateEmail is called") {
 
                 let grantType = "password"
                 let email = "email@example.com"
@@ -50,7 +50,7 @@ final class AuthenticationServiceSpec: QuickSpec {
                     "client_secret": clientSecret
                 ]
 
-                context("the request returns success") {
+                context("when the request returns success") {
                     it("receives response object correctly") {
                         let data = JSON.AuthenticationService.authenticateEmailSuccess
 
@@ -73,7 +73,7 @@ final class AuthenticationServiceSpec: QuickSpec {
                     }
                 }
 
-                context("the request returns failure") {
+                context("when the request returns failure") {
                     it("receives error response object correctly") {
                         let data = JSON.AuthenticationService.authenticateEmailFailure
 
