@@ -30,7 +30,7 @@ platform :ios do
   lane :build_for_testing do
     scan(
       workspace: "SurveyApp.xcworkspace",
-      scheme: "SurveyApp",
+      scheme: "SurveyApp Staging",
       derived_data_path: "derivedData",
       build_for_testing: true
     )
@@ -40,7 +40,7 @@ platform :ios do
   lane :unit_test do
     scan(
       workspace: "SurveyApp.xcworkspace",
-      scheme: "SurveyApp",
+      scheme: "SurveyApp Staging",
       only_testing: ["SurveyAppTests"],
       derived_data_path: "derivedData",
       test_without_building: true
@@ -51,10 +51,30 @@ platform :ios do
   lane :ui_test do
     scan(
       workspace: "SurveyApp.xcworkspace",
-      scheme: "SurveyApp",
+      scheme: "SurveyApp Staging",
       only_testing: ["SurveyAppUITests"],
       derived_data_path: "derivedData",
       test_without_building: true
+    )
+  end
+
+  desc "Upload to firebase app distribution"
+  lane :upload_to_firebase do
+    build_app(
+      workspace: "SurveyApp.xcworkspace",
+      scheme: "SurveyApp Staging",
+      silent: true,
+      configuration: "Staging",
+      export_options: {
+        method: "development"
+      }
+    )
+
+    firebase_app_distribution(
+      app: ENV['FIREBASE_APP_ID'],
+      groups: "testers",
+      release_notes: ENV['GITHUB_BRANCH'],
+      firebase_cli_token: ENV['FIREBASE_CLI_TOKEN']
     )
   end
 end

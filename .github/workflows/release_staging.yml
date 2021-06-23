@@ -1,0 +1,43 @@
+name: Release Staging
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  distribute:
+    name: Distribute Project
+    runs-on: macos-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.5.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Git Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+
+      - name: Install Bundle
+        run: bundle install
+
+      - name: Install Pods Dependencies
+        run: |
+          bundle exec pod install
+        shell: bash
+        env:
+          ClientId: "id"
+          ClientSecret: "secret"
+
+      - name: Export ipa and upload to firebase app distribution
+        run: |
+          bundle exec fastlane upload_to_firebase
+        env:
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+          FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
+          GITHUB_BRANCH:  ${{ GITHUB_REF#refs/heads/ }}
