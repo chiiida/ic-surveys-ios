@@ -12,12 +12,14 @@ import SnapKit
 protocol LoginViewInput: AnyObject, ErrorShowable {
 
     func configure()
+    func beginAnimation()
 }
 
 // sourcery: AutoMockable
 protocol LoginViewOutput: AnyObject {
 
     func viewDidLoad()
+    func viewDidAppear()
     func didPressLogin(email: String, password: String)
 }
 
@@ -42,7 +44,7 @@ final class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        beginAnimation()
+        output?.viewDidAppear()
     }
 }
 
@@ -53,6 +55,24 @@ extension LoginViewController: LoginViewInput {
     func configure() {
         setUpLayout()
         setUpViews()
+    }
+    
+    func beginAnimation() {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .transitionCurlUp) { [weak self] in
+            self?.logoImageView.snp.remakeConstraints {
+                $0.centerX.equalToSuperview()
+                $0.top.equalToSuperview().inset(153.0)
+                $0.size.equalTo(CGSize(width: 168.0, height: 40.0))
+            }
+            self?.blurEffectView.alpha = 1.0
+            self?.overlayView.backgroundColor = .clear
+            self?.gradientLayer.isHidden = false
+            self?.emailField.alpha = 1.0
+            self?.passwordField.alpha = 1.0
+            self?.loginButton.alpha = 1.0
+            self?.forgotButton.alpha = 1.0
+            self?.view.layoutIfNeeded()
+        }
     }
 }
 
@@ -166,24 +186,6 @@ extension LoginViewController {
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.25)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.75)
         gradientLayer.isHidden = true
-    }
-    
-    func beginAnimation() {
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: .transitionCurlUp) { [weak self] in
-            self?.logoImageView.snp.remakeConstraints {
-                $0.centerX.equalToSuperview()
-                $0.top.equalToSuperview().inset(153.0)
-                $0.size.equalTo(CGSize(width: 168.0, height: 40.0))
-            }
-            self?.blurEffectView.alpha = 1.0
-            self?.overlayView.backgroundColor = .clear
-            self?.gradientLayer.isHidden = false
-            self?.emailField.alpha = 1.0
-            self?.passwordField.alpha = 1.0
-            self?.loginButton.alpha = 1.0
-            self?.forgotButton.alpha = 1.0
-            self?.view.layoutIfNeeded()
-        }
     }
 }
 

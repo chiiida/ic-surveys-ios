@@ -39,6 +39,8 @@ final class SplashModule {
         view.output = presenter
 
         presenter.view = view
+        
+        interactor.output = presenter
 
         router.view = view
     }

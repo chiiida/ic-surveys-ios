@@ -27,8 +27,16 @@ extension SplashPresenter: SplashViewOutput {
         view?.configure()
     }
     
-    func showNextScreen() {
-        if UserSessionProvider.shared.isLoggedIn {
+    func animationDidFinish() {
+        interactor.getLoginInStatus()
+    }
+}
+
+// MARK: - SplashInteractorOutput
+extension SplashPresenter: SplashInteractorOutput {
+    
+    func didGetLoginStatus(isLoggedIn: Bool) {
+        if isLoggedIn {
             router.showHome()
             return
         }

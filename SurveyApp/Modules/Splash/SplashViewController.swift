@@ -19,7 +19,7 @@ protocol SplashViewInput: AnyObject {
 protocol SplashViewOutput: AnyObject {
 
     func viewDidLoad()
-    func showNextScreen()
+    func animationDidFinish()
 }
 
 final class SplashViewController: UIViewController {
@@ -91,7 +91,7 @@ extension SplashViewController {
                 self?.logoImageView.alpha = 1.0
             },
             completion: { [weak output] _ in
-                output?.showNextScreen()
+                output?.animationDidFinish()
             }
         )
     }
