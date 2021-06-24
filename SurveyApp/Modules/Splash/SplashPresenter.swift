@@ -28,21 +28,18 @@ extension SplashPresenter: SplashViewOutput {
     }
     
     func animationDidFinish() {
-        interactor.getLoginInStatus()
+        if interactor.isLoggedIn {
+            router.showHome()
+            return
+        } else {
+            router.showLogin()
+            return
+        }
     }
 }
 
 // MARK: - SplashInteractorOutput
 extension SplashPresenter: SplashInteractorOutput {
-    
-    func didGetLoginStatus(isLoggedIn: Bool) {
-        if isLoggedIn {
-            router.showHome()
-            return
-        }
-        
-        router.showLogin()
-    }
 }
 
 // MARK: - SplashInput

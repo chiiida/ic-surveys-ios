@@ -58,20 +58,20 @@ extension LoginViewController: LoginViewInput {
     }
     
     func beginAnimation() {
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: .transitionCurlUp) { [weak self] in
-            self?.logoImageView.snp.remakeConstraints {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: .transitionCurlUp) {
+            self.logoImageView.snp.remakeConstraints {
                 $0.centerX.equalToSuperview()
                 $0.top.equalToSuperview().inset(153.0)
                 $0.size.equalTo(CGSize(width: 168.0, height: 40.0))
             }
-            self?.blurEffectView.alpha = 1.0
-            self?.overlayView.backgroundColor = .clear
-            self?.gradientLayer.isHidden = false
-            self?.emailField.alpha = 1.0
-            self?.passwordField.alpha = 1.0
-            self?.loginButton.alpha = 1.0
-            self?.forgotButton.alpha = 1.0
-            self?.view.layoutIfNeeded()
+            self.blurEffectView.alpha = 1.0
+            self.overlayView.backgroundColor = .clear
+            self.gradientLayer.isHidden = false
+            self.emailField.alpha = 1.0
+            self.passwordField.alpha = 1.0
+            self.loginButton.alpha = 1.0
+            self.forgotButton.alpha = 1.0
+            self.view.layoutIfNeeded()
         }
     }
 }

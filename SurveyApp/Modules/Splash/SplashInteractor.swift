@@ -9,26 +9,30 @@
 // sourcery: AutoMockable
 protocol SplashInteractorInput: AnyObject {
     
-    func getLoginInStatus()
+    var isLoggedIn: Bool { get }
 }
 
 // sourcery: AutoMockable
 protocol SplashInteractorOutput: AnyObject {
-    
-    func didGetLoginStatus(isLoggedIn: Bool)
 }
 
 final class SplashInteractor {
 
     weak var output: SplashInteractorOutput?
+    
+    private(set) var userSessionProvider: UserSessionProviderProtocol?
+    
+    init(userSessionProvider: UserSessionProviderProtocol) {
+        self.userSessionProvider = userSessionProvider
+    }
 }
 
 // MARK: - SplashInteractorInput
 
 extension SplashInteractor: SplashInteractorInput {
     
-    func getLoginInStatus() {
-        let isLoggedIn = UserSessionProvider.shared.isLoggedIn
-        output?.didGetLoginStatus(isLoggedIn: isLoggedIn)
+    var isLoggedIn: Bool {
+        guard let isLoggedIn = userSessionProvider?.isLoggedIn else { return false }
+        return isLoggedIn
     }
 }

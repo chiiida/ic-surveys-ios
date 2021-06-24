@@ -87,11 +87,11 @@ extension SplashViewController {
         UIView.animate(
             withDuration: 1.0,
             delay: 0.5,
-            animations: { [weak self] in
-                self?.logoImageView.alpha = 1.0
+            animations: {
+                self.logoImageView.alpha = 1.0
             },
-            completion: { [weak output] _ in
-                output?.animationDidFinish()
+            completion: { _ in
+                self.output?.animationDidFinish()
             }
         )
     }
