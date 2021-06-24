@@ -27,7 +27,7 @@ final class LoginRouterSpec: QuickSpec {
                 _ = viewController.view
             }
 
-            context("when showHome is called") {
+            describe("its showHome is called") {
                 beforeEach {
                     window = UIWindow()
                     window.addSubview(viewController.view)

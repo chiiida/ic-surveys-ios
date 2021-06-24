@@ -24,7 +24,7 @@ final class LoginViewControllerSpec: QuickSpec {
                 viewController.output = output
             }
 
-            context("when viewDidLoad is called") {
+            describe("its viewDidLoad is called") {
                 beforeEach {
                     viewController.viewDidLoad()
                 }
