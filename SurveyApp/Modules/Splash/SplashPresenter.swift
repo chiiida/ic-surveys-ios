@@ -11,12 +11,14 @@ import UIKit
 final class SplashPresenter {
 
     let router: SplashRouterInput
+    let interactor: SplashInteractorInput
 
     weak var view: SplashViewInput?
     weak var output: SplashOutput?
 
-    init(router: SplashRouterInput) {
+    init(router: SplashRouterInput, interactor: SplashInteractorInput) {
         self.router = router
+        self.interactor = interactor
     }
 }
 

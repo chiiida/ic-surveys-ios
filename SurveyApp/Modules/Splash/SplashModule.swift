@@ -23,6 +23,7 @@ final class SplashModule {
     let view: SplashViewController
     let presenter: SplashPresenter
     let router: SplashRouter
+    let interactor: SplashInteractor
 
     var output: SplashOutput? {
         get { presenter.output }
