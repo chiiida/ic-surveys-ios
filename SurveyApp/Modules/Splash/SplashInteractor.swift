@@ -32,7 +32,6 @@ final class SplashInteractor {
 extension SplashInteractor: SplashInteractorInput {
     
     var isLoggedIn: Bool {
-        guard let isLoggedIn = userSessionProvider?.isLoggedIn else { return false }
-        return isLoggedIn
+        userSessionProvider?.isLoggedIn ?? false
     }
 }
