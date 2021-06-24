@@ -17,7 +17,7 @@ final class LoginModuleSpec: QuickSpec {
         var module: LoginModule!
 
         describe("a LoginModule") {
-            context("when initialize module") {
+            describe("its initializers are called") {
                 beforeEach {
                     output = LoginOutputMock()
                     module = LoginModule()

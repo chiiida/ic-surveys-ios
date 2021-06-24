@@ -26,7 +26,7 @@ extension JSON.AuthenticationService {
         """
         {
             "data": {
-                "id": 10,
+                "id": "10",
                 "type": "token",
                 "attributes": {
                     "access_token": "lbxD2K2BjbYtNzz8xjvh2FvSKx838KBCf79q773kq2c",
