@@ -19,7 +19,7 @@ final class SplashRouterSpec: QuickSpec {
         var viewController: SplashViewController!
         var window: UIWindow!
 
-        describe("a Splash router") {
+        describe("a SplashRouter") {
             beforeEach {
                 viewController = SplashViewController()
                 viewController.output = SplashViewOutputMock()
