@@ -12,7 +12,7 @@ struct Session: Codable {
         case userCredential = "attributes"
     }
     
-    let id: Int?
+    let id: String?
     let type: String?
     let userCredential: UserCredential?
 }
