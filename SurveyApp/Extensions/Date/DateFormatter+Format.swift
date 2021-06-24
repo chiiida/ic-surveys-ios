@@ -9,7 +9,7 @@ import Foundation
 
 extension DateFormatter {
 
-    static let date = DateFormatter(with: "EEEE, MMMM d")
+    static let dateFormatter = DateFormatter(with: "EEEE, MMMM d")
 
     private convenience init(with format: String) {
         self.init()

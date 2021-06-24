@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import AlamofireImage
 
 final class SurveyCollectionCell: UICollectionViewCell {
     
@@ -29,20 +30,14 @@ final class SurveyCollectionCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
-    func setTitle(_ title: String) {
+    func configure(title: String, description: String, imageURLString: String) {
         titleLabel.text = title
-    }
-    
-    func setDescription(_ description: String) {
         descriptionLabel.text = description
-    }
-    
-    func setImage(imageURLString: String) {
         guard let imageURL: URL = URL(string: imageURLString) else { return }
-        imageView.loadUrl(url: imageURL)
+        imageView.af.setImage(withURL: imageURL)
     }
     
-    // TODO: might not need when integrate
+    // TODO: will be remove when integrate
     func setImage(image: UIImage) {
         imageView.image = image
     }

@@ -131,7 +131,7 @@ extension HomeViewController {
     }
     
     private func setUpHeaderView() {
-        dateLabel.text = Date().formatted(with: .date).uppercased()
+        dateLabel.text = Date().formatted(with: .dateFormatter).uppercased()
         dateLabel.textColor = .white
         dateLabel.font = UIFont.bold(ofSize: .small)
         
@@ -161,8 +161,8 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let background = backgrounds[indexPath.item] else { return cell }
         let title = titles[indexPath.item]
         let description = descriptions[indexPath.item]
-        cell.setTitle(title)
-        cell.setDescription(description)
+        // TODO: replace empty string with survey cover image url
+        cell.configure(title: title, description: description, imageURLString: "")
         cell.setImage(image: background)
         return cell
     }
