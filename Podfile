@@ -20,9 +20,10 @@ target 'SurveyApp' do
   pod 'NimbleExtension', :git => 'https://github.com/nimblehq/NimbleExtension', :branch => 'master'
 
   pod 'SnapKit'
-  pod 'Alamofire'
   pod 'R.swift'
   pod 'SwiftLint'
+  pod 'Alamofire'
+  pod 'AlamofireImage'
   pod 'AlamofireNetworkActivityLogger', '~> 3.4'
   pod 'KeychainAccess'
   
