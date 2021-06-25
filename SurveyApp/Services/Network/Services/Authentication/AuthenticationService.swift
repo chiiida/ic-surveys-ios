@@ -8,6 +8,7 @@
 import Alamofire
 import Keys
 
+// sourcery: AutoMockable
 protocol AuthenticationServiceProtocol {
 
     func authenticateEmail(
