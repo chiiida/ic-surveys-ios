@@ -30,7 +30,8 @@ final class BaseAPI: API {
             method: configuration.method,
             parameters: configuration.parameters,
             encoding: configuration.parameterEncoding,
-            headers: configuration.headers
+            headers: configuration.headers,
+            interceptor: AuthenticationInterceptor(userSession: userSession)
         )
         .validate()
         .responseDecodable(of: T.self) { response in
