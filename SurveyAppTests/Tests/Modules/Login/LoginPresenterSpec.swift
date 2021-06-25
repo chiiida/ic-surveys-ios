@@ -29,7 +29,6 @@ final class LoginPresenterSpec: QuickSpec {
 
                 presenter.output = output
                 presenter.view = view
-
             }
 
             describe("its didPressLogin is called") {
