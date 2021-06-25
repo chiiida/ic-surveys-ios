@@ -19,6 +19,7 @@ protocol SplashViewInput: AnyObject {
 protocol SplashViewOutput: AnyObject {
 
     func viewDidLoad()
+    func animationDidFinish()
 }
 
 final class SplashViewController: UIViewController {
@@ -83,8 +84,15 @@ extension SplashViewController {
     }
 
     private func beginAnimation() {
-        UIView.animate(withDuration: 1.0, delay: 0.5) { [weak self] in
-            self?.logoImageView.alpha = 1.0
-        }
+        UIView.animate(
+            withDuration: 1.0,
+            delay: 0.5,
+            animations: {
+                self.logoImageView.alpha = 1.0
+            },
+            completion: { _ in
+                self.output?.animationDidFinish()
+            }
+        )
     }
 }

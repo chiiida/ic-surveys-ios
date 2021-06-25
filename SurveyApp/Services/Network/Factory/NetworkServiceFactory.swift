@@ -10,15 +10,15 @@ import Foundation
 final class NetworkServiceFactory {
     
     static let shared = NetworkServiceFactory()
-    let api: API
+    var api: API!
 
-    init() {
+    func setup() {
         let keychain = KeychainStorage.default
 
         let userSession = UserSession(keychain: keychain)
         UserSessionProvider.shared.userSession = userSession
 
-        api = BaseAPI(userSession: userSession)
+        self.api = BaseAPI(userSession: userSession)
     }
     
     func createAuthenticationService() -> AuthenticationServiceProtocol {

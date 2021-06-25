@@ -33,6 +33,10 @@ extension LoginPresenter: LoginViewOutput {
         view?.configure()
     }
     
+    func viewDidAppear() {
+        view?.beginAnimation()
+    }
+    
     func didPressLogin(email: String, password: String) {
         guard !email.isEmpty && !password.isEmpty else { return }
 

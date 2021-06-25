@@ -23,6 +23,7 @@ final class SplashModule {
     let view: SplashViewController
     let presenter: SplashPresenter
     let router: SplashRouter
+    let interactor: SplashInteractor
 
     var output: SplashOutput? {
         get { presenter.output }
@@ -32,13 +33,21 @@ final class SplashModule {
     var input: SplashInput { presenter }
 
     init() {
+        let userSessionProvider = UserSessionProvider.shared
+        
         view = SplashViewController()
         router = SplashRouter()
-        presenter = SplashPresenter(router: router)
+        interactor = SplashInteractor(userSessionProvider: userSessionProvider)
+        presenter = SplashPresenter(
+            router: router,
+            interactor: interactor
+        )
 
         view.output = presenter
 
         presenter.view = view
+        
+        interactor.output = presenter
 
         router.view = view
     }
