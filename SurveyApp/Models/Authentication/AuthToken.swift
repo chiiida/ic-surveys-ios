@@ -5,7 +5,7 @@
 //  Created by Chananchida F. on 6/11/21.
 //
 
-struct Session: Codable {
+struct AuthSession: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id, type
@@ -23,5 +23,5 @@ struct AuthToken: Codable {
         case session = "data"
     }
     
-    let session: Session?
+    let session: AuthSession?
 }
