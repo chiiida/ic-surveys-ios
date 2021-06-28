@@ -14,6 +14,9 @@
 		8416EAFD2680539400F47617 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416EAFC2680539400F47617 /* AutoMockable.generated.swift */; };
 		8416EB002680666400F47617 /* SurveyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416EAFF2680666400F47617 /* SurveyCollectionCell.swift */; };
 		8416EB0326806FB700F47617 /* Dequeuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416EB0226806FB700F47617 /* Dequeuable.swift */; };
+		84182361268967C4007F5623 /* JSON+SurveyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84182360268967C4007F5623 /* JSON+SurveyService.swift */; };
+		8418236526897A0F007F5623 /* SurveyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418236426897A0F007F5623 /* SurveyServiceSpec.swift */; };
+		8418236826897CFE007F5623 /* Dictionary+QueryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418236726897CFE007F5623 /* Dictionary+QueryParams.swift */; };
 		8423B97126734D8C0000036F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423B97026734D8C0000036F /* AuthToken.swift */; };
 		8423B97426734E6A0000036F /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423B97326734E6A0000036F /* AuthenticationService.swift */; };
 		84276BE5267B332E00E87C1A /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BE0267B332E00E87C1A /* SplashRouter.swift */; };
@@ -54,10 +57,10 @@
 		84A361D526845C6200A369E7 /* SplashPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A361D026845C6200A369E7 /* SplashPresenterSpec.swift */; };
 		84A361D626845C6200A369E7 /* SplashModuleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A361D126845C6200A369E7 /* SplashModuleSpec.swift */; };
 		84A361D8268467DE00A369E7 /* SplashInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A361D7268467DE00A369E7 /* SplashInteractorSpec.swift */; };
-		84AC054F2682E05A00218DC2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC054E2682E05A00218DC2 /* SplashInteractor.swift */; };
 		84A361DB26848C8C00A369E7 /* SurveyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A361DA26848C8C00A369E7 /* SurveyService.swift */; };
 		84A361DE26848CFD00A369E7 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A361DD26848CFD00A369E7 /* Survey.swift */; };
 		84A361E02684904100A369E7 /* AuthenticationInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A361DF2684904100A369E7 /* AuthenticationInterceptor.swift */; };
+		84AC054F2682E05A00218DC2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC054E2682E05A00218DC2 /* SplashInteractor.swift */; };
 		84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE695F266F4446001DE0C3 /* UIFont+Size.swift */; };
 		84C8D6752681CE5F00961CF8 /* LoginInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8D6702681CE5F00961CF8 /* LoginInteractorSpec.swift */; };
 		84C8D6762681CE5F00961CF8 /* LoginRouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8D6712681CE5F00961CF8 /* LoginRouterSpec.swift */; };
@@ -119,6 +122,9 @@
 		8416EAFC2680539400F47617 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		8416EAFF2680666400F47617 /* SurveyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCollectionCell.swift; sourceTree = "<group>"; };
 		8416EB0226806FB700F47617 /* Dequeuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeuable.swift; sourceTree = "<group>"; };
+		84182360268967C4007F5623 /* JSON+SurveyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON+SurveyService.swift"; sourceTree = "<group>"; };
+		8418236426897A0F007F5623 /* SurveyServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyServiceSpec.swift; sourceTree = "<group>"; };
+		8418236726897CFE007F5623 /* Dictionary+QueryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+QueryParams.swift"; sourceTree = "<group>"; };
 		8423B97026734D8C0000036F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		8423B97326734E6A0000036F /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		84276BC3267AF51C00E87C1A /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -171,10 +177,10 @@
 		84A361D026845C6200A369E7 /* SplashPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenterSpec.swift; sourceTree = "<group>"; };
 		84A361D126845C6200A369E7 /* SplashModuleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModuleSpec.swift; sourceTree = "<group>"; };
 		84A361D7268467DE00A369E7 /* SplashInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractorSpec.swift; sourceTree = "<group>"; };
-		84AC054E2682E05A00218DC2 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		84A361DA26848C8C00A369E7 /* SurveyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyService.swift; sourceTree = "<group>"; };
 		84A361DD26848CFD00A369E7 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		84A361DF2684904100A369E7 /* AuthenticationInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInterceptor.swift; sourceTree = "<group>"; };
+		84AC054E2682E05A00218DC2 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 		84BE695F266F4446001DE0C3 /* UIFont+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Size.swift"; sourceTree = "<group>"; };
 		84C8D6702681CE5F00961CF8 /* LoginInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorSpec.swift; sourceTree = "<group>"; };
 		84C8D6712681CE5F00961CF8 /* LoginRouterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterSpec.swift; sourceTree = "<group>"; };
@@ -297,6 +303,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		8418236626897CD7007F5623 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8418236726897CFE007F5623 /* Dictionary+QueryParams.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		8423B96F26734D7E0000036F /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +334,7 @@
 				84276BC3267AF51C00E87C1A /* JSON.swift */,
 				84276BC5267AF52D00E87C1A /* JSON+AuthenticationService.swift */,
 				84276BD9267B24E500E87C1A /* JSON+APIError.swift */,
+				84182360268967C4007F5623 /* JSON+SurveyService.swift */,
 			);
 			path = JSONs;
 			sourceTree = "<group>";
@@ -327,6 +342,7 @@
 		84276BC2267AF50100E87C1A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8418236626897CD7007F5623 /* Utilities */,
 				84C8D66E2681CE5300961CF8 /* Modules */,
 				84276BC7267AF54200E87C1A /* Services */,
 			);
@@ -363,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				84276BDD267B284D00E87C1A /* AuthenticationServiceSpec.swift */,
+				8418236426897A0F007F5623 /* SurveyServiceSpec.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1128,11 +1145,14 @@
 			files = (
 				84C8D67D2681CEB400961CF8 /* BaseAPISpec.swift in Sources */,
 				84C8D67E2681CEB700961CF8 /* UserSessionSpec.swift in Sources */,
+				8418236826897CFE007F5623 /* Dictionary+QueryParams.swift in Sources */,
 				84A361D526845C6200A369E7 /* SplashPresenterSpec.swift in Sources */,
+				8418236526897A0F007F5623 /* SurveyServiceSpec.swift in Sources */,
 				84C8D6792681CE5F00961CF8 /* LoginModuleSpec.swift in Sources */,
 				84C8D67C2681CEAF00961CF8 /* JSON+APIError.swift in Sources */,
 				84C8D67A2681CEAA00961CF8 /* JSON.swift in Sources */,
 				84C8D67B2681CEAD00961CF8 /* JSON+AuthenticationService.swift in Sources */,
+				84182361268967C4007F5623 /* JSON+SurveyService.swift in Sources */,
 				84C8D6762681CE5F00961CF8 /* LoginRouterSpec.swift in Sources */,
 				8416EAFD2680539400F47617 /* AutoMockable.generated.swift in Sources */,
 				84A361D8268467DE00A369E7 /* SplashInteractorSpec.swift in Sources */,
