@@ -7,8 +7,8 @@
 
 struct Survey: Codable {
     
-    let id: String?
-    let title: String?
-    let description: String?
-    let coverImageUrl: String?
+    let id: String
+    let title: String
+    let description: String
+    let coverImageUrl: String
 }
