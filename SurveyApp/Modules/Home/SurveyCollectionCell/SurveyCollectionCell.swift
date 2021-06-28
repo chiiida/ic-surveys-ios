@@ -37,11 +37,6 @@ final class SurveyCollectionCell: UICollectionViewCell {
         imageView.af.setImage(withURL: imageURL)
     }
     
-    // TODO: will be remove when integrate
-    func setImage(image: UIImage) {
-        imageView.image = image
-    }
-    
     private func setUpLayout() {
         imageView.layer.insertSublayer(gradientLayer, at: 0)
         

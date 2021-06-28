@@ -31,12 +31,26 @@ extension HomePresenter: HomeViewOutput {
 
     func viewDidLoad() {
         view?.configure()
+        interactor.fetchSurveys(pageNumber: 1, pageSize: 5)
+    }
+    
+    func didPressDetailButton(survey: Survey) {
+        // TODO: pass survey to survey detail screen
+        dump(survey)
     }
 }
 
 // MARK: - HomeInteractorOutput
 
 extension HomePresenter: HomeInteractorOutput {
+    
+    func didFetchSurveys(surveys: [Survey]) {
+        view?.setUpSurveys(surveys)
+    }
+    
+    func didFailToFetchSurveys(_ error: APIError) {
+        print(error)
+    }
 }
 
 // MARK: - HomeInput
