@@ -5,7 +5,7 @@
 //  Created by Chananchida F. on 6/24/21.
 //
 
-struct Survey: Codable {
+struct Survey: Codable, Comparable {
     
     enum CodingKeys: String, CodingKey {
         case id, title, description
@@ -17,4 +17,8 @@ struct Survey: Codable {
     let title: String
     let description: String
     let coverImageUrl: String
+    
+    static func < (lhs: Survey, rhs: Survey) -> Bool {
+      return lhs.id < rhs.id
+    }
 }

@@ -46,24 +46,26 @@ extension HomeInteractor: HomeInteractorInput {
     func fetchSurveys(pageNumber: Int, pageSize: Int) {
         if !cachedSurveyList.isEmpty {
             output?.didFetchSurveys(surveys: cachedSurveyList)
-            return
-        } else {
-            fetchSurveysRequest = surveyService?.fetchSurveys(pageNumber: pageNumber, pageSize: pageSize) { [weak self] result in
-                switch result {
-                case .success(let surveyResponse):
-                    let surveys: [Survey] = surveyResponse.data.map {
-                        return Survey(
-                            id: $0.id,
-                            title: $0.attributes.title,
-                            description: $0.attributes.description,
-                            coverImageUrl: $0.attributes.coverImageUrl + "l"
-                        )
-                    }
+        }
+        
+        fetchSurveysRequest = surveyService?.fetchSurveys(pageNumber: pageNumber, pageSize: pageSize) { [weak self] result in
+            switch result {
+            case .success(let surveyResponse):
+                let surveys: [Survey] = surveyResponse.data.map {
+                    return Survey(
+                        id: $0.id,
+                        title: $0.attributes.title,
+                        description: $0.attributes.description,
+                        coverImageUrl: $0.attributes.coverImageUrl + "l"
+                    )
+                }
+                
+                if !(self?.cachedSurveyList.isEqual(to: surveys) ?? false) {
                     self?.cachedSurveyList = surveys
                     self?.output?.didFetchSurveys(surveys: surveys)
-                case .failure:
-                    self?.output?.didFailToFetchSurveys()
                 }
+            case .failure:
+                self?.output?.didFailToFetchSurveys()
             }
         }
     }
