@@ -45,7 +45,7 @@ final class HomeInteractorSpec: QuickSpec {
                         interactor.fetchSurveys(pageNumber: 1, pageSize: 2)
                     }
 
-                    it("triggers output to call didFetchSurveysSurveys") {
+                    it("triggers output to call didFetchSurveys") {
                         expect(output.didFetchSurveysSurveysCalled) == true
                     }
                     
