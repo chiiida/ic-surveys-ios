@@ -8,7 +8,7 @@
 struct Survey: Codable, Comparable {
     
     enum CodingKeys: String, CodingKey {
-        case id, title, description
+        case id, title, description, type
         case coverImageUrl = "cover_image_url"
     }
     

@@ -186,14 +186,14 @@ extension JSON.SurveyService {
         [
             {
                 "id": "d5de6a8f8f5f1cfe51bc",
-                "type": "type",
+                "type": "survey",
                 "title": "Scarlett Bangkok",
                 "description": "We'd love ot hear from you!",
                 "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/1ea51560991bcb7d00d0_l"
             },
             {
                 "id": "ed1d4f0ff19a56073a14",
-                "type": "type",
+                "type": "survey",
                 "title": "ibis Bangkok Riverside",
                 "description": "We'd love ot hear from you!",
                 "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/287db81c5e4242412cc0_l"

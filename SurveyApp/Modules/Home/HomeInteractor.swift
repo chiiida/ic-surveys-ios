@@ -54,6 +54,7 @@ extension HomeInteractor: HomeInteractorInput {
                 let surveys: [Survey] = surveyResponse.data.map {
                     return Survey(
                         id: $0.id,
+                        type: $0.type,
                         title: $0.attributes.title,
                         description: $0.attributes.description,
                         coverImageUrl: $0.attributes.coverImageUrl + "l"
