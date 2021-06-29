@@ -36,7 +36,8 @@ extension HomePresenter: HomeViewOutput {
     
     func didPressDetailButton(survey: SurveyCollectionCellViewModel) {
         // TODO: pass survey to survey detail screen
-        dump(survey)
+//        dump(survey)
+        router.showSurveyDetail()
     }
 }
 
