@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 // sourcery: AutoMockable
-protocol HomeViewInput: AnyObject {
+protocol HomeViewInput: AnyObject, ErrorShowable {
 
     func configure()
     func setUpSurveys(_ surveys: [Survey])

@@ -7,6 +7,11 @@
 
 struct Survey: Codable {
     
+    enum CodingKeys: String, CodingKey {
+        case id, title, description
+        case coverImageUrl = "cover_image_url"
+    }
+    
     let id: String
     let type: String
     let title: String

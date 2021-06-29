@@ -6,6 +6,8 @@
 //  
 //
 
+import Foundation
+
 // sourcery: AutoMockable
 protocol HomeInteractorInput: AnyObject {
     
@@ -16,12 +18,15 @@ protocol HomeInteractorInput: AnyObject {
 protocol HomeInteractorOutput: AnyObject {
     
     func didFetchSurveys(surveys: [Survey])
-    func didFailToFetchSurveys(_ error: APIError)
+    func didFailToFetchSurveys()
 }
 
 final class HomeInteractor {
 
     weak var output: HomeInteractorOutput?
+    
+    @UserDefault(key: .cachedSurveyList, defaultValue: [Survey]())
+    var cachedSurveyList: [Survey]
     
     private(set) var surveyService: SurveyServiceProtocol?
     
@@ -39,20 +44,26 @@ final class HomeInteractor {
 extension HomeInteractor: HomeInteractorInput {
     
     func fetchSurveys(pageNumber: Int, pageSize: Int) {
-        fetchSurveysRequest = surveyService?.fetchSurveys(pageNumber: pageNumber, pageSize: pageSize) { [weak output] result in
-            switch result {
-            case .success(let surveyResponse):
-                let surveys: [Survey] = surveyResponse.data.map {
-                    return Survey(
-                        id: $0.id,
-                        title: $0.attributes.title,
-                        description: $0.attributes.description,
-                        coverImageUrl: $0.attributes.coverImageUrl + "l"
-                    )
+        if !cachedSurveyList.isEmpty {
+            output?.didFetchSurveys(surveys: cachedSurveyList)
+            return
+        } else {
+            fetchSurveysRequest = surveyService?.fetchSurveys(pageNumber: pageNumber, pageSize: pageSize) { [weak self] result in
+                switch result {
+                case .success(let surveyResponse):
+                    let surveys: [Survey] = surveyResponse.data.map {
+                        return Survey(
+                            id: $0.id,
+                            title: $0.attributes.title,
+                            description: $0.attributes.description,
+                            coverImageUrl: $0.attributes.coverImageUrl + "l"
+                        )
+                    }
+                    self?.cachedSurveyList = surveys
+                    self?.output?.didFetchSurveys(surveys: surveys)
+                case .failure:
+                    self?.output?.didFailToFetchSurveys()
                 }
-                output?.didFetchSurveys(surveys: surveys)
-            case .failure(let error):
-                output?.didFailToFetchSurveys(error)
             }
         }
     }

@@ -48,8 +48,8 @@ extension HomePresenter: HomeInteractorOutput {
         view?.setUpSurveys(surveys)
     }
     
-    func didFailToFetchSurveys(_ error: APIError) {
-        print(error)
+    func didFailToFetchSurveys() {
+        view?.showError(message: Localize.errorFetchSurveys())
     }
 }
 
