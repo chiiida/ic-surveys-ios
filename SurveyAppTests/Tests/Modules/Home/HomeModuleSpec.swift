@@ -19,7 +19,7 @@ final class HomeModuleSpec: QuickSpec {
         var module: HomeModule!
 
         describe("a HomeModule") {
-            context("its initializers are called") {
+            describe("its initializers are called") {
                 beforeEach {
                     output = HomeOutputMock()
                     module = HomeModule()
