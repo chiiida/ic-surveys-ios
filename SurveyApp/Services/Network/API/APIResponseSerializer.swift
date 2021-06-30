@@ -1,5 +1,5 @@
 //
-//  TwoDecodableResponseSerializer.swift
+//  APIResponseSerializer.swift
 //  SurveyApp
 //
 //  Created by Chananchida F. on 6/30/21.
@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-final class TwoDecodableResponseSerializer<T: Decodable>: ResponseSerializer {
+final class APIResponseSerializer<T: Decodable>: ResponseSerializer {
     
     lazy var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
@@ -18,12 +18,6 @@ final class TwoDecodableResponseSerializer<T: Decodable>: ResponseSerializer {
     
     private lazy var successSerializer = DecodableResponseSerializer<T>(decoder: decoder)
     private lazy var errorSerializer = DecodableResponseSerializer<APIError>(decoder: decoder)
-
-    var errorCode: Int
-
-    init(errorCode: Int) {
-        self.errorCode = errorCode
-    }
 
     func serialize(
         request: URLRequest?,

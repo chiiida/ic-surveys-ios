@@ -21,7 +21,7 @@ extension DataRequest {
     func responseDecodable<T: Decodable>(queue: DispatchQueue = DispatchQueue.global(qos: .userInitiated),
                                          of type: T.Type = T.self,
                                          completion: @escaping RequestCompletion<T>) -> Self {
-        return response(queue: .main, responseSerializer: TwoDecodableResponseSerializer<T>(errorCode: 123)) { response in
+        return response(queue: .main, responseSerializer: APIResponseSerializer<T>()) { response in
             switch response.result {
             case .success(let result):
                 completion(result)
