@@ -58,6 +58,8 @@ extension JSON.AuthenticationService {
 extension Data {
 
     func decoded<T: Decodable>() -> T {
-        return try! JSONDecoder().decode(T.self, from: self)
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try! decoder.decode(T.self, from: self)
     }
 }
