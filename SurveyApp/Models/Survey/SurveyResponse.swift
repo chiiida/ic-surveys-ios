@@ -8,19 +8,7 @@
 import Foundation
 
 struct SurveyAttributes: Codable {
-    
-    enum CodingKeys: String, CodingKey {
-        case title, description
-        case thankEmailAboveThreshold = "thank_email_above_threshold"
-        case thankEmailBelowThreshold = "thank_email_below_threshold"
-        case isActive = "is_active"
-        case coverImageUrl = "cover_image_url"
-        case createdAt = "created_at"
-        case activeAt = "active_at"
-        case inactiveAt = "inactive_at"
-        case surveyType = "survey_type"
-    }
-    
+
     let title: String
     let description: String
     let thankEmailAboveThreshold: String?
@@ -35,37 +23,21 @@ struct SurveyAttributes: Codable {
 
 struct SurveyQuestionData: Codable {
     
-    enum CodingKeys: String, CodingKey {
-        case id, type
-    }
-    
     let id: String
     let type: String
 }
 
 struct SurveyQuestion: Codable {
     
-    enum CodingKeys: String, CodingKey {
-        case data
-    }
-    
     let data: [SurveyQuestionData]
 }
 
 struct SurveyRelationships: Codable {
     
-    enum CodingKeys: String, CodingKey {
-        case questions
-    }
-    
     let questions: SurveyQuestion
 }
 
 struct SurveyData: Codable {
-    
-    enum CodingKeys: String, CodingKey {
-        case id, type, attributes, relationships
-    }
     
     let id: String
     let type: String
@@ -75,11 +47,6 @@ struct SurveyData: Codable {
 
 struct Meta: Codable {
     
-    enum CodingKeys: String, CodingKey {
-        case page, pages, records
-        case pageSize = "page_size"
-    }
-    
     let page: Int
     let pages: Int
     let pageSize: Int
@@ -87,10 +54,6 @@ struct Meta: Codable {
 }
 
 struct SurveyResponse: Codable {
-    
-    enum CodingKeys: String, CodingKey {
-        case data, meta
-    }
     
     let data: [SurveyData]
     let meta: Meta
