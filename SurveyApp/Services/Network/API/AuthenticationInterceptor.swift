@@ -10,7 +10,6 @@ import Alamofire
 final class AuthenticationInterceptor: RequestInterceptor {
     
     let userSession: UserSessionProtocol
-    var isRefreshing: Bool = false
     
     internal var refreshRequest: Request?
     
@@ -66,8 +65,8 @@ final class AuthenticationInterceptor: RequestInterceptor {
                 "client_secret": Constants.ApiKeys.clientSecret
             ]
         )
-        .responseDecodable(of: AuthToken.self) { response in
-            switch response.result {
+        .responseDecodable { (response: Result<AuthToken, APIError>) in
+            switch response {
             case .success(let decoded):
                 completion(.success(decoded))
             case .failure:
