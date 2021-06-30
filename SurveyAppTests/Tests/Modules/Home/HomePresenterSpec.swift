@@ -57,12 +57,12 @@ final class HomePresenterSpec: QuickSpec {
                     }
                     
                     it("triggers view to call setUpSurveys") {
-                        expect(view.setUpSurveysCalled) == true
+                        expect(view.setUpSurveysViewModelsCalled) == true
                     }
                     
                     it("view should receive surveys correctly") {
-                        expect(view.setUpSurveysReceivedSurveys?.count) == 2
-                        expect(view.setUpSurveysReceivedSurveys?.first?.title) == "Scarlett Bangkok"
+                        expect(view.setUpSurveysViewModelsReceivedViewModels?.count) == 2
+                        expect(view.setUpSurveysViewModelsReceivedViewModels?.first?.title) == "Scarlett Bangkok"
                     }
                 }
             }

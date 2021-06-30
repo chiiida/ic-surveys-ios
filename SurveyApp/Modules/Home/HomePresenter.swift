@@ -34,7 +34,7 @@ extension HomePresenter: HomeViewOutput {
         interactor.fetchSurveys(pageNumber: 1, pageSize: 5)
     }
     
-    func didPressDetailButton(survey: Survey) {
+    func didPressDetailButton(survey: SurveyCollectionCellViewModel) {
         // TODO: pass survey to survey detail screen
         dump(survey)
     }
@@ -45,7 +45,10 @@ extension HomePresenter: HomeViewOutput {
 extension HomePresenter: HomeInteractorOutput {
     
     func didFetchSurveys(surveys: [Survey]) {
-        view?.setUpSurveys(surveys)
+        let viewModels: [SurveyCollectionCellViewModel] = surveys.map {
+            return SurveyCollectionCellViewModel(survey: $0)
+        }
+        view?.setUpSurveys(viewModels: viewModels)
     }
     
     func didFailToFetchSurveys() {

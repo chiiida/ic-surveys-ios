@@ -13,14 +13,14 @@ import SnapKit
 protocol HomeViewInput: AnyObject, ErrorShowable {
 
     func configure()
-    func setUpSurveys(_ surveys: [Survey])
+    func setUpSurveys(viewModels: [SurveyCollectionCellViewModel])
 }
 
 // sourcery: AutoMockable
 protocol HomeViewOutput: AnyObject {
 
     func viewDidLoad()
-    func didPressDetailButton(survey: Survey)
+    func didPressDetailButton(survey: SurveyCollectionCellViewModel)
 }
 
 final class HomeViewController: UIViewController {
@@ -37,7 +37,7 @@ final class HomeViewController: UIViewController {
         collectionViewLayout: AnimatedCollectionViewLayout(animationStyle: .fade)
     )
     
-    private var surveys: [Survey] = []
+    private var surveyListSection = SurveyListSection()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +54,8 @@ extension HomeViewController: HomeViewInput {
         setUpViews()
     }
     
-    func setUpSurveys(_ surveys: [Survey]) {
-        self.surveys = surveys
+    func setUpSurveys(viewModels: [SurveyCollectionCellViewModel]) {
+        surveyListSection.items = viewModels
         collectionView.reloadData()
     }
 }
@@ -151,7 +151,7 @@ extension HomeViewController {
 extension HomeViewController {
     
     @objc private func didPressDetailButton() {
-        let survey = surveys[pageControl.currentPage]
+        let survey = surveyListSection.items[pageControl.currentPage]
         output?.didPressDetailButton(survey: survey)
     }
 }
@@ -161,18 +161,14 @@ extension HomeViewController {
 extension HomeViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        pageControl.numberOfPages = surveys.count
-        return surveys.count
+        pageControl.numberOfPages = surveyListSection.items.count
+        return surveyListSection.items.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusable(SurveyCollectionCell.self, for: indexPath)
-        let survey = surveys[indexPath.item]
-        cell.configure(
-            title: survey.title,
-            description: survey.description,
-            imageURLString: survey.coverImageUrl
-        )
+        let viewModel = surveyListSection.items[indexPath.item]
+        cell.configure(with: viewModel)
         return cell
     }
 }

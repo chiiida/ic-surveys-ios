@@ -30,10 +30,10 @@ final class SurveyCollectionCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
-    func configure(title: String, description: String, imageURLString: String) {
-        titleLabel.text = title
-        descriptionLabel.text = description
-        guard let imageURL: URL = URL(string: imageURLString) else { return }
+    func configure(with viewModel: SurveyCollectionCellViewModel) {
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.description
+        guard let imageURL: URL = URL(string: viewModel.coverImageUrl) else { return }
         imageView.af.setImage(withURL: imageURL)
     }
     

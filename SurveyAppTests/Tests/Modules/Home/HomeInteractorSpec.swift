@@ -29,7 +29,7 @@ final class HomeInteractorSpec: QuickSpec {
             }
             
             afterEach {
-                interactor.cachedSurveyList = []
+                UserStorage.cachedSurveyList = []
             }
             
             describe("its fetchSurveys is called") {
@@ -41,7 +41,7 @@ final class HomeInteractorSpec: QuickSpec {
                             return nil
                         }
 
-                        interactor.cachedSurveyList = []
+                        UserStorage.cachedSurveyList = []
                         interactor.fetchSurveys(pageNumber: 1, pageSize: 2)
                     }
 
@@ -62,7 +62,7 @@ final class HomeInteractorSpec: QuickSpec {
                             return nil
                         }
 
-                        interactor.cachedSurveyList = []
+                        UserStorage.cachedSurveyList = []
                         interactor.fetchSurveys(pageNumber: 1, pageSize: 2)
                     }
 

@@ -25,9 +25,6 @@ final class HomeInteractor {
 
     weak var output: HomeInteractorOutput?
     
-    @UserDefault(key: .cachedSurveyList, defaultValue: [Survey]())
-    var cachedSurveyList: [Survey]
-    
     private(set) var surveyService: SurveyServiceProtocol?
     
     private var fetchSurveysRequest: Request? {
@@ -44,8 +41,8 @@ final class HomeInteractor {
 extension HomeInteractor: HomeInteractorInput {
     
     func fetchSurveys(pageNumber: Int, pageSize: Int) {
-        if !cachedSurveyList.isEmpty {
-            output?.didFetchSurveys(surveys: cachedSurveyList)
+        if !UserStorage.cachedSurveyList.isEmpty {
+            output?.didFetchSurveys(surveys: UserStorage.cachedSurveyList)
         }
         
         fetchSurveysRequest = surveyService?.fetchSurveys(pageNumber: pageNumber, pageSize: pageSize) { [weak self] result in
@@ -61,8 +58,8 @@ extension HomeInteractor: HomeInteractorInput {
                     )
                 }
                 
-                if !(self?.cachedSurveyList.isEqual(to: surveys) ?? false) {
-                    self?.cachedSurveyList = surveys
+                if !(UserStorage.cachedSurveyList.hasSameChildren(as: surveys)) {
+                    UserStorage.cachedSurveyList = surveys
                     self?.output?.didFetchSurveys(surveys: surveys)
                 }
             case .failure:
