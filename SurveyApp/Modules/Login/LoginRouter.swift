@@ -12,6 +12,7 @@ import UIKit
 protocol LoginRouterInput: AnyObject {
     
     func show(on window: UIWindow)
+    func showHome()
 }
 
 final class LoginRouter {
@@ -31,5 +32,11 @@ extension LoginRouter: LoginRouterInput {
         guard let viewController = viewController else { return }
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
+    }
+    
+    func showHome() {
+        guard let window = viewController?.view.window else { return }
+        let module = HomeModule()
+        module.router.show(on: window)
     }
 }

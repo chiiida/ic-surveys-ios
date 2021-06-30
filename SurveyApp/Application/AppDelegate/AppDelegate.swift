@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkActivityLogger.shared.level = .error
         #endif
         
+        NetworkServiceFactory.shared.setup()
+        
         return true
     }
 

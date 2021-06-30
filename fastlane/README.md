@@ -36,6 +36,11 @@ Run unit test
 fastlane ios ui_test
 ```
 Run UI test
+### ios upload_to_firebase
+```
+fastlane ios upload_to_firebase
+```
+Upload to firebase app distribution
 
 ----
 

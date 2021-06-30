@@ -12,3 +12,7 @@
 "login.forgetButton.title" = "Forgot?";
 
 "error.banner.title" = "Error";
+"error.login.failed" = "Failed to login";
+"error.invalid.email" = "Invalid email";
+
+"home.today.label" = "Today";
