@@ -7,6 +7,7 @@
 
 import Alamofire
 
+// sourcery: AutoMockable
 protocol SurveyServiceProtocol {
     
     func fetchSurveys(

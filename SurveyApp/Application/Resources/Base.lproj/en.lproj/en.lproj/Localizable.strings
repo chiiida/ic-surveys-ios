@@ -14,5 +14,6 @@
 "error.banner.title" = "Error";
 "error.login.failed" = "Failed to login";
 "error.invalid.email" = "Invalid email";
+"error.fetch.surveys" = "Couldn't retrieve the list of surveys";
 
 "home.today.label" = "Today";

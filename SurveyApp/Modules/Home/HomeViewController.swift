@@ -10,15 +10,17 @@ import UIKit
 import SnapKit
 
 // sourcery: AutoMockable
-protocol HomeViewInput: AnyObject {
+protocol HomeViewInput: AnyObject, ErrorShowable {
 
     func configure()
+    func setUpSurveys(viewModels: [SurveyCollectionCellViewModel])
 }
 
 // sourcery: AutoMockable
 protocol HomeViewOutput: AnyObject {
 
     func viewDidLoad()
+    func didPressDetailButton(survey: SurveyCollectionCellViewModel)
 }
 
 final class HomeViewController: UIViewController {
@@ -35,14 +37,7 @@ final class HomeViewController: UIViewController {
         collectionViewLayout: AnimatedCollectionViewLayout(animationStyle: .fade)
     )
     
-    // TODO: replace hard code use case with list of Survey objects from API
-    private let backgrounds = [Asset.sampleBackground3(), Asset.sampleBackground2(), Asset.sampleBackground1()]
-    private let titles = ["Working from home Check-In", "Career training and development", "Inclusion and belonging"]
-    private let descriptions = [
-        "We would like to know how you feel about our work from home...",
-        "We would like to know what are your goals and skills you wanted...",
-        "Building a workplace culture that prioritizes belonging and inclusio..."
-    ]
+    private var surveyListSection = SurveyListSection()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +52,11 @@ extension HomeViewController: HomeViewInput {
     func configure() {
         setUpLayout()
         setUpViews()
+    }
+    
+    func setUpSurveys(viewModels: [SurveyCollectionCellViewModel]) {
+        surveyListSection.items = viewModels
+        collectionView.reloadData()
     }
 }
 
@@ -126,6 +126,7 @@ extension HomeViewController {
         surveyDetailButton.round()
         surveyDetailButton.backgroundColor = .clear
         surveyDetailButton.setBackgroundImage(Asset.arrowIcon(), for: .normal)
+        surveyDetailButton.addTarget(self, action: #selector(didPressDetailButton), for: .touchUpInside)
 
         setUpHeaderView()
     }
@@ -145,25 +146,29 @@ extension HomeViewController {
     }
 }
 
+// MARK: - Actions
+
+extension HomeViewController {
+    
+    @objc private func didPressDetailButton() {
+        let survey = surveyListSection.items[pageControl.currentPage]
+        output?.didPressDetailButton(survey: survey)
+    }
+}
+
 // MARK: - UICollectionViewDataSource
 
 extension HomeViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: update to count surveys list instead
-        pageControl.numberOfPages = backgrounds.count
-        return backgrounds.count
+        pageControl.numberOfPages = surveyListSection.items.count
+        return surveyListSection.items.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusable(SurveyCollectionCell.self, for: indexPath)
-        // TODO: remove hard code use case when integrate
-        guard let background = backgrounds[indexPath.item] else { return cell }
-        let title = titles[indexPath.item]
-        let description = descriptions[indexPath.item]
-        // TODO: replace empty string with survey cover image url
-        cell.configure(title: title, description: description, imageURLString: "")
-        cell.setImage(image: background)
+        let viewModel = surveyListSection.items[indexPath.item]
+        cell.configure(with: viewModel)
         return cell
     }
 }
