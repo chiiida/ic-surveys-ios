@@ -12,7 +12,7 @@ import UIKit
 protocol HomeRouterInput: AnyObject {
     
     func show(on window: UIWindow)
-    func showSurveyDetail()
+    func showSurveyDetail(survey: Survey)
 }
 
 final class HomeRouter {
@@ -34,8 +34,9 @@ extension HomeRouter: HomeRouterInput {
         window.rootViewController = navigationController
     }
     
-    func showSurveyDetail() {
+    func showSurveyDetail(survey: Survey) {
         let module = SurveyDetailModule()
+        module.input.setSurvey(survey: survey)
         viewController?.navigationController?.pushViewController(module.view, animated: true)
     }
 }

@@ -8,6 +8,8 @@
 
 // sourcery: AutoMockable
 protocol SurveyDetailInput: AnyObject {
+    
+    func setSurvey(survey: Survey)
 }
 
 // sourcery: AutoMockable

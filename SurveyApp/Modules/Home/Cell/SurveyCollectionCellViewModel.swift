@@ -12,12 +12,12 @@ struct SurveyCollectionCellViewModel {
     let id: String
     let title: String
     let description: String
-    let coverImageUrl: String
+    let coverImageUrl: URL?
     
     init(survey: Survey) {
         id = survey.id
         title = survey.title
         description = survey.description
-        coverImageUrl = survey.coverImageUrl
+        coverImageUrl = survey.largeImageURL
     }
 }

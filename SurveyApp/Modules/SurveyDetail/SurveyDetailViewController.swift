@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import AlamofireImage
 
 // sourcery: AutoMockable
 protocol SurveyDetailViewInput: AnyObject {
 
-    func configure()
+    func configure(with survey: Survey)
 }
 
 // sourcery: AutoMockable
@@ -40,9 +41,13 @@ final class SurveyDetailViewController: UIViewController {
 
 extension SurveyDetailViewController: SurveyDetailViewInput {
 
-    func configure() {
+    func configure(with survey: Survey) {
         setUpLayout()
         setUpViews()
+        
+        backgroundImageView.af.setImage(withURL: survey.largeImageURL!)
+        titleLabel.text = survey.title
+        descriptionLabel.text = survey.description
     }
 }
 
@@ -87,8 +92,7 @@ extension SurveyDetailViewController {
     }
     
     func setUpViews() {
-        // TODO: replace with cover image from API
-        backgroundImageView.image = Asset.sampleBackground3()
+        backgroundImageView.contentMode = .scaleAspectFill
         
         gradientLayer.frame = UIScreen.main.bounds
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.7).cgColor]
@@ -102,14 +106,10 @@ extension SurveyDetailViewController {
         titleLabel.font = UIFont.bold(ofSize: .largerTitle)
         titleLabel.textColor = .white
         titleLabel.numberOfLines = 0
-        // TODO: remove hard code
-        titleLabel.text = "Working from home Check-In"
 
         descriptionLabel.font = UIFont.regular(ofSize: .heading)
         descriptionLabel.textColor = UIColor.white.withAlphaComponent(0.7)
         descriptionLabel.numberOfLines = 0
-        // TODO: remove hard code
-        descriptionLabel.text = "We would like to know how you feel about our work from home (WFH) experience."
     }
 }
 

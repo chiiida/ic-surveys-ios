@@ -20,7 +20,7 @@ protocol HomeViewInput: AnyObject, ErrorShowable {
 protocol HomeViewOutput: AnyObject {
 
     func viewDidLoad()
-    func didPressDetailButton(survey: SurveyCollectionCellViewModel)
+    func didPressDetailButton(surveyIndex: Int)
 }
 
 final class HomeViewController: UIViewController {
@@ -152,8 +152,7 @@ extension HomeViewController {
 extension HomeViewController {
     
     @objc private func didPressDetailButton() {
-        let survey = surveyListSection.items[pageControl.currentPage]
-        output?.didPressDetailButton(survey: survey)
+        output?.didPressDetailButton(surveyIndex: pageControl.currentPage)
     }
 }
 
