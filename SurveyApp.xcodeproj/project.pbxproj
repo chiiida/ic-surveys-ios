@@ -111,6 +111,12 @@
 		84D9B437268B1B6E00923F86 /* SurveyDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B432268B1B6E00923F86 /* SurveyDetailInteractor.swift */; };
 		84D9B438268B1B6E00923F86 /* SurveyDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B433268B1B6E00923F86 /* SurveyDetailPresenter.swift */; };
 		84D9B43A268B1F2600923F86 /* UIViewController+NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B439268B1F2600923F86 /* UIViewController+NavigationItem.swift */; };
+		84FABA0A268C243F00722243 /* DataRequest+TwoDecodableResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FABA09268C243F00722243 /* DataRequest+TwoDecodableResponseHandler.swift */; };
+		84FABA0C268C331000722243 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FABA0B268C331000722243 /* UserStorage.swift */; };
+		84FABA0E268C3C7D00722243 /* SurveyCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FABA0D268C3C7D00722243 /* SurveyCollectionCellViewModel.swift */; };
+		84FABA12268C55E000722243 /* SurveyListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FABA11268C55E000722243 /* SurveyListSection.swift */; };
+		84FABA16268C5D3F00722243 /* APIResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FABA15268C5D3F00722243 /* APIResponseSerializer.swift */; };
+		84FABA1B268C780F00722243 /* FadeZoomViewControllerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FABA1A268C780F00722243 /* FadeZoomViewControllerTransition.swift */; };
 		9B7F955DE913A978712DD0C5 /* Pods_SurveyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1886C8937DC934AF7DF3703 /* Pods_SurveyApp.framework */; };
 		A8E664B71593B3A6EA276EA5 /* Pods_SurveyApp_SurveyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 751E8A159909F8DBE0745D12 /* Pods_SurveyApp_SurveyAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -252,6 +258,12 @@
 		84D9B432268B1B6E00923F86 /* SurveyDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailInteractor.swift; sourceTree = "<group>"; };
 		84D9B433268B1B6E00923F86 /* SurveyDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailPresenter.swift; sourceTree = "<group>"; };
 		84D9B439268B1F2600923F86 /* UIViewController+NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationItem.swift"; sourceTree = "<group>"; };
+		84FABA09268C243F00722243 /* DataRequest+TwoDecodableResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+TwoDecodableResponseHandler.swift"; sourceTree = "<group>"; };
+		84FABA0B268C331000722243 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
+		84FABA0D268C3C7D00722243 /* SurveyCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		84FABA11268C55E000722243 /* SurveyListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListSection.swift; sourceTree = "<group>"; };
+		84FABA15268C5D3F00722243 /* APIResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseSerializer.swift; sourceTree = "<group>"; };
+		84FABA1A268C780F00722243 /* FadeZoomViewControllerTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeZoomViewControllerTransition.swift; sourceTree = "<group>"; };
 		88D92D34CAFA1D129AE0F111 /* Pods-SurveyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurveyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SurveyAppTests/Pods-SurveyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1886C8937DC934AF7DF3703 /* Pods_SurveyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurveyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEA0C649A9194A3912C91EE /* Pods-SurveyAppTests.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurveyAppTests.production.xcconfig"; path = "Target Support Files/Pods-SurveyAppTests/Pods-SurveyAppTests.production.xcconfig"; sourceTree = "<group>"; };
