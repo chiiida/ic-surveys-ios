@@ -105,7 +105,8 @@ extension HomeViewController {
     }
     
     private func setUpViews() {
-        navigationController?.isNavigationBarHidden = true
+        setUpTransparentNavigationBar()
+        navigationController?.delegate = self
         
         pageControl.overrideUserInterfaceStyle = .light
         
@@ -180,5 +181,19 @@ extension HomeViewController: UICollectionViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
+    }
+}
+
+extension HomeViewController: UIViewControllerTransitioningDelegate, UINavigationControllerDelegate {
+
+    func navigationController(
+        _ navigationController: UINavigationController,
+        animationControllerFor operation: UINavigationController.Operation,
+        from fromVC: UIViewController,
+        to toVC: UIViewController
+    ) -> UIViewControllerAnimatedTransitioning? {
+        let transition = FadeZoomViewControllerTransition()
+        transition.operation = operation
+        return transition
     }
 }
