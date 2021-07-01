@@ -17,6 +17,7 @@ final class HomeRouterSpec: QuickSpec {
 
         var router: HomeRouter!
         var viewController: HomeViewController!
+        var navViewController: SpyNavigationController!
 
         describe("a HomeRouter") {
             beforeEach {
@@ -26,6 +27,21 @@ final class HomeRouterSpec: QuickSpec {
                 router = HomeRouter()
                 router.view = viewController
                 _ = viewController.view
+            }
+            
+            describe("its showSurveyDetail is called") {
+                context("when the parameter is valid survey") {
+                    beforeEach {
+                        let surveys: [Survey] = JSON.SurveyService.surveyModelList.decoded()
+                        
+                        navViewController = SpyNavigationController(rootViewController: viewController)
+                        router.showSurveyDetail(survey: surveys[0])
+                    }
+
+                    it("pushes a SurveyDetailModule view") {
+                        expect(navViewController.pushedViewController).to(beAKindOf(SurveyDetailViewController.self))
+                    }
+                }
             }
         }
     }
