@@ -12,18 +12,19 @@ extension UIViewController {
     func setUpBackButton(tintColor: UIColor, selector: Selector? = #selector(didTapBackButton)) {
         let backImage = Asset.whiteArrow()?
             .withRenderingMode(.alwaysTemplate)
-            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: 22.0, bottom: 0.0, right: 0.0))
+            .withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: -14.0, bottom: 0.0, right: 0.0))
         
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.tintColor = tintColor
         navigationController?.navigationBar.backIndicatorImage = backImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+        navigationController?.navigationBar.tintColor = tintColor
         navigationItem.backBarButtonItem?.title = ""
     }
 
-    func setTransparentNavigationBar() {
+    func setUpTransparentNavigationBar() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
+        navigationItem.title = ""
     }
 }
 

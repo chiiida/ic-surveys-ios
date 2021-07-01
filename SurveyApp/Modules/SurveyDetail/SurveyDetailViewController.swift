@@ -29,7 +29,7 @@ final class SurveyDetailViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let gradientLayer = CAGradientLayer()
     private let startButton = UIButton(type: .system)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
@@ -51,10 +51,10 @@ extension SurveyDetailViewController: SurveyDetailViewInput {
 extension SurveyDetailViewController {
     
     func setUpLayout() {
-        navigationController?.isNavigationBarHidden = false
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleEdgePan(_:)))
         
         setUpBackButton(tintColor: .white)
-        setTransparentNavigationBar()
+        setUpTransparentNavigationBar()
         
         backgroundImageView.layer.insertSublayer(gradientLayer, at: 0)
         
@@ -62,6 +62,7 @@ extension SurveyDetailViewController {
         view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(startButton)
+        view.addGestureRecognizer(panGesture)
         
         backgroundImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -88,7 +89,6 @@ extension SurveyDetailViewController {
     func setUpViews() {
         // TODO: replace with cover image from API
         backgroundImageView.image = Asset.sampleBackground3()
-        backgroundImageView.transform = .init(scaleX: 1.3, y: 1.3)
         
         gradientLayer.frame = UIScreen.main.bounds
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.7).cgColor]
@@ -111,4 +111,20 @@ extension SurveyDetailViewController {
         // TODO: remove hard code
         descriptionLabel.text = "We would like to know how you feel about our work from home (WFH) experience."
     }
+}
+
+// MARK: - Actions
+
+extension SurveyDetailViewController {
+    
+    @objc private func handleEdgePan(_ gesture: UIScreenEdgePanGestureRecognizer) {
+        if gesture.state == .began {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
+extension SurveyDetailViewController: ZoomableBackgroundViewController {
+
+    var backgroundView: UIView? { backgroundImageView }
 }
