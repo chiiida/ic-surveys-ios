@@ -1,3 +1,4 @@
+// swiftlint:disable force_try
 //
 //  SurveyResponse.swift
 //  SurveyApp
@@ -7,7 +8,9 @@
 
 import Foundation
 
-struct SurveyAttributes: Codable {
+protocol SurveyAttributeType {}
+
+struct SurveyAttributes: Decodable {
 
     let title: String
     let description: String
@@ -21,31 +24,78 @@ struct SurveyAttributes: Codable {
     let surveyType: String
 }
 
-struct SurveyQuestionData: Codable {
+struct SurveyRelationshipData: Decodable {
     
     let id: String
     let type: String
 }
 
-struct SurveyQuestion: Codable {
+struct SurveyRelationshipType: Decodable {
     
-    let data: [SurveyQuestionData]
+    var data: [SurveyRelationshipData]
 }
 
-struct SurveyRelationships: Codable {
+struct SurveyRelationship: Decodable {
     
-    let questions: SurveyQuestion
+    private struct CodingKeys: CodingKey {
+        var stringValue: String
+        init?(stringValue: String) {
+            self.stringValue = stringValue
+        }
+        
+        var intValue: Int?
+        init?(intValue: Int) {
+            return nil
+        }
+    }
+    
+    let type: String
+    let relationship: SurveyRelationshipType
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        relationship = try container.decode(SurveyRelationshipType.self,
+                                    forKey: CodingKeys(stringValue: container.allKeys[0].stringValue)!)
+        
+        type = container.allKeys[0].stringValue
+    }
 }
 
-struct SurveyData: Codable {
+struct SurveyData: Decodable {
+    
+    enum CodingKeys: String, CodingKey {
+        case id, type, attributes, relationships
+    }
     
     let id: String
     let type: String
-    let attributes: SurveyAttributes
-    let relationships: SurveyRelationships
+    var attributes: SurveyAttributeType?
+    var relationships: SurveyRelationship?
+    
+    var surveyType: SurveyType {
+        guard let surveyType = SurveyType(rawValue: type ?? "") else { return .undefined }
+        return surveyType
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try! container.decode(String.self, forKey: .id)
+        type = try! container.decode(String.self, forKey: .type)
+        relationships = try? container.decode(SurveyRelationship.self, forKey: .relationships)
+        
+        switch surveyType {
+        case .question:
+            attributes = try? container.decode(SurveyQuestionAttributes.self, forKey: .attributes)
+        case .answer:
+            attributes = try? container.decode(SurveyAnswerAttributes.self, forKey: .attributes)
+            relationships = nil
+        default:
+            attributes = try? container.decode(SurveyAttributes.self, forKey: .attributes)
+        }
+    }
 }
 
-struct Meta: Codable {
+struct Meta: Decodable {
     
     let page: Int
     let pages: Int
@@ -53,8 +103,80 @@ struct Meta: Codable {
     let records: Int
 }
 
-struct SurveyResponse: Codable {
+struct SurveyResponse: Decodable {
     
     let data: [SurveyData]
     let meta: Meta
 }
+
+// MARK: - Survey Detail
+
+struct SurveyQuestionAttributes: Decodable {
+    
+    let text: String?
+    let helpText: String?
+    let displayOrder: Int?
+    let shortText: String?
+    let pick: String?
+    let displayType: String?
+    let isMandatory: Bool
+    let correctAnswerId: String?
+    let facebookProfile: String?
+    let twitterProfile: String?
+    let imageUrl: String?
+    let coverImageUrl: String?
+    let coverImageOpacity: Double?
+    let coverBackgroundColor: String?
+    let isShareableOnFacebook: Bool
+    let isShareableOnTwitter: Bool
+    let fontFace: String?
+    let fontSize: String?
+    let tagList: String?
+}
+
+struct SurveyAnswerAttributes: Decodable {
+    
+    let text: String?
+    let helpText: String?
+    let inputMaskPlaceholder: String?
+    let shortText: String?
+    let isMandatory: Bool
+    let isCustomerFirstName: Bool
+    let isCustomerLastName: Bool
+    let isCustomerTitle: Bool
+    let isCustomerEmail: Bool
+    let promptCustomAnswer: Bool
+    let weight: String?
+    let displayOrder: Int?
+    let displayType: String?
+    let inputMask: String?
+    let dateConstraint: String?
+    let defaultValue: String?
+    let responseClass: String?
+    let referenceIdentifier: String?
+    let score: Int?
+    let alerts: [String?]
+}
+
+struct SurveyDetailResponse: Decodable {
+    
+    let data: SurveyData
+    let included: [SurveyData]
+}
+
+extension SurveyData {
+    
+    enum SurveyType: String {
+        case survey
+        case question
+        case answer
+        
+        case undefined
+    }
+}
+
+extension SurveyAttributes: SurveyAttributeType {}
+
+extension SurveyQuestionAttributes: SurveyAttributeType {}
+
+extension SurveyAnswerAttributes: SurveyAttributeType {}

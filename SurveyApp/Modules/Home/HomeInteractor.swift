@@ -49,15 +49,15 @@ extension HomeInteractor: HomeInteractorInput {
             switch result {
             case .success(let surveyResponse):
                 let surveys: [Survey] = surveyResponse.data.map {
+                    let attributes = $0.attributes as? SurveyAttributes
                     return Survey(
                         id: $0.id,
                         type: $0.type,
-                        title: $0.attributes.title,
-                        description: $0.attributes.description,
-                        coverImageUrl: $0.attributes.coverImageUrl
+                        title: attributes?.title ?? "",
+                        description: attributes?.description ?? "",
+                        coverImageUrl: attributes?.coverImageUrl ?? ""
                     )
                 }
-                
                 if !(UserStorage.cachedSurveyList.hasSameChildren(as: surveys)) {
                     UserStorage.cachedSurveyList = surveys
                     self?.output?.didFetchSurveys(surveys: surveys)
