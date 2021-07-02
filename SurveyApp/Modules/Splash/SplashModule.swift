@@ -35,6 +35,10 @@ final class SplashModule {
     init() {
         let userSessionProvider = UserSessionProvider.shared
         
+        if ProcessInfo.processInfo.environment[TestConstants.clearUserSession] != nil {
+            userSessionProvider.clearCredentials()
+        }
+        
         view = SplashViewController()
         router = SplashRouter()
         interactor = SplashInteractor(userSessionProvider: userSessionProvider)
