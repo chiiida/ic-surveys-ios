@@ -17,3 +17,5 @@
 "error.fetch.surveys" = "Couldn't retrieve the list of surveys";
 
 "home.today.label" = "Today";
+
+"start.survey.button.title" = "Start Survey";

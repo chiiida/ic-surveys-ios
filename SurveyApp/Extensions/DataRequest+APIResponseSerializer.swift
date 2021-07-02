@@ -1,10 +1,9 @@
 //
-//  DataRequest+TwoDecodableResponseHandler.swift
+//  DataRequest+APIResponseSerializer.swift
 //  SurveyApp
 //
 //  Created by Chananchida F. on 6/30/21.
 //
-
 import Alamofire
 
 extension DataRequest {
