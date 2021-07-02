@@ -10,6 +10,8 @@ import Foundation
 enum TestConstants {
     
     static let mockAPIKey = "test.mock.api"
+    static let clearUserSession = "clear.user.session"
+    static let userLoggedInKey = "user.logged.in"
     
     enum Login {
         
@@ -21,5 +23,7 @@ enum TestConstants {
     enum Home {
         
         static let homeView = "home.view"
+        static let collectionView = "home.survey.collection.view"
+        static let surveyCellTitle = "home.survey.cell.title"
     }
 }

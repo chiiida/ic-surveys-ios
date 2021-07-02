@@ -179,6 +179,7 @@ extension HomeViewController {
     
     private func setIdentifiers() {
         view.accessibilityIdentifier = TestConstants.Home.homeView
+        collectionView.accessibilityIdentifier = TestConstants.Home.collectionView
     }
 }
 

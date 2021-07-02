@@ -111,6 +111,7 @@
 		84B3A78F269B2C6200E0618C /* UIView+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A78E269B2C6200E0618C /* UIView+Present.swift */; };
 		84B3A794269B2EC100E0618C /* LottieAnimationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */; };
 		84B3A796269B31B300E0618C /* AnimatedCompleteSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 84B3A795269B31B300E0618C /* AnimatedCompleteSurvey.json */; };
+		84AC78EC268F07F20095D127 /* HomeScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78EB268F07F20095D127 /* HomeScreenSpec.swift */; };
 		84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE695F266F4446001DE0C3 /* UIFont+Size.swift */; };
 		84C8D6752681CE5F00961CF8 /* LoginInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8D6702681CE5F00961CF8 /* LoginInteractorSpec.swift */; };
 		84C8D6762681CE5F00961CF8 /* LoginRouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8D6712681CE5F00961CF8 /* LoginRouterSpec.swift */; };
@@ -301,6 +302,7 @@
 		84B3A78E269B2C6200E0618C /* UIView+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Present.swift"; sourceTree = "<group>"; };
 		84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationViews.swift; sourceTree = "<group>"; };
 		84B3A795269B31B300E0618C /* AnimatedCompleteSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimatedCompleteSurvey.json; sourceTree = "<group>"; };
+		84AC78EB268F07F20095D127 /* HomeScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenSpec.swift; sourceTree = "<group>"; };
 		84BE695F266F4446001DE0C3 /* UIFont+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Size.swift"; sourceTree = "<group>"; };
 		84C8D6702681CE5F00961CF8 /* LoginInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorSpec.swift; sourceTree = "<group>"; };
 		84C8D6712681CE5F00961CF8 /* LoginRouterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterSpec.swift; sourceTree = "<group>"; };
@@ -941,6 +943,22 @@
 			path = LottileAnimationView;
 			sourceTree = "<group>";
 		};
+		84AC78EA268F07CA0095D127 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				84AC78ED268F25B00095D127 /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		84AC78ED268F25B00095D127 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				84AC78EB268F07F20095D127 /* HomeScreenSpec.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		84BE6958266F4400001DE0C3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1170,6 +1188,7 @@
 		84FABA36268E22E500722243 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				84AC78EA268F07CA0095D127 /* Screens */,
 				84FABA37268E22E800722243 /* Flows */,
 			);
 			path = Tests;
@@ -1671,6 +1690,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84FABA39268E232100722243 /* LoginFlowSpec.swift in Sources */,
+				84AC78EC268F07F20095D127 /* HomeScreenSpec.swift in Sources */,
 				84AC78DD268EB9E60095D127 /* JSON+AuthenticationService.swift in Sources */,
 				84FABA3D268E243300722243 /* XCUIApplication.swift in Sources */,
 				84AC78D9268EB3600095D127 /* MockAPIKey.swift in Sources */,
