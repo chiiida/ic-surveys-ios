@@ -6,8 +6,6 @@
 //  
 //
 
-import Foundation
-
 // sourcery: AutoMockable
 protocol SplashInteractorInput: AnyObject {
     

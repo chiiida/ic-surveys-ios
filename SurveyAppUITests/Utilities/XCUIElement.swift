@@ -8,6 +8,7 @@
 import XCTest
 
 extension XCUIElement {
+    
     func tapThen() -> Self {
         tap()
         return self

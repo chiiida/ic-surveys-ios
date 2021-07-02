@@ -36,8 +36,6 @@ class LoginFlowSpec: QuickSpec {
                         .typeText("12345678")
                     app.buttons[TestConstants.Login.loginButton]
                         .tap()
-                    
-                    sleep(3)
                 }
                 
                 it("shows Home screen") {
