@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 // sourcery: AutoMockable
 protocol UserSessionProviderProtocol: AnyObject {
 
     var userSession: UserSession? { get }
     var isLoggedIn: Bool { get }
+    
+    func logout()
 }
 
 final class UserSessionProvider: UserSessionProviderProtocol {
@@ -26,5 +29,15 @@ final class UserSessionProvider: UserSessionProviderProtocol {
 
     public func clearCredentials() {
         userSession?.userCredential = nil
+    }
+    
+    func logout() {
+        clearCredentials()
+        
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else { return }
+        
+        let module = LoginModule()
+        let navigationController = UINavigationController(rootViewController: module.view)
+        sceneDelegate.window?.rootViewController = navigationController
     }
 }
