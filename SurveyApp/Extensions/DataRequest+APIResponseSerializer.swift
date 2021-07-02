@@ -11,7 +11,7 @@ extension DataRequest {
 
     /// Decodes the response to a type `T` or` APIError`.
     ///
-    /// NB: The serializer used `TwoDeodableResponseSerializer` doesn't throw though Alamofire
+    /// NB: The serializer used `APIResponseSerializer` doesn't throw though Alamofire
     /// response serializer expects to receive a `DataResponse`. All errors/failures are converted to an `APIError`.
     ///
     /// - Parameters:
