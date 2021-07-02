@@ -55,6 +55,7 @@ extension LoginViewController: LoginViewInput {
     func configure() {
         setUpLayout()
         setUpViews()
+        setIndentifier()
     }
     
     func beginAnimation() {
@@ -186,6 +187,12 @@ extension LoginViewController {
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.25)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.75)
         gradientLayer.isHidden = true
+    }
+    
+    private func setIndentifier() {
+        emailField.accessibilityIdentifier = TestConstants.Login.emailInputTextField
+        passwordField.accessibilityIdentifier = TestConstants.Login.passwordInputTextField
+        loginButton.accessibilityIdentifier = TestConstants.Login.loginButton
     }
 }
 

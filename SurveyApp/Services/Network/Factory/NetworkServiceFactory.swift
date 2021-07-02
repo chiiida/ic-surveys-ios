@@ -19,6 +19,10 @@ final class NetworkServiceFactory {
         UserSessionProvider.shared.userSession = userSession
 
         self.api = BaseAPI(userSession: userSession)
+        
+        if ProcessInfo.processInfo.environment[TestConstants.mockAPIKey] != nil {
+            self.api = SeededAPI(userSession: userSession, api: api)
+        }
     }
     
     func createAuthenticationService() -> AuthenticationServiceProtocol {
