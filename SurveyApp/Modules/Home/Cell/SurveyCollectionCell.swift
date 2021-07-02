@@ -33,7 +33,9 @@ final class SurveyCollectionCell: UICollectionViewCell {
     func configure(with viewModel: SurveyCollectionCellViewModel) {
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
-        imageView.af.setImage(withURL: viewModel.coverImageUrl!)
+        if let coverImageUrl = viewModel.coverImageUrl {
+            imageView.af.setImage(withURL: coverImageUrl)
+        }
     }
     
     private func setUpLayout() {

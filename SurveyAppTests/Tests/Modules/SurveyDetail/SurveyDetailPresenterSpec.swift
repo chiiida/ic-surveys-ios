@@ -20,6 +20,8 @@ final class SurveyDetailPresenterSpec: QuickSpec {
         var interactor: SurveyDetailInteractorInputMock!
         var view: SurveyDetailViewInputMock!
         var output: SurveyDetailOutputMock!
+        
+        let sampleSurveys: [Survey] = JSON.SurveyService.surveyModelList.decoded()
 
         describe("a SurveyDetailPresenter") {
             beforeEach {
@@ -37,8 +39,7 @@ final class SurveyDetailPresenterSpec: QuickSpec {
 
             describe("its viewDidLoad is called") {
                 beforeEach {
-                    let surveys: [Survey] = JSON.SurveyService.surveyModelList.decoded()
-                    presenter.survey = surveys[0]
+                    presenter.survey = sampleSurveys[0]
                     presenter.viewDidLoad()
                 }
 
@@ -47,7 +48,7 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                 }
                 
                 it("view should receive survey correctly") {
-                    expect(view.configureWithReceivedSurvey?.title) == "Scarlett Bangkok"
+                    expect(view.configureWithReceivedSurvey?.title) == sampleSurveys[0].title
                 }
             }
         }

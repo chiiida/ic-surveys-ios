@@ -24,6 +24,5 @@ extension Survey {
 
     var largeImageURL: URL? {
         URL(string: coverImageUrl + "l")
-
     }
 }
