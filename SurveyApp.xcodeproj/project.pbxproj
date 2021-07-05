@@ -52,6 +52,7 @@
 		8464840926775D6700233656 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840426775D6700233656 /* HomeViewController.swift */; };
 		8464840A26775D6700233656 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840526775D6700233656 /* HomeInteractor.swift */; };
 		8464840B26775D6700233656 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840626775D6700233656 /* HomePresenter.swift */; };
+		847EF44C2692C7C500F24564 /* UserSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EF44B2692C7C500F24564 /* UserSessionMock.swift */; };
 		848A00AC2685AA510019A426 /* SurveyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848A00AB2685AA510019A426 /* SurveyResponse.swift */; };
 		84A0AB5F26706AC4005EBF9A /* CredentialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */; };
 		84A0AB6526708954005EBF9A /* R.swift+Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */; };
@@ -65,10 +66,10 @@
 		84A361DE26848CFD00A369E7 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A361DD26848CFD00A369E7 /* Survey.swift */; };
 		84A361E02684904100A369E7 /* AuthenticationInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A361DF2684904100A369E7 /* AuthenticationInterceptor.swift */; };
 		84AC054F2682E05A00218DC2 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC054E2682E05A00218DC2 /* SplashInteractor.swift */; };
-		84AC78DB268EB7FC0095D127 /* DataRequest+APIResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78DA268EB7FC0095D127 /* DataRequest+APIResponseSerializer.swift */; };
 		84AC78D2268EAE030095D127 /* SeededAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78D1268EAE030095D127 /* SeededAPI.swift */; };
 		84AC78D6268EB1740095D127 /* MockAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78D5268EB1740095D127 /* MockAPIKey.swift */; };
 		84AC78D9268EB3600095D127 /* MockAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78D5268EB1740095D127 /* MockAPIKey.swift */; };
+		84AC78DB268EB7FC0095D127 /* DataRequest+APIResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78DA268EB7FC0095D127 /* DataRequest+APIResponseSerializer.swift */; };
 		84AC78DC268EB9E40095D127 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BC3267AF51C00E87C1A /* JSON.swift */; };
 		84AC78DD268EB9E60095D127 /* JSON+AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BC5267AF52D00E87C1A /* JSON+AuthenticationService.swift */; };
 		84AC78DE268EB9EA0095D127 /* JSON+APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BD9267B24E500E87C1A /* JSON+APIError.swift */; };
@@ -210,6 +211,7 @@
 		8464840426775D6700233656 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8464840526775D6700233656 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		8464840626775D6700233656 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		847EF44B2692C7C500F24564 /* UserSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionMock.swift; sourceTree = "<group>"; };
 		848A00AB2685AA510019A426 /* SurveyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyResponse.swift; sourceTree = "<group>"; };
 		84A0AB5E26706AC4005EBF9A /* CredentialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialTextField.swift; sourceTree = "<group>"; };
 		84A0AB6426708954005EBF9A /* R.swift+Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "R.swift+Typealias.swift"; sourceTree = "<group>"; };
@@ -223,9 +225,9 @@
 		84A361DD26848CFD00A369E7 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		84A361DF2684904100A369E7 /* AuthenticationInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInterceptor.swift; sourceTree = "<group>"; };
 		84AC054E2682E05A00218DC2 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
-		84AC78DA268EB7FC0095D127 /* DataRequest+APIResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+APIResponseSerializer.swift"; sourceTree = "<group>"; };
 		84AC78D1268EAE030095D127 /* SeededAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededAPI.swift; sourceTree = "<group>"; };
 		84AC78D5268EB1740095D127 /* MockAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIKey.swift; sourceTree = "<group>"; };
+		84AC78DA268EB7FC0095D127 /* DataRequest+APIResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+APIResponseSerializer.swift"; sourceTree = "<group>"; };
 		84AC78E1268EBB020095D127 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		84AC78E8268ECFCA0095D127 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
 		84BE695F266F4446001DE0C3 /* UIFont+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Size.swift"; sourceTree = "<group>"; };
@@ -860,6 +862,7 @@
 				84D0749F2673227C009CFE4C /* BaseAPI.swift */,
 				8448C2422679FB1E005955D4 /* UserSessionProvider.swift */,
 				8448C2402679FAFF005955D4 /* UserSession.swift */,
+				847EF44B2692C7C500F24564 /* UserSessionMock.swift */,
 				84A361DF2684904100A369E7 /* AuthenticationInterceptor.swift */,
 				84FABA15268C5D3F00722243 /* APIResponseSerializer.swift */,
 			);
@@ -1349,6 +1352,7 @@
 				84D0748926731FFC009CFE4C /* R.generated.swift in Sources */,
 				843AB4D8266DCB5E00EC3F28 /* LoginModule.swift in Sources */,
 				84276BE5267B332E00E87C1A /* SplashRouter.swift in Sources */,
+				847EF44C2692C7C500F24564 /* UserSessionMock.swift in Sources */,
 				8423B97126734D8C0000036F /* AuthToken.swift in Sources */,
 				84D9B438268B1B6E00923F86 /* SurveyDetailPresenter.swift in Sources */,
 				8448C23F2679FA97005955D4 /* KeychainKeys.swift in Sources */,

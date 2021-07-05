@@ -21,7 +21,9 @@ final class NetworkServiceFactory {
         self.api = BaseAPI(userSession: userSession)
         
         if ProcessInfo.processInfo.environment[TestConstants.mockAPIKey] != nil {
-            self.api = SeededAPI(userSession: userSession, api: api)
+            let userSessionMock = UserSessionMock()
+            UserSessionProvider.shared.userSession = userSessionMock
+            self.api = SeededAPI(userSession: userSessionMock, api: api)
         }
     }
     

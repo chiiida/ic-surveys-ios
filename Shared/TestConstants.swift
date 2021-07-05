@@ -10,7 +10,6 @@ import Foundation
 enum TestConstants {
     
     static let mockAPIKey = "test.mock.api"
-    static let clearUserSession = "clear.user.session"
     
     enum Login {
         

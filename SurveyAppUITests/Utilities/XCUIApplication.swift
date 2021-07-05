@@ -10,11 +10,6 @@ import Alamofire
 
 extension XCUIApplication {
     
-    var needClearUserSession: Bool {
-        get { launchEnvironment[TestConstants.clearUserSession] == "yes" }
-        set { launchEnvironment[TestConstants.clearUserSession] = newValue ? "yes" : nil }
-    }
-    
     func mockAPI(
         withMethod method: HTTPMethod,
         endPoint: String,

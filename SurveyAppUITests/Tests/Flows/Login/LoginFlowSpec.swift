@@ -19,7 +19,6 @@ class LoginFlowSpec: QuickSpec {
                     self.continueAfterFailure = false
                     
                     app = XCUIApplication()
-                    app.needClearUserSession = true
                     app.mockAPI(
                         withMethod: .post,
                         endPoint: "/api/v1/oauth/token",
