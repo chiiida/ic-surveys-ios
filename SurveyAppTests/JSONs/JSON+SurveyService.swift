@@ -181,6 +181,811 @@ extension JSON.SurveyService {
         """.data(using: .utf8)!
     }
     
+    static var fetchSurveyDetailSuccess: Data {
+        """
+        {
+            "data": {
+                "id": "d5de6a8f8f5f1cfe51bc",
+                "type": "survey",
+                "attributes": {
+                    "title": "Scarlett Bangkok",
+                    "description": "We'd love ot hear from you!",
+                    "thank_email_above_threshold": "Dear Thank you for visiting Beach Republic and for taking the time to complete our brief survey. We are thrilled that you enjoyed your time with us! If you have a moment, we would be greatly appreciate it if you could leave a short review on. It helps to spread the word and let others know about the Beach Republic Revolution! Thank you again and we look forward to welcoming you back soon. Beach Republic Team",
+                    "thank_email_below_threshold": "Dear Thank you for visiting Beach Republic and for taking the time to complete our brief survey. We are thrilled that you enjoyed your time with us! If you have a moment, we would be greatly appreciate it if you could leave a short review on. It helps to spread the word and let others know about the Beach Republic Revolution! Thank you again and we look forward to welcoming you back soon. Beach Republic Team",
+                    "is_active": true,
+                    "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/1ea51560991bcb7d00d0_",
+                    "created_at": "2017-01-23T07:48:12.991Z",
+                    "active_at": "2015-10-08T07:04:00.000Z",
+                    "inactive_at": null,
+                    "survey_type": "Restaurant"
+                },
+                "relationships": {
+                    "questions": {
+                        "data": [
+                            {
+                                "id": "d3afbcf2b1d60af845dc",
+                                "type": "question"
+                            },
+                            {
+                                "id": "940d229e4cd87cd1e202",
+                                "type": "question"
+                            },
+                            {
+                                "id": "ea0555f328b3b0124127",
+                                "type": "question"
+                            },
+                            {
+                                "id": "16e68f5610ef0e0fa4db",
+                                "type": "question"
+                            },
+                            {
+                                "id": "bab38ad82eaf22afcdfe",
+                                "type": "question"
+                            }
+                        ]
+                    }
+                }
+            },
+            "included": [
+                {
+                    "id": "d3afbcf2b1d60af845dc",
+                    "type": "question",
+                    "attributes": {
+                        "text": "Thank you for visiting Scarlett! Please take a moment to share your feedback.",
+                        "help_text": null,
+                        "display_order": 0,
+                        "short_text": "introduction",
+                        "pick": "none",
+                        "display_type": "intro",
+                        "is_mandatory": false,
+                        "correct_answer_id": null,
+                        "facebook_profile": null,
+                        "twitter_profile": null,
+                        "image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/2001ebbfdcbf6c00c757_",
+                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/1ea51560991bcb7d00d0_",
+                        "cover_image_opacity": 0.6,
+                        "cover_background_color": null,
+                        "is_shareable_on_facebook": false,
+                        "is_shareable_on_twitter": false,
+                        "font_face": null,
+                        "font_size": null,
+                        "tag_list": ""
+                    },
+                    "relationships": {
+                        "answers": {
+                            "data": []
+                        }
+                    }
+                },
+                {
+                    "id": "940d229e4cd87cd1e202",
+                    "type": "question",
+                    "attributes": {
+                        "text": "Food â€“ Variety, Taste and Presentation",
+                        "help_text": null,
+                        "display_order": 1,
+                        "short_text": "Food",
+                        "pick": "one",
+                        "display_type": "star",
+                        "is_mandatory": false,
+                        "correct_answer_id": null,
+                        "facebook_profile": null,
+                        "twitter_profile": null,
+                        "image_url": null,
+                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/b41c84934fa8e4c34269_",
+                        "cover_image_opacity": 0.75,
+                        "cover_background_color": null,
+                        "is_shareable_on_facebook": false,
+                        "is_shareable_on_twitter": false,
+                        "font_face": null,
+                        "font_size": null,
+                        "tag_list": ""
+                    },
+                    "relationships": {
+                        "answers": {
+                            "data": [
+                                {
+                                    "id": "4cbc3e5a1c87d99bc7ee",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "6e6221ce7e0d1068874d",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "037574cb93d16800eecd",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "f09f1a680789b636459b",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "bafadb5f1d8defa4778a",
+                                    "type": "answer"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "ea0555f328b3b0124127",
+                    "type": "question",
+                    "attributes": {
+                        "text": "Beverages â€“ Variety, Taste and Presentation",
+                        "help_text": null,
+                        "display_order": 2,
+                        "short_text": "Quality of beverage",
+                        "pick": "one",
+                        "display_type": "star",
+                        "is_mandatory": false,
+                        "correct_answer_id": null,
+                        "facebook_profile": null,
+                        "twitter_profile": null,
+                        "image_url": null,
+                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/b41c84934fa8e4c34269_",
+                        "cover_image_opacity": 0.75,
+                        "cover_background_color": null,
+                        "is_shareable_on_facebook": false,
+                        "is_shareable_on_twitter": false,
+                        "font_face": null,
+                        "font_size": null,
+                        "tag_list": ""
+                    },
+                    "relationships": {
+                        "answers": {
+                            "data": [
+                                {
+                                    "id": "8e1a918e724c89397a73",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "b31dca3a711cdddc06da",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "d43e7db9dedf66326795",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "3f5c5676e40cb185a0e8",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "bd7f1fdb0cba0f7368ce",
+                                    "type": "answer"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "16e68f5610ef0e0fa4db",
+                    "type": "question",
+                    "attributes": {
+                        "text": "Quality of Service, Speed and Efficiency",
+                        "help_text": null,
+                        "display_order": 3,
+                        "short_text": "Quality of service",
+                        "pick": "one",
+                        "display_type": "star",
+                        "is_mandatory": false,
+                        "correct_answer_id": null,
+                        "facebook_profile": null,
+                        "twitter_profile": null,
+                        "image_url": null,
+                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/b41c84934fa8e4c34269_",
+                        "cover_image_opacity": 0.75,
+                        "cover_background_color": null,
+                        "is_shareable_on_facebook": false,
+                        "is_shareable_on_twitter": false,
+                        "font_face": null,
+                        "font_size": null,
+                        "tag_list": ""
+                    },
+                    "relationships": {
+                        "answers": {
+                            "data": [
+                                {
+                                    "id": "dd0a88c4c76391afb125",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "df3013bf2048eb8624f0",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "534f04bca9d051c8deb3",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "0d769dbd5804c8f04030",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "0adbe83b90f3d8342ded",
+                                    "type": "answer"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "bab38ad82eaf22afcdfe",
+                    "type": "question",
+                    "attributes": {
+                        "text": "Staff- Friendliness and Helpfulness",
+                        "help_text": null,
+                        "display_order": 4,
+                        "short_text": "Staff Friendliness",
+                        "pick": "one",
+                        "display_type": "star",
+                        "is_mandatory": false,
+                        "correct_answer_id": null,
+                        "facebook_profile": null,
+                        "twitter_profile": null,
+                        "image_url": null,
+                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/b41c84934fa8e4c34269_",
+                        "cover_image_opacity": 0.75,
+                        "cover_background_color": null,
+                        "is_shareable_on_facebook": false,
+                        "is_shareable_on_twitter": false,
+                        "font_face": null,
+                        "font_size": null,
+                        "tag_list": ""
+                    },
+                    "relationships": {
+                        "answers": {
+                            "data": [
+                                {
+                                    "id": "e62a22a664363eee0087",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "b34705d5faf62a3bc800",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "d3b786f5c0b9eca4a863",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "ae5825c1b2acf846d53a",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "f50cba5438093e823030",
+                                    "type": "answer"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "4cbc3e5a1c87d99bc7ee",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "1",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 0,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 0,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "6e6221ce7e0d1068874d",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "2",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_2",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 1,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 25,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "037574cb93d16800eecd",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "3",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_3",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 2,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 50,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "f09f1a680789b636459b",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "4",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_4",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 3,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 75,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "bafadb5f1d8defa4778a",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "5",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_5",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 4,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 100,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "8e1a918e724c89397a73",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "1",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 0,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 0,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "b31dca3a711cdddc06da",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "2",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 1,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 25,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "d43e7db9dedf66326795",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "3",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 2,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 50,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "3f5c5676e40cb185a0e8",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "4",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 3,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 75,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "bd7f1fdb0cba0f7368ce",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "5",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 4,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 100,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "dd0a88c4c76391afb125",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "1",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 0,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 0,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "df3013bf2048eb8624f0",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "2",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 1,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 25,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "534f04bca9d051c8deb3",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "3",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 2,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 50,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "0d769dbd5804c8f04030",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "4",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 3,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 75,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "0adbe83b90f3d8342ded",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "5",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 4,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 100,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "e62a22a664363eee0087",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "1",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 0,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 0,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "b34705d5faf62a3bc800",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "2",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_2",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 1,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 25,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "d3b786f5c0b9eca4a863",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "3",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_3",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 2,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 50,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "ae5825c1b2acf846d53a",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "4",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_4",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 3,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 75,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "f50cba5438093e823030",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "5",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_5",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 4,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 100,
+                        "alerts": []
+                    }
+                }
+            ]
+        }
+        """.data(using: .utf8)!
+    }
+    
     static var surveyModelList: Data {
         """
         [

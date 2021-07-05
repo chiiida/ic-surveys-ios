@@ -1,4 +1,3 @@
-// swiftlint:disable force_try
 //
 //  SurveyResponse.swift
 //  SurveyApp
@@ -79,16 +78,15 @@ struct SurveyData: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try! container.decode(String.self, forKey: .id)
-        type = try! container.decode(String.self, forKey: .type)
-        relationships = try? container.decode(SurveyRelationship.self, forKey: .relationships)
+        id = try container.decode(String.self, forKey: .id)
+        type = try container.decode(String.self, forKey: .type)
+        relationships = try? container.decodeIfPresent(SurveyRelationship.self, forKey: .relationships)
         
         switch surveyType {
         case .question:
             attributes = try? container.decode(SurveyQuestionAttributes.self, forKey: .attributes)
         case .answer:
             attributes = try? container.decode(SurveyAnswerAttributes.self, forKey: .attributes)
-            relationships = nil
         default:
             attributes = try? container.decode(SurveyAttributes.self, forKey: .attributes)
         }
