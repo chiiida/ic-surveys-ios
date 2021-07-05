@@ -15,6 +15,8 @@ final class SurveyDetailPresenter {
 
     weak var view: SurveyDetailViewInput?
     weak var output: SurveyDetailOutput?
+    
+    internal var survey: Survey?
 
     init(
         router: SurveyDetailRouterInput,
@@ -30,7 +32,9 @@ final class SurveyDetailPresenter {
 extension SurveyDetailPresenter: SurveyDetailViewOutput {
 
     func viewDidLoad() {
-        view?.configure()
+        if let survey = survey {
+            view?.configure(with: survey)
+        }
     }
 }
 
@@ -42,4 +46,8 @@ extension SurveyDetailPresenter: SurveyDetailInteractorOutput {
 // MARK: - SurveyDetailInput
 
 extension SurveyDetailPresenter: SurveyDetailInput {
+    
+    func setSurvey(survey: Survey) {
+        self.survey = survey
+    }
 }
