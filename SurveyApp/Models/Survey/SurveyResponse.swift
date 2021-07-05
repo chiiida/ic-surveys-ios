@@ -7,8 +7,6 @@
 
 import Foundation
 
-protocol SurveyAttributeType {}
-
 struct SurveyAttributes: Decodable {
 
     let title: String
@@ -68,7 +66,7 @@ struct SurveyData: Decodable {
     
     let id: String
     let type: String
-    var attributes: SurveyAttributeType?
+    var attributes: Any?
     var relationships: SurveyRelationship?
     
     var surveyType: SurveyType {
@@ -172,9 +170,3 @@ extension SurveyData {
         case undefined
     }
 }
-
-extension SurveyAttributes: SurveyAttributeType {}
-
-extension SurveyQuestionAttributes: SurveyAttributeType {}
-
-extension SurveyAnswerAttributes: SurveyAttributeType {}
