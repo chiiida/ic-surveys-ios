@@ -33,9 +33,11 @@ final class HomeModule {
     var input: HomeInput { presenter }
 
     init() {
+        let surveyService = NetworkServiceFactory.shared.createSurveyService()
+        
         view = HomeViewController()
         router = HomeRouter()
-        interactor = HomeInteractor()
+        interactor = HomeInteractor(surveyService: surveyService)
         presenter = HomePresenter(
             router: router,
             interactor: interactor

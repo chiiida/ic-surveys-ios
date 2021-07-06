@@ -15,6 +15,8 @@ final class HomePresenter {
 
     weak var view: HomeViewInput?
     weak var output: HomeOutput?
+    
+    internal var surveys: [Survey] = []
 
     init(
         router: HomeRouterInput,
@@ -31,12 +33,30 @@ extension HomePresenter: HomeViewOutput {
 
     func viewDidLoad() {
         view?.configure()
+        interactor.fetchSurveys(pageNumber: 1, pageSize: 5)
+    }
+    
+    func didPressDetailButton(surveyIndex: Int) {
+        let survey = surveys[surveyIndex]
+        router.showSurveyDetail(survey: survey)
     }
 }
 
 // MARK: - HomeInteractorOutput
 
 extension HomePresenter: HomeInteractorOutput {
+    
+    func didFetchSurveys(surveys: [Survey]) {
+        self.surveys = surveys
+        let viewModels: [SurveyCollectionCellViewModel] = surveys.map {
+            return SurveyCollectionCellViewModel(survey: $0)
+        }
+        view?.setUpSurveys(viewModels: viewModels)
+    }
+    
+    func didFailToFetchSurveys() {
+        view?.showError(message: Localize.errorFetchSurveys())
+    }
 }
 
 // MARK: - HomeInput

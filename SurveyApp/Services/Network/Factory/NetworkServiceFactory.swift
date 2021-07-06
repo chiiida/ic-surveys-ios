@@ -24,4 +24,8 @@ final class NetworkServiceFactory {
     func createAuthenticationService() -> AuthenticationServiceProtocol {
         AuthenticationService(api: api, baseURL: Constants.Network.baseUrl)
     }
+    
+    func createSurveyService() -> SurveyServiceProtocol {
+        SurveyService(api: api, baseURL: Constants.Network.baseUrl)
+    }
 }

@@ -11,4 +11,5 @@ enum JSON {
     
     enum APIError {}
     enum AuthenticationService {}
+    enum SurveyService {}
 }
