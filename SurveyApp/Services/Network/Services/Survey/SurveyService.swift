@@ -15,6 +15,11 @@ protocol SurveyServiceProtocol {
         pageSize: Int,
         completion: @escaping RequestCompletion<SurveyResponse>
     ) -> Request?
+    
+    func fetchSurveyDetail(
+        id: String,
+        completion: @escaping RequestCompletion<SurveyDetailResponse>
+    ) -> Request?
 }
 
 final class SurveyService: NetworkService, SurveyServiceProtocol {
@@ -28,6 +33,15 @@ final class SurveyService: NetworkService, SurveyServiceProtocol {
                 "page[size]": pageSize
             ],
             parameterEncoding: URLEncoding.default
+        )
+        
+        return api.performRequest(with: configuration, completion: completion)
+    }
+    
+    func fetchSurveyDetail(id: String, completion: @escaping RequestCompletion<SurveyDetailResponse>) -> Request? {
+        let configuration = RequestConfiguration(
+            method: .get,
+            url: url(forEndpoint: "/api/v1/surveys/\(id)")
         )
         
         return api.performRequest(with: configuration, completion: completion)
