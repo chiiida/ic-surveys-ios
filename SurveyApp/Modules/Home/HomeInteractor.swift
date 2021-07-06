@@ -48,7 +48,7 @@ extension HomeInteractor: HomeInteractorInput {
         fetchSurveysRequest = surveyService?.fetchSurveys(pageNumber: pageNumber, pageSize: pageSize) { [weak self] result in
             switch result {
             case .success(let surveyResponse):
-                let surveys: [Survey] = surveyResponse.data.map {
+                let surveys: [Survey] = surveyResponse.data.compactMap {
                     let attributes = $0.attributes as? SurveyAttributes
                     return Survey(
                         id: $0.id,
