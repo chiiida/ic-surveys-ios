@@ -52,7 +52,7 @@ extension HomeViewController: HomeViewInput {
     func configure() {
         setUpLayout()
         setUpViews()
-        setIdentifier()
+        setIdentifiers()
     }
     
     func setUpSurveys(viewModels: [SurveyCollectionCellViewModel]) {
@@ -147,7 +147,7 @@ extension HomeViewController {
         userProfileButton.setBackgroundImage(Asset.userAvatar(), for: .normal)
     }
     
-    private func setIdentifier() {
+    private func setIdentifiers() {
         view.accessibilityIdentifier = TestConstants.Home.homeView
     }
 }
