@@ -11,7 +11,7 @@ import UIKit
 // sourcery: AutoMockable
 protocol UserSessionProviderProtocol: AnyObject {
 
-    var userSession: UserSession? { get }
+    var userSession: UserSessionProtocol? { get }
     var isLoggedIn: Bool { get }
     
     func logout()
@@ -21,7 +21,7 @@ final class UserSessionProvider: UserSessionProviderProtocol {
 
     public static let shared = UserSessionProvider()
 
-    var userSession: UserSession?
+    var userSession: UserSessionProtocol?
 
     public var isLoggedIn: Bool {
         userSession?.userCredential?.refreshToken != nil

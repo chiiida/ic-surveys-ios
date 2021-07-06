@@ -54,7 +54,8 @@ platform :ios do
       scheme: "SurveyApp Staging",
       only_testing: ["SurveyAppUITests"],
       derived_data_path: "derivedData",
-      test_without_building: true
+      test_without_building: true,
+      devices: ["iPhone 12"]
     )
   end
 
