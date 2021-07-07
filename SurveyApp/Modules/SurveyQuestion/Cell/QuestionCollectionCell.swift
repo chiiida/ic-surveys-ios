@@ -35,13 +35,15 @@ final class QuestionCollectionCell: UICollectionViewCell {
         
         let answerView = self.getAnswerView(
             type: question.displayType,
+            pickType: question.pickType,
             answers: question.sortedAnswers
         )
         
         contentView.addSubview(answerView)
         
         answerView.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.centerY.equalToSuperview()
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     
@@ -54,7 +56,6 @@ final class QuestionCollectionCell: UICollectionViewCell {
     }
     
     private func setUpViews() {
-        questionLabel.text = "I have a separate space to work (room or living room)."
         questionLabel.font = UIFont.bold(ofSize: .largerTitle)
         questionLabel.textColor = .white
         questionLabel.lineBreakMode = .byWordWrapping
@@ -64,7 +65,7 @@ final class QuestionCollectionCell: UICollectionViewCell {
 
 extension QuestionCollectionCell {
     
-    private func getAnswerView(type: DisplayType, answers: [SurveyAnswer] = []) -> UIView {
+    private func getAnswerView(type: DisplayType, pickType: SurveyQuestion.PickType, answers: [SurveyAnswer]) -> UIView {
         switch type {
         case .star:
             return RatingAnswerView(icon: DisplayType.RatingIcon.star)
@@ -79,7 +80,10 @@ extension QuestionCollectionCell {
         case .nps:
             return NPSAnswerView(answers: answers)
         case .choice:
-            return ChoiceAnswerView(answers: answers)
+            return ChoiceAnswerView(
+                isMultipleSelection: pickType == SurveyQuestion.PickType.any,
+                answers: answers
+            )
         }
     }
 }

@@ -35,58 +35,64 @@ final class SurveyQuestionViewController: UIViewController {
     private let submitButton = UIButton(type: .system)
     private let pageNumberLabel = UILabel()
     
+    // TODO: Replace mock with real data
     private let questions = [
         SurveyQuestion(
             id: "1",
             displayOrder: 1,
             displayType: .heart,
             text: "Food â€“ Variety, Taste and Presentation",
-            pickType: "one",
-            answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 3, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 4, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 5, text: "1", inputPlaceholder: nil, inputMask: nil)
-            ]
+            pickType: SurveyQuestion.PickType.one,
+            answers: []
         ),
         SurveyQuestion(
             id: "1",
             displayOrder: 2,
             displayType: .star,
             text: "Quality of Service, Speed and Efficiency",
-            pickType: "one",
-            answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 3, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 4, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 5, text: "1", inputPlaceholder: nil, inputMask: nil)
-            ]
+            pickType: SurveyQuestion.PickType.one,
+            answers: []
         ),
         SurveyQuestion(
             id: "1",
             displayOrder: 3,
             displayType: .smiley,
             text: "Staff- Friendliness and Helpfulness",
-            pickType: "one",
-            answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 3, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 4, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 5, text: "1", inputPlaceholder: nil, inputMask: nil)
-            ]
+            pickType: SurveyQuestion.PickType.one,
+            answers: []
         ),
         SurveyQuestion(
             id: "1",
             displayOrder: 3,
             displayType: .nps,
             text: "How likely is that you would recommend. Scarlett to a friend or colleague?",
-            pickType: "one",
+            pickType: SurveyQuestion.PickType.one,
             answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "1", inputPlaceholder: nil, inputMask: nil)
+                SurveyAnswer(id: "a1", displayOrder: 1, text: "0", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "1", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "2", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "3", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "4", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "5", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "6", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "7", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "8", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "9", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "10", inputPlaceholder: nil, inputMask: nil)
+            ]
+        ),
+        SurveyQuestion(
+            id: "1",
+            displayOrder: 6,
+            displayType: .choice,
+            text: "What was the primary reason for selecting ibis Bangkok Riverside?",
+            pickType: SurveyQuestion.PickType.one,
+            answers: [
+                SurveyAnswer(id: "a1", displayOrder: 1, text: "Price", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "Location", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 3, text: "TripAdvisor Reviews", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 4, text: "Returning guest", inputPlaceholder: nil, inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 5, text: "Other", inputPlaceholder: nil, inputMask: nil),
             ]
         ),
         SurveyQuestion(
@@ -94,7 +100,7 @@ final class SurveyQuestionViewController: UIViewController {
             displayOrder: 6,
             displayType: .choice,
             text: "How did you hear about us?",
-            pickType: "one",
+            pickType: SurveyQuestion.PickType.any,
             answers: [
                 SurveyAnswer(id: "a1", displayOrder: 1, text: "TripAdvisor", inputPlaceholder: nil, inputMask: nil),
                 SurveyAnswer(id: "a1", displayOrder: 2, text: "Newspaper/Magazine Story", inputPlaceholder: nil, inputMask: nil),
@@ -108,11 +114,11 @@ final class SurveyQuestionViewController: UIViewController {
             displayOrder: 4,
             displayType: .textfield,
             text: "Don't miss out on our Exclusive Promotions!",
-            pickType: "one",
+            pickType: SurveyQuestion.PickType.none,
             answers: [
                 SurveyAnswer(id: "a1", displayOrder: 1, text: "First Name", inputPlaceholder: "John", inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "1", inputPlaceholder: "Email", inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 3, text: "1", inputPlaceholder: "Mobile Number", inputMask: nil)
+                SurveyAnswer(id: "a1", displayOrder: 2, text: "Email", inputPlaceholder: "Email", inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 3, text: "Number", inputPlaceholder: "Mobile Number", inputMask: nil)
             ]
         ),
         SurveyQuestion(
@@ -120,9 +126,9 @@ final class SurveyQuestionViewController: UIViewController {
             displayOrder: 5,
             displayType: .textarea,
             text: "Your additional comments are welcomed.",
-            pickType: "one",
+            pickType: SurveyQuestion.PickType.none,
             answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "First Name", inputPlaceholder: "John", inputMask: nil),
+                SurveyAnswer(id: "a1", displayOrder: 1, text: "", inputPlaceholder: "Comment", inputMask: nil),
             ]
         )
     ]

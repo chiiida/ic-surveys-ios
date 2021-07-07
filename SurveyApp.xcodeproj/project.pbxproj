@@ -795,6 +795,7 @@
 		847EF47326930AC600F24564 /* AnswerView */ = {
 			isa = PBXGroup;
 			children = (
+				842D69022695925C0005DBC4 /* Cell */,
 				84661C5D269401040049B035 /* TextFieldAnswerView.swift */,
 				84661C5F2694027B0049B035 /* RatingAnswerView.swift */,
 				84661C65269448FF0049B035 /* NPSAnswerView.swift */,
@@ -1440,6 +1441,7 @@
 				84D9B41A268AC99200923F86 /* UserDefaultsKey.swift in Sources */,
 				84A361DE26848CFD00A369E7 /* Survey.swift in Sources */,
 				84D074A02673227C009CFE4C /* BaseAPI.swift in Sources */,
+				842D6904269592A50005DBC4 /* MultipleSelectionCell.swift in Sources */,
 				848A00AC2685AA510019A426 /* SurveyResponse.swift in Sources */,
 				8448C2432679FB1E005955D4 /* UserSessionProvider.swift in Sources */,
 				842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */,

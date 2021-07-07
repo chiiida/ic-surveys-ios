@@ -27,9 +27,16 @@ class ChoiceAnswerView: UIView {
 
     private func setUpLayout() {
         addSubview(pickerView)
-
+        
         pickerView.snp.makeConstraints {
             $0.center.equalToSuperview()
+        }
+        
+        tableView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(10.0)
+            $0.trailing.equalToSuperview().inset(20.0)
+            $0.height.equalTo(300.0)
         }
     }
 
