@@ -205,6 +205,22 @@ extension SurveyQuestionViewController {
         pageNumberLabel.font = UIFont.bold(ofSize: .body)
         pageNumberLabel.textColor = UIColor.white.withAlphaComponent(0.5)
         
+        nextButton.round()
+        nextButton.backgroundColor = .clear
+        nextButton.setBackgroundImage(Asset.arrowIcon(), for: .normal)
+        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+        
+        submitButton.setTitle(Localize.surveySubmit(), for: .normal)
+        submitButton.titleLabel?.font = UIFont.bold(ofSize: .heading)
+        submitButton.tintColor = .black
+        submitButton.backgroundColor = .white
+        submitButton.layer.cornerRadius = 10.0
+        submitButton.isHidden = true
+        
+        setUpCollectionView()
+    }
+    
+    private func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(QuestionCollectionCell.self)
@@ -219,18 +235,6 @@ extension SurveyQuestionViewController {
             layout.minimumLineSpacing = 0.0
             layout.minimumInteritemSpacing = 0.0
         }
-        
-        nextButton.round()
-        nextButton.backgroundColor = .clear
-        nextButton.setBackgroundImage(Asset.arrowIcon(), for: .normal)
-        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
-        
-        submitButton.setTitle(Localize.surveySubmit(), for: .normal)
-        submitButton.titleLabel?.font = UIFont.bold(ofSize: .heading)
-        submitButton.tintColor = .black
-        submitButton.backgroundColor = .white
-        submitButton.layer.cornerRadius = 10.0
-        submitButton.isHidden = true
     }
     
     private func updateQuestionPaging(pageNumber: Int) {
