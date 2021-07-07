@@ -10,3 +10,5 @@ import Alamofire
 typealias Parameters = [String: Any]
 typealias RequestResult<T> = (Result<T, APIError>)
 typealias RequestCompletion<T> = (RequestResult<T>) -> Void
+
+typealias CompletionHandler = (UIAlertAction) -> Void

@@ -10,6 +10,8 @@ import UIKit
 
 // sourcery: AutoMockable
 protocol SurveyDetailRouterInput: AnyObject {
+    
+    func showSurveyQuestion()
 }
 
 final class SurveyDetailRouter {
@@ -24,4 +26,9 @@ final class SurveyDetailRouter {
 // MARK: - SurveyDetailRouterInput
 
 extension SurveyDetailRouter: SurveyDetailRouterInput {
+    
+    func showSurveyQuestion() {
+        let module = SurveyQuestionModule()
+        viewController?.navigationController?.pushViewController(module.view, animated: true)
+    }
 }
