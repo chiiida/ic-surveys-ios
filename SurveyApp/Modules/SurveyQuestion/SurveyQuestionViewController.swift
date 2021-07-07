@@ -230,13 +230,8 @@ extension SurveyQuestionViewController {
     private func updateQuestionPaging(pageNumber: Int) {
         pageNumberLabel.text = "\(pageNumber)/\(questions.count)"
         
-        if pageNumber == questions.count {
-            nextButton.isHidden = true
-            submitButton.isHidden = false
-        } else {
-            nextButton.isHidden = false
-            submitButton.isHidden = true
-        }
+        nextButton.isHidden = pageNumber == questions.count ? true : false
+        submitButton.isHidden = pageNumber == questions.count ? false : true
     }
 }
 
