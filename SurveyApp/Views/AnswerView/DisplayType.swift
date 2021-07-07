@@ -1,5 +1,5 @@
 //
-//  AnswerView.swift
+//  DisplayType.swift
 //  SurveyApp
 //
 //  Created by Chananchida F. on 7/6/21.
