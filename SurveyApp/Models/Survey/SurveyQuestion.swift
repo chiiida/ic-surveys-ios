@@ -8,7 +8,7 @@
 import Foundation
 
 struct SurveyQuestion {
-    
+
     let id: String
     let displayOrder: Int
     let displayType: QuestionDisplayType

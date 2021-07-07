@@ -30,18 +30,18 @@ class NPSAnswerView: UIView {
         addSubview(segmentedControl)
         addSubview(mostLikelyLabel)
         addSubview(leastLikelyLabel)
-        
+
         segmentedControl.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.width.equalToSuperview().offset(-20.0)
             $0.height.equalTo(56.0)
         }
-        
+
         mostLikelyLabel.snp.makeConstraints {
             $0.top.equalTo(segmentedControl.snp.bottom).offset(16.0)
             $0.trailing.equalTo(segmentedControl.snp.trailing)
         }
-        
+
         leastLikelyLabel.snp.makeConstraints {
             $0.top.equalTo(segmentedControl.snp.bottom).offset(16.0)
             $0.leading.equalTo(segmentedControl.snp.leading)
