@@ -37,7 +37,7 @@ class TextFieldAnswerView: UIView {
             $0.width.equalToSuperview().offset(-20.0)
             $0.height.equalTo(168.0)
         }
-
+        
         stackView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.width.equalToSuperview().offset(-20.0)

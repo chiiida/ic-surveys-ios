@@ -57,7 +57,7 @@ class RatingAnswerView: UIView {
             iconLabel.text = icon
             iconLabel.font = UIFont.regular(ofSize: .title)
             iconLabel.alpha = 0.5
-
+            
             stackView.addArrangedSubview(iconLabel)
             iconLabelsList.append(iconLabel)
         }
