@@ -1,5 +1,5 @@
 //
-//  TextFieldWithPadding.swift
+//  CustomTextField.swift
 //  SurveyApp
 //
 //  Created by Chananchida F. on 6/9/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CredentialTextField: UITextField {
+final class CustomTextField: UITextField {
     
     var textPadding = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     

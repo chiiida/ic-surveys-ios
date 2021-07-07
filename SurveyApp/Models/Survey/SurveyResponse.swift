@@ -70,7 +70,7 @@ struct SurveyData: Decodable {
     var relationships: SurveyRelationship?
     
     var surveyType: SurveyType {
-        guard let surveyType = SurveyType(rawValue: type ?? "") else { return .undefined }
+        guard let surveyType = SurveyType(rawValue: type) else { return .undefined }
         return surveyType
     }
     
