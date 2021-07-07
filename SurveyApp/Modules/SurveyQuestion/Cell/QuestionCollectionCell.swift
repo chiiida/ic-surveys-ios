@@ -80,10 +80,11 @@ extension QuestionCollectionCell {
         case .nps:
             return NPSAnswerView(answers: answers)
         case .choice:
-            return ChoiceAnswerView(
-                isMultipleSelection: pickType == SurveyQuestion.PickType.any,
-                answers: answers
-            )
+            if pickType == SurveyQuestion.PickType.any {
+                return MultipleChoiceAnswerView(answers: answers)
+            } else {
+                return ChoiceAnswerView(answers: answers)
+            }
         }
     }
 }

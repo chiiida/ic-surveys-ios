@@ -37,7 +37,7 @@ class TextFieldAnswerView: UIView {
             $0.width.equalToSuperview().offset(-20.0)
             $0.height.equalTo(168.0)
         }
-        
+
         stackView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.width.equalToSuperview().offset(-20.0)
@@ -53,7 +53,7 @@ class TextFieldAnswerView: UIView {
             setUpTextFieldStack()
         }
     }
-    
+
     private func setUpTextView() {
         textView.isUserInteractionEnabled = true
         textView.text = answers.first?.inputPlaceholder ?? ""
@@ -63,22 +63,22 @@ class TextFieldAnswerView: UIView {
         textView.font = .regular(ofSize: .body)
         textView.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
     }
-    
+
     private func setUpTextFieldStack() {
         stackView.spacing = 16.0
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-        
+
         for answer in answers {
             let textField = CustomTextField()
             textField.placeholder = answer.inputPlaceholder
             textField.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
-            
+
             textField.snp.makeConstraints {
                 $0.height.equalTo(56.0)
             }
-            
+
             stackView.addArrangedSubview(textField)
         }
     }

@@ -3,7 +3,7 @@
 //  SurveyApp
 //
 //  Created by Chananchida F. on 6/29/21.
-//  
+//
 //
 
 // sourcery: AutoMockable

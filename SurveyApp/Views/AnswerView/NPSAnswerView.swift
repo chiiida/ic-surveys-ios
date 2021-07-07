@@ -10,7 +10,7 @@ import UIKit
 class NPSAnswerView: UIView {
 
     let answers: [SurveyAnswer]
-    
+
     let segmentedControl = UISegmentedControl()
     private let mostLikelyLabel = UILabel()
     private let leastLikelyLabel = UILabel()
@@ -30,18 +30,18 @@ class NPSAnswerView: UIView {
         addSubview(segmentedControl)
         addSubview(mostLikelyLabel)
         addSubview(leastLikelyLabel)
-        
+
         segmentedControl.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.width.equalToSuperview().offset(-20.0)
             $0.height.equalTo(56.0)
         }
-        
+
         mostLikelyLabel.snp.makeConstraints {
             $0.top.equalTo(segmentedControl.snp.bottom).offset(16.0)
             $0.trailing.equalTo(segmentedControl.snp.trailing)
         }
-        
+
         leastLikelyLabel.snp.makeConstraints {
             $0.top.equalTo(segmentedControl.snp.bottom).offset(16.0)
             $0.leading.equalTo(segmentedControl.snp.leading)
@@ -57,7 +57,7 @@ class NPSAnswerView: UIView {
         leastLikelyLabel.text = Localize.answerNpsLeastLikely()
         leastLikelyLabel.font = UIFont.bold(ofSize: .heading)
         leastLikelyLabel.textColor = .white
-        
+
         setSegmentedItems()
         setUpSegmentedControl()
     }
@@ -86,7 +86,7 @@ class NPSAnswerView: UIView {
             barMetrics: .default
         )
     }
-    
+
     private func setSegmentedItems() {
         for (index, answer) in answers.enumerated() {
             segmentedControl.insertSegment(withTitle: answer.text, at: index, animated: false)

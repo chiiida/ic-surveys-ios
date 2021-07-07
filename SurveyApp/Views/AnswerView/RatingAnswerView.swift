@@ -74,7 +74,7 @@ class RatingAnswerView: UIView {
                 iconLabel.alpha = 0.5
             }
         }
-        
+
         // TODO: return selected index to submit survey
     }
 }
