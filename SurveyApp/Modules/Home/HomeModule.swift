@@ -50,28 +50,5 @@ final class HomeModule {
         interactor.output = presenter
 
         router.view = view
-        
-        let question = [
-            QuestionSubmission(
-                id: "940d229e4cd87cd1e202",
-                answers: [AnswerSubmission(id: "037574cb93d16800eecd", answers: nil)]
-            ),
-            QuestionSubmission(
-                id: "c3a9b8ce5c2356010703",
-                answers: [
-                    AnswerSubmission(id: "2a49e148c5b170aca804", answers: "my answer"),
-                    AnswerSubmission(id: "2a49e148c5b170aca804", answers: "my answer")
-                ]
-            )
-        ]
-        
-        surveyService.submitSurvey(id: "d5de6a8f8f5f1cfe51bc", questions: question) { result in
-            switch result {
-            case .success:
-                print("yes")
-            case .failure(let err):
-                dump(err)
-            }
-        }
     }
 }
