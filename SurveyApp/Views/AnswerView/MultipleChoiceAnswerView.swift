@@ -32,6 +32,7 @@ class MultipleChoiceAnswerView: UIView {
             $0.leading.equalToSuperview().inset(10.0)
             $0.trailing.equalToSuperview().inset(20.0)
             $0.top.equalToSuperview().inset(50.0)
+            $0.bottom.lessThanOrEqualToSuperview().inset(20.0)
             $0.height.lessThanOrEqualTo(300.0)
         }
     }
