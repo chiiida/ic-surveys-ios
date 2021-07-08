@@ -13,6 +13,9 @@ final class SurveyQuestionPresenter {
 
     weak var view: SurveyQuestionViewInput?
     weak var output: SurveyQuestionOutput?
+    
+    private(set) var id: String?
+    private(set) var questions: [SurveyQuestion]? 
 
     init(
         router: SurveyQuestionRouterInput,
@@ -28,7 +31,12 @@ final class SurveyQuestionPresenter {
 extension SurveyQuestionPresenter: SurveyQuestionViewOutput {
 
     func viewDidLoad() {
-        view?.configure()
+        if let questions = questions {
+            let viewModels: [QuestionCollectionCellViewModel] = questions.map {
+                return QuestionCollectionCellViewModel(question: $0)
+            }
+            view?.configure(with: viewModels)
+        }
     }
 }
 
@@ -40,4 +48,9 @@ extension SurveyQuestionPresenter: SurveyQuestionInteractorOutput {
 // MARK: - SurveyQuestionInput
 
 extension SurveyQuestionPresenter: SurveyQuestionInput {
+        
+    func setSurveyQuestions(id: String, questions: [SurveyQuestion]) {
+        self.id = id
+        self.questions = questions
+    }
 }

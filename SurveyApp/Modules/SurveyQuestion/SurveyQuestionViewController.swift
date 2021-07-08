@@ -8,11 +8,12 @@
 
 import UIKit
 import SnapKit
+import AlamofireImage
 
 // sourcery: AutoMockable
 protocol SurveyQuestionViewInput: AnyObject {
 
-    func configure()
+    func configure(with viewModels: [QuestionCollectionCellViewModel])
 }
 
 // sourcery: AutoMockable
@@ -35,103 +36,7 @@ final class SurveyQuestionViewController: UIViewController {
     private let submitButton = UIButton(type: .system)
     private let pageNumberLabel = UILabel()
     
-    // TODO: Replace mock with real data
-    private let questions = [
-        SurveyQuestion(
-            id: "1",
-            displayOrder: 1,
-            displayType: .heart,
-            text: "Food â€“ Variety, Taste and Presentation",
-            pickType: SurveyQuestion.PickType.one,
-            answers: []
-        ),
-        SurveyQuestion(
-            id: "1",
-            displayOrder: 2,
-            displayType: .star,
-            text: "Quality of Service, Speed and Efficiency",
-            pickType: SurveyQuestion.PickType.one,
-            answers: []
-        ),
-        SurveyQuestion(
-            id: "1",
-            displayOrder: 3,
-            displayType: .smiley,
-            text: "Staff- Friendliness and Helpfulness",
-            pickType: SurveyQuestion.PickType.one,
-            answers: []
-        ),
-        SurveyQuestion(
-            id: "1",
-            displayOrder: 3,
-            displayType: .nps,
-            text: "How likely is that you would recommend. Scarlett to a friend or colleague?",
-            pickType: SurveyQuestion.PickType.one,
-            answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "0", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "1", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "2", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "3", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "4", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "5", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "6", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "7", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "8", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "9", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "10", inputPlaceholder: nil, inputMask: nil)
-            ]
-        ),
-        SurveyQuestion(
-            id: "1",
-            displayOrder: 6,
-            displayType: .choice,
-            text: "What was the primary reason for selecting ibis Bangkok Riverside?",
-            pickType: SurveyQuestion.PickType.one,
-            answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "Price", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "Location", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 3, text: "TripAdvisor Reviews", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 4, text: "Returning guest", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 5, text: "Other", inputPlaceholder: nil, inputMask: nil),
-            ]
-        ),
-        SurveyQuestion(
-            id: "1",
-            displayOrder: 6,
-            displayType: .choice,
-            text: "How did you hear about us?",
-            pickType: SurveyQuestion.PickType.any,
-            answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "TripAdvisor", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "Newspaper/Magazine Story", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 3, text: "Website", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 4, text: "Social Media", inputPlaceholder: nil, inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 5, text: "Staying at hotel", inputPlaceholder: nil, inputMask: nil),
-            ]
-        ),
-        SurveyQuestion(
-            id: "1",
-            displayOrder: 4,
-            displayType: .textfield,
-            text: "Don't miss out on our Exclusive Promotions!",
-            pickType: SurveyQuestion.PickType.none,
-            answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "First Name", inputPlaceholder: "John", inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 2, text: "Email", inputPlaceholder: "Email", inputMask: nil),
-                SurveyAnswer(id: "a1", displayOrder: 3, text: "Number", inputPlaceholder: "Mobile Number", inputMask: nil)
-            ]
-        ),
-        SurveyQuestion(
-            id: "1",
-            displayOrder: 5,
-            displayType: .textarea,
-            text: "Your additional comments are welcomed.",
-            pickType: SurveyQuestion.PickType.none,
-            answers: [
-                SurveyAnswer(id: "a1", displayOrder: 1, text: "", inputPlaceholder: "Comment", inputMask: nil),
-            ]
-        )
-    ]
+    private var questions = QuestionListSection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,9 +48,11 @@ final class SurveyQuestionViewController: UIViewController {
 
 extension SurveyQuestionViewController: SurveyQuestionViewInput {
 
-    func configure() {
+    func configure(with viewModels: [QuestionCollectionCellViewModel]) {
+        self.questions.items = viewModels
         setUpLayout()
         setUpViews()
+        collectionView.reloadData()
     }
 }
 
@@ -196,8 +103,10 @@ extension SurveyQuestionViewController {
     
     private func setUpViews() {
         backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.image = Asset.sampleBackground3()
         backgroundImageView.transform = .init(scaleX: 1.5, y: 1.5)
+        if let coverImageUrl = questions.sortedQuestions[0].coverImageUrl {
+            backgroundImageView.af.setImage(withURL: coverImageUrl)
+        }
         
         gradientLayer.frame = UIScreen.main.bounds
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.7).cgColor]
@@ -241,10 +150,10 @@ extension SurveyQuestionViewController {
     }
     
     private func updateQuestionPaging(pageNumber: Int) {
-        pageNumberLabel.text = "\(pageNumber)/\(questions.count)"
+        pageNumberLabel.text = "\(pageNumber)/\(questions.sortedQuestions.count)"
         
-        nextButton.isHidden = pageNumber == questions.count ? true : false
-        submitButton.isHidden = pageNumber == questions.count ? false : true
+        nextButton.isHidden = pageNumber == questions.sortedQuestions.count ? true : false
+        submitButton.isHidden = pageNumber == questions.sortedQuestions.count ? false : true
     }
 }
 
@@ -277,12 +186,12 @@ extension SurveyQuestionViewController {
 extension SurveyQuestionViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        pageNumberLabel.text = "1/\(questions.count)"
-        return questions.count
+        pageNumberLabel.text = "1/\(questions.sortedQuestions.count)"
+        return questions.sortedQuestions.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let type = questions[indexPath.item].displayType
+        let type = questions.sortedQuestions[indexPath.item].displayType
         let cell: QuestionCollectionCell
         
         switch type {
@@ -296,7 +205,7 @@ extension SurveyQuestionViewController: UICollectionViewDataSource {
             cell = collectionView.dequeueReusable(ChoiceCollectionCell.self, for: indexPath)
         }
         
-        cell.configure(with: questions[indexPath.item])
+        cell.configure(with: questions.sortedQuestions[indexPath.item])
         return cell
     }
 }

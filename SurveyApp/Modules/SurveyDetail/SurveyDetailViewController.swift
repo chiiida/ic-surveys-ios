@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 // sourcery: AutoMockable
-protocol SurveyDetailViewInput: AnyObject {
+protocol SurveyDetailViewInput: AnyObject, ErrorShowable {
 
     func configure(with survey: Survey)
 }
@@ -46,9 +46,11 @@ extension SurveyDetailViewController: SurveyDetailViewInput {
         setUpLayout()
         setUpViews()
         
-        backgroundImageView.af.setImage(withURL: survey.largeImageURL!)
         titleLabel.text = survey.title
         descriptionLabel.text = survey.description
+        if let coverImageUrl = survey.largeImageURL {
+            backgroundImageView.af.setImage(withURL: coverImageUrl)
+        }
     }
 }
 
@@ -103,7 +105,7 @@ extension SurveyDetailViewController {
         startButton.tintColor = .black
         startButton.backgroundColor = .white
         startButton.layer.cornerRadius = 10.0
-        startButton.addTarget(self, action: #selector(startSurvey), for: .touchUpInside)
+        startButton.addTarget(self, action: #selector(didPressStartSurvey), for: .touchUpInside)
 
         titleLabel.font = UIFont.bold(ofSize: .largerTitle)
         titleLabel.textColor = .white
@@ -125,8 +127,7 @@ extension SurveyDetailViewController {
         }
     }
     
-    // TODO: Will update with integration
-    @objc private func startSurvey() {
+    @objc private func didPressStartSurvey() {
         output?.didPressStartSurvey()
     }
 }

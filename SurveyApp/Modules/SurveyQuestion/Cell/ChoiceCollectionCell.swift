@@ -14,13 +14,21 @@ class ChoiceCollectionCell: QuestionCollectionCell {
         set { return super.answerView = newValue }
     }
     
-    override func configure(with question: SurveyQuestion) {
-        if question.pickType == SurveyQuestion.PickType.any {
-            answerView = MultipleChoiceAnswerView(answers: question.sortedAnswers)
+    override func configure(with viewModel: QuestionCollectionCellViewModel) {
+        if viewModel.pickType == SurveyQuestion.PickType.any {
+            answerView = MultipleChoiceAnswerView(answers: viewModel.answers)
         } else {
-            answerView = ChoiceAnswerView(answers: question.sortedAnswers)
+            answerView = ChoiceAnswerView(answers: viewModel.answers)
         }
         
-        super.configure(with: question)
+        super.configure(with: viewModel)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        if let view = answerView as? ChoiceAnswerView {
+            view.reset()
+        }
     }
 }

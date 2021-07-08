@@ -14,6 +14,7 @@ struct SurveyQuestion {
     let displayType: QuestionDisplayType
     let text: String
     let pickType: PickType
+    let coverImageUrl: String
     let answers: [SurveyAnswer]
 }
 
@@ -22,8 +23,12 @@ extension SurveyQuestion {
     var sortedAnswers: [SurveyAnswer] {
         answers.sorted(by: { $0.displayOrder < $1.displayOrder })
     }
+    
+    var largeImageURL: URL? {
+        URL(string: coverImageUrl + "l")
+    }
 
-    enum PickType {
+    enum PickType: String {
 
         case one, any, none
     }

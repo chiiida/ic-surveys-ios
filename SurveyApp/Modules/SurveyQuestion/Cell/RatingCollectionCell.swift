@@ -16,8 +16,8 @@ class RatingCollectionCell: QuestionCollectionCell {
         set { return super.answerView = newValue }
     }
     
-    override func configure(with question: SurveyQuestion) {
-        switch question.displayType {
+    override func configure(with viewModel: QuestionCollectionCellViewModel) {
+        switch viewModel.displayType {
         case .star:
             icon = QuestionDisplayType.RatingIcon.star
         case .smiley:
@@ -27,6 +27,10 @@ class RatingCollectionCell: QuestionCollectionCell {
         }
         
         answerView = RatingAnswerView(icon: icon)
-        super.configure(with: question)
+        super.configure(with: viewModel)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 }

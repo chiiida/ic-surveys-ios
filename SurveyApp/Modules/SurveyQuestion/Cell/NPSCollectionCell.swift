@@ -14,8 +14,8 @@ class NPSCollectionCell: QuestionCollectionCell {
         set { return super.answerView = newValue }
     }
     
-    override func configure(with question: SurveyQuestion) {
-        answerView = NPSAnswerView(answers: question.sortedAnswers)
-        super.configure(with: question)
+    override func configure(with viewModel: QuestionCollectionCellViewModel) {
+        answerView = NPSAnswerView(answers: viewModel.answers)
+        super.configure(with: viewModel)
     }
 }

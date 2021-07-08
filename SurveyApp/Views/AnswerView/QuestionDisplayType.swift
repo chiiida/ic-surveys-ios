@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum QuestionDisplayType {
+enum QuestionDisplayType: String {
 
     case star
     case heart
@@ -16,7 +16,7 @@ enum QuestionDisplayType {
     case nps
     case textarea
     case textfield
-
+    
     enum RatingIcon {
 
         static let star = "⭐️"

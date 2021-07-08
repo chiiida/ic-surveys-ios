@@ -39,8 +39,8 @@ class QuestionCollectionCell: UICollectionViewCell, QuestionCollectionCellProtoc
         super.draw(rect)
     }
     
-    func configure(with question: SurveyQuestion) {
-        questionLabel.text = question.text
+    func configure(with viewModel: QuestionCollectionCellViewModel) {
+        questionLabel.text = viewModel.text
     }
     
     private func setUpLayout() {

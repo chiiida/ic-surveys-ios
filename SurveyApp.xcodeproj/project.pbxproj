@@ -50,6 +50,8 @@
 		842D693326969DA50005DBC4 /* ChoiceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D693226969DA50005DBC4 /* ChoiceCollectionCell.swift */; };
 		842D6929269606AD0005DBC4 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D6928269606AD0005DBC4 /* EmptyResponse.swift */; };
 		842D692B2696070E0005DBC4 /* QuestionSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D692A2696070E0005DBC4 /* QuestionSubmission.swift */; };
+		842D69382696F98F0005DBC4 /* QuestionCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D69372696F98F0005DBC4 /* QuestionCollectionCellViewModel.swift */; };
+		842D693A2696F9AA0005DBC4 /* QuestionListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D69392696F9AA0005DBC4 /* QuestionListSection.swift */; };
 		8433C92F268180AC00EAF157 /* AnimatedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433C92E268180AC00EAF157 /* AnimatedCollectionView.swift */; };
 		8434816F2677626F00B7990A /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434816E2677626F00B7990A /* String+Email.swift */; };
 		843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D2266DCB5E00EC3F28 /* LoginRouter.swift */; };
@@ -231,6 +233,8 @@
 		842D693226969DA50005DBC4 /* ChoiceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCollectionCell.swift; sourceTree = "<group>"; };
 		842D6928269606AD0005DBC4 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
 		842D692A2696070E0005DBC4 /* QuestionSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSubmission.swift; sourceTree = "<group>"; };
+		842D69372696F98F0005DBC4 /* QuestionCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		842D69392696F9AA0005DBC4 /* QuestionListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListSection.swift; sourceTree = "<group>"; };
 		8433C92E268180AC00EAF157 /* AnimatedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCollectionView.swift; sourceTree = "<group>"; };
 		8434816E2677626F00B7990A /* String+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Email.swift"; sourceTree = "<group>"; };
 		843AB4D2266DCB5E00EC3F28 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -798,6 +802,8 @@
 				842D692E26969BE60005DBC4 /* NPSCollectionCell.swift */,
 				842D693026969CB40005DBC4 /* TextFieldCollectionCell.swift */,
 				842D693226969DA50005DBC4 /* ChoiceCollectionCell.swift */,
+				842D69372696F98F0005DBC4 /* QuestionCollectionCellViewModel.swift */,
+				842D69392696F9AA0005DBC4 /* QuestionListSection.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1471,6 +1477,7 @@
 				847EF46F2692F7C900F24564 /* SurveyQuestionPresenter.swift in Sources */,
 				84FABA16268C5D3F00722243 /* APIResponseSerializer.swift in Sources */,
 				84D0749C26732231009CFE4C /* NetworkServiceFactory.swift in Sources */,
+				842D69382696F98F0005DBC4 /* QuestionCollectionCellViewModel.swift in Sources */,
 				84D0749126732140009CFE4C /* Constants.swift in Sources */,
 				84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */,
 				843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */,
@@ -1487,6 +1494,7 @@
 				84276BE5267B332E00E87C1A /* SplashRouter.swift in Sources */,
 				842D69072695ABAE0005DBC4 /* UIImage+Creation.swift in Sources */,
 				847EF44C2692C7C500F24564 /* UserSessionMock.swift in Sources */,
+				842D693A2696F9AA0005DBC4 /* QuestionListSection.swift in Sources */,
 				84661C562693F4C50049B035 /* UIViewController+Alert.swift in Sources */,
 				8423B97126734D8C0000036F /* AuthToken.swift in Sources */,
 				84D9B438268B1B6E00923F86 /* SurveyDetailPresenter.swift in Sources */,

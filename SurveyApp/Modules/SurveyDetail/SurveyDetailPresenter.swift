@@ -36,15 +36,24 @@ extension SurveyDetailPresenter: SurveyDetailViewOutput {
             view?.configure(with: survey)
         }
     }
+    
+    func didPressStartSurvey() {
+        interactor.fetchSurveyDetail(id: survey?.id ?? "")
+    }
 }
 
 // MARK: - SurveyDetailInteractorOutput
 
 extension SurveyDetailPresenter: SurveyDetailInteractorOutput {
     
-    // TODO: Will update with integration
-    func didPressStartSurvey() {
-        router.showSurveyQuestion()
+    func didFetchSurveyDetail(questions: [SurveyQuestion]) {
+        if let survey = survey {
+            router.showSurveyQuestion(id: survey.id, questions: questions)
+        }
+    }
+    
+    func didFailToFetchSurveyDetail() {
+        view?.showError(message: Localize.errorFetchSurveys())
     }
 }
 
