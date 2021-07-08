@@ -31,8 +31,8 @@ class MultipleChoiceAnswerView: UIView {
         tableView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(10.0)
             $0.trailing.equalToSuperview().inset(20.0)
-            $0.top.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-50.0)
+            $0.top.equalToSuperview().inset(50.0)
+            $0.height.equalToSuperview().inset(50.0)
         }
     }
 
@@ -41,6 +41,7 @@ class MultipleChoiceAnswerView: UIView {
         tableView.dataSource = self
         tableView.register(MultipleSelectionCell.self)
 
+        tableView.tableFooterView = UIView()
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.isScrollEnabled = true
         tableView.showsVerticalScrollIndicator = false
