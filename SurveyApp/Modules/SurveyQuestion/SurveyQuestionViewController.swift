@@ -223,7 +223,10 @@ extension SurveyQuestionViewController {
     private func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(QuestionCollectionCell.self)
+        collectionView.register(RatingCollectionCell.self)
+        collectionView.register(NPSCollectionCell.self)
+        collectionView.register(TextFieldCollectionCell.self)
+        collectionView.register(ChoiceCollectionCell.self)
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
@@ -279,7 +282,20 @@ extension SurveyQuestionViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusable(QuestionCollectionCell.self, for: indexPath)
+        let type = questions[indexPath.item].displayType
+        let cell: QuestionCollectionCell
+        
+        switch type {
+        case .star, .heart, .smiley:
+            cell = collectionView.dequeueReusable(RatingCollectionCell.self, for: indexPath)
+        case .nps:
+            cell = collectionView.dequeueReusable(NPSCollectionCell.self, for: indexPath)
+        case .textarea, .textfield:
+            cell = collectionView.dequeueReusable(TextFieldCollectionCell.self, for: indexPath)
+        case .choice:
+            cell = collectionView.dequeueReusable(ChoiceCollectionCell.self, for: indexPath)
+        }
+        
         cell.configure(with: questions[indexPath.item])
         return cell
     }

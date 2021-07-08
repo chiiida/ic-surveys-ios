@@ -27,5 +27,5 @@
 
 "alert.wraning.title" = "Wraning!";
 "alert.quit.survey" = "Are you sure you want to quit the survey?";
-"alert.comfirm.yes" = "Yes";
+"alert.confirm.yes" = "Yes";
 "alert.confirm.cancel" = "Cancel";

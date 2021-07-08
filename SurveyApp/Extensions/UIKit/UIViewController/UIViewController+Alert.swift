@@ -14,7 +14,7 @@ extension UIViewController {
         message: String? = nil,
         yesHandler: CompletionHandler? = nil
     ) {
-        let yesAction = UIAlertAction(title: Localize.alertComfirmYes(), style: .default, handler: yesHandler)
+        let yesAction = UIAlertAction(title: Localize.alertConfirmYes(), style: .default, handler: yesHandler)
         let cancelAction = UIAlertAction(title: Localize.alertConfirmCancel(), style: .default, handler: nil)
 
         showAlert(

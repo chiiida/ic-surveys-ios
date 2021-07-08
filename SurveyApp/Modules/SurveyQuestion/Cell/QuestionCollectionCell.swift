@@ -8,9 +8,16 @@
 import UIKit
 import SnapKit
 
-final class QuestionCollectionCell: UICollectionViewCell {
+protocol QuestionCollectionCellProtocol {
     
-    private let questionLabel = UILabel()
+    var questionLabel: UILabel { get }
+    var answerView: UIView { get set }
+}
+
+class QuestionCollectionCell: UICollectionViewCell, QuestionCollectionCellProtocol {
+    
+    var questionLabel: UILabel = UILabel()
+    var answerView: UIView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,32 +33,27 @@ final class QuestionCollectionCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
+    override func draw(_ rect: CGRect) {
+        setUpLayout()
+        setUpViews()
+        super.draw(rect)
+    }
+    
     func configure(with question: SurveyQuestion) {
         questionLabel.text = question.text
-        
-        if contentView.subviews.count > 1 {
-            contentView.subviews.last?.removeFromSuperview()
-        }
-        
-        let answerView = self.getAnswerView(
-            type: question.displayType,
-            pickType: question.pickType,
-            answers: question.sortedAnswers
-        )
-        
-        contentView.addSubview(answerView)
-        
-        answerView.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
     }
     
     private func setUpLayout() {
         contentView.addSubview(questionLabel)
+        contentView.addSubview(answerView)
         
         questionLabel.snp.makeConstraints {
             $0.leading.trailing.top.equalToSuperview()
+        }
+        
+        answerView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     
@@ -60,31 +62,5 @@ final class QuestionCollectionCell: UICollectionViewCell {
         questionLabel.textColor = .white
         questionLabel.lineBreakMode = .byWordWrapping
         questionLabel.numberOfLines = 4
-    }
-}
-
-extension QuestionCollectionCell {
-    
-    private func getAnswerView(type: DisplayType, pickType: SurveyQuestion.PickType, answers: [SurveyAnswer]) -> UIView {
-        switch type {
-        case .star:
-            return RatingAnswerView(icon: DisplayType.RatingIcon.star)
-        case .heart:
-            return RatingAnswerView(icon: DisplayType.RatingIcon.heart)
-        case .smiley:
-            return RatingAnswerView(icon: DisplayType.RatingIcon.smiley)
-        case .textarea:
-            return TextFieldAnswerView(isMultipleLines: true, answers: answers)
-        case .textfield:
-            return TextFieldAnswerView(answers: answers)
-        case .nps:
-            return NPSAnswerView(answers: answers)
-        case .choice:
-            if pickType == SurveyQuestion.PickType.any {
-                return MultipleChoiceAnswerView(answers: answers)
-            } else {
-                return ChoiceAnswerView(answers: answers)
-            }
-        }
     }
 }
