@@ -13,6 +13,7 @@ import OHHTTPStubs
 
 final class SurveyServiceSpec: QuickSpec {
     
+    // swiftlint:disable function_body_length
     override func spec() {
         
         var surveyService: SurveyService!
@@ -134,6 +135,56 @@ final class SurveyServiceSpec: QuickSpec {
                                 case .failure(let error):
                                     expect(error.errors?[0].code) == "invalid_token"
                                     expect(error.errors?[0].detail) == "The access token is invalid"
+                                }
+                                done()
+                            }
+                        })
+                    }
+                }
+            }
+            
+            // MARK: – submitSurvey
+            describe("its submitSurvey is called") {
+                let surveyId = "d5de6a8f8f5f1cfe51bc"
+                let body: [QuestionSubmission] = JSON.SurveyService.submitSurveyBody.decoded()
+                
+                context("when the request returns success") {
+                    it("receives EmptyResponse object") {
+                        let data = JSON.SurveyService.submitSurveySuccess
+
+                        stub(condition: pathEndsWith("/api/v1/responses")) { _ in
+                            HTTPStubsResponse(data: data, statusCode: 200, headers: nil)
+                        }
+
+                        waitUntil(timeout: .seconds(10), action: { done in
+                            _ = surveyService.submitSurvey(id: surveyId, questions: body) { result in
+                                switch result {
+                                case .success(let response):
+                                    expect(response).to(beAKindOf(EmptyResponse.self))
+                                case .failure:
+                                    fail("result should be successful")
+                                }
+                                done()
+                            }
+                        })
+                    }
+                }
+                
+                context("when the request returns failure") {
+                    it("receives error response object correctly") {
+                        let data = JSON.SurveyService.submitSurveyFailure
+
+                        stub(condition: pathEndsWith("/api/v1/responses")) { _ in
+                            HTTPStubsResponse(data: data, statusCode: 422, headers: nil)
+                        }
+
+                        waitUntil(timeout: .seconds(10), action: { done in
+                            _ = surveyService.submitSurvey(id: surveyId, questions: body) { result in
+                                switch result {
+                                case .success:
+                                    fail("result should be failure")
+                                case .failure(let error):
+                                    expect(error.errors?[0].detail) == "Questions is invalid"
                                 }
                                 done()
                             }
