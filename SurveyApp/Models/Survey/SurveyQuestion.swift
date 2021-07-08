@@ -11,7 +11,7 @@ struct SurveyQuestion {
 
     let id: String
     let displayOrder: Int
-    let displayType: DisplayType
+    let displayType: QuestionDisplayType
     let text: String
     let pickType: PickType
     let answers: [SurveyAnswer]

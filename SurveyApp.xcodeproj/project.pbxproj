@@ -41,7 +41,7 @@
 		842D69172695AC8A0005DBC4 /* RatingAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D69162695AC8A0005DBC4 /* RatingAnswerView.swift */; };
 		842D69192695AC930005DBC4 /* TextFieldAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D69182695AC930005DBC4 /* TextFieldAnswerView.swift */; };
 		842D691B2695AE890005DBC4 /* MultipleChoiceAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D691A2695AE890005DBC4 /* MultipleChoiceAnswerView.swift */; };
-		842D691D2695AF410005DBC4 /* DisplayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D691C2695AF410005DBC4 /* DisplayType.swift */; };
+		842D691D2695AF410005DBC4 /* QuestionDisplayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D691C2695AF410005DBC4 /* QuestionDisplayType.swift */; };
 		8433C92F268180AC00EAF157 /* AnimatedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433C92E268180AC00EAF157 /* AnimatedCollectionView.swift */; };
 		8434816F2677626F00B7990A /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434816E2677626F00B7990A /* String+Email.swift */; };
 		843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D2266DCB5E00EC3F28 /* LoginRouter.swift */; };
@@ -209,7 +209,7 @@
 		842D69162695AC8A0005DBC4 /* RatingAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAnswerView.swift; sourceTree = "<group>"; };
 		842D69182695AC930005DBC4 /* TextFieldAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAnswerView.swift; sourceTree = "<group>"; };
 		842D691A2695AE890005DBC4 /* MultipleChoiceAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceAnswerView.swift; sourceTree = "<group>"; };
-		842D691C2695AF410005DBC4 /* DisplayType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayType.swift; sourceTree = "<group>"; };
+		842D691C2695AF410005DBC4 /* QuestionDisplayType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDisplayType.swift; sourceTree = "<group>"; };
 		8433C92E268180AC00EAF157 /* AnimatedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCollectionView.swift; sourceTree = "<group>"; };
 		8434816E2677626F00B7990A /* String+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Email.swift"; sourceTree = "<group>"; };
 		843AB4D2266DCB5E00EC3F28 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -628,7 +628,7 @@
 				842D69182695AC930005DBC4 /* TextFieldAnswerView.swift */,
 				842D69102695AC680005DBC4 /* ChoiceAnswerView.swift */,
 				842D691A2695AE890005DBC4 /* MultipleChoiceAnswerView.swift */,
-				842D691C2695AF410005DBC4 /* DisplayType.swift */,
+				842D691C2695AF410005DBC4 /* QuestionDisplayType.swift */,
 			);
 			path = AnswerView;
 			sourceTree = "<group>";
@@ -1417,7 +1417,7 @@
 				84D9B438268B1B6E00923F86 /* SurveyDetailPresenter.swift in Sources */,
 				842D69092695ABC90005DBC4 /* SurveyAnswer.swift in Sources */,
 				8448C23F2679FA97005955D4 /* KeychainKeys.swift in Sources */,
-				842D691D2695AF410005DBC4 /* DisplayType.swift in Sources */,
+				842D691D2695AF410005DBC4 /* QuestionDisplayType.swift in Sources */,
 				84FABA1B268C780F00722243 /* FadeZoomViewControllerTransition.swift in Sources */,
 				842D690B2695ABD10005DBC4 /* SurveyQuestion.swift in Sources */,
 				8423B97426734E6A0000036F /* AuthenticationService.swift in Sources */,

@@ -33,7 +33,7 @@ class NPSAnswerView: UIView {
 
         segmentedControl.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.width.equalTo(UIScreen.main.bounds.width - 40.0)
+            $0.width.equalToSuperview().offset(-20.0)
             $0.height.equalTo(56.0)
         }
 
@@ -78,7 +78,7 @@ class NPSAnswerView: UIView {
             for: .selected
         )
 
-        let whiteImage = UIImage.from(color: UIColor.white.withAlphaComponent(0.5))
+        let whiteImage = UIImage.withBackground(color: UIColor.white.withAlphaComponent(0.5))
         segmentedControl.setDividerImage(
             whiteImage,
             forLeftSegmentState: .normal,

@@ -1,5 +1,5 @@
 //
-//  DisplayType.swift
+//  QuestionDisplayType.swift
 //  SurveyApp
 //
 //  Created by Chananchida F. on 7/6/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum DisplayType {
+enum QuestionDisplayType {
 
     case star
     case heart
