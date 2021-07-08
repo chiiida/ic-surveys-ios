@@ -52,7 +52,7 @@ class QuestionCollectionCell: UICollectionViewCell, QuestionCollectionCellProtoc
         }
         
         answerView.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
+            $0.top.equalTo(questionLabel.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }

@@ -19,11 +19,11 @@ class RatingCollectionCell: QuestionCollectionCell {
     override func configure(with question: SurveyQuestion) {
         switch question.displayType {
         case .star:
-            icon = DisplayType.RatingIcon.star
+            icon = QuestionDisplayType.RatingIcon.star
         case .smiley:
-            icon = DisplayType.RatingIcon.smiley
+            icon = QuestionDisplayType.RatingIcon.smiley
         default:
-            icon = DisplayType.RatingIcon.heart
+            icon = QuestionDisplayType.RatingIcon.heart
         }
         
         answerView = RatingAnswerView(icon: icon)
