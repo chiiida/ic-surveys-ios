@@ -48,6 +48,8 @@
 		842D692F26969BE60005DBC4 /* NPSCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D692E26969BE60005DBC4 /* NPSCollectionCell.swift */; };
 		842D693126969CB40005DBC4 /* TextFieldCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D693026969CB40005DBC4 /* TextFieldCollectionCell.swift */; };
 		842D693326969DA50005DBC4 /* ChoiceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D693226969DA50005DBC4 /* ChoiceCollectionCell.swift */; };
+		842D6929269606AD0005DBC4 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D6928269606AD0005DBC4 /* EmptyResponse.swift */; };
+		842D692B2696070E0005DBC4 /* QuestionSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D692A2696070E0005DBC4 /* QuestionSubmission.swift */; };
 		8433C92F268180AC00EAF157 /* AnimatedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433C92E268180AC00EAF157 /* AnimatedCollectionView.swift */; };
 		8434816F2677626F00B7990A /* String+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434816E2677626F00B7990A /* String+Email.swift */; };
 		843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843AB4D2266DCB5E00EC3F28 /* LoginRouter.swift */; };
@@ -227,6 +229,8 @@
 		842D692E26969BE60005DBC4 /* NPSCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSCollectionCell.swift; sourceTree = "<group>"; };
 		842D693026969CB40005DBC4 /* TextFieldCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionCell.swift; sourceTree = "<group>"; };
 		842D693226969DA50005DBC4 /* ChoiceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCollectionCell.swift; sourceTree = "<group>"; };
+		842D6928269606AD0005DBC4 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
+		842D692A2696070E0005DBC4 /* QuestionSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSubmission.swift; sourceTree = "<group>"; };
 		8433C92E268180AC00EAF157 /* AnimatedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCollectionView.swift; sourceTree = "<group>"; };
 		8434816E2677626F00B7990A /* String+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Email.swift"; sourceTree = "<group>"; };
 		843AB4D2266DCB5E00EC3F28 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -842,6 +846,7 @@
 				848A00AB2685AA510019A426 /* SurveyResponse.swift */,
 				842D69082695ABC90005DBC4 /* SurveyAnswer.swift */,
 				842D690A2695ABD10005DBC4 /* SurveyQuestion.swift */,
+				842D692A2696070E0005DBC4 /* QuestionSubmission.swift */,
 			);
 			path = Survey;
 			sourceTree = "<group>";
@@ -941,6 +946,7 @@
 				84A361DC26848CEE00A369E7 /* Survey */,
 				8423B96F26734D7E0000036F /* Authentication */,
 				84D07495267321D7009CFE4C /* APIError.swift */,
+				842D6928269606AD0005DBC4 /* EmptyResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1421,6 +1427,7 @@
 				84D074A326732296009CFE4C /* API.swift in Sources */,
 				8448C2412679FAFF005955D4 /* UserSession.swift in Sources */,
 				84D0748F26732128009CFE4C /* Environment.swift in Sources */,
+				842D6929269606AD0005DBC4 /* EmptyResponse.swift in Sources */,
 				84AC78D6268EB1740095D127 /* MockAPIKey.swift in Sources */,
 				8464840B26775D6700233656 /* HomePresenter.swift in Sources */,
 				84A361E02684904100A369E7 /* AuthenticationInterceptor.swift in Sources */,
@@ -1443,6 +1450,7 @@
 				84D9B434268B1B6E00923F86 /* SurveyDetailRouter.swift in Sources */,
 				84276BE9267B332E00E87C1A /* SplashPresenter.swift in Sources */,
 				84FABA0E268C3C7D00722243 /* SurveyCollectionCellViewModel.swift in Sources */,
+				842D692B2696070E0005DBC4 /* QuestionSubmission.swift in Sources */,
 				84648400267757D100233656 /* ErrorView.swift in Sources */,
 				84AC054F2682E05A00218DC2 /* SplashInteractor.swift in Sources */,
 				84D0749E2673224B009CFE4C /* NetworkService.swift in Sources */,

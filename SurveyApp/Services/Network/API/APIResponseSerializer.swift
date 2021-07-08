@@ -29,11 +29,8 @@ final class APIResponseSerializer<T: Decodable>: ResponseSerializer {
         guard let response = response else {
             return .failure(APIError())
         }
-        
-        var emptyData: Data?
-        if data == nil {
-            emptyData = "{}".data(using: .utf8)
-        }
+
+        var emptyData: Data? = "{}".data(using: .utf8)
         
         guard let data = data ?? emptyData else {
             return .failure(APIError())
@@ -43,6 +40,9 @@ final class APIResponseSerializer<T: Decodable>: ResponseSerializer {
             if response.statusCode > 300 {
                 let result = try errorSerializer.serialize(request: request, response: response, data: data, error: nil)
                 return .failure(result)
+            } else if data == " ".data(using: .utf8) {
+                let result = try successSerializer.serialize(request: request, response: response, data: emptyData, error: nil)
+                return .success(result)
             } else {
                 let result = try successSerializer.serialize(request: request, response: response, data: data, error: nil)
                 return .success(result)

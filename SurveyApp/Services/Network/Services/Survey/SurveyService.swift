@@ -20,6 +20,12 @@ protocol SurveyServiceProtocol {
         id: String,
         completion: @escaping RequestCompletion<SurveyDetailResponse>
     ) -> Request?
+    
+    func submitSurvey(
+        id: String,
+        questions: [QuestionSubmission],
+        completion: @escaping RequestCompletion<EmptyResponse>
+    ) -> Request?
 }
 
 final class SurveyService: NetworkService, SurveyServiceProtocol {
@@ -42,6 +48,19 @@ final class SurveyService: NetworkService, SurveyServiceProtocol {
         let configuration = RequestConfiguration(
             method: .get,
             url: url(forEndpoint: "/api/v1/surveys/\(id)")
+        )
+        
+        return api.performRequest(with: configuration, completion: completion)
+    }
+    
+    func submitSurvey(id: String, questions: [QuestionSubmission], completion: @escaping RequestCompletion<EmptyResponse>) -> Request? {
+        let configuration = RequestConfiguration(
+            method: .post,
+            url: url(forEndpoint: "/api/v1/responses"),
+            parameters: [
+                "survey_id": id,
+                "questions": questions.map { $0.asParameters }
+            ]
         )
         
         return api.performRequest(with: configuration, completion: completion)
