@@ -21,6 +21,6 @@ class ChoiceCollectionCell: QuestionCollectionCell {
             answerView = ChoiceAnswerView(answers: question.sortedAnswers)
         }
         
-        super.questionLabel.text = question.text
+        super.configure(with: question)
     }
 }

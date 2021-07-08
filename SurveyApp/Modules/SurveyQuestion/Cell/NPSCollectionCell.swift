@@ -16,6 +16,6 @@ class NPSCollectionCell: QuestionCollectionCell {
     
     override func configure(with question: SurveyQuestion) {
         answerView = NPSAnswerView(answers: question.sortedAnswers)
-        super.questionLabel.text = question.text
+        super.configure(with: question)
     }
 }

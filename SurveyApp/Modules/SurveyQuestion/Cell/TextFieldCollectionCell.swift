@@ -28,6 +28,6 @@ class TextFieldCollectionCell: QuestionCollectionCell {
             isMultipleLines: isMultipleLines,
             answers: question.sortedAnswers
         )
-        super.questionLabel.text = question.text
+        super.configure(with: question)
     }
 }

@@ -27,6 +27,6 @@ class RatingCollectionCell: QuestionCollectionCell {
         }
         
         answerView = RatingAnswerView(icon: icon)
-        super.questionLabel.text = question.text
+        super.configure(with: question)
     }
 }
