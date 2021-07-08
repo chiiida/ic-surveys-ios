@@ -19,3 +19,6 @@
 "home.today.label" = "Today";
 
 "start.survey.button.title" = "Start Survey";
+
+"answer.nps.least.likely" = "Not at all Likely";
+"answer.nps.most.likely" = "Extremely Likely";
