@@ -70,7 +70,7 @@ extension ChoiceAnswerView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        var answer = AnswerSubmission(id: answers[row].id, answers: nil)
+        let answer = AnswerSubmission(id: answers[row].id, answers: nil)
         delegate?.didAnswer(answers: [answer])
     }
 }

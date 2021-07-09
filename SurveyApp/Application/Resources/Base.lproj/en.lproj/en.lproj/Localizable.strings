@@ -15,6 +15,7 @@
 "error.login.failed" = "Failed to login";
 "error.invalid.email" = "Invalid email";
 "error.fetch.surveys" = "Couldn't retrieve the list of surveys";
+"error.submit.survey" = "Couldn't submit the survey";
 
 "home.today.label" = "Today";
 

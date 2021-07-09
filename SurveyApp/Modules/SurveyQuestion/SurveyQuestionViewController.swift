@@ -11,9 +11,10 @@ import SnapKit
 import AlamofireImage
 
 // sourcery: AutoMockable
-protocol SurveyQuestionViewInput: AnyObject {
+protocol SurveyQuestionViewInput: AnyObject, ErrorShowable {
 
     func configure(with viewModels: [QuestionCollectionCellViewModel])
+    func popToRootView()
 }
 
 // sourcery: AutoMockable
@@ -54,6 +55,10 @@ extension SurveyQuestionViewController: SurveyQuestionViewInput {
         setUpLayout()
         setUpViews()
         collectionView.reloadData()
+    }
+    
+    func popToRootView() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -183,7 +188,6 @@ extension SurveyQuestionViewController {
     }
     
     @objc func didTapSubmitButton() {
-        self.navigationController?.popViewController(animated: true)
         output?.didSubmitQuestions(questions: questions.submitedQuestions)
     }
 }

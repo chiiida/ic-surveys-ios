@@ -17,11 +17,14 @@ final class SurveyDetailInteractorSpec: QuickSpec {
 
         var interactor: SurveyDetailInteractor!
         var output: SurveyDetailInteractorOutputMock!
+        var surveyService: SurveyServiceProtocolMock!
 
         describe("a SurveyDetailInteractor") {
             beforeEach {
                 output = SurveyDetailInteractorOutputMock()
-                interactor = SurveyDetailInteractor()
+                surveyService = SurveyServiceProtocolMock()
+                
+                interactor = SurveyDetailInteractor(surveyService: surveyService)
                 interactor.output = output
             }
         }

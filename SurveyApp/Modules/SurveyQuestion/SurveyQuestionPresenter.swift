@@ -14,7 +14,7 @@ final class SurveyQuestionPresenter {
     weak var view: SurveyQuestionViewInput?
     weak var output: SurveyQuestionOutput?
     
-    private(set) var id: String?
+    private(set) var surveyId: String?
     private(set) var questions: [SurveyQuestion]? 
 
     init(
@@ -40,13 +40,23 @@ extension SurveyQuestionPresenter: SurveyQuestionViewOutput {
     }
     
     func didSubmitQuestions(questions: [QuestionSubmission]) {
-        dump(questions)
+        if let surveyId = surveyId {
+            interactor.submitSurvey(id: surveyId, question: questions)
+        }
     }
 }
 
 // MARK: - SurveyInteractorOutput
 
 extension SurveyQuestionPresenter: SurveyQuestionInteractorOutput {
+    
+    func didSubmitSurvey() {
+        view?.popToRootView()
+    }
+    
+    func didFailToSubmitSurvey(_ error: APIError) {
+        view?.showError(message: error.errors?[0].detail ?? Localize.errorSubmitSurvey())
+    }
 }
 
 // MARK: - SurveyQuestionInput
@@ -54,7 +64,7 @@ extension SurveyQuestionPresenter: SurveyQuestionInteractorOutput {
 extension SurveyQuestionPresenter: SurveyQuestionInput {
         
     func setSurveyQuestions(id: String, questions: [SurveyQuestion]) {
-        self.id = id
+        self.surveyId = id
         self.questions = questions
     }
 }
