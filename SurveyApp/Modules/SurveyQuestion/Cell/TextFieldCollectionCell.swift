@@ -11,7 +11,7 @@ class TextFieldCollectionCell: QuestionCollectionCell {
     
     private var isMultipleLines: Bool = false
     
-    override var answerView: UIView {
+    override var answerView: AnswerView {
         get { super.answerView }
         set { return super.answerView = newValue }
     }

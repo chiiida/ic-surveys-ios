@@ -20,6 +20,7 @@ protocol SurveyQuestionViewInput: AnyObject {
 protocol SurveyQuestionViewOutput: AnyObject {
 
     func viewDidLoad()
+    func didSubmitQuestions(questions: [QuestionSubmission])
 }
 
 final class SurveyQuestionViewController: UIViewController {
@@ -125,6 +126,7 @@ extension SurveyQuestionViewController {
         submitButton.backgroundColor = .white
         submitButton.layer.cornerRadius = 10.0
         submitButton.isHidden = true
+        submitButton.addTarget(self, action: #selector(didTapSubmitButton), for: .touchUpInside)
         
         setUpCollectionView()
     }
@@ -179,6 +181,11 @@ extension SurveyQuestionViewController {
         updateQuestionPaging(pageNumber: indexPath.item + 1)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
+    
+    @objc func didTapSubmitButton() {
+        self.navigationController?.popViewController(animated: true)
+        output?.didSubmitQuestions(questions: questions.submitedQuestions)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -206,6 +213,7 @@ extension SurveyQuestionViewController: UICollectionViewDataSource {
         }
         
         cell.configure(with: questions.sortedQuestions[indexPath.item])
+        cell.delegate = self
         return cell
     }
 }
@@ -217,5 +225,18 @@ extension SurveyQuestionViewController: UICollectionViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         updateQuestionPaging(pageNumber: Int(pageNumber + 1))
+    }
+}
+
+// MARK: – QuestionCollectionCellDelegate
+
+extension SurveyQuestionViewController: QuestionCollectionCellDelegate {
+    
+    func didAnswerForQuestion(with question: QuestionSubmission) {
+        if let index = questions.submitedQuestions.firstIndex(where: { $0.id == question.id }) {
+            questions.submitedQuestions[index].answers = question.answers
+        } else {
+            questions.submitedQuestions.append(question)
+        }
     }
 }

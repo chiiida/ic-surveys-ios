@@ -16,7 +16,7 @@ struct AnswerSubmission: Codable {
 struct QuestionSubmission: Codable {
     
     let id: String
-    let answers: [AnswerSubmission]
+    var answers: [AnswerSubmission]
 }
 
 extension QuestionSubmission {

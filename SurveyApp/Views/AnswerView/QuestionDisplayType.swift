@@ -16,11 +16,26 @@ enum QuestionDisplayType: String {
     case nps
     case textarea
     case textfield
-    
+
     enum RatingIcon {
 
         static let star = "⭐️"
         static let heart = "❤️"
         static let smiley = "😄"
     }
+}
+
+protocol AnswerViewDelegate: AnyObject {
+    
+    func didAnswer(answers: [AnswerSubmission])
+}
+
+protocol AnswerView: UIView {
+    
+    var delegate: AnswerViewDelegate? { get set }
+}
+
+class DefaultAnswerView: UIView, AnswerView {
+    
+    var delegate: AnswerViewDelegate?
 }

@@ -8,11 +8,13 @@
 import UIKit
 import NimbleExtension
 
-class ChoiceAnswerView: UIView {
+class ChoiceAnswerView: UIView, AnswerView {
 
     let answers: [SurveyAnswer]
+    
+    weak var delegate: AnswerViewDelegate?
 
-    private let pickerView = UIPickerView()
+    let pickerView = UIPickerView()
 
     init(answers: [SurveyAnswer]) {
         self.answers = answers
@@ -65,5 +67,10 @@ extension ChoiceAnswerView: UIPickerViewDelegate, UIPickerViewDataSource {
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
         return NSAttributedString(string: answers[row].text, attributes: attributes)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        var answer = AnswerSubmission(id: answers[row].id, answers: nil)
+        delegate?.didAnswer(answers: [answer])
     }
 }

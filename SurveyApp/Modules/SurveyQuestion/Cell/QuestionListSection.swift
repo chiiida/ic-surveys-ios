@@ -10,9 +10,11 @@ import Foundation
 struct QuestionListSection {
     
     var items: [QuestionCollectionCellViewModel]
+    var submitedQuestions: [QuestionSubmission]
     
     init() {
         self.items = []
+        self.submitedQuestions = []
     }
 }
 

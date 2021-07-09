@@ -27,7 +27,6 @@ final class SurveyDetailRouter {
 
 extension SurveyDetailRouter: SurveyDetailRouterInput {
     
-    // TODO: Will update with integration
     func showSurveyQuestion(id: String, questions: [SurveyQuestion]) {
         let module = SurveyQuestionModule()
         module.input.setSurveyQuestions(id: id, questions: questions)

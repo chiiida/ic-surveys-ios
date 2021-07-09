@@ -38,6 +38,10 @@ extension SurveyQuestionPresenter: SurveyQuestionViewOutput {
             view?.configure(with: viewModels)
         }
     }
+    
+    func didSubmitQuestions(questions: [QuestionSubmission]) {
+        dump(questions)
+    }
 }
 
 // MARK: - SurveyInteractorOutput

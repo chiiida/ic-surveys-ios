@@ -9,7 +9,7 @@ import UIKit
 
 class ChoiceCollectionCell: QuestionCollectionCell {
     
-    override var answerView: UIView {
+    override var answerView: AnswerView {
         get { super.answerView }
         set { return super.answerView = newValue }
     }
@@ -20,15 +20,7 @@ class ChoiceCollectionCell: QuestionCollectionCell {
         } else {
             answerView = ChoiceAnswerView(answers: viewModel.answers)
         }
-        
+
         super.configure(with: viewModel)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        if let view = answerView as? ChoiceAnswerView {
-            view.reset()
-        }
     }
 }

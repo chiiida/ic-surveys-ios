@@ -11,7 +11,7 @@ class RatingCollectionCell: QuestionCollectionCell {
     
     private var icon: String = ""
     
-    override var answerView: UIView {
+    override var answerView: AnswerView {
         get { super.answerView }
         set { return super.answerView = newValue }
     }
@@ -26,11 +26,7 @@ class RatingCollectionCell: QuestionCollectionCell {
             icon = QuestionDisplayType.RatingIcon.heart
         }
         
-        answerView = RatingAnswerView(icon: icon)
+        answerView = RatingAnswerView(icon: icon, answers: viewModel.answers)
         super.configure(with: viewModel)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
     }
 }

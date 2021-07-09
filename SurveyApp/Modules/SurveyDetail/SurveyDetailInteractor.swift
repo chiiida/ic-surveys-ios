@@ -59,7 +59,7 @@ extension SurveyDetailInteractor: SurveyDetailInteractorInput {
                     .filter { $0.type == SurveyData.SurveyType.question.rawValue }
                     .compactMap {
                         let attributes = $0.attributes as? SurveyQuestionAttributes
-                        let relationship = $0.relationships?.relationship.data
+                        let relatedAnswers = $0.relationships?.relationship.data
                         
                         if attributes?.displayType != "intro" && attributes?.displayType != "outro" {
                             var displayType: QuestionDisplayType {
@@ -71,6 +71,7 @@ extension SurveyDetailInteractor: SurveyDetailInteractorInput {
                                 guard let pickType = SurveyQuestion.PickType(rawValue: attributes?.pick ?? "") else { return .none }
                                 return pickType
                             }
+                            
                             return SurveyQuestion(
                                 id: $0.id,
                                 displayOrder: attributes?.displayOrder ?? 0,
@@ -79,7 +80,7 @@ extension SurveyDetailInteractor: SurveyDetailInteractorInput {
                                 pickType: pickType,
                                 coverImageUrl: attributes?.coverImageUrl ?? "",
                                 answers: answers.filter { answer in
-                                    relationship?.contains(where: { $0.id == answer.id }) ?? false
+                                    relatedAnswers?.contains(where: { $0.id == answer.id }) ?? false
                                 }
                             )
                         } else {
