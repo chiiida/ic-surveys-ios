@@ -47,7 +47,7 @@ class NPSAnswerView: UIView {
             $0.leading.equalTo(segmentedControl.snp.leading)
         }
     }
-    
+
     private func setUpViews() {
         mostLikelyLabel.text = Localize.answerNpsMostLikely()
         mostLikelyLabel.font = UIFont.bold(ofSize: .heading)
