@@ -40,13 +40,15 @@ final class APIResponseSerializer<T: Decodable>: ResponseSerializer {
             if response.statusCode > 300 {
                 let result = try errorSerializer.serialize(request: request, response: response, data: data, error: nil)
                 return .failure(result)
-            } else if data == " ".data(using: .utf8) {
+            }
+            
+            if data == " ".data(using: .utf8) {
                 let result = try successSerializer.serialize(request: request, response: response, data: emptyData, error: nil)
                 return .success(result)
-            } else {
-                let result = try successSerializer.serialize(request: request, response: response, data: data, error: nil)
-                return .success(result)
             }
+            
+            let result = try successSerializer.serialize(request: request, response: response, data: data, error: nil)
+            return .success(result)
         } catch let DecodingError.keyNotFound(key, context) {
             print("Key '\(key)' not found:", context.debugDescription)
             print("codingPath:", context.codingPath)
