@@ -401,6 +401,50 @@ extension JSON.SurveyService {
         """.data(using: .utf8)!
     }
     
+    static var submitSurveySuccess: Data {
+        " ".data(using: .utf8)!
+    }
+    
+    static var submitSurveyFailure: Data {
+        """
+        {
+            "errors": [
+                {
+                    "detail": "Questions is invalid"
+                }
+            ]
+        }
+        """.data(using: .utf8)!
+    }
+    
+    static var submitSurveyBody: Data {
+        """
+        [
+            {
+                "id": "940d229e4cd87cd1e202",
+                "answers": [
+                    {
+                        "id": "037574cb93d16800eecd"
+                    }
+                ]
+            },
+            {
+                "id": "c3a9b8ce5c2356010703",
+                "answers": [
+                    {
+                        "id": "2a49e148c5b170aca804",
+                        "answer": "My answer"
+                    },
+                    {
+                        "id": "2a49e148c5b170aca804",
+                        "answer": "My answer"
+                    }
+                ]
+            }
+        ]
+        """.data(using: .utf8)!
+    }
+    
     static var surveyModelList: Data {
         """
         [
