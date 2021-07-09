@@ -19,6 +19,7 @@ protocol SurveyDetailViewInput: AnyObject {
 protocol SurveyDetailViewOutput: AnyObject {
 
     func viewDidLoad()
+    func didPressStartSurvey()
 }
 
 final class SurveyDetailViewController: UIViewController {
@@ -102,6 +103,7 @@ extension SurveyDetailViewController {
         startButton.tintColor = .black
         startButton.backgroundColor = .white
         startButton.layer.cornerRadius = 10.0
+        startButton.addTarget(self, action: #selector(startSurvey), for: .touchUpInside)
 
         titleLabel.font = UIFont.bold(ofSize: .largerTitle)
         titleLabel.textColor = .white
@@ -121,6 +123,11 @@ extension SurveyDetailViewController {
         if gesture.state == .began {
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    // TODO: Will update with integration
+    @objc private func startSurvey() {
+        output?.didPressStartSurvey()
     }
 }
 

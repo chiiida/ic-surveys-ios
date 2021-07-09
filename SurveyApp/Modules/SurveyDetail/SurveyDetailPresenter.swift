@@ -41,6 +41,11 @@ extension SurveyDetailPresenter: SurveyDetailViewOutput {
 // MARK: - SurveyDetailInteractorOutput
 
 extension SurveyDetailPresenter: SurveyDetailInteractorOutput {
+    
+    // TODO: Will update with integration
+    func didPressStartSurvey() {
+        router.showSurveyQuestion()
+    }
 }
 
 // MARK: - SurveyDetailInput

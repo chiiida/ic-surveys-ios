@@ -20,5 +20,12 @@
 
 "start.survey.button.title" = "Start Survey";
 
+"survey.submit" = "Submit";
+
 "answer.nps.least.likely" = "Not at all Likely";
 "answer.nps.most.likely" = "Extremely Likely";
+
+"alert.wraning.title" = "Wraning!";
+"alert.quit.survey" = "Are you sure you want to quit the survey?";
+"alert.confirm.yes" = "Yes";
+"alert.confirm.cancel" = "Cancel";
