@@ -30,7 +30,7 @@ final class APIResponseSerializer<T: Decodable>: ResponseSerializer {
             return .failure(APIError())
         }
 
-        var emptyData: Data? = "{}".data(using: .utf8)
+        let emptyData: Data? = "{}".data(using: .utf8)
         
         guard let data = data ?? emptyData else {
             return .failure(APIError())
