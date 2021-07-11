@@ -12,3 +12,4 @@ typealias RequestResult<T> = (Result<T, APIError>)
 typealias RequestCompletion<T> = (RequestResult<T>) -> Void
 
 typealias CompletionHandler = (UIAlertAction) -> Void
+typealias EmptyCompletion = () -> Void

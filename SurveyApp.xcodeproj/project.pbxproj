@@ -44,12 +44,12 @@
 		842D691D2695AF410005DBC4 /* QuestionDisplayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D691C2695AF410005DBC4 /* QuestionDisplayType.swift */; };
 		842D69252695B62F0005DBC4 /* SurveyQuestionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D69242695B62F0005DBC4 /* SurveyQuestionModule.swift */; };
 		842D69272695B6580005DBC4 /* SurveyQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D69262695B6580005DBC4 /* SurveyQuestionViewController.swift */; };
+		842D6929269606AD0005DBC4 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D6928269606AD0005DBC4 /* EmptyResponse.swift */; };
+		842D692B2696070E0005DBC4 /* QuestionSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D692A2696070E0005DBC4 /* QuestionSubmission.swift */; };
 		842D692D26961E950005DBC4 /* RatingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D692C26961E950005DBC4 /* RatingCollectionCell.swift */; };
 		842D692F26969BE60005DBC4 /* NPSCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D692E26969BE60005DBC4 /* NPSCollectionCell.swift */; };
 		842D693126969CB40005DBC4 /* TextFieldCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D693026969CB40005DBC4 /* TextFieldCollectionCell.swift */; };
 		842D693326969DA50005DBC4 /* ChoiceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D693226969DA50005DBC4 /* ChoiceCollectionCell.swift */; };
-		842D6929269606AD0005DBC4 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D6928269606AD0005DBC4 /* EmptyResponse.swift */; };
-		842D692B2696070E0005DBC4 /* QuestionSubmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D692A2696070E0005DBC4 /* QuestionSubmission.swift */; };
 		842D69382696F98F0005DBC4 /* QuestionCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D69372696F98F0005DBC4 /* QuestionCollectionCellViewModel.swift */; };
 		842D693A2696F9AA0005DBC4 /* QuestionListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842D69392696F9AA0005DBC4 /* QuestionListSection.swift */; };
 		8433C92F268180AC00EAF157 /* AnimatedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433C92E268180AC00EAF157 /* AnimatedCollectionView.swift */; };
@@ -102,6 +102,11 @@
 		84AC78E2268EBB020095D127 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78E1268EBB020095D127 /* TestConstants.swift */; };
 		84AC78E3268EBB9D0095D127 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78E1268EBB020095D127 /* TestConstants.swift */; };
 		84AC78E9268ECFCA0095D127 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78E8268ECFCA0095D127 /* XCUIElement.swift */; };
+		84B3A789269AEA4D00E0618C /* CompleteSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A788269AEA4D00E0618C /* CompleteSurveyView.swift */; };
+		84B3A78B269AEE5100E0618C /* UIViewController+Lottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A78A269AEE5100E0618C /* UIViewController+Lottie.swift */; };
+		84B3A78F269B2C6200E0618C /* UIView+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A78E269B2C6200E0618C /* UIView+Present.swift */; };
+		84B3A794269B2EC100E0618C /* LottieAnimationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */; };
+		84B3A796269B31B300E0618C /* AnimatedCompleteSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 84B3A795269B31B300E0618C /* AnimatedCompleteSurvey.json */; };
 		84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE695F266F4446001DE0C3 /* UIFont+Size.swift */; };
 		84C8D6752681CE5F00961CF8 /* LoginInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8D6702681CE5F00961CF8 /* LoginInteractorSpec.swift */; };
 		84C8D6762681CE5F00961CF8 /* LoginRouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8D6712681CE5F00961CF8 /* LoginRouterSpec.swift */; };
@@ -227,12 +232,12 @@
 		842D691C2695AF410005DBC4 /* QuestionDisplayType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDisplayType.swift; sourceTree = "<group>"; };
 		842D69242695B62F0005DBC4 /* SurveyQuestionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionModule.swift; sourceTree = "<group>"; };
 		842D69262695B6580005DBC4 /* SurveyQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionViewController.swift; sourceTree = "<group>"; };
+		842D6928269606AD0005DBC4 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
+		842D692A2696070E0005DBC4 /* QuestionSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSubmission.swift; sourceTree = "<group>"; };
 		842D692C26961E950005DBC4 /* RatingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionCell.swift; sourceTree = "<group>"; };
 		842D692E26969BE60005DBC4 /* NPSCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSCollectionCell.swift; sourceTree = "<group>"; };
 		842D693026969CB40005DBC4 /* TextFieldCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionCell.swift; sourceTree = "<group>"; };
 		842D693226969DA50005DBC4 /* ChoiceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCollectionCell.swift; sourceTree = "<group>"; };
-		842D6928269606AD0005DBC4 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
-		842D692A2696070E0005DBC4 /* QuestionSubmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSubmission.swift; sourceTree = "<group>"; };
 		842D69372696F98F0005DBC4 /* QuestionCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		842D69392696F9AA0005DBC4 /* QuestionListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListSection.swift; sourceTree = "<group>"; };
 		8433C92E268180AC00EAF157 /* AnimatedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCollectionView.swift; sourceTree = "<group>"; };
@@ -280,6 +285,11 @@
 		84AC78DA268EB7FC0095D127 /* DataRequest+APIResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+APIResponseSerializer.swift"; sourceTree = "<group>"; };
 		84AC78E1268EBB020095D127 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		84AC78E8268ECFCA0095D127 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
+		84B3A788269AEA4D00E0618C /* CompleteSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSurveyView.swift; sourceTree = "<group>"; };
+		84B3A78A269AEE5100E0618C /* UIViewController+Lottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Lottie.swift"; sourceTree = "<group>"; };
+		84B3A78E269B2C6200E0618C /* UIView+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Present.swift"; sourceTree = "<group>"; };
+		84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationViews.swift; sourceTree = "<group>"; };
+		84B3A795269B31B300E0618C /* AnimatedCompleteSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimatedCompleteSurvey.json; sourceTree = "<group>"; };
 		84BE695F266F4446001DE0C3 /* UIFont+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Size.swift"; sourceTree = "<group>"; };
 		84C8D6702681CE5F00961CF8 /* LoginInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorSpec.swift; sourceTree = "<group>"; };
 		84C8D6712681CE5F00961CF8 /* LoginRouterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterSpec.swift; sourceTree = "<group>"; };
@@ -388,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				8416EAF326804E4A00F47617 /* UIView+Round.swift */,
+				84B3A78E269B2C6200E0618C /* UIView+Present.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -615,6 +626,7 @@
 		842C6FB1266DC7220017E1CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84B3A784269AE8ED00E0618C /* Lottie */,
 				84A0AB632670893F005EBF9A /* R.swift */,
 				842C6FB2266DC72F0017E1CD /* Base.lproj */,
 				842C6F88266DC5AB0017E1CD /* Assets.xcassets */,
@@ -720,6 +732,7 @@
 		843AB4CF266DC9FD00EC3F28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84B3A787269AEA3000E0618C /* Lottie */,
 				842D690C2695AC370005DBC4 /* AnswerView */,
 				84FABA17268C77AE00722243 /* Transition */,
 				8433C92D2681809700EAF157 /* CollectionView */,
@@ -756,6 +769,7 @@
 				844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */,
 				84D9B439268B1F2600923F86 /* UIViewController+NavigationItem.swift */,
 				84661C552693F4C50049B035 /* UIViewController+Alert.swift */,
+				84B3A78A269AEE5100E0618C /* UIViewController+Lottie.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -874,6 +888,30 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		84B3A784269AE8ED00E0618C /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				84B3A795269B31B300E0618C /* AnimatedCompleteSurvey.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		84B3A787269AEA3000E0618C /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				84B3A788269AEA4D00E0618C /* CompleteSurveyView.swift */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		84B3A792269B2EB000E0618C /* LottileAnimationView */ = {
+			isa = PBXGroup;
+			children = (
+				84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */,
+			);
+			path = LottileAnimationView;
+			sourceTree = "<group>";
+		};
 		84BE6958266F4400001DE0C3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -938,6 +976,7 @@
 		84D0748D26732114009CFE4C /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				84B3A792269B2EB000E0618C /* LottileAnimationView */,
 				84D9B41B268ACC9B00923F86 /* UserDefaultsKeys */,
 				84D0749026732140009CFE4C /* Constants.swift */,
 				84D074922673214C009CFE4C /* Typealias.swift */,
@@ -1213,6 +1252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B3A796269B31B300E0618C /* AnimatedCompleteSurvey.json in Resources */,
 				843AB5FB266E2AAE00EC3F28 /* .swiftlint.yml in Resources */,
 				84A0AB6926708CFE005EBF9A /* Localizable.strings in Resources */,
 				842C6F8C266DC5AB0017E1CD /* LaunchScreen.storyboard in Resources */,
@@ -1453,6 +1493,7 @@
 				84276BE6267B332E00E87C1A /* SplashModule.swift in Sources */,
 				847EF46E2692F7C900F24564 /* SurveyQuestionInteractor.swift in Sources */,
 				843AB4DB266DCB5E00EC3F28 /* LoginPresenter.swift in Sources */,
+				84B3A78F269B2C6200E0618C /* UIView+Present.swift in Sources */,
 				84D9B434268B1B6E00923F86 /* SurveyDetailRouter.swift in Sources */,
 				84276BE9267B332E00E87C1A /* SplashPresenter.swift in Sources */,
 				84FABA0E268C3C7D00722243 /* SurveyCollectionCellViewModel.swift in Sources */,
@@ -1478,6 +1519,7 @@
 				84FABA16268C5D3F00722243 /* APIResponseSerializer.swift in Sources */,
 				84D0749C26732231009CFE4C /* NetworkServiceFactory.swift in Sources */,
 				842D69382696F98F0005DBC4 /* QuestionCollectionCellViewModel.swift in Sources */,
+				84B3A789269AEA4D00E0618C /* CompleteSurveyView.swift in Sources */,
 				84D0749126732140009CFE4C /* Constants.swift in Sources */,
 				84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */,
 				843AB4D7266DCB5E00EC3F28 /* LoginRouter.swift in Sources */,
@@ -1497,9 +1539,11 @@
 				842D693A2696F9AA0005DBC4 /* QuestionListSection.swift in Sources */,
 				84661C562693F4C50049B035 /* UIViewController+Alert.swift in Sources */,
 				8423B97126734D8C0000036F /* AuthToken.swift in Sources */,
+				84B3A78B269AEE5100E0618C /* UIViewController+Lottie.swift in Sources */,
 				84D9B438268B1B6E00923F86 /* SurveyDetailPresenter.swift in Sources */,
 				842D69092695ABC90005DBC4 /* SurveyAnswer.swift in Sources */,
 				8448C23F2679FA97005955D4 /* KeychainKeys.swift in Sources */,
+				84B3A794269B2EC100E0618C /* LottieAnimationViews.swift in Sources */,
 				842D691D2695AF410005DBC4 /* QuestionDisplayType.swift in Sources */,
 				84FABA1B268C780F00722243 /* FadeZoomViewControllerTransition.swift in Sources */,
 				842D690B2695ABD10005DBC4 /* SurveyQuestion.swift in Sources */,
@@ -1729,6 +1773,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = G6W2RMB3QM;
 				INFOPLIST_FILE = SurveyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1752,6 +1797,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = G6W2RMB3QM;
 				INFOPLIST_FILE = SurveyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1927,6 +1973,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = G6W2RMB3QM;
 				INFOPLIST_FILE = SurveyApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -31,3 +31,5 @@
 "alert.quit.survey" = "Are you sure you want to quit the survey?";
 "alert.confirm.yes" = "Yes";
 "alert.confirm.cancel" = "Cancel";
+
+"lottie.complete.survey" = "Thanks for taking the survey.";
