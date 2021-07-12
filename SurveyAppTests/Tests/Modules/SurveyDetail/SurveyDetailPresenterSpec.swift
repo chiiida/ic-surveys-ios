@@ -36,7 +36,7 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                 presenter.output = output
                 presenter.view = view
                 
-                presenter.survey = sampleSurveys[0]
+                presenter.survey = sampleSurveys.first
             }
 
             describe("its viewDidLoad is called") {
@@ -49,7 +49,7 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                 }
                 
                 it("view should receive survey correctly") {
-                    expect(view.configureWithReceivedSurvey?.title) == sampleSurveys[0].title
+                    expect(view.configureWithReceivedSurvey?.title) == sampleSurveys.first?.title
                 }
             }
             
@@ -62,8 +62,8 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                     expect(interactor.fetchSurveyDetailIdCalled) == true
                 }
                 
-                it("view should receive survey correctly") {
-                    expect(interactor.fetchSurveyDetailIdReceivedId) == sampleSurveys[0].id
+                it("interator should receive id correctly") {
+                    expect(interactor.fetchSurveyDetailIdReceivedId) == sampleSurveys.first?.id
                 }
             }
             
@@ -78,10 +78,10 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                         expect(router.showSurveyQuestionIdQuestionsCalled) == true
                     }
                     
-                    it("view should receive surveys correctly") {
-                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.id) == sampleSurveys[0].id
+                    it("router should receive id and questions correctly") {
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.id) == sampleSurveys.first?.id
                         expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions.count) == 2
-                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions[0].displayType) == .star
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions.first?.displayType) == .star
                     }
                 }
             }
