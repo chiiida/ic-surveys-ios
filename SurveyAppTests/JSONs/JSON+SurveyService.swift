@@ -465,4 +465,59 @@ extension JSON.SurveyService {
         ]
         """.data(using: .utf8)!
     }
+    
+    static var surveyQuestionModelList: Data {
+        """
+        [
+            {
+                "id": "940d229e4cd87cd1e202",
+                "display_order": 0,
+                "display_type": "star",
+                "text": "Food â€“ Variety, Taste and Presentation",
+                "pick_type": "one",
+                "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/1ea51560991bcb7d00d0_l",
+                "answers": [
+                    {
+                        "id": "4cbc3e5a1c87d99bc7ee",
+                        "display_order": 0,
+                        "text": "1",
+                        "input_placeholder": null,
+                        "input_mask": null
+                    },
+                    {
+                        "id": "6e6221ce7e0d1068874d",
+                        "display_order": 1,
+                        "text": "1",
+                        "inputPlaceholder": null,
+                        "input_mask": null
+                    }
+                ]
+            },
+            {
+                "id": "ea0555f328b3b0124127",
+                "display_order": 1,
+                "display_type": "heart",
+                "text": "Beverages â€“ Variety, Taste and Presentation",
+                "pick_type": "one",
+                "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/1ea51560991bcb7d00d0_l",
+                "answers": [
+                    {
+                        "id": "8e1a918e724c89397a73",
+                        "display_order": 0,
+                        "text": "1",
+                        "input_placeholder": null,
+                        "input_mask": null
+                    },
+                    {
+                        "id": "b31dca3a711cdddc06da",
+                        "display_order": 1,
+                        "text": "1",
+                        "input_placeholder": null,
+                        "input_mask": null
+                    }
+                ]
+            }
+        ]
+        """.data(using: .utf8)!
+    }
 }

@@ -66,6 +66,7 @@
 		8448C2412679FAFF005955D4 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2402679FAFF005955D4 /* UserSession.swift */; };
 		8448C2432679FB1E005955D4 /* UserSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2422679FB1E005955D4 /* UserSessionProvider.swift */; };
 		844CEBB5267C55EE0057FCF7 /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */; };
+		8463FD13269C1CD000AFCD26 /* DecodableDefaultsLast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463FD12269C1CD000AFCD26 /* DecodableDefaultsLast.swift */; };
 		84648400267757D100233656 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846483FF267757D100233656 /* ErrorView.swift */; };
 		8464840726775D6700233656 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840226775D6700233656 /* HomeRouter.swift */; };
 		8464840826775D6700233656 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840326775D6700233656 /* HomeModule.swift */; };
@@ -256,6 +257,7 @@
 		8448C2402679FAFF005955D4 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		8448C2422679FB1E005955D4 /* UserSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionProvider.swift; sourceTree = "<group>"; };
 		844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Error.swift"; sourceTree = "<group>"; };
+		8463FD12269C1CD000AFCD26 /* DecodableDefaultsLast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDefaultsLast.swift; sourceTree = "<group>"; };
 		846483FF267757D100233656 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		8464840226775D6700233656 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		8464840326775D6700233656 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 				8434816D2677625F00B7990A /* String */,
 				84BE6958266F4400001DE0C3 /* UIKit */,
 				84AC78DA268EB7FC0095D127 /* DataRequest+APIResponseSerializer.swift */,
+				8463FD12269C1CD000AFCD26 /* DecodableDefaultsLast.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1500,6 +1503,7 @@
 				84D074A02673227C009CFE4C /* BaseAPI.swift in Sources */,
 				842D693326969DA50005DBC4 /* ChoiceCollectionCell.swift in Sources */,
 				848A00AC2685AA510019A426 /* SurveyResponse.swift in Sources */,
+				8463FD13269C1CD000AFCD26 /* DecodableDefaultsLast.swift in Sources */,
 				8448C2432679FB1E005955D4 /* UserSessionProvider.swift in Sources */,
 				842C6F82266DC5AA0017E1CD /* SceneDelegate.swift in Sources */,
 				84276BE6267B332E00E87C1A /* SplashModule.swift in Sources */,

@@ -35,11 +35,12 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                 output = SurveyDetailOutputMock()
                 presenter.output = output
                 presenter.view = view
+                
+                presenter.survey = sampleSurveys[0]
             }
 
             describe("its viewDidLoad is called") {
                 beforeEach {
-                    presenter.survey = sampleSurveys[0]
                     presenter.viewDidLoad()
                 }
 
@@ -49,6 +50,55 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                 
                 it("view should receive survey correctly") {
                     expect(view.configureWithReceivedSurvey?.title) == sampleSurveys[0].title
+                }
+            }
+            
+            describe("its didPressStartSurvey is called") {
+                beforeEach {
+                    presenter.didPressStartSurvey()
+                }
+
+                it("triggers interator to call fetchSurveyDetail") {
+                    expect(interactor.fetchSurveyDetailIdCalled) == true
+                }
+                
+                it("view should receive survey correctly") {
+                    expect(interactor.fetchSurveyDetailIdReceivedId) == sampleSurveys[0].id
+                }
+            }
+            
+            describe("its didFetchSurveyDetail is called") {
+                context("when parameters are valid id and questions") {
+                    beforeEach {
+                        let questions: [SurveyQuestion] = JSON.SurveyService.surveyQuestionModelList.decoded()
+                        presenter.didFetchSurveyDetail(questions: questions)
+                    }
+                    
+                    it("triggers router to call showSurveyQuestion") {
+                        expect(router.showSurveyQuestionIdQuestionsCalled) == true
+                    }
+                    
+                    it("view should receive surveys correctly") {
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.id) == sampleSurveys[0].id
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions.count) == 2
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions[0].displayType) == .star
+                    }
+                }
+            }
+            
+            describe("its didFailToFetchSurveyDetail is called") {
+                context("when parameters are valid id and questions") {
+                    beforeEach {
+                        presenter.didFailToFetchSurveyDetail()
+                    }
+                    
+                    it("triggers view to call showError") {
+                        expect(view.showErrorMessageCalled) == true
+                    }
+
+                    it("view should receive error message correctly") {
+                        expect(view.showErrorMessageReceivedMessage) == Localize.errorFetchSurveys()
+                    }
                 }
             }
         }
