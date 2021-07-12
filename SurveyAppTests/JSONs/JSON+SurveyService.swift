@@ -181,6 +181,270 @@ extension JSON.SurveyService {
         """.data(using: .utf8)!
     }
     
+    static var fetchSurveyDetailSuccess: Data {
+        """
+        {
+            "data": {
+                "id": "d5de6a8f8f5f1cfe51bc",
+                "type": "survey",
+                "attributes": {
+                    "title": "Scarlett Bangkok",
+                    "description": "We'd love ot hear from you!",
+                    "thank_email_above_threshold": "Dear Thank you for visiting Beach Republic and for taking the time to complete our brief survey. We are thrilled that you enjoyed your time with us! If you have a moment, we would be greatly appreciate it if you could leave a short review on. It helps to spread the word and let others know about the Beach Republic Revolution! Thank you again and we look forward to welcoming you back soon. Beach Republic Team",
+                    "thank_email_below_threshold": "Dear Thank you for visiting Beach Republic and for taking the time to complete our brief survey. We are thrilled that you enjoyed your time with us! If you have a moment, we would be greatly appreciate it if you could leave a short review on. It helps to spread the word and let others know about the Beach Republic Revolution! Thank you again and we look forward to welcoming you back soon. Beach Republic Team",
+                    "is_active": true,
+                    "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/1ea51560991bcb7d00d0_",
+                    "created_at": "2017-01-23T07:48:12.991Z",
+                    "active_at": "2015-10-08T07:04:00.000Z",
+                    "inactive_at": null,
+                    "survey_type": "Restaurant"
+                },
+                "relationships": {
+                    "questions": {
+                        "data": [
+                            {
+                                "id": "d3afbcf2b1d60af845dc",
+                                "type": "question"
+                            },
+                            {
+                                "id": "940d229e4cd87cd1e202",
+                                "type": "question"
+                            }
+                        ]
+                    }
+                }
+            },
+            "included": [
+                {
+                    "id": "d3afbcf2b1d60af845dc",
+                    "type": "question",
+                    "attributes": {
+                        "text": "Thank you for visiting Scarlett! Please take a moment to share your feedback.",
+                        "help_text": null,
+                        "display_order": 0,
+                        "short_text": "introduction",
+                        "pick": "none",
+                        "display_type": "intro",
+                        "is_mandatory": false,
+                        "correct_answer_id": null,
+                        "facebook_profile": null,
+                        "twitter_profile": null,
+                        "image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/2001ebbfdcbf6c00c757_",
+                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/1ea51560991bcb7d00d0_",
+                        "cover_image_opacity": 0.6,
+                        "cover_background_color": null,
+                        "is_shareable_on_facebook": false,
+                        "is_shareable_on_twitter": false,
+                        "font_face": null,
+                        "font_size": null,
+                        "tag_list": ""
+                    },
+                    "relationships": {
+                        "answers": {
+                            "data": []
+                        }
+                    }
+                },
+                {
+                    "id": "940d229e4cd87cd1e202",
+                    "type": "question",
+                    "attributes": {
+                        "text": "Food â€“ Variety, Taste and Presentation",
+                        "help_text": null,
+                        "display_order": 1,
+                        "short_text": "Food",
+                        "pick": "one",
+                        "display_type": "star",
+                        "is_mandatory": false,
+                        "correct_answer_id": null,
+                        "facebook_profile": null,
+                        "twitter_profile": null,
+                        "image_url": null,
+                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/b41c84934fa8e4c34269_",
+                        "cover_image_opacity": 0.75,
+                        "cover_background_color": null,
+                        "is_shareable_on_facebook": false,
+                        "is_shareable_on_twitter": false,
+                        "font_face": null,
+                        "font_size": null,
+                        "tag_list": ""
+                    },
+                    "relationships": {
+                        "answers": {
+                            "data": [
+                                {
+                                    "id": "4cbc3e5a1c87d99bc7ee",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "6e6221ce7e0d1068874d",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "037574cb93d16800eecd",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "f09f1a680789b636459b",
+                                    "type": "answer"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "4cbc3e5a1c87d99bc7ee",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "1",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 0,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 0,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "6e6221ce7e0d1068874d",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "2",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_2",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 1,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 25,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "037574cb93d16800eecd",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "3",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_3",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 2,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 50,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "f09f1a680789b636459b",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "4",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_4",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 3,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": 75,
+                        "alerts": []
+                    }
+                }
+            ]
+        }
+        """.data(using: .utf8)!
+    }
+    
+    static var submitSurveySuccess: Data {
+        " ".data(using: .utf8)!
+    }
+    
+    static var submitSurveyFailure: Data {
+        """
+        {
+            "errors": [
+                {
+                    "detail": "Questions is invalid"
+                }
+            ]
+        }
+        """.data(using: .utf8)!
+    }
+    
+    static var submitSurveyBody: Data {
+        """
+        [
+            {
+                "id": "940d229e4cd87cd1e202",
+                "answers": [
+                    {
+                        "id": "037574cb93d16800eecd"
+                    }
+                ]
+            },
+            {
+                "id": "c3a9b8ce5c2356010703",
+                "answers": [
+                    {
+                        "id": "2a49e148c5b170aca804",
+                        "answer": "My answer"
+                    },
+                    {
+                        "id": "2a49e148c5b170aca804",
+                        "answer": "My answer"
+                    }
+                ]
+            }
+        ]
+        """.data(using: .utf8)!
+    }
+    
     static var surveyModelList: Data {
         """
         [

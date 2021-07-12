@@ -34,7 +34,7 @@ final class SplashModule {
 
     init() {
         let userSessionProvider = UserSessionProvider.shared
-        
+
         view = SplashViewController()
         router = SplashRouter()
         interactor = SplashInteractor(userSessionProvider: userSessionProvider)

@@ -32,8 +32,8 @@ final class LoginViewController: UIViewController {
     private let gradientLayer = CAGradientLayer()
     private let backgroundImageView = UIImageView()
     private let logoImageView = UIImageView()
-    private let emailField = CredentialTextField()
-    private let passwordField = CredentialTextField()
+    private let emailField = CustomTextField()
+    private let passwordField = CustomTextField()
     private let loginButton = UIButton(type: .system)
     private let forgotButton = UIButton(type: .system)
     
@@ -55,6 +55,7 @@ extension LoginViewController: LoginViewInput {
     func configure() {
         setUpLayout()
         setUpViews()
+        setIdentifiers()
     }
     
     func beginAnimation() {
@@ -186,6 +187,12 @@ extension LoginViewController {
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.25)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.75)
         gradientLayer.isHidden = true
+    }
+    
+    private func setIdentifiers() {
+        emailField.accessibilityIdentifier = TestConstants.Login.emailInputTextField
+        passwordField.accessibilityIdentifier = TestConstants.Login.passwordInputTextField
+        loginButton.accessibilityIdentifier = TestConstants.Login.loginButton
     }
 }
 

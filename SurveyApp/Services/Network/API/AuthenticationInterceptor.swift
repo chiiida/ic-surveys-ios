@@ -32,6 +32,8 @@ final class AuthenticationInterceptor: RequestInterceptor {
     }
     
     func retry(_ request: Alamofire.Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+        guard request.retryCount == 0 else { return completion(.doNotRetry) }
+        
         if refreshRequest != nil { return }
         
         refreshRequest = refreshToken { [weak self] result in

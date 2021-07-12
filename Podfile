@@ -26,8 +26,6 @@ target 'SurveyApp' do
   pod 'AlamofireImage'
   pod 'AlamofireNetworkActivityLogger', '~> 3.4'
   pod 'KeychainAccess'
-  
-  pod 'Crashlytics'
 
   target 'SurveyAppTests' do
     inherit! :search_paths
