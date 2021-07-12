@@ -45,7 +45,7 @@ class CompleteSurveyView: UIView {
         textLabel.text = Localize.lottieCompleteSurvey()
         textLabel.textColor = .white
         textLabel.textAlignment = .center
-        textLabel.font = UIFont.bold(ofSize: .largerTitle)
+        textLabel.font = .bold(ofSize: .largerTitle)
         textLabel.numberOfLines = 0
     }
 }
