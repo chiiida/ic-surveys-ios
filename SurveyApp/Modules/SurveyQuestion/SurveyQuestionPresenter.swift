@@ -14,8 +14,8 @@ final class SurveyQuestionPresenter {
     weak var view: SurveyQuestionViewInput?
     weak var output: SurveyQuestionOutput?
     
-    private(set) var surveyId: String?
-    private(set) var questions: [SurveyQuestion]? 
+    internal var surveyId: String?
+    internal var questions: [SurveyQuestion]? 
 
     init(
         router: SurveyQuestionRouterInput,
