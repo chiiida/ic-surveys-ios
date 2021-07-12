@@ -79,7 +79,7 @@ class TextFieldAnswerView: UIView, AnswerView {
             textField.tag = index
             textField.placeholder = answer.inputPlaceholder
             textField.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
-            textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingDidEnd)
+            textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
             textField.snp.makeConstraints {
                 $0.height.equalTo(56.0)
