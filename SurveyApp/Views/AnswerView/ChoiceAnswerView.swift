@@ -10,11 +10,11 @@ import NimbleExtension
 
 class ChoiceAnswerView: UIView, AnswerView {
 
-    let answers: [SurveyAnswer]
+    var answers: [SurveyAnswer]
     
     weak var delegate: AnswerViewDelegate?
 
-    let pickerView = UIPickerView()
+    private let pickerView = UIPickerView()
 
     init(answers: [SurveyAnswer]) {
         self.answers = answers
@@ -25,6 +25,11 @@ class ChoiceAnswerView: UIView, AnswerView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(answers: [SurveyAnswer]) {
+        self.answers = answers
+        pickerView.reloadAllComponents()
     }
 
     private func setUpLayout() {

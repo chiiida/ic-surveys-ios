@@ -101,8 +101,12 @@ extension TextFieldAnswerView: UITextViewDelegate {
 extension TextFieldAnswerView {
 
     @objc private func textFieldDidChange(_ sender: UITextField) {
-        let answer = AnswerSubmission(id: answers[sender.tag].id, answers: sender.text)
-        textFieldAnswers.append(answer)
+        if let index = textFieldAnswers.firstIndex(where: { $0.id == answers[sender.tag].id }) {
+            textFieldAnswers[index].answers = sender.text
+        } else {
+            let answer = AnswerSubmission(id: answers[sender.tag].id, answers: sender.text)
+            textFieldAnswers.append(answer)
+        }
         delegate?.didAnswer(answers: textFieldAnswers)
     }
 }

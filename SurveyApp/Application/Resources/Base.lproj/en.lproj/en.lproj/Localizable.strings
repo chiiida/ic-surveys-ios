@@ -16,6 +16,7 @@
 "error.invalid.email" = "Invalid email";
 "error.fetch.surveys" = "Couldn't retrieve the list of surveys";
 "error.submit.survey" = "Couldn't submit the survey";
+"error.incomplete.survey" = "Please complete all questions";
 
 "home.today.label" = "Today";
 

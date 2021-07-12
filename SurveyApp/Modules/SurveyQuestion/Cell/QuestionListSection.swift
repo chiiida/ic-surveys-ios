@@ -23,4 +23,12 @@ extension QuestionListSection {
     var sortedQuestions: [QuestionCollectionCellViewModel] {
         items.sorted(by: { $0.displayOrder < $1.displayOrder })
     }
+    
+    var sortedSubmitedQuestions: [QuestionSubmission] {
+        
+        submitedQuestions.sorted { lhs, rhs in
+            sortedQuestions.firstIndex { $0.id == lhs.id } ?? 0
+                < sortedQuestions.firstIndex { $0.id == rhs.id } ?? 0
+        }
+    }
 }

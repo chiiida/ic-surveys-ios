@@ -26,7 +26,12 @@ class RatingCollectionCell: QuestionCollectionCell {
             icon = QuestionDisplayType.RatingIcon.heart
         }
         
-        answerView = RatingAnswerView(icon: icon, answers: viewModel.answers)
+        if let answerView = answerView as? RatingAnswerView {
+            answerView.configure(icon: icon, answers: viewModel.answers)
+        } else {
+            answerView = RatingAnswerView(icon: icon, answers: viewModel.answers)
+        }
+        
         super.configure(with: viewModel)
     }
 }

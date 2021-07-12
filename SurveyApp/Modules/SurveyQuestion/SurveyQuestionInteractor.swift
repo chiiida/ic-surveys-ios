@@ -9,13 +9,13 @@
 // sourcery: AutoMockable
 protocol SurveyQuestionInteractorInput: AnyObject {
     
-    func submitSurvey(id: String, question: [QuestionSubmission])
+    func submitSurvey(id: String, questions: [QuestionSubmission])
 }
 
 // sourcery: AutoMockable
 protocol SurveyQuestionInteractorOutput: AnyObject {
     
-    func didSubmitSurvey()
+    func didSubmitSurvey(questionCount: Int)
     func didFailToSubmitSurvey(_ error: APIError)
 }
 
@@ -38,11 +38,11 @@ final class SurveyQuestionInteractor {
 
 extension SurveyQuestionInteractor: SurveyQuestionInteractorInput {
     
-    func submitSurvey(id: String, question: [QuestionSubmission]) {
-        submitSurveyRequest = surveyService?.submitSurvey(id: id, questions: question) { [weak output] result in
+    func submitSurvey(id: String, questions: [QuestionSubmission]) {
+        submitSurveyRequest = surveyService?.submitSurvey(id: id, questions: questions) { [weak output] result in
             switch result {
             case .success:
-                output?.didSubmitSurvey()
+                output?.didSubmitSurvey(questionCount: questions.count)
             case .failure(let error):
                 output?.didFailToSubmitSurvey(error)
             }

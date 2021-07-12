@@ -49,6 +49,16 @@ class RatingAnswerView: UIView, AnswerView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.handleTouchAtIcon(touches)
     }
+    
+    func configure(icon: String, answers: [SurveyAnswer]) {
+        self.answers = answers
+
+        stackView.arrangedSubviews.forEach {
+            if let iconLabel = $0 as? UILabel {
+                iconLabel.text = icon
+            }
+        }
+    }
 
     private func setUpView() {
         stackView.spacing = 16.0

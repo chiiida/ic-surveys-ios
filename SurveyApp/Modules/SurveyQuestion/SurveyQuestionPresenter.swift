@@ -41,7 +41,7 @@ extension SurveyQuestionPresenter: SurveyQuestionViewOutput {
     
     func didSubmitQuestions(questions: [QuestionSubmission]) {
         if let surveyId = surveyId {
-            interactor.submitSurvey(id: surveyId, question: questions)
+            interactor.submitSurvey(id: surveyId, questions: questions)
         }
     }
 }
@@ -50,8 +50,12 @@ extension SurveyQuestionPresenter: SurveyQuestionViewOutput {
 
 extension SurveyQuestionPresenter: SurveyQuestionInteractorOutput {
     
-    func didSubmitSurvey() {
-        view?.popToRootView()
+    func didSubmitSurvey(questionCount: Int) {
+        if let questions = questions, questionCount < questions.count {
+            view?.showError(message: Localize.errorIncompleteSurvey())
+        } else {
+            view?.popToRootViewController()
+        }
     }
     
     func didFailToSubmitSurvey(_ error: APIError) {

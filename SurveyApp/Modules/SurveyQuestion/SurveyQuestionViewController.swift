@@ -14,7 +14,7 @@ import AlamofireImage
 protocol SurveyQuestionViewInput: AnyObject, ErrorShowable {
 
     func configure(with viewModels: [QuestionCollectionCellViewModel])
-    func popToRootView()
+    func popToRootViewController()
 }
 
 // sourcery: AutoMockable
@@ -57,7 +57,7 @@ extension SurveyQuestionViewController: SurveyQuestionViewInput {
         collectionView.reloadData()
     }
     
-    func popToRootView() {
+    func popToRootViewController() {
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
@@ -188,7 +188,7 @@ extension SurveyQuestionViewController {
     }
     
     @objc func didTapSubmitButton() {
-        output?.didSubmitQuestions(questions: questions.submitedQuestions)
+        output?.didSubmitQuestions(questions: questions.sortedSubmitedQuestions)
     }
 }
 

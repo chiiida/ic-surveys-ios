@@ -38,7 +38,9 @@ extension SurveyDetailPresenter: SurveyDetailViewOutput {
     }
     
     func didPressStartSurvey() {
-        interactor.fetchSurveyDetail(id: survey?.id ?? "")
+        if let survey = survey {
+            interactor.fetchSurveyDetail(id: survey.id)
+        }
     }
 }
 

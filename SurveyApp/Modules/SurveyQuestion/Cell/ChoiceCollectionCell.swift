@@ -18,7 +18,11 @@ class ChoiceCollectionCell: QuestionCollectionCell {
         if viewModel.pickType == SurveyQuestion.PickType.any {
             answerView = MultipleChoiceAnswerView(answers: viewModel.answers)
         } else {
-            answerView = ChoiceAnswerView(answers: viewModel.answers)
+            if let answerView = answerView as? ChoiceAnswerView {
+                answerView.configure(answers: viewModel.answers)
+            } else {
+                answerView = ChoiceAnswerView(answers: viewModel.answers)
+            }
         }
 
         super.configure(with: viewModel)
