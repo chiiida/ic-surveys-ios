@@ -168,7 +168,7 @@ extension HomeViewController {
     }
     
     @objc private func handleRefreshControl(_ refreshControl: UIRefreshControl) {
-        self.output?.didRefreshSurveys {
+        output?.didRefreshSurveys {
             refreshControl.endRefreshing()
         }
     }
