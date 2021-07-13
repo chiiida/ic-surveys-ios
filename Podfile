@@ -27,6 +27,7 @@ target 'SurveyApp' do
   pod 'AlamofireNetworkActivityLogger', '~> 3.4'
   pod 'KeychainAccess'
   pod 'lottie-ios'
+  pod 'SkeletonView'
 
   target 'SurveyAppTests' do
     inherit! :search_paths

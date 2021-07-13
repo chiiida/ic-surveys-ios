@@ -26,6 +26,7 @@ PODS:
   - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
+  - SkeletonView (1.21.0)
   - SnapKit (5.0.1)
   - Sourcery (1.4.2)
   - SwiftLint (0.43.1)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift
   - Quick
   - R.swift
+  - SkeletonView
   - SnapKit
   - Sourcery
   - SwiftLint
@@ -58,6 +60,7 @@ SPEC REPOS:
     - Quick
     - R.swift
     - R.swift.Library
+    - SkeletonView
     - SnapKit
     - Sourcery
     - SwiftLint
@@ -87,10 +90,11 @@ SPEC CHECKSUMS:
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  SkeletonView: 2398e9081a16f6a5d52ebabaed5d5b19873ed8f3
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Sourcery: 43d8addc35ca31c2ab331cfd34b02421fa53bb7f
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 2ad98b4672056a324ef2ad246718a78ee36eec3e
+PODFILE CHECKSUM: bd6e71f5d9011ff30f21a231658e6bf971394132
 
 COCOAPODS: 1.10.1
