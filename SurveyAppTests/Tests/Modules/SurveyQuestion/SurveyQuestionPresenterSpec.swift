@@ -81,8 +81,8 @@ final class SurveyQuestionPresenterSpec: QuickSpec {
                         presenter.didSubmitSurvey(questionCount: questionCount)
                     }
                     
-                    it("triggers view to call showCompleteSurveyView") {
-                        expect(view.showCompleteSurveyViewCompletionCalled) == true
+                    it("should not trigger view to call showError") {
+                        expect(view.showErrorMessageCalled) == false
                     }
                 }
                 
