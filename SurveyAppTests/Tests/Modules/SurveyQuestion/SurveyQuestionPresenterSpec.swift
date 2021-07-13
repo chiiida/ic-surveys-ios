@@ -21,7 +21,7 @@ final class SurveyQuestionPresenterSpec: QuickSpec {
         var view: SurveyQuestionViewInputMock!
         var output: SurveyQuestionOutputMock!
 
-        let sampleQuestions: [SurveyQuestion] = JSON.SurveyService.surveyQuestionModelList.decoded()
+        let sampleQuestions: [SurveyQuestion] = [.dummy, .dummy]
         
         describe("a SurveyQuestionPresenter") {
             beforeEach {
