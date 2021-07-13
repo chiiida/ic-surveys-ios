@@ -33,7 +33,7 @@ final class SurveyDetailRouterSpec: QuickSpec {
                 context("when the parameter is valid id and question") {
                     beforeEach {
                         let id = "d5de6a8f8f5f1cfe51bc"
-                        let questions: [SurveyQuestion] = JSON.SurveyService.surveyQuestionModelList.decoded()
+                        let questions: [SurveyQuestion] = [.dummy]
 
                         navViewController = SpyNavigationController(rootViewController: viewController)
                         router.showSurveyQuestion(id: id, questions: questions)

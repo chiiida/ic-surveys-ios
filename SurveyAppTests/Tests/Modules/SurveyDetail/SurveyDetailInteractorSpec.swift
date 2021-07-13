@@ -18,7 +18,10 @@ final class SurveyDetailInteractorSpec: QuickSpec {
         var interactor: SurveyDetailInteractor!
         var output: SurveyDetailInteractorOutputMock!
         var surveyService: SurveyServiceProtocolMock!
-
+        
+        let sampleSurveyDetail: SurveyDetailResponse = JSON.SurveyService.fetchSurveyDetailSuccess.decoded()
+        let questionAttributes = sampleSurveyDetail.included[1].attributes as? SurveyQuestionAttributes
+        
         describe("a SurveyDetailInteractor") {
             beforeEach {
                 output = SurveyDetailInteractorOutputMock()
@@ -32,8 +35,7 @@ final class SurveyDetailInteractorSpec: QuickSpec {
                 context("when the request returns success") {
                     beforeEach {
                         surveyService.fetchSurveyDetailIdCompletionClosure = { _, completion in
-                            let data: SurveyDetailResponse = JSON.SurveyService.fetchSurveyDetailSuccess.decoded()
-                            completion(.success(data))
+                            completion(.success(sampleSurveyDetail))
                             return nil
                         }
 
@@ -47,8 +49,8 @@ final class SurveyDetailInteractorSpec: QuickSpec {
                     
                     it("output should receive questions correctly") {
                         expect(output.didFetchSurveyDetailQuestionsReceivedQuestions?.count) == 1
-                        expect(output.didFetchSurveyDetailQuestionsReceivedQuestions?.first?.text) == "Food â€“ Variety, Taste and Presentation"
-                        expect(output.didFetchSurveyDetailQuestionsReceivedQuestions?.first?.displayType) == .star
+                        expect(output.didFetchSurveyDetailQuestionsReceivedQuestions?.first?.text) == questionAttributes?.text
+                        expect(output.didFetchSurveyDetailQuestionsReceivedQuestions?.first?.displayType) == questionAttributes?.displayType
                     }
                 }
 

@@ -22,6 +22,7 @@ final class SurveyDetailPresenterSpec: QuickSpec {
         var output: SurveyDetailOutputMock!
         
         let sampleSurveys: [Survey] = JSON.SurveyService.surveyModelList.decoded()
+        let sampleQuestions: [SurveyQuestion] = [.dummy]
 
         describe("a SurveyDetailPresenter") {
             beforeEach {
@@ -70,8 +71,7 @@ final class SurveyDetailPresenterSpec: QuickSpec {
             describe("its didFetchSurveyDetail is called") {
                 context("when parameters are valid id and questions") {
                     beforeEach {
-                        let questions: [SurveyQuestion] = JSON.SurveyService.surveyQuestionModelList.decoded()
-                        presenter.didFetchSurveyDetail(questions: questions)
+                        presenter.didFetchSurveyDetail(questions: sampleQuestions)
                     }
                     
                     it("triggers router to call showSurveyQuestion") {
@@ -80,8 +80,8 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                     
                     it("router should receive id and questions correctly") {
                         expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.id) == sampleSurveys.first?.id
-                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions.count) == 2
-                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions.first?.displayType) == .star
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions.count) == sampleQuestions.count
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions.first?.displayType) == sampleQuestions.first?.displayType
                     }
                 }
             }
