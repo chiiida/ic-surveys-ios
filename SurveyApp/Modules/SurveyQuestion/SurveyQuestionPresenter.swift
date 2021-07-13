@@ -31,18 +31,16 @@ final class SurveyQuestionPresenter {
 extension SurveyQuestionPresenter: SurveyQuestionViewOutput {
 
     func viewDidLoad() {
-        if let questions = questions {
-            let viewModels: [QuestionCollectionCellViewModel] = questions.map {
-                return QuestionCollectionCellViewModel(question: $0)
-            }
-            view?.configure(with: viewModels)
+        guard let questions = questions else { return }
+        let viewModels: [QuestionCollectionCellViewModel] = questions.map {
+            return QuestionCollectionCellViewModel(question: $0)
         }
+        view?.configure(with: viewModels)
     }
     
     func didSubmitQuestions(questions: [QuestionSubmission]) {
-        if let surveyId = surveyId {
-            interactor.submitSurvey(id: surveyId, questions: questions)
-        }
+        guard let surveyId = surveyId else { return }
+        interactor.submitSurvey(id: surveyId, questions: questions)
     }
 }
 

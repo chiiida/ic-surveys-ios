@@ -21,7 +21,7 @@ struct QuestionListSection {
 extension QuestionListSection {
     
     var sortedQuestions: [QuestionCollectionCellViewModel] {
-        items.sorted(by: { $0.displayOrder < $1.displayOrder })
+        items.sorted { $0.displayOrder < $1.displayOrder }
     }
     
     var sortedSubmitedQuestions: [QuestionSubmission] {

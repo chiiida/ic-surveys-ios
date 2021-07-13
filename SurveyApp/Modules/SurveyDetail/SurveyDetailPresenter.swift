@@ -37,9 +37,8 @@ extension SurveyDetailPresenter: SurveyDetailViewOutput {
     }
     
     func didPressStartSurvey() {
-        if let survey = survey {
-            interactor.fetchSurveyDetail(id: survey.id)
-        }
+        guard let survey = survey else { return }
+        interactor.fetchSurveyDetail(id: survey.id)
     }
 }
 
@@ -48,9 +47,8 @@ extension SurveyDetailPresenter: SurveyDetailViewOutput {
 extension SurveyDetailPresenter: SurveyDetailInteractorOutput {
     
     func didFetchSurveyDetail(questions: [SurveyQuestion]) {
-        if let survey = survey {
-            router.showSurveyQuestion(id: survey.id, questions: questions)
-        }
+        guard let survey = survey else { return }
+        router.showSurveyQuestion(id: survey.id, questions: questions)
     }
     
     func didFailToFetchSurveyDetail() {
