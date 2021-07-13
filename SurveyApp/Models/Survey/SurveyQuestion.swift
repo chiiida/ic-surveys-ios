@@ -16,7 +16,10 @@ struct SurveyQuestion {
     let pickType: PickType
     let coverImageUrl: String
     let answers: [SurveyAnswer]
-    
+}
+
+extension SurveyQuestion {
+
     init(data: SurveyData, answers: [SurveyAnswer]) {
         let attributes = data.attributes as? SurveyQuestionAttributes
 
@@ -28,10 +31,7 @@ struct SurveyQuestion {
         self.coverImageUrl = attributes?.coverImageUrl ?? ""
         self.answers = answers
     }
-}
-
-extension SurveyQuestion {
-
+    
     var sortedAnswers: [SurveyAnswer] {
         answers.sorted(by: { $0.displayOrder < $1.displayOrder })
     }

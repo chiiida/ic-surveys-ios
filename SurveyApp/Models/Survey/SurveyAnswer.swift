@@ -14,6 +14,9 @@ struct SurveyAnswer {
     let text: String
     let inputPlaceholder: String?
     let inputMask: String?
+}
+
+extension SurveyAnswer {
     
     init(data: SurveyData) {
         let attributes = data.attributes as? SurveyAnswerAttributes
