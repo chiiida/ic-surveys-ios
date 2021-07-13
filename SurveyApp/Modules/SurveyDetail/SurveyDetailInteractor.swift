@@ -52,16 +52,16 @@ extension SurveyDetailInteractor: SurveyDetailInteractorInput {
                         let attributes = $0.attributes as? SurveyQuestionAttributes
                         let relatedAnswers = $0.relationships?.relationship.data
                         
-                        if attributes?.displayType != .intro && attributes?.displayType != .outro {
-                            return SurveyQuestion(
-                                data: $0,
-                                answers: answers.filter { answer in
-                                    relatedAnswers?.contains(where: { $0.id == answer.id }) ?? false
-                                }
-                            )
-                        } else {
+                        guard attributes?.displayType != .intro && attributes?.displayType != .outro else {
                             return nil
                         }
+                        
+                        return SurveyQuestion(
+                            data: $0,
+                            answers: answers.filter { answer in
+                                relatedAnswers?.contains(where: { $0.id == answer.id }) ?? false
+                            }
+                        )
                     }
                 output?.didFetchSurveyDetail(questions: questions)
             case .failure:
