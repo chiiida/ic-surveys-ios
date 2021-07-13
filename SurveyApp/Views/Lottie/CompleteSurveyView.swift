@@ -49,3 +49,12 @@ class CompleteSurveyView: UIView {
         textLabel.numberOfLines = 0
     }
 }
+
+extension CompleteSurveyView {
+    
+    func show(completion: EmptyCompletion? = nil) {
+        presentViewOnTopWindow(for: 0.8) {
+            completion?()
+        }
+    }
+}

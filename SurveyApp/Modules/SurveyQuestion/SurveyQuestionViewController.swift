@@ -11,7 +11,7 @@ import SnapKit
 import AlamofireImage
 
 // sourcery: AutoMockable
-protocol SurveyQuestionViewInput: AnyObject, ErrorShowable, LottieShowable {
+protocol SurveyQuestionViewInput: AnyObject, ErrorShowable {
 
     func configure(with viewModels: [QuestionCollectionCellViewModel])
     func popToRootViewController()

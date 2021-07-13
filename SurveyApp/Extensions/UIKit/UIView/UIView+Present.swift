@@ -10,10 +10,10 @@ import UIKit
 extension UIView {
     
     func presentViewOnTopWindow(_ duration: TimeInterval = 0.3, for dismissAfter: TimeInterval = 0, _ completion: EmptyCompletion? = nil) {
+        guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
         alpha = 0
         frame = UIScreen.main.bounds
-        let windows = UIApplication.shared.windows.first { $0.isKeyWindow }
-        windows?.addSubview(self)
+        window.addSubview(self)
         UIView.animate(
             withDuration: duration,
             delay: 0,
@@ -22,13 +22,13 @@ extension UIView {
                 self?.alpha = 1
             },
             completion: { _ in
-                if dismissAfter <= 0 {
-                    completion?()
-                } else {
+                guard dismissAfter <= 0 else {
                     DispatchQueue.main.asyncAfter(deadline: .now() + dismissAfter) { [weak self] in
                          self?.dismissView(completion)
                     }
+                    return
                 }
+                completion?()
             }
         )
     }

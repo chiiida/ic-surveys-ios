@@ -103,7 +103,6 @@
 		84AC78E3268EBB9D0095D127 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78E1268EBB020095D127 /* TestConstants.swift */; };
 		84AC78E9268ECFCA0095D127 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78E8268ECFCA0095D127 /* XCUIElement.swift */; };
 		84B3A789269AEA4D00E0618C /* CompleteSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A788269AEA4D00E0618C /* CompleteSurveyView.swift */; };
-		84B3A78B269AEE5100E0618C /* UIViewController+Lottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A78A269AEE5100E0618C /* UIViewController+Lottie.swift */; };
 		84B3A78F269B2C6200E0618C /* UIView+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A78E269B2C6200E0618C /* UIView+Present.swift */; };
 		84B3A794269B2EC100E0618C /* LottieAnimationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */; };
 		84B3A796269B31B300E0618C /* AnimatedCompleteSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 84B3A795269B31B300E0618C /* AnimatedCompleteSurvey.json */; };
@@ -286,7 +285,6 @@
 		84AC78E1268EBB020095D127 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		84AC78E8268ECFCA0095D127 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
 		84B3A788269AEA4D00E0618C /* CompleteSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSurveyView.swift; sourceTree = "<group>"; };
-		84B3A78A269AEE5100E0618C /* UIViewController+Lottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Lottie.swift"; sourceTree = "<group>"; };
 		84B3A78E269B2C6200E0618C /* UIView+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Present.swift"; sourceTree = "<group>"; };
 		84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationViews.swift; sourceTree = "<group>"; };
 		84B3A795269B31B300E0618C /* AnimatedCompleteSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimatedCompleteSurvey.json; sourceTree = "<group>"; };
@@ -769,7 +767,6 @@
 				844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */,
 				84D9B439268B1F2600923F86 /* UIViewController+NavigationItem.swift */,
 				84661C552693F4C50049B035 /* UIViewController+Alert.swift */,
-				84B3A78A269AEE5100E0618C /* UIViewController+Lottie.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -1539,7 +1536,6 @@
 				842D693A2696F9AA0005DBC4 /* QuestionListSection.swift in Sources */,
 				84661C562693F4C50049B035 /* UIViewController+Alert.swift in Sources */,
 				8423B97126734D8C0000036F /* AuthToken.swift in Sources */,
-				84B3A78B269AEE5100E0618C /* UIViewController+Lottie.swift in Sources */,
 				84D9B438268B1B6E00923F86 /* SurveyDetailPresenter.swift in Sources */,
 				842D69092695ABC90005DBC4 /* SurveyAnswer.swift in Sources */,
 				8448C23F2679FA97005955D4 /* KeychainKeys.swift in Sources */,
