@@ -32,9 +32,8 @@ final class SurveyDetailPresenter {
 extension SurveyDetailPresenter: SurveyDetailViewOutput {
 
     func viewDidLoad() {
-        if let survey = survey {
-            view?.configure(with: survey)
-        }
+        guard let survey = survey else { return }
+        view?.configure(with: survey)
     }
     
     func didPressStartSurvey() {

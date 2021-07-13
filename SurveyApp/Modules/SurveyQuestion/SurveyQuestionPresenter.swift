@@ -51,11 +51,11 @@ extension SurveyQuestionPresenter: SurveyQuestionViewOutput {
 extension SurveyQuestionPresenter: SurveyQuestionInteractorOutput {
     
     func didSubmitSurvey(questionCount: Int) {
-        if let questions = questions, questionCount < questions.count {
+        guard let questions = questions, questionCount == questions.count else {
             view?.showError(message: Localize.errorIncompleteSurvey())
-        } else {
-            view?.popToRootViewController()
+            return
         }
+        view?.popToRootViewController()
     }
     
     func didFailToSubmitSurvey(_ error: APIError) {

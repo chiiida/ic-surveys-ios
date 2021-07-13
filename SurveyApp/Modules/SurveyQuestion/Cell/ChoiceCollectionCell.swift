@@ -15,7 +15,7 @@ class ChoiceCollectionCell: QuestionCollectionCell {
     }
     
     override func configure(with viewModel: QuestionCollectionCellViewModel) {
-        if viewModel.pickType == SurveyQuestion.PickType.any {
+        if viewModel.pickType == .any {
             answerView = MultipleChoiceAnswerView(answers: viewModel.answers)
         } else {
             if let answerView = answerView as? ChoiceAnswerView {

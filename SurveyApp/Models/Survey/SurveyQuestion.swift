@@ -16,6 +16,18 @@ struct SurveyQuestion {
     let pickType: PickType
     let coverImageUrl: String
     let answers: [SurveyAnswer]
+    
+    init(data: SurveyData, answers: [SurveyAnswer]) {
+        let attributes = data.attributes as? SurveyQuestionAttributes
+
+        self.id = data.id
+        self.displayOrder = attributes?.displayOrder ?? 0
+        self.displayType = attributes?.displayType ?? .choice
+        self.text = attributes?.text ?? ""
+        self.pickType = attributes?.pick ?? .none
+        self.coverImageUrl = attributes?.coverImageUrl ?? ""
+        self.answers = answers
+    }
 }
 
 extension SurveyQuestion {
@@ -28,7 +40,7 @@ extension SurveyQuestion {
         URL(string: coverImageUrl + "l")
     }
 
-    enum PickType: String {
+    enum PickType: String, Decodable {
 
         case one, any, none
     }

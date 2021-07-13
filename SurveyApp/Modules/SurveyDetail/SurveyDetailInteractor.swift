@@ -23,7 +23,7 @@ final class SurveyDetailInteractor {
 
     weak var output: SurveyDetailInteractorOutput?
     
-    private(set) var surveyService: SurveyServiceProtocol?
+    private var surveyService: SurveyServiceProtocol?
     
     private var fetchSurveyDetailRequest: Request? {
         didSet { oldValue?.cancel() }
@@ -44,16 +44,7 @@ extension SurveyDetailInteractor: SurveyDetailInteractorInput {
             case .success(let response):
                 let answers: [SurveyAnswer] = response.included
                     .filter { $0.type == SurveyData.SurveyType.answer.rawValue }
-                    .compactMap {
-                        let attributes = $0.attributes as? SurveyAnswerAttributes
-                        return SurveyAnswer(
-                            id: $0.id,
-                            displayOrder: attributes?.displayOrder ?? 0,
-                            text: attributes?.text ?? "",
-                            inputPlaceholder: attributes?.inputMaskPlaceholder,
-                            inputMask: attributes?.inputMask
-                        )
-                    }
+                    .map { SurveyAnswer(data: $0) }
                 
                 let questions: [SurveyQuestion] = response.included
                     .filter { $0.type == SurveyData.SurveyType.question.rawValue }
@@ -61,24 +52,9 @@ extension SurveyDetailInteractor: SurveyDetailInteractorInput {
                         let attributes = $0.attributes as? SurveyQuestionAttributes
                         let relatedAnswers = $0.relationships?.relationship.data
                         
-                        if attributes?.displayType != "intro" && attributes?.displayType != "outro" {
-                            var displayType: QuestionDisplayType {
-                                guard let displayType = QuestionDisplayType(rawValue: attributes?.displayType ?? "") else { return .choice }
-                                return displayType
-                            }
-                            
-                            var pickType: SurveyQuestion.PickType {
-                                guard let pickType = SurveyQuestion.PickType(rawValue: attributes?.pick ?? "") else { return .none }
-                                return pickType
-                            }
-                            
+                        if attributes?.displayType != .intro && attributes?.displayType != .outro {
                             return SurveyQuestion(
-                                id: $0.id,
-                                displayOrder: attributes?.displayOrder ?? 0,
-                                displayType: displayType,
-                                text: attributes?.text ?? "",
-                                pickType: pickType,
-                                coverImageUrl: attributes?.coverImageUrl ?? "",
+                                data: $0,
                                 answers: answers.filter { answer in
                                     relatedAnswers?.contains(where: { $0.id == answer.id }) ?? false
                                 }

@@ -23,7 +23,7 @@ final class SurveyQuestionInteractor {
 
     weak var output: SurveyQuestionInteractorOutput?
     
-    private(set) var surveyService: SurveyServiceProtocol?
+    private var surveyService: SurveyServiceProtocol?
     
     private var submitSurveyRequest: Request? {
         didSet { oldValue?.cancel() }

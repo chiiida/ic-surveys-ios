@@ -7,15 +7,18 @@
 
 import UIKit
 
-enum QuestionDisplayType: String {
+enum QuestionDisplayType: String, Decodable {
 
     case star
     case heart
     case smiley
     case choice
+    case dropdown
     case nps
     case textarea
     case textfield
+    case intro
+    case outro
 
     enum RatingIcon {
 

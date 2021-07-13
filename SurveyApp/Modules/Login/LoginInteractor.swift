@@ -23,8 +23,8 @@ final class LoginInteractor {
 
     weak var output: LoginInteractorOutput?
     
-    private(set) var authenticationService: AuthenticationServiceProtocol?
-    private(set) var userSessionProvider: UserSessionProviderProtocol?
+    private var authenticationService: AuthenticationServiceProtocol?
+    private var userSessionProvider: UserSessionProviderProtocol?
     
     private var authenticateEmailRequest: Request? {
         didSet { oldValue?.cancel() }

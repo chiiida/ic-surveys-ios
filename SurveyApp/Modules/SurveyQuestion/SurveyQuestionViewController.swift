@@ -212,7 +212,7 @@ extension SurveyQuestionViewController: UICollectionViewDataSource {
             cell = collectionView.dequeueReusable(NPSCollectionCell.self, for: indexPath)
         case .textarea, .textfield:
             cell = collectionView.dequeueReusable(TextFieldCollectionCell.self, for: indexPath)
-        case .choice:
+        default:
             cell = collectionView.dequeueReusable(ChoiceCollectionCell.self, for: indexPath)
         }
         
