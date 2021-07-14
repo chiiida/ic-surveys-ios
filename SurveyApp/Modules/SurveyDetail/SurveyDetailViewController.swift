@@ -45,6 +45,7 @@ extension SurveyDetailViewController: SurveyDetailViewInput {
     func configure(with survey: Survey) {
         setUpLayout()
         setUpViews()
+        setIdentifiers()
         
         titleLabel.text = survey.title
         descriptionLabel.text = survey.description
@@ -58,7 +59,7 @@ extension SurveyDetailViewController: SurveyDetailViewInput {
 
 extension SurveyDetailViewController {
     
-    func setUpLayout() {
+    private func setUpLayout() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleEdgePan(_:)))
         
         setUpBackButton(tintColor: .white)
@@ -94,7 +95,7 @@ extension SurveyDetailViewController {
         }
     }
     
-    func setUpViews() {
+    private func setUpViews() {
         backgroundImageView.contentMode = .scaleAspectFill
         
         gradientLayer.frame = UIScreen.main.bounds
@@ -114,6 +115,10 @@ extension SurveyDetailViewController {
         descriptionLabel.font = UIFont.regular(ofSize: .heading)
         descriptionLabel.textColor = UIColor.white.withAlphaComponent(0.7)
         descriptionLabel.numberOfLines = 0
+    }
+    
+    private func setIdentifiers() {
+        view.accessibilityIdentifier = TestConstants.SurveyDetail.surveyDetailView
     }
 }
 

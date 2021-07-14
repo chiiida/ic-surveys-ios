@@ -6,6 +6,8 @@
 //  
 //
 
+import Foundation
+
 // sourcery: AutoMockable
 protocol SplashInteractorInput: AnyObject {
     
@@ -32,6 +34,7 @@ final class SplashInteractor {
 extension SplashInteractor: SplashInteractorInput {
     
     var isLoggedIn: Bool {
-        userSessionProvider?.isLoggedIn ?? false
+        guard ProcessInfo.processInfo.environment[TestConstants.userLoggedInKey] == nil else { return true }
+        return userSessionProvider?.isLoggedIn ?? false
     }
 }

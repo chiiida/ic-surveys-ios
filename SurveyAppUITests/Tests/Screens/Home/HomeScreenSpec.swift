@@ -19,7 +19,6 @@ class HomeScreenSpec: QuickSpec {
                     self.continueAfterFailure = false
                     
                     app = XCUIApplication()
-                    app.needClearUserSession = true
                     app.isUserLoggedIn = true
                     app.mockAPI(
                         withMethod: .get,
@@ -30,20 +29,31 @@ class HomeScreenSpec: QuickSpec {
                     app.launch()
                 }
                 
-                context("when first time Home Screen show") {
+                context("when Home Screen shows for the first time") {
                     it("shows first survey detail") {
                         expect(app.staticTexts[TestConstants.Home.surveyCellTitle].label) == "Scarlett Bangkok"
                     }
                 }
                 
-                context("when swipe right one time") {
+                context("when swipe left one time") {
                     beforeEach {
                         app.collectionViews[TestConstants.Home.collectionView]
                             .swipeLeft()
                     }
                     
-                    it("shows another survey detail") {
+                    it("shows second survey detail") {
                         expect(app.staticTexts[TestConstants.Home.surveyCellTitle].label) == "ibis Bangkok Riverside"
+                    }
+                }
+                
+                context("when press on survey detail button") {
+                    beforeEach {
+                        app.buttons[TestConstants.Home.surveyDetailButton]
+                            .tap()
+                    }
+                    
+                    it("shows Survey Detail Screen") {
+                        expect(app.otherElements[TestConstants.SurveyDetail.surveyDetailView].exists) == true
                     }
                 }
             }

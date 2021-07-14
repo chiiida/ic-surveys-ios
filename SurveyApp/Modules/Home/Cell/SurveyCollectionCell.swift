@@ -20,7 +20,7 @@ final class SurveyCollectionCell: UICollectionViewCell {
         super.init(frame: frame)
         setUpLayout()
         setUpViews()
-        setIndentifier()
+        setIdentifier()
     }
     
     required init?(coder: NSCoder) {
@@ -80,7 +80,7 @@ final class SurveyCollectionCell: UICollectionViewCell {
         descriptionLabel.numberOfLines = 2
     }
     
-    private func setIndentifier() {
+    private func setIdentifier() {
         titleLabel.accessibilityIdentifier = TestConstants.Home.surveyCellTitle
     }
 }
