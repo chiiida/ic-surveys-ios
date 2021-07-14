@@ -19,7 +19,7 @@ class CompleteSurveyView: UIView {
         super.init(frame: frame)
         setUpLayout()
         setUpView()
-        setIdentifer()
+        setIdentifers()
     }
 
     required init?(coder: NSCoder) {
@@ -51,7 +51,7 @@ class CompleteSurveyView: UIView {
         textLabel.numberOfLines = 0
     }
     
-    private func setIdentifer() {
+    private func setIdentifers() {
         accessibilityIdentifier = TestConstants.SurveyQuestion.lottieCompleteSurveyView
     }
 }

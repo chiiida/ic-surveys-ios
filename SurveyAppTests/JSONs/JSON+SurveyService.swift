@@ -207,7 +207,7 @@ extension JSON.SurveyService {
                                 "type": "question"
                             },
                             {
-                                "id": "6e2b6ee71d3011cc0ac1",
+                                "id": "940d229e4cd87cd1e202",
                                 "type": "question"
                             },
                             {
@@ -250,12 +250,12 @@ extension JSON.SurveyService {
                     }
                 },
                 {
-                    "id": "6e2b6ee71d3011cc0ac1",
+                    "id": "940d229e4cd87cd1e202",
                     "type": "question",
                     "attributes": {
                         "text": "What was the primary reason for selecting ibis Bangkok Riverside?",
-                        "help_text": "",
-                        "display_order": 2,
+                        "help_text": null,
+                        "display_order": 1,
                         "short_text": "Reason for selecting",
                         "pick": "one",
                         "display_type": "choice",
@@ -264,8 +264,8 @@ extension JSON.SurveyService {
                         "facebook_profile": null,
                         "twitter_profile": null,
                         "image_url": null,
-                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/6c2f22966125fd0a7170_",
-                        "cover_image_opacity": 0.63,
+                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/b41c84934fa8e4c34269_",
+                        "cover_image_opacity": 0.75,
                         "cover_background_color": null,
                         "is_shareable_on_facebook": false,
                         "is_shareable_on_twitter": false,
@@ -466,7 +466,7 @@ extension JSON.SurveyService {
                     "attributes": {
                         "text": "Your additional comments are welcomed.",
                         "help_text": "(Optional)",
-                        "display_order": 9,
+                        "display_order": 2,
                         "short_text": "Comments",
                         "pick": "none",
                         "display_type": "textarea",
