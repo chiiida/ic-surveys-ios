@@ -12,6 +12,11 @@ enum TestConstants {
     static let mockAPIKey = "test.mock.api"
     static let userLoggedInKey = "user.logged.in"
     
+    enum Toolbar {
+        
+        static let keyboardDonebutton = "Done"
+    }
+    
     enum Login {
         
         static let emailInputTextField = "login.email.input.textfield"
@@ -30,5 +35,16 @@ enum TestConstants {
     enum SurveyDetail {
         
         static let surveyDetailView = "survey.detail.view"
+        static let startSurveyButton = "survey.detail.start.survey.button"
+    }
+    
+    enum SurveyQuestion {
+        
+        static let surveyQuestionView = "survey.question.view"
+        static let submitSurveyButton = "survey.question.submit.survey.button"
+        static let collectionView = "survey.question.collection.view"
+        static let pickerView = "survey.question.pickerView"
+        static let multilineTextView = "survey.question.textview"
+        static let lottieCompleteSurveyView = "survey.question.lottie.complete.survey.view"
     }
 }

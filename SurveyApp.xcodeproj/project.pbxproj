@@ -22,6 +22,7 @@
 		8418237C268A2D62007F5623 /* HomeViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84182377268A2D62007F5623 /* HomeViewControllerSpec.swift */; };
 		8418237D268A2D62007F5623 /* HomePresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84182378268A2D62007F5623 /* HomePresenterSpec.swift */; };
 		8418237E268A2D62007F5623 /* HomeModuleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84182379268A2D62007F5623 /* HomeModuleSpec.swift */; };
+		841D6FC7269EA41000D886A4 /* CompleteSurveyFlowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D6FC6269EA41000D886A4 /* CompleteSurveyFlowSpec.swift */; };
 		8423B97126734D8C0000036F /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423B97026734D8C0000036F /* AuthToken.swift */; };
 		8423B97426734E6A0000036F /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423B97326734E6A0000036F /* AuthenticationService.swift */; };
 		84276BE5267B332E00E87C1A /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BE0267B332E00E87C1A /* SplashRouter.swift */; };
@@ -208,6 +209,7 @@
 		84182377268A2D62007F5623 /* HomeViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerSpec.swift; sourceTree = "<group>"; };
 		84182378268A2D62007F5623 /* HomePresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterSpec.swift; sourceTree = "<group>"; };
 		84182379268A2D62007F5623 /* HomeModuleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleSpec.swift; sourceTree = "<group>"; };
+		841D6FC6269EA41000D886A4 /* CompleteSurveyFlowSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSurveyFlowSpec.swift; sourceTree = "<group>"; };
 		8423B97026734D8C0000036F /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		8423B97326734E6A0000036F /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		84276BC3267AF51C00E87C1A /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -477,6 +479,14 @@
 				84182379268A2D62007F5623 /* HomeModuleSpec.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		841D6FC5269EA3FE00D886A4 /* CompleteSurvey */ = {
+			isa = PBXGroup;
+			children = (
+				841D6FC6269EA41000D886A4 /* CompleteSurveyFlowSpec.swift */,
+			);
+			path = CompleteSurvey;
 			sourceTree = "<group>";
 		};
 		8423B96F26734D7E0000036F /* Authentication */ = {
@@ -1200,6 +1210,7 @@
 		84FABA37268E22E800722243 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				841D6FC5269EA3FE00D886A4 /* CompleteSurvey */,
 				84FABA3A268E232400722243 /* Login */,
 			);
 			path = Flows;
@@ -1699,6 +1710,7 @@
 				84FABA3D268E243300722243 /* XCUIApplication.swift in Sources */,
 				84AC78D9268EB3600095D127 /* MockAPIKey.swift in Sources */,
 				84AC78DF268EB9EC0095D127 /* JSON+SurveyService.swift in Sources */,
+				841D6FC7269EA41000D886A4 /* CompleteSurveyFlowSpec.swift in Sources */,
 				84AC78DC268EB9E40095D127 /* JSON.swift in Sources */,
 				84AC78E9268ECFCA0095D127 /* XCUIElement.swift in Sources */,
 				84AC78E3268EBB9D0095D127 /* TestConstants.swift in Sources */,

@@ -5,6 +5,7 @@
 //  Created by Chananchida F. on 7/11/21.
 //
 
+import Foundation
 import UIKit
 import SnapKit
 import Lottie
@@ -18,6 +19,7 @@ class CompleteSurveyView: UIView {
         super.init(frame: frame)
         setUpLayout()
         setUpView()
+        setIdentifer()
     }
 
     required init?(coder: NSCoder) {
@@ -47,6 +49,10 @@ class CompleteSurveyView: UIView {
         textLabel.textAlignment = .center
         textLabel.font = .bold(ofSize: .largerTitle)
         textLabel.numberOfLines = 0
+    }
+    
+    private func setIdentifer() {
+        accessibilityIdentifier = TestConstants.SurveyQuestion.lottieCompleteSurveyView
     }
 }
 

@@ -119,6 +119,7 @@ extension SurveyDetailViewController {
     
     private func setIdentifiers() {
         view.accessibilityIdentifier = TestConstants.SurveyDetail.surveyDetailView
+        startButton.accessibilityIdentifier = TestConstants.SurveyDetail.startSurveyButton
     }
 }
 

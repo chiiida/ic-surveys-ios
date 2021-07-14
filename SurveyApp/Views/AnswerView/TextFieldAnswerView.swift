@@ -5,6 +5,7 @@
 //  Created by Chananchida F. on 7/6/21.
 //
 
+import Foundation
 import UIKit
 import SnapKit
 
@@ -25,6 +26,7 @@ class TextFieldAnswerView: UIView, AnswerView {
         super.init(frame: .zero)
         setUpLayout()
         setUpViews()
+        setIdentifiers()
     }
 
     required init?(coder: NSCoder) {
@@ -87,6 +89,10 @@ class TextFieldAnswerView: UIView, AnswerView {
 
             stackView.addArrangedSubview(textField)
         }
+    }
+    
+    private func setIdentifiers() {
+        textView.accessibilityIdentifier = TestConstants.SurveyQuestion.multilineTextView
     }
 }
 
