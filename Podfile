@@ -28,6 +28,7 @@ target 'SurveyApp' do
   pod 'KeychainAccess'
   pod 'lottie-ios'
   pod 'SkeletonView'
+  pod 'IQKeyboardManagerSwift'
 
   target 'SurveyAppTests' do
     inherit! :search_paths
