@@ -53,7 +53,10 @@ extension SurveyQuestionPresenter: SurveyQuestionInteractorOutput {
             view?.showError(message: Localize.errorIncompleteSurvey())
             return
         }
-        view?.popToRootViewController()
+        let completeSurveyView = CompleteSurveyView()
+        completeSurveyView.show {
+            self.view?.popToRootViewController()
+        }
     }
     
     func didFailToSubmitSurvey(_ error: APIError) {
