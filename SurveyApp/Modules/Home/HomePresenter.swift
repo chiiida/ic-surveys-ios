@@ -34,6 +34,9 @@ extension HomePresenter: HomeViewOutput {
     func viewDidLoad() {
         view?.configure()
         interactor.fetchSurveys(pageNumber: 1, pageSize: 5)
+        DispatchQueue.main.async {
+            self.view?.dismissSkeletonView()
+        }
     }
     
     func didPressDetailButton(surveyIndex: Int) {

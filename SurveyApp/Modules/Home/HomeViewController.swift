@@ -14,6 +14,7 @@ protocol HomeViewInput: AnyObject, ErrorShowable {
 
     func configure()
     func setUpSurveys(viewModels: [SurveyCollectionCellViewModel])
+    func dismissSkeletonView()
 }
 
 // sourcery: AutoMockable
@@ -38,6 +39,7 @@ final class HomeViewController: UIViewController {
         collectionViewLayout: AnimatedCollectionViewLayout(animationStyle: .fade)
     )
     private let refreshControl = UIRefreshControl()
+    private let skeletonView = HomeSkeletonView()
     
     private var surveyListSection = SurveyListSection()
 
@@ -54,12 +56,23 @@ extension HomeViewController: HomeViewInput {
     func configure() {
         setUpLayout()
         setUpViews()
+        setUpSkeletonView()
         setIdentifiers()
     }
     
     func setUpSurveys(viewModels: [SurveyCollectionCellViewModel]) {
         surveyListSection.items = viewModels
         collectionView.reloadData()
+    }
+    
+    func dismissSkeletonView() {
+        UIView.animate(
+            withDuration: 0.3,
+            animations: { self.skeletonView.alpha = 0.0 },
+            completion: { _ in
+                self.skeletonView.removeFromSuperview()
+            }
+        )
     }
 }
 
@@ -152,6 +165,16 @@ extension HomeViewController {
         userProfileButton.round()
         userProfileButton.backgroundColor = .clear
         userProfileButton.setBackgroundImage(Asset.userAvatar(), for: .normal)
+    }
+    
+    private func setUpSkeletonView() {
+        view.addSubview(skeletonView)
+        
+        skeletonView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        skeletonView.skeletonize()
     }
     
     private func setIdentifiers() {
