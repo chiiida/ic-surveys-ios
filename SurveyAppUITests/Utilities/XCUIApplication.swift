@@ -10,6 +10,11 @@ import Alamofire
 
 extension XCUIApplication {
     
+    var isUserLoggedIn: Bool {
+        get { launchEnvironment[TestConstants.userLoggedInKey] == "yes" }
+        set { launchEnvironment[TestConstants.userLoggedInKey] = newValue ? "yes" : nil }
+    }
+    
     func mockAPI(
         withMethod method: HTTPMethod,
         endPoint: String,
