@@ -21,6 +21,7 @@ protocol HomeViewOutput: AnyObject {
 
     func viewDidLoad()
     func didPressDetailButton(surveyIndex: Int)
+    func didRefreshSurveys(_ completion: EmptyCompletion?)
 }
 
 final class HomeViewController: UIViewController {
@@ -36,6 +37,7 @@ final class HomeViewController: UIViewController {
         frame: .zero,
         collectionViewLayout: AnimatedCollectionViewLayout(animationStyle: .fade)
     )
+    private let refreshControl = UIRefreshControl()
     
     private var surveyListSection = SurveyListSection()
 
@@ -72,6 +74,7 @@ extension HomeViewController {
         view.addSubview(todayLabel)
         view.addSubview(userProfileButton)
         view.addSubview(surveyDetailButton)
+        collectionView.addSubview(refreshControl)
         
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -117,6 +120,7 @@ extension HomeViewController {
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
@@ -129,6 +133,9 @@ extension HomeViewController {
         surveyDetailButton.backgroundColor = .clear
         surveyDetailButton.setBackgroundImage(Asset.arrowIcon(), for: .normal)
         surveyDetailButton.addTarget(self, action: #selector(didPressDetailButton), for: .touchUpInside)
+        
+        refreshControl.addTarget(self, action: #selector(handleRefreshControl(_:)), for: .valueChanged)
+        refreshControl.tintColor = .white
 
         setUpHeaderView()
     }
@@ -158,6 +165,12 @@ extension HomeViewController {
     
     @objc private func didPressDetailButton() {
         output?.didPressDetailButton(surveyIndex: pageControl.currentPage)
+    }
+    
+    @objc private func handleRefreshControl(_ refreshControl: UIRefreshControl) {
+        output?.didRefreshSurveys {
+            refreshControl.endRefreshing()
+        }
     }
 }
 
