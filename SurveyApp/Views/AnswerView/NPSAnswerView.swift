@@ -7,10 +7,12 @@
 
 import UIKit
 
-class NPSAnswerView: UIView {
+class NPSAnswerView: UIView, AnswerView {
 
     let answers: [SurveyAnswer]
 
+    weak var delegate: AnswerViewDelegate?
+    
     let segmentedControl = UISegmentedControl()
     private let mostLikelyLabel = UILabel()
     private let leastLikelyLabel = UILabel()
@@ -101,6 +103,7 @@ extension NPSAnswerView {
         mostLikelyLabel.alpha = selectedIndex > 4 ? 1.0 : 0.5
         leastLikelyLabel.alpha = selectedIndex > 4 ? 0.5 : 1.0
 
-        // TODO: handle selected index with real answer
+        let answer = AnswerSubmission(id: answers[selectedIndex].id, answers: nil)
+        delegate?.didAnswer(answers: [answer])
     }
 }

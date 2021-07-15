@@ -8,6 +8,8 @@
 
 // sourcery: AutoMockable
 protocol SurveyQuestionInput: AnyObject {
+    
+    func setSurveyQuestions(id: String, questions: [SurveyQuestion])
 }
 
 // sourcery: AutoMockable
@@ -29,9 +31,11 @@ final class SurveyQuestionModule {
     var input: SurveyQuestionInput { presenter }
 
     init() {
+        let surveyService = NetworkServiceFactory.shared.createSurveyService()
+        
         view = SurveyQuestionViewController()
         router = SurveyQuestionRouter()
-        interactor = SurveyQuestionInteractor()
+        interactor = SurveyQuestionInteractor(surveyService: surveyService)
         presenter = SurveyQuestionPresenter(
             router: router,
             interactor: interactor

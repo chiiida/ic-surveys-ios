@@ -11,13 +11,13 @@ class TextFieldCollectionCell: QuestionCollectionCell {
     
     private var isMultipleLines: Bool = false
     
-    override var answerView: UIView {
+    override var answerView: AnswerView {
         get { super.answerView }
         set { return super.answerView = newValue }
     }
     
-    override func configure(with question: SurveyQuestion) {
-        switch question.displayType {
+    override func configure(with viewModel: QuestionCollectionCellViewModel) {
+        switch viewModel.displayType {
         case .textarea:
             isMultipleLines = true
         default:
@@ -26,8 +26,8 @@ class TextFieldCollectionCell: QuestionCollectionCell {
         
         answerView = TextFieldAnswerView(
             isMultipleLines: isMultipleLines,
-            answers: question.sortedAnswers
+            answers: viewModel.answers
         )
-        super.configure(with: question)
+        super.configure(with: viewModel)
     }
 }

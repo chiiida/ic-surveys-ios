@@ -11,13 +11,13 @@ class RatingCollectionCell: QuestionCollectionCell {
     
     private var icon: String = ""
     
-    override var answerView: UIView {
+    override var answerView: AnswerView {
         get { super.answerView }
         set { return super.answerView = newValue }
     }
     
-    override func configure(with question: SurveyQuestion) {
-        switch question.displayType {
+    override func configure(with viewModel: QuestionCollectionCellViewModel) {
+        switch viewModel.displayType {
         case .star:
             icon = QuestionDisplayType.RatingIcon.star
         case .smiley:
@@ -26,7 +26,12 @@ class RatingCollectionCell: QuestionCollectionCell {
             icon = QuestionDisplayType.RatingIcon.heart
         }
         
-        answerView = RatingAnswerView(icon: icon)
-        super.configure(with: question)
+        if let answerView = answerView as? RatingAnswerView {
+            answerView.configure(icon: icon, answers: viewModel.answers)
+        } else {
+            answerView = RatingAnswerView(icon: icon, answers: viewModel.answers)
+        }
+        
+        super.configure(with: viewModel)
     }
 }

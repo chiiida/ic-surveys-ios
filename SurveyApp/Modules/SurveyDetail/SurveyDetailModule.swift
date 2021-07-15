@@ -31,9 +31,11 @@ final class SurveyDetailModule {
     var input: SurveyDetailInput { presenter }
 
     init() {
+        let surveyService = NetworkServiceFactory.shared.createSurveyService()
+        
         view = SurveyDetailViewController()
         router = SurveyDetailRouter()
-        interactor = SurveyDetailInteractor()
+        interactor = SurveyDetailInteractor(surveyService: surveyService)
         presenter = SurveyDetailPresenter(
             router: router,
             interactor: interactor

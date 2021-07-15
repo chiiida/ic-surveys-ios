@@ -113,8 +113,8 @@ struct SurveyQuestionAttributes: Decodable {
     let helpText: String?
     let displayOrder: Int?
     let shortText: String?
-    let pick: String?
-    let displayType: String?
+    let pick: SurveyQuestion.PickType?
+    let displayType: QuestionDisplayType?
     let isMandatory: Bool
     let correctAnswerId: String?
     let facebookProfile: String?
