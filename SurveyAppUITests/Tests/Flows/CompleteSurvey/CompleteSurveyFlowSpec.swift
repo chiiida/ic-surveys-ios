@@ -23,6 +23,7 @@ class CompleteSurveyFlowSpec: QuickSpec {
                     app.setUpMockAPIs()
                     app.launch()
                     
+                    sleep(2)
                     app.buttons[TestConstants.Home.surveyDetailButton]
                         .tap()
                     app.buttons[TestConstants.SurveyDetail.startSurveyButton]
