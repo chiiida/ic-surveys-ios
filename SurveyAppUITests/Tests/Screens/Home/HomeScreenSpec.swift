@@ -27,6 +27,7 @@ class HomeScreenSpec: QuickSpec {
                         response: JSON.SurveyService.fetchSurveysSuccess
                     )
                     app.launch()
+                    sleep(3)
                 }
                 
                 context("when Home Screen shows for the first time") {
@@ -37,7 +38,6 @@ class HomeScreenSpec: QuickSpec {
                 
                 context("when swipe left one time") {
                     beforeEach {
-                        sleep(2)
                         app.collectionViews[TestConstants.Home.collectionView]
                             .swipeLeft()
                     }
@@ -49,7 +49,6 @@ class HomeScreenSpec: QuickSpec {
                 
                 context("when press on survey detail button") {
                     beforeEach {
-                        sleep(2)
                         app.buttons[TestConstants.Home.surveyDetailButton]
                             .tap()
                     }

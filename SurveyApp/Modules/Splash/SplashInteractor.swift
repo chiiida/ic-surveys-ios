@@ -34,7 +34,7 @@ final class SplashInteractor {
 extension SplashInteractor: SplashInteractorInput {
     
     var isLoggedIn: Bool {
-        guard ProcessInfo.processInfo.environment[TestConstants.userLoggedInKey] == nil else { return true }
+        guard !UITestConfiguration.isLoggedIn else { return true }
         return userSessionProvider?.isLoggedIn ?? false
     }
 }

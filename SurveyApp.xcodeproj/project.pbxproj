@@ -107,11 +107,11 @@
 		84AC78E2268EBB020095D127 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78E1268EBB020095D127 /* TestConstants.swift */; };
 		84AC78E3268EBB9D0095D127 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78E1268EBB020095D127 /* TestConstants.swift */; };
 		84AC78E9268ECFCA0095D127 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78E8268ECFCA0095D127 /* XCUIElement.swift */; };
+		84AC78EC268F07F20095D127 /* HomeScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78EB268F07F20095D127 /* HomeScreenSpec.swift */; };
 		84B3A789269AEA4D00E0618C /* CompleteSurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A788269AEA4D00E0618C /* CompleteSurveyView.swift */; };
 		84B3A78F269B2C6200E0618C /* UIView+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A78E269B2C6200E0618C /* UIView+Present.swift */; };
 		84B3A794269B2EC100E0618C /* LottieAnimationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */; };
 		84B3A796269B31B300E0618C /* AnimatedCompleteSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 84B3A795269B31B300E0618C /* AnimatedCompleteSurvey.json */; };
-		84AC78EC268F07F20095D127 /* HomeScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC78EB268F07F20095D127 /* HomeScreenSpec.swift */; };
 		84BE6960266F4446001DE0C3 /* UIFont+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE695F266F4446001DE0C3 /* UIFont+Size.swift */; };
 		84C8D6752681CE5F00961CF8 /* LoginInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8D6702681CE5F00961CF8 /* LoginInteractorSpec.swift */; };
 		84C8D6762681CE5F00961CF8 /* LoginRouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8D6712681CE5F00961CF8 /* LoginRouterSpec.swift */; };
@@ -124,6 +124,7 @@
 		84C8D67D2681CEB400961CF8 /* BaseAPISpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BCA267AF60000E87C1A /* BaseAPISpec.swift */; };
 		84C8D67E2681CEB700961CF8 /* UserSessionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BCC267AF79B00E87C1A /* UserSessionSpec.swift */; };
 		84C8D67F2681CEBB00961CF8 /* AuthenticationServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276BDD267B284D00E87C1A /* AuthenticationServiceSpec.swift */; };
+		84CE651E26A00E60006F9668 /* UITestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE651D26A00E60006F9668 /* UITestConfiguration.swift */; };
 		84D0748926731FFC009CFE4C /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0748826731FFC009CFE4C /* R.generated.swift */; };
 		84D0748F26732128009CFE4C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0748E26732128009CFE4C /* Environment.swift */; };
 		84D0749126732140009CFE4C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0749026732140009CFE4C /* Constants.swift */; };
@@ -145,9 +146,9 @@
 		84D9B437268B1B6E00923F86 /* SurveyDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B432268B1B6E00923F86 /* SurveyDetailInteractor.swift */; };
 		84D9B438268B1B6E00923F86 /* SurveyDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B433268B1B6E00923F86 /* SurveyDetailPresenter.swift */; };
 		84D9B43A268B1F2600923F86 /* UIViewController+NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9B439268B1F2600923F86 /* UIViewController+NavigationItem.swift */; };
+		84DD6260269D6C3500790BEC /* SurveyQuestion+Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD625F269D6C3500790BEC /* SurveyQuestion+Dummy.swift */; };
 		84E6BCA7269D895E007C1354 /* HomeSkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6BCA6269D895E007C1354 /* HomeSkeletonView.swift */; };
 		84E6BCA9269D8BF0007C1354 /* UIView+Skeletonizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6BCA8269D8BF0007C1354 /* UIView+Skeletonizable.swift */; };
-		84DD6260269D6C3500790BEC /* SurveyQuestion+Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD625F269D6C3500790BEC /* SurveyQuestion+Dummy.swift */; };
 		84FABA0C268C331000722243 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FABA0B268C331000722243 /* UserStorage.swift */; };
 		84FABA0E268C3C7D00722243 /* SurveyCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FABA0D268C3C7D00722243 /* SurveyCollectionCellViewModel.swift */; };
 		84FABA12268C55E000722243 /* SurveyListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FABA11268C55E000722243 /* SurveyListSection.swift */; };
@@ -298,17 +299,18 @@
 		84AC78DA268EB7FC0095D127 /* DataRequest+APIResponseSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataRequest+APIResponseSerializer.swift"; sourceTree = "<group>"; };
 		84AC78E1268EBB020095D127 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		84AC78E8268ECFCA0095D127 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
+		84AC78EB268F07F20095D127 /* HomeScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenSpec.swift; sourceTree = "<group>"; };
 		84B3A788269AEA4D00E0618C /* CompleteSurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteSurveyView.swift; sourceTree = "<group>"; };
 		84B3A78E269B2C6200E0618C /* UIView+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Present.swift"; sourceTree = "<group>"; };
 		84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimationViews.swift; sourceTree = "<group>"; };
 		84B3A795269B31B300E0618C /* AnimatedCompleteSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = AnimatedCompleteSurvey.json; sourceTree = "<group>"; };
-		84AC78EB268F07F20095D127 /* HomeScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenSpec.swift; sourceTree = "<group>"; };
 		84BE695F266F4446001DE0C3 /* UIFont+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Size.swift"; sourceTree = "<group>"; };
 		84C8D6702681CE5F00961CF8 /* LoginInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorSpec.swift; sourceTree = "<group>"; };
 		84C8D6712681CE5F00961CF8 /* LoginRouterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterSpec.swift; sourceTree = "<group>"; };
 		84C8D6722681CE5F00961CF8 /* LoginViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSpec.swift; sourceTree = "<group>"; };
 		84C8D6732681CE5F00961CF8 /* LoginPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterSpec.swift; sourceTree = "<group>"; };
 		84C8D6742681CE5F00961CF8 /* LoginModuleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleSpec.swift; sourceTree = "<group>"; };
+		84CE651D26A00E60006F9668 /* UITestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestConfiguration.swift; sourceTree = "<group>"; };
 		84D0748826731FFC009CFE4C /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		84D0748E26732128009CFE4C /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		84D0749026732140009CFE4C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -330,9 +332,9 @@
 		84D9B432268B1B6E00923F86 /* SurveyDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailInteractor.swift; sourceTree = "<group>"; };
 		84D9B433268B1B6E00923F86 /* SurveyDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailPresenter.swift; sourceTree = "<group>"; };
 		84D9B439268B1F2600923F86 /* UIViewController+NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationItem.swift"; sourceTree = "<group>"; };
+		84DD625F269D6C3500790BEC /* SurveyQuestion+Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SurveyQuestion+Dummy.swift"; sourceTree = "<group>"; };
 		84E6BCA6269D895E007C1354 /* HomeSkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSkeletonView.swift; sourceTree = "<group>"; };
 		84E6BCA8269D8BF0007C1354 /* UIView+Skeletonizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Skeletonizable.swift"; sourceTree = "<group>"; };
-		84DD625F269D6C3500790BEC /* SurveyQuestion+Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SurveyQuestion+Dummy.swift"; sourceTree = "<group>"; };
 		84FABA0B268C331000722243 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		84FABA0D268C3C7D00722243 /* SurveyCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		84FABA11268C55E000722243 /* SurveyListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListSection.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				8416EB0226806FB700F47617 /* Dequeuable.swift */,
+				84CE651D26A00E60006F9668 /* UITestConfiguration.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -919,6 +922,22 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		84AC78EA268F07CA0095D127 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				84AC78ED268F25B00095D127 /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		84AC78ED268F25B00095D127 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				84AC78EB268F07F20095D127 /* HomeScreenSpec.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		84B3A784269AE8ED00E0618C /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
@@ -941,22 +960,6 @@
 				84B3A793269B2EC100E0618C /* LottieAnimationViews.swift */,
 			);
 			path = LottileAnimationView;
-			sourceTree = "<group>";
-		};
-		84AC78EA268F07CA0095D127 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				84AC78ED268F25B00095D127 /* Home */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		84AC78ED268F25B00095D127 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				84AC78EB268F07F20095D127 /* HomeScreenSpec.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		84BE6958266F4400001DE0C3 /* UIKit */ = {
@@ -1134,14 +1137,6 @@
 			path = SurveyDetail;
 			sourceTree = "<group>";
 		};
-		84E6BCA5269D8931007C1354 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84E6BCA6269D895E007C1354 /* HomeSkeletonView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		84DD625C269D696B00790BEC /* New Group */ = {
 			isa = PBXGroup;
 			children = (
@@ -1163,6 +1158,14 @@
 				84DD625F269D6C3500790BEC /* SurveyQuestion+Dummy.swift */,
 			);
 			path = Survey;
+			sourceTree = "<group>";
+		};
+		84E6BCA5269D8931007C1354 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84E6BCA6269D895E007C1354 /* HomeSkeletonView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		84FABA17268C77AE00722243 /* Transition */ = {
@@ -1595,6 +1598,7 @@
 				84D9B436268B1B6E00923F86 /* SurveyDetailViewController.swift in Sources */,
 				844CEBB5267C55EE0057FCF7 /* UIViewController+Error.swift in Sources */,
 				8464840726775D6700233656 /* HomeRouter.swift in Sources */,
+				84CE651E26A00E60006F9668 /* UITestConfiguration.swift in Sources */,
 				8416EB002680666400F47617 /* SurveyCollectionCell.swift in Sources */,
 				847EF46F2692F7C900F24564 /* SurveyQuestionPresenter.swift in Sources */,
 				84FABA16268C5D3F00722243 /* APIResponseSerializer.swift in Sources */,
