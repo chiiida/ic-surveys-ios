@@ -1,18 +1,56 @@
-# Survey iOS IC
+# Survey iOS Internal Certification
 
 A survey conducting application build with Swift
-
-## Project Setup
-
-### Prerequisites
+## Prerequisites
 - Xcode
 - CocoaPods
 - Xcode Command Line Tools
+- Fastlane
 
-### Install Pods
-Install the latest pods:
+## Installation
+Clone the project
+```
+$ git clone https://github.com/llleyelll/ic-surveys-ios.git
+```
+Navigate to the project directory
+```
+$ cd ic-surveys-ios
+```
+Install the latest Pods
 ```
 $ pod install
+```
+
+## Run Tests
+To run using Fastlane, build the project for testing by using this command:
+```
+$ bundle exec fastlane build_for_testing
+```
+
+Run SwiftLint
+```
+$ bundle exec fastlane linter
+```
+Run Unit tests
+```
+$ bundle exec fastlane unit_test
+```
+Run UI tests
+```
+$ bundle exec fastlane ui_test
+```
+If everything works out smoothly, you should see an output like this: 
+```
++------+------------------+-------------+
+|           fastlane summary            |
++------+------------------+-------------+
+| Step | Action           | Time (in s) |
++------+------------------+-------------+
+| 1    | default_platform | 0           |
+| 2    | scan             | 141         |
++------+------------------+-------------+
+
+fastlane.tools finished successfully 🎉
 ```
 
 ## License
