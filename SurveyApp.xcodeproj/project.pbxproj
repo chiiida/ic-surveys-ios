@@ -66,6 +66,11 @@
 		8448C2412679FAFF005955D4 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2402679FAFF005955D4 /* UserSession.swift */; };
 		8448C2432679FB1E005955D4 /* UserSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8448C2422679FB1E005955D4 /* UserSessionProvider.swift */; };
 		844CEBB5267C55EE0057FCF7 /* UIViewController+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */; };
+		8463FD1A269C43D900AFCD26 /* SurveyQuestionInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463FD15269C43D900AFCD26 /* SurveyQuestionInteractorSpec.swift */; };
+		8463FD1B269C43D900AFCD26 /* SurveyQuestionRouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463FD16269C43D900AFCD26 /* SurveyQuestionRouterSpec.swift */; };
+		8463FD1C269C43D900AFCD26 /* SurveyQuestionViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463FD17269C43D900AFCD26 /* SurveyQuestionViewControllerSpec.swift */; };
+		8463FD1D269C43D900AFCD26 /* SurveyQuestionPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463FD18269C43D900AFCD26 /* SurveyQuestionPresenterSpec.swift */; };
+		8463FD1E269C43D900AFCD26 /* SurveyQuestionModuleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463FD19269C43D900AFCD26 /* SurveyQuestionModuleSpec.swift */; };
 		84648400267757D100233656 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846483FF267757D100233656 /* ErrorView.swift */; };
 		8464840726775D6700233656 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840226775D6700233656 /* HomeRouter.swift */; };
 		8464840826775D6700233656 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8464840326775D6700233656 /* HomeModule.swift */; };
@@ -257,6 +262,11 @@
 		8448C2402679FAFF005955D4 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		8448C2422679FB1E005955D4 /* UserSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionProvider.swift; sourceTree = "<group>"; };
 		844CEBB4267C55EE0057FCF7 /* UIViewController+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Error.swift"; sourceTree = "<group>"; };
+		8463FD15269C43D900AFCD26 /* SurveyQuestionInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionInteractorSpec.swift; sourceTree = "<group>"; };
+		8463FD16269C43D900AFCD26 /* SurveyQuestionRouterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionRouterSpec.swift; sourceTree = "<group>"; };
+		8463FD17269C43D900AFCD26 /* SurveyQuestionViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionViewControllerSpec.swift; sourceTree = "<group>"; };
+		8463FD18269C43D900AFCD26 /* SurveyQuestionPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionPresenterSpec.swift; sourceTree = "<group>"; };
+		8463FD19269C43D900AFCD26 /* SurveyQuestionModuleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyQuestionModuleSpec.swift; sourceTree = "<group>"; };
 		846483FF267757D100233656 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		8464840226775D6700233656 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		8464840326775D6700233656 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
@@ -780,6 +790,18 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
+		8463FD14269C43BD00AFCD26 /* SurveyQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				8463FD15269C43D900AFCD26 /* SurveyQuestionInteractorSpec.swift */,
+				8463FD16269C43D900AFCD26 /* SurveyQuestionRouterSpec.swift */,
+				8463FD17269C43D900AFCD26 /* SurveyQuestionViewControllerSpec.swift */,
+				8463FD18269C43D900AFCD26 /* SurveyQuestionPresenterSpec.swift */,
+				8463FD19269C43D900AFCD26 /* SurveyQuestionModuleSpec.swift */,
+			);
+			path = SurveyQuestion;
+			sourceTree = "<group>";
+		};
 		846483FE267757C500233656 /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -941,6 +963,7 @@
 		84C8D66E2681CE5300961CF8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8463FD14269C43BD00AFCD26 /* SurveyQuestion */,
 				84FABA1E268D973100722243 /* SurveyDetail */,
 				84182374268A2D50007F5623 /* Home */,
 				84A361CC26845C5600A369E7 /* Splash */,
@@ -1615,7 +1638,9 @@
 				84C8D67A2681CEAA00961CF8 /* JSON.swift in Sources */,
 				84C8D67B2681CEAD00961CF8 /* JSON+AuthenticationService.swift in Sources */,
 				8418237A268A2D62007F5623 /* HomeInteractorSpec.swift in Sources */,
+				8463FD1D269C43D900AFCD26 /* SurveyQuestionPresenterSpec.swift in Sources */,
 				84FABA27268D97DA00722243 /* SurveyDetailPresenterSpec.swift in Sources */,
+				8463FD1A269C43D900AFCD26 /* SurveyQuestionInteractorSpec.swift in Sources */,
 				84182361268967C4007F5623 /* JSON+SurveyService.swift in Sources */,
 				84C8D6762681CE5F00961CF8 /* LoginRouterSpec.swift in Sources */,
 				8416EAFD2680539400F47617 /* AutoMockable.generated.swift in Sources */,
@@ -1624,10 +1649,13 @@
 				84DD6260269D6C3500790BEC /* SurveyQuestion+Dummy.swift in Sources */,
 				84FABA25268D97DA00722243 /* SurveyDetailRouterSpec.swift in Sources */,
 				84FABA35268D9DCE00722243 /* SpyNavigationController.swift in Sources */,
+				8463FD1C269C43D900AFCD26 /* SurveyQuestionViewControllerSpec.swift in Sources */,
 				84A361D326845C6200A369E7 /* SplashRouterSpec.swift in Sources */,
+				8463FD1B269C43D900AFCD26 /* SurveyQuestionRouterSpec.swift in Sources */,
 				84C8D6782681CE5F00961CF8 /* LoginPresenterSpec.swift in Sources */,
 				84FABA28268D97DA00722243 /* SurveyDetailModuleSpec.swift in Sources */,
 				84C8D6752681CE5F00961CF8 /* LoginInteractorSpec.swift in Sources */,
+				8463FD1E269C43D900AFCD26 /* SurveyQuestionModuleSpec.swift in Sources */,
 				8418237E268A2D62007F5623 /* HomeModuleSpec.swift in Sources */,
 				84C8D67F2681CEBB00961CF8 /* AuthenticationServiceSpec.swift in Sources */,
 				84C8D6772681CE5F00961CF8 /* LoginViewControllerSpec.swift in Sources */,
