@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 5.4)
   - AlamofireNetworkActivityLogger (3.4.0):
     - Alamofire (~> 5.4.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - KeychainAccess (4.2.2)
   - Keys (1.0.1)
   - lottie-ios (3.2.3)
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - AlamofireNetworkActivityLogger (~> 3.4)
+  - IQKeyboardManagerSwift
   - KeychainAccess
   - Keys (from `Pods/CocoaPodsKeys`)
   - lottie-ios
@@ -53,6 +55,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireImage
     - AlamofireNetworkActivityLogger
+    - IQKeyboardManagerSwift
     - KeychainAccess
     - lottie-ios
     - Nimble
@@ -81,6 +84,7 @@ SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   AlamofireNetworkActivityLogger: 162ab8aee00e6267a4304d7cc134e13ccfe3bcc5
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
@@ -95,6 +99,6 @@ SPEC CHECKSUMS:
   Sourcery: 43d8addc35ca31c2ab331cfd34b02421fa53bb7f
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: bd6e71f5d9011ff30f21a231658e6bf971394132
+PODFILE CHECKSUM: ce0ef1d46d1de35a5b18a05e4ac05470887a4dab
 
 COCOAPODS: 1.10.1
