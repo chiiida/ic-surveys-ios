@@ -16,9 +16,13 @@ Navigate to the project directory
 ```
 $ cd ic-surveys-ios
 ```
+Install Bundle
+```
+$ bundle install
+```
 Install the latest Pods
 ```
-$ pod install
+$ bundle exec pod install
 ```
 
 ## Run Tests
