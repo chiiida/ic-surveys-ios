@@ -5,7 +5,6 @@
 //  Created by Chananchida F. on 7/11/21.
 //
 
-import Foundation
 import UIKit
 import SnapKit
 import Lottie
