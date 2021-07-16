@@ -18,6 +18,7 @@ class CompleteSurveyView: UIView {
         super.init(frame: frame)
         setUpLayout()
         setUpView()
+        setIdentifers()
     }
 
     required init?(coder: NSCoder) {
@@ -47,6 +48,10 @@ class CompleteSurveyView: UIView {
         textLabel.textAlignment = .center
         textLabel.font = .bold(ofSize: .largerTitle)
         textLabel.numberOfLines = 0
+    }
+    
+    private func setIdentifers() {
+        accessibilityIdentifier = TestConstants.SurveyQuestion.lottieCompleteSurveyView
     }
 }
 

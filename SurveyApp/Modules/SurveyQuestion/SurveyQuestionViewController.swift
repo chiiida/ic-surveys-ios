@@ -54,6 +54,7 @@ extension SurveyQuestionViewController: SurveyQuestionViewInput {
         self.questions.items = viewModels
         setUpLayout()
         setUpViews()
+        setIdentifiers()
         collectionView.reloadData()
     }
     
@@ -161,6 +162,12 @@ extension SurveyQuestionViewController {
         
         nextButton.isHidden = pageNumber == questions.sortedQuestions.count ? true : false
         submitButton.isHidden = pageNumber == questions.sortedQuestions.count ? false : true
+    }
+    
+    private func setIdentifiers() {
+        view.accessibilityIdentifier = TestConstants.SurveyQuestion.surveyQuestionView
+        submitButton.accessibilityIdentifier = TestConstants.SurveyQuestion.submitSurveyButton
+        collectionView.accessibilityIdentifier = TestConstants.SurveyQuestion.collectionView
     }
 }
 

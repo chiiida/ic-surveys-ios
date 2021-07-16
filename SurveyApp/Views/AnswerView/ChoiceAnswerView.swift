@@ -21,6 +21,7 @@ class ChoiceAnswerView: UIView, AnswerView {
         super.init(frame: .zero)
         setUpLayout()
         setUpViews()
+        setIdentifiers()
     }
 
     required init?(coder: NSCoder) {
@@ -45,6 +46,10 @@ class ChoiceAnswerView: UIView, AnswerView {
         pickerView.dataSource = self
         pickerView.tintColor = .white
         pickerView.backgroundColor = .clear
+    }
+    
+    private func setIdentifiers() {
+        pickerView.accessibilityIdentifier = TestConstants.SurveyQuestion.pickerView
     }
 }
 

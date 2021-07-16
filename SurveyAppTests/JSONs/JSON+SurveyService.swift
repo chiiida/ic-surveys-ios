@@ -209,6 +209,10 @@ extension JSON.SurveyService {
                             {
                                 "id": "940d229e4cd87cd1e202",
                                 "type": "question"
+                            },
+                            {
+                                "id": "c3a9b8ce5c2356010703",
+                                "type": "question"
                             }
                         ]
                     }
@@ -249,12 +253,12 @@ extension JSON.SurveyService {
                     "id": "940d229e4cd87cd1e202",
                     "type": "question",
                     "attributes": {
-                        "text": "Food â€“ Variety, Taste and Presentation",
+                        "text": "What was the primary reason for selecting ibis Bangkok Riverside?",
                         "help_text": null,
                         "display_order": 1,
-                        "short_text": "Food",
+                        "short_text": "Reason for selecting",
                         "pick": "one",
-                        "display_type": "star",
+                        "display_type": "choice",
                         "is_mandatory": false,
                         "correct_answer_id": null,
                         "facebook_profile": null,
@@ -273,19 +277,27 @@ extension JSON.SurveyService {
                         "answers": {
                             "data": [
                                 {
-                                    "id": "4cbc3e5a1c87d99bc7ee",
+                                    "id": "22798a70211f6751c7d6",
                                     "type": "answer"
                                 },
                                 {
-                                    "id": "6e6221ce7e0d1068874d",
+                                    "id": "7e931e71a0e2482d16ae",
                                     "type": "answer"
                                 },
                                 {
-                                    "id": "037574cb93d16800eecd",
+                                    "id": "f3956a7df62e222aa934",
                                     "type": "answer"
                                 },
                                 {
-                                    "id": "f09f1a680789b636459b",
+                                    "id": "605dc46f3fcb36983cb4",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "13873b8fd4054449f1e0",
+                                    "type": "answer"
+                                },
+                                {
+                                    "id": "a5425488ce0d255ab721",
                                     "type": "answer"
                                 }
                             ]
@@ -293,10 +305,10 @@ extension JSON.SurveyService {
                     }
                 },
                 {
-                    "id": "4cbc3e5a1c87d99bc7ee",
+                    "id": "22798a70211f6751c7d6",
                     "type": "answer",
                     "attributes": {
-                        "text": "1",
+                        "text": "Price",
                         "help_text": null,
                         "input_mask_placeholder": null,
                         "short_text": "answer_1",
@@ -314,15 +326,15 @@ extension JSON.SurveyService {
                         "default_value": null,
                         "response_class": "answer",
                         "reference_identifier": null,
-                        "score": 0,
+                        "score": null,
                         "alerts": []
                     }
                 },
                 {
-                    "id": "6e6221ce7e0d1068874d",
+                    "id": "7e931e71a0e2482d16ae",
                     "type": "answer",
                     "attributes": {
-                        "text": "2",
+                        "text": "Location",
                         "help_text": null,
                         "input_mask_placeholder": null,
                         "short_text": "answer_2",
@@ -340,15 +352,15 @@ extension JSON.SurveyService {
                         "default_value": null,
                         "response_class": "answer",
                         "reference_identifier": null,
-                        "score": 25,
+                        "score": null,
                         "alerts": []
                     }
                 },
                 {
-                    "id": "037574cb93d16800eecd",
+                    "id": "f3956a7df62e222aa934",
                     "type": "answer",
                     "attributes": {
-                        "text": "3",
+                        "text": "TripAdvisor Reviews",
                         "help_text": null,
                         "input_mask_placeholder": null,
                         "short_text": "answer_3",
@@ -366,15 +378,15 @@ extension JSON.SurveyService {
                         "default_value": null,
                         "response_class": "answer",
                         "reference_identifier": null,
-                        "score": 50,
+                        "score": null,
                         "alerts": []
                     }
                 },
                 {
-                    "id": "f09f1a680789b636459b",
+                    "id": "605dc46f3fcb36983cb4",
                     "type": "answer",
                     "attributes": {
-                        "text": "4",
+                        "text": "Returning guest",
                         "help_text": null,
                         "input_mask_placeholder": null,
                         "short_text": "answer_4",
@@ -392,7 +404,120 @@ extension JSON.SurveyService {
                         "default_value": null,
                         "response_class": "answer",
                         "reference_identifier": null,
-                        "score": 75,
+                        "score": null,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "13873b8fd4054449f1e0",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "Referral",
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_5",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 4,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "answer",
+                        "reference_identifier": null,
+                        "score": null,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "a5425488ce0d255ab721",
+                    "type": "answer",
+                    "attributes": {
+                        "text": "Other",
+                        "help_text": null,
+                        "input_mask_placeholder": "Please specify",
+                        "short_text": "answer_6",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 5,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "string",
+                        "reference_identifier": null,
+                        "score": null,
+                        "alerts": []
+                    }
+                },
+                {
+                    "id": "c3a9b8ce5c2356010703",
+                    "type": "question",
+                    "attributes": {
+                        "text": "Your additional comments are welcomed.",
+                        "help_text": "(Optional)",
+                        "display_order": 2,
+                        "short_text": "Comments",
+                        "pick": "none",
+                        "display_type": "textarea",
+                        "is_mandatory": false,
+                        "correct_answer_id": null,
+                        "facebook_profile": null,
+                        "twitter_profile": null,
+                        "image_url": null,
+                        "cover_image_url": "https://dhdbhh0jsld0o.cloudfront.net/m/b41c84934fa8e4c34269_",
+                        "cover_image_opacity": 0.75,
+                        "cover_background_color": null,
+                        "is_shareable_on_facebook": false,
+                        "is_shareable_on_twitter": false,
+                        "font_face": null,
+                        "font_size": null,
+                        "tag_list": ""
+                    },
+                    "relationships": {
+                        "answers": {
+                            "data": [
+                                {
+                                    "id": "2a49e148c5b170aca804",
+                                    "type": "answer"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "id": "2a49e148c5b170aca804",
+                    "type": "answer",
+                    "attributes": {
+                        "text": null,
+                        "help_text": null,
+                        "input_mask_placeholder": null,
+                        "short_text": "answer_1",
+                        "is_mandatory": false,
+                        "is_customer_first_name": false,
+                        "is_customer_last_name": false,
+                        "is_customer_title": false,
+                        "is_customer_email": false,
+                        "prompt_custom_answer": false,
+                        "weight": null,
+                        "display_order": 0,
+                        "display_type": "default",
+                        "input_mask": null,
+                        "date_constraint": null,
+                        "default_value": null,
+                        "response_class": "text",
+                        "reference_identifier": null,
+                        "score": null,
                         "alerts": []
                     }
                 }

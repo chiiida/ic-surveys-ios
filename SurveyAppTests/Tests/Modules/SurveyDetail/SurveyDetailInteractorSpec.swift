@@ -48,7 +48,7 @@ final class SurveyDetailInteractorSpec: QuickSpec {
                     }
                     
                     it("output should receive questions correctly") {
-                        expect(output.didFetchSurveyDetailQuestionsReceivedQuestions?.count) == 1
+                        expect(output.didFetchSurveyDetailQuestionsReceivedQuestions?.count) == 2
                         expect(output.didFetchSurveyDetailQuestionsReceivedQuestions?.first?.text) == questionAttributes?.text
                         expect(output.didFetchSurveyDetailQuestionsReceivedQuestions?.first?.displayType) == questionAttributes?.displayType
                     }

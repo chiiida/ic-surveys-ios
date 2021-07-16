@@ -25,6 +25,7 @@ class TextFieldAnswerView: UIView, AnswerView {
         super.init(frame: .zero)
         setUpLayout()
         setUpViews()
+        setIdentifiers()
     }
 
     required init?(coder: NSCoder) {
@@ -87,6 +88,10 @@ class TextFieldAnswerView: UIView, AnswerView {
 
             stackView.addArrangedSubview(textField)
         }
+    }
+    
+    private func setIdentifiers() {
+        textView.accessibilityIdentifier = TestConstants.SurveyQuestion.multilineTextView
     }
 }
 
