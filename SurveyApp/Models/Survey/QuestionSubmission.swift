@@ -10,13 +10,13 @@ import Foundation
 struct AnswerSubmission: Codable {
     
     let id: String
-    let answers: String?
+    var answers: String?
 }
 
 struct QuestionSubmission: Codable {
     
     let id: String
-    let answers: [AnswerSubmission]
+    var answers: [AnswerSubmission]
 }
 
 extension QuestionSubmission {

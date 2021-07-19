@@ -8,16 +8,29 @@
 import UIKit
 import SnapKit
 
-protocol QuestionCollectionCellProtocol {
+protocol QuestionCollectionCellDelegate: AnyObject {
+    
+    func didAnswerForQuestion(with question: QuestionSubmission)
+}
+
+protocol QuestionCollectionCellProtocol: AnyObject {
+    
+    var questionId: String { get set }
+    
+    var delegate: QuestionCollectionCellDelegate? { get set }
     
     var questionLabel: UILabel { get }
-    var answerView: UIView { get set }
+    var answerView: AnswerView { get set }
 }
 
 class QuestionCollectionCell: UICollectionViewCell, QuestionCollectionCellProtocol {
     
+    var questionId: String = ""
+    
+    weak var delegate: QuestionCollectionCellDelegate?
+    
     var questionLabel: UILabel = UILabel()
-    var answerView: UIView = UIView()
+    var answerView: AnswerView = DefaultAnswerView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,8 +52,9 @@ class QuestionCollectionCell: UICollectionViewCell, QuestionCollectionCellProtoc
         super.draw(rect)
     }
     
-    func configure(with question: SurveyQuestion) {
-        questionLabel.text = question.text
+    func configure(with viewModel: QuestionCollectionCellViewModel) {
+        questionLabel.text = viewModel.text
+        questionId = viewModel.id
     }
     
     private func setUpLayout() {
@@ -62,5 +76,18 @@ class QuestionCollectionCell: UICollectionViewCell, QuestionCollectionCellProtoc
         questionLabel.textColor = .white
         questionLabel.lineBreakMode = .byWordWrapping
         questionLabel.numberOfLines = 4
+        
+        answerView.delegate = self
+    }
+}
+
+
+// MARK: - AnswerViewDelegate
+
+extension QuestionCollectionCell: AnswerViewDelegate {
+    
+    func didAnswer(answers: [AnswerSubmission]) {
+        let question = QuestionSubmission(id: questionId, answers: answers)
+        delegate?.didAnswerForQuestion(with: question)
     }
 }

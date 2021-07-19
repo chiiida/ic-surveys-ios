@@ -16,7 +16,7 @@ final class HomePresenter {
     weak var view: HomeViewInput?
     weak var output: HomeOutput?
     
-    internal var surveys: [Survey] = []
+    var surveys: [Survey] = []
 
     init(
         router: HomeRouterInput,
@@ -34,11 +34,21 @@ extension HomePresenter: HomeViewOutput {
     func viewDidLoad() {
         view?.configure()
         interactor.fetchSurveys(pageNumber: 1, pageSize: 5)
+        DispatchQueue.main.async {
+            self.view?.dismissSkeletonView()
+        }
     }
     
     func didPressDetailButton(surveyIndex: Int) {
         let survey = surveys[surveyIndex]
         router.showSurveyDetail(survey: survey)
+    }
+    
+    func didRefreshSurveys(_ completion: EmptyCompletion? = nil) {
+        interactor.fetchSurveys(pageNumber: 1, pageSize: 5)
+        DispatchQueue.main.async {
+            completion?()
+        }
     }
 }
 

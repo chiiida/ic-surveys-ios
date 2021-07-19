@@ -14,6 +14,7 @@ protocol HomeViewInput: AnyObject, ErrorShowable {
 
     func configure()
     func setUpSurveys(viewModels: [SurveyCollectionCellViewModel])
+    func dismissSkeletonView()
 }
 
 // sourcery: AutoMockable
@@ -21,6 +22,7 @@ protocol HomeViewOutput: AnyObject {
 
     func viewDidLoad()
     func didPressDetailButton(surveyIndex: Int)
+    func didRefreshSurveys(_ completion: EmptyCompletion?)
 }
 
 final class HomeViewController: UIViewController {
@@ -36,6 +38,8 @@ final class HomeViewController: UIViewController {
         frame: .zero,
         collectionViewLayout: AnimatedCollectionViewLayout(animationStyle: .fade)
     )
+    private let refreshControl = UIRefreshControl()
+    private let skeletonView = HomeSkeletonView()
     
     private var surveyListSection = SurveyListSection()
 
@@ -52,12 +56,23 @@ extension HomeViewController: HomeViewInput {
     func configure() {
         setUpLayout()
         setUpViews()
+        setUpSkeletonView()
         setIdentifiers()
     }
     
     func setUpSurveys(viewModels: [SurveyCollectionCellViewModel]) {
         surveyListSection.items = viewModels
         collectionView.reloadData()
+    }
+    
+    func dismissSkeletonView() {
+        UIView.animate(
+            withDuration: 0.3,
+            animations: { self.skeletonView.alpha = 0.0 },
+            completion: { _ in
+                self.skeletonView.removeFromSuperview()
+            }
+        )
     }
 }
 
@@ -72,6 +87,7 @@ extension HomeViewController {
         view.addSubview(todayLabel)
         view.addSubview(userProfileButton)
         view.addSubview(surveyDetailButton)
+        collectionView.addSubview(refreshControl)
         
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -117,6 +133,7 @@ extension HomeViewController {
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
@@ -129,6 +146,9 @@ extension HomeViewController {
         surveyDetailButton.backgroundColor = .clear
         surveyDetailButton.setBackgroundImage(Asset.arrowIcon(), for: .normal)
         surveyDetailButton.addTarget(self, action: #selector(didPressDetailButton), for: .touchUpInside)
+        
+        refreshControl.addTarget(self, action: #selector(handleRefreshControl(_:)), for: .valueChanged)
+        refreshControl.tintColor = .white
 
         setUpHeaderView()
     }
@@ -147,8 +167,20 @@ extension HomeViewController {
         userProfileButton.setBackgroundImage(Asset.userAvatar(), for: .normal)
     }
     
+    private func setUpSkeletonView() {
+        view.addSubview(skeletonView)
+        
+        skeletonView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        skeletonView.skeletonize()
+    }
+    
     private func setIdentifiers() {
         view.accessibilityIdentifier = TestConstants.Home.homeView
+        surveyDetailButton.accessibilityIdentifier = TestConstants.Home.surveyDetailButton
+        collectionView.accessibilityIdentifier = TestConstants.Home.collectionView
     }
 }
 
@@ -158,6 +190,12 @@ extension HomeViewController {
     
     @objc private func didPressDetailButton() {
         output?.didPressDetailButton(surveyIndex: pageControl.currentPage)
+    }
+    
+    @objc private func handleRefreshControl(_ refreshControl: UIRefreshControl) {
+        output?.didRefreshSurveys {
+            refreshControl.endRefreshing()
+        }
     }
 }
 

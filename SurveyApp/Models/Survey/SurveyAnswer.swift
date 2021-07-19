@@ -15,3 +15,16 @@ struct SurveyAnswer {
     let inputPlaceholder: String?
     let inputMask: String?
 }
+
+extension SurveyAnswer {
+    
+    init(data: SurveyData) {
+        let attributes = data.attributes as? SurveyAnswerAttributes
+        
+        self.id = data.id
+        self.displayOrder = attributes?.displayOrder ?? 0
+        self.text = attributes?.text ?? ""
+        self.inputPlaceholder = attributes?.inputMaskPlaceholder
+        self.inputMask = attributes?.inputMask
+    }
+}

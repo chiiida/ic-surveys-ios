@@ -20,6 +20,7 @@ final class SurveyCollectionCell: UICollectionViewCell {
         super.init(frame: frame)
         setUpLayout()
         setUpViews()
+        setIdentifiers()
     }
     
     required init?(coder: NSCoder) {
@@ -77,5 +78,9 @@ final class SurveyCollectionCell: UICollectionViewCell {
         descriptionLabel.textColor = UIColor.white.withAlphaComponent(0.7)
         descriptionLabel.font = UIFont.regular(ofSize: .body)
         descriptionLabel.numberOfLines = 2
+    }
+    
+    private func setIdentifiers() {
+        titleLabel.accessibilityIdentifier = TestConstants.Home.surveyCellTitle
     }
 }

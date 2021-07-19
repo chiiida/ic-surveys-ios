@@ -8,10 +8,13 @@
 import UIKit
 import SnapKit
 
-class TextFieldAnswerView: UIView {
+class TextFieldAnswerView: UIView, AnswerView {
 
     let isMultipleLines: Bool
     let answers: [SurveyAnswer]
+    private var textFieldAnswers: [AnswerSubmission] = []
+    
+    weak var delegate: AnswerViewDelegate?
 
     private let textView = UITextView()
     private let stackView = UIStackView()
@@ -22,6 +25,7 @@ class TextFieldAnswerView: UIView {
         super.init(frame: .zero)
         setUpLayout()
         setUpViews()
+        setIdentifiers()
     }
 
     required init?(coder: NSCoder) {
@@ -62,6 +66,7 @@ class TextFieldAnswerView: UIView {
         textView.textColor = .white
         textView.font = .regular(ofSize: .body)
         textView.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
+        textView.delegate = self
     }
 
     private func setUpTextFieldStack() {
@@ -70,10 +75,12 @@ class TextFieldAnswerView: UIView {
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
 
-        for answer in answers {
+        for (index, answer) in answers.enumerated() {
             let textField = CustomTextField()
+            textField.tag = index
             textField.placeholder = answer.inputPlaceholder
             textField.backgroundColor = UIColor.gray.withAlphaComponent(0.8)
+            textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
             textField.snp.makeConstraints {
                 $0.height.equalTo(56.0)
@@ -81,5 +88,30 @@ class TextFieldAnswerView: UIView {
 
             stackView.addArrangedSubview(textField)
         }
+    }
+    
+    private func setIdentifiers() {
+        textView.accessibilityIdentifier = TestConstants.SurveyQuestion.multilineTextView
+    }
+}
+
+extension TextFieldAnswerView: UITextViewDelegate {
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let answer = AnswerSubmission(id: answers[0].id, answers: textView.text)
+        delegate?.didAnswer(answers: [answer])
+    }
+}
+
+extension TextFieldAnswerView {
+
+    @objc private func textFieldDidChange(_ sender: UITextField) {
+        if let index = textFieldAnswers.firstIndex(where: { $0.id == answers[sender.tag].id }) {
+            textFieldAnswers[index].answers = sender.text
+        } else {
+            let answer = AnswerSubmission(id: answers[sender.tag].id, answers: sender.text)
+            textFieldAnswers.append(answer)
+        }
+        delegate?.didAnswer(answers: textFieldAnswers)
     }
 }

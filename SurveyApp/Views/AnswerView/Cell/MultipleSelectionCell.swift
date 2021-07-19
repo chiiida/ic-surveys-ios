@@ -8,7 +8,14 @@
 import UIKit
 import SnapKit
 
+protocol MultipleSelectionCellDelegate: AnyObject {
+    
+    func didSelectCell(_ cell: MultipleSelectionCell)
+}
+
 class MultipleSelectionCell: UITableViewCell {
+    
+    weak var delegate: MultipleSelectionCellDelegate?
 
     private let titleLabel = UILabel()
     private let selectButton = UIButton(type: .system)
@@ -34,6 +41,7 @@ class MultipleSelectionCell: UITableViewCell {
         titleLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(13.0)
+            $0.trailing.equalToSuperview().inset(30.0)
         }
 
         selectButton.snp.makeConstraints {
@@ -46,6 +54,7 @@ class MultipleSelectionCell: UITableViewCell {
     private func setUpViews() {
         titleLabel.font = UIFont.regular(ofSize: .heading)
         titleLabel.textColor = .white
+        titleLabel.numberOfLines = 0
 
         selectButton.round()
         selectButton.backgroundColor = .clear
@@ -55,9 +64,12 @@ class MultipleSelectionCell: UITableViewCell {
     }
 }
 
+// MARK: - MultipleSelectionCellDelegate
+
 extension MultipleSelectionCell {
 
     @objc func didTapSelectButton(_ sender: UIButton) {
         selectButton.isSelected = !sender.isSelected
+        delegate?.didSelectCell(self)
     }
 }

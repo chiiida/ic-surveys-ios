@@ -15,6 +15,8 @@
 "error.login.failed" = "Failed to login";
 "error.invalid.email" = "Invalid email";
 "error.fetch.surveys" = "Couldn't retrieve the list of surveys";
+"error.submit.survey" = "Couldn't submit the survey";
+"error.incomplete.survey" = "Please complete all questions";
 
 "home.today.label" = "Today";
 
@@ -29,3 +31,5 @@
 "alert.quit.survey" = "Are you sure you want to quit the survey?";
 "alert.confirm.yes" = "Yes";
 "alert.confirm.cancel" = "Cancel";
+
+"lottie.complete.survey" = "Thanks for taking the survey.";

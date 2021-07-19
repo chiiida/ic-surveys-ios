@@ -52,6 +52,14 @@ class SeededAPI: API {
             completion(.success(object))
             return AF.request("")
         }
+        
+        if let response = environment[successKey],
+           let data = response.data(using: .utf8),
+           data == " ".data(using: .utf8) {
+            // swiftlint:disable force_cast
+            completion(.success(EmptyResponse() as! T))
+            return AF.request("")
+        }
 
         // Failure
         let failureKey = MockAPIKey(

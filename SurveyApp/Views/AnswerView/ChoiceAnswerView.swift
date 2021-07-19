@@ -8,9 +8,11 @@
 import UIKit
 import NimbleExtension
 
-class ChoiceAnswerView: UIView {
+class ChoiceAnswerView: UIView, AnswerView {
 
-    let answers: [SurveyAnswer]
+    var answers: [SurveyAnswer]
+    
+    weak var delegate: AnswerViewDelegate?
 
     private let pickerView = UIPickerView()
 
@@ -19,10 +21,16 @@ class ChoiceAnswerView: UIView {
         super.init(frame: .zero)
         setUpLayout()
         setUpViews()
+        setIdentifiers()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(answers: [SurveyAnswer]) {
+        self.answers = answers
+        pickerView.reloadAllComponents()
     }
 
     private func setUpLayout() {
@@ -38,6 +46,10 @@ class ChoiceAnswerView: UIView {
         pickerView.dataSource = self
         pickerView.tintColor = .white
         pickerView.backgroundColor = .clear
+    }
+    
+    private func setIdentifiers() {
+        pickerView.accessibilityIdentifier = TestConstants.SurveyQuestion.pickerView
     }
 }
 
@@ -65,5 +77,10 @@ extension ChoiceAnswerView: UIPickerViewDelegate, UIPickerViewDataSource {
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
         return NSAttributedString(string: answers[row].text, attributes: attributes)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let answer = AnswerSubmission(id: answers[row].id, answers: nil)
+        delegate?.didAnswer(answers: [answer])
     }
 }

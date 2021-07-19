@@ -8,9 +8,11 @@
 import UIKit
 import NimbleExtension
 
-class MultipleChoiceAnswerView: UIView {
+class MultipleChoiceAnswerView: UIView, AnswerView {
 
     let answers: [SurveyAnswer]
+    
+    weak var delegate: AnswerViewDelegate?
 
     private let tableView = UITableView()
 
@@ -43,7 +45,7 @@ class MultipleChoiceAnswerView: UIView {
         tableView.register(MultipleSelectionCell.self)
 
         tableView.tableFooterView = UIView()
-        tableView.allowsMultipleSelectionDuringEditing = true
+        tableView.allowsMultipleSelection = true
         tableView.isScrollEnabled = true
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .clear
@@ -61,9 +63,30 @@ extension MultipleChoiceAnswerView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(MultipleSelectionCell.self)
         cell.configure(with: answers[indexPath.item].text)
+        cell.delegate = self
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         cell.contentView.isUserInteractionEnabled = false
         return cell
+    }
+}
+
+// MARK: - MultipleSelectionCellDelegate
+
+extension MultipleChoiceAnswerView: MultipleSelectionCellDelegate {
+    
+    func didSelectCell(_ cell: MultipleSelectionCell) {
+        let index = tableView.indexPath(for: cell)
+        
+        if let index = index, cell.isSelected {
+            tableView.deselectRow(at: index, animated: false)
+        } else {
+            tableView.selectRow(at: index, animated: false, scrollPosition: .none)
+        }
+        
+        let selectedAnswers = tableView.indexPathsForSelectedRows?.compactMap {
+            return AnswerSubmission(id: answers[$0.row].id, answers: nil)
+        } ?? []
+        delegate?.didAnswer(answers: selectedAnswers)
     }
 }

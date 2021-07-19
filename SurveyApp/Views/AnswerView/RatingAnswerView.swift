@@ -8,15 +8,19 @@
 import UIKit
 import SnapKit
 
-class RatingAnswerView: UIView {
-
-    let icon: String
+class RatingAnswerView: UIView, AnswerView {
+    
+    var icon: String
+    var answers: [SurveyAnswer]
+    
+    weak var delegate: AnswerViewDelegate?
 
     private let stackView = UIStackView()
     private var iconLabelsList = [UILabel]()
 
-    init(icon: String) {
+    init(icon: String, answers: [SurveyAnswer]) {
         self.icon = icon
+        self.answers = answers
         super.init(frame: .zero)
         setUpLayout()
         setUpView()
@@ -45,6 +49,16 @@ class RatingAnswerView: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.handleTouchAtIcon(touches)
     }
+    
+    func configure(icon: String, answers: [SurveyAnswer]) {
+        self.answers = answers
+
+        stackView.arrangedSubviews.forEach {
+            if let iconLabel = $0 as? UILabel {
+                iconLabel.text = icon
+            }
+        }
+    }
 
     private func setUpView() {
         stackView.spacing = 16.0
@@ -66,15 +80,18 @@ class RatingAnswerView: UIView {
     private func handleTouchAtIcon(_ touches: Set<UITouch>) {
         let touchLocation = touches.first
         let location = touchLocation?.location(in: stackView)
+        var rating = 0
 
-        iconLabelsList.forEach { iconLabel in
+        for (index, iconLabel) in iconLabelsList.enumerated() {
             if (location?.x) ?? 0 > iconLabel.frame.origin.x {
+                rating = index
                 iconLabel.alpha = 1.0
             } else {
                 iconLabel.alpha = 0.5
             }
         }
 
-        // TODO: return selected index to submit survey
+        let answer = AnswerSubmission(id: answers[rating].id, answers: nil)
+        delegate?.didAnswer(answers: [answer])
     }
 }

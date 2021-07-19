@@ -25,7 +25,7 @@ final class HomeInteractor {
 
     weak var output: HomeInteractorOutput?
     
-    private(set) var surveyService: SurveyServiceProtocol?
+    private var surveyService: SurveyServiceProtocol?
     
     private var fetchSurveysRequest: Request? {
         didSet { oldValue?.cancel() }

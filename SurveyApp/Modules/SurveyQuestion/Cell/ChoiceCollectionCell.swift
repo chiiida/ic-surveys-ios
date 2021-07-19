@@ -9,18 +9,22 @@ import UIKit
 
 class ChoiceCollectionCell: QuestionCollectionCell {
     
-    override var answerView: UIView {
+    override var answerView: AnswerView {
         get { super.answerView }
         set { return super.answerView = newValue }
     }
     
-    override func configure(with question: SurveyQuestion) {
-        if question.pickType == SurveyQuestion.PickType.any {
-            answerView = MultipleChoiceAnswerView(answers: question.sortedAnswers)
+    override func configure(with viewModel: QuestionCollectionCellViewModel) {
+        if viewModel.pickType == .any {
+            answerView = MultipleChoiceAnswerView(answers: viewModel.answers)
         } else {
-            answerView = ChoiceAnswerView(answers: question.sortedAnswers)
+            if let answerView = answerView as? ChoiceAnswerView {
+                answerView.configure(answers: viewModel.answers)
+            } else {
+                answerView = ChoiceAnswerView(answers: viewModel.answers)
+            }
         }
-        
-        super.configure(with: question)
+
+        super.configure(with: viewModel)
     }
 }

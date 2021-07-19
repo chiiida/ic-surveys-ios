@@ -22,6 +22,7 @@ final class SurveyDetailPresenterSpec: QuickSpec {
         var output: SurveyDetailOutputMock!
         
         let sampleSurveys: [Survey] = JSON.SurveyService.surveyModelList.decoded()
+        let sampleQuestions: [SurveyQuestion] = [.dummy]
 
         describe("a SurveyDetailPresenter") {
             beforeEach {
@@ -35,11 +36,12 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                 output = SurveyDetailOutputMock()
                 presenter.output = output
                 presenter.view = view
+                
+                presenter.survey = sampleSurveys.first
             }
 
             describe("its viewDidLoad is called") {
                 beforeEach {
-                    presenter.survey = sampleSurveys[0]
                     presenter.viewDidLoad()
                 }
 
@@ -48,7 +50,55 @@ final class SurveyDetailPresenterSpec: QuickSpec {
                 }
                 
                 it("view should receive survey correctly") {
-                    expect(view.configureWithReceivedSurvey?.title) == sampleSurveys[0].title
+                    expect(view.configureWithReceivedSurvey?.title) == sampleSurveys.first?.title
+                }
+            }
+            
+            describe("its didPressStartSurvey is called") {
+                beforeEach {
+                    presenter.didPressStartSurvey()
+                }
+
+                it("triggers interator to call fetchSurveyDetail") {
+                    expect(interactor.fetchSurveyDetailIdCalled) == true
+                }
+                
+                it("interator should receive id correctly") {
+                    expect(interactor.fetchSurveyDetailIdReceivedId) == sampleSurveys.first?.id
+                }
+            }
+            
+            describe("its didFetchSurveyDetail is called") {
+                context("when parameters are valid id and questions") {
+                    beforeEach {
+                        presenter.didFetchSurveyDetail(questions: sampleQuestions)
+                    }
+                    
+                    it("triggers router to call showSurveyQuestion") {
+                        expect(router.showSurveyQuestionIdQuestionsCalled) == true
+                    }
+                    
+                    it("router should receive id and questions correctly") {
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.id) == sampleSurveys.first?.id
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions.count) == sampleQuestions.count
+                        expect(router.showSurveyQuestionIdQuestionsReceivedArguments?.questions.first?.displayType) == sampleQuestions.first?.displayType
+                    }
+                }
+            }
+            
+            describe("its didFailToFetchSurveyDetail is called") {
+                context("when parameters are valid id and questions") {
+                    beforeEach {
+                        presenter.didFailToFetchSurveyDetail()
+                    }
+                    
+                    it("triggers view to call showError") {
+                        expect(view.showErrorMessageCalled) == true
+                    }
+
+                    it("view should receive error message correctly") {
+                        expect(view.showErrorMessageReceivedMessage) == Localize.errorFetchSurveys()
+                    }
                 }
             }
         }

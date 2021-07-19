@@ -7,6 +7,7 @@
 
 import UIKit
 import AlamofireNetworkActivityLogger
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
         
         NetworkServiceFactory.shared.setup()
+        IQKeyboardManager.shared.enable = true
         
         return true
     }

@@ -107,7 +107,7 @@ final class SurveyServiceSpec: QuickSpec {
                                 switch result {
                                 case .success(let response):
                                     let attributes = response.included.first?.attributes as? SurveyQuestionAttributes
-                                    expect(response.data.relationships?.relationship.data.count) == 2
+                                    expect(response.data.relationships?.relationship.data.count) == 3
                                     expect(response.included.first?.type) == SurveyData.SurveyType.question.rawValue
                                     expect(attributes?.text) == "Thank you for visiting Scarlett! Please take a moment to share your feedback."
                                 case .failure:
